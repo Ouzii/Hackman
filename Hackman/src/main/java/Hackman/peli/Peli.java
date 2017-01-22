@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Hackman.peli;
 
 /**
  *
  * @author oce
  */
-public enum Suunta {
+public class Peli {
     
 }
