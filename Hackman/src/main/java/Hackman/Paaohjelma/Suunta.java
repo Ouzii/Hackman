@@ -1,5 +1,5 @@
 
-package Hackman.Paaohjelma;
+package hackman.paaohjelma;
 
 public enum Suunta {
 

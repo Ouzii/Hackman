@@ -1,6 +1,7 @@
 package Hackman.logiikka;
 
-import Hackman.Paaohjelma.Suunta;
+import hackman.paaohjelma.Suunta;
+import Hackman.peli.Peli;
 import Hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,9 +9,11 @@ import java.awt.event.KeyListener;
 public class Nappaimistonkuuntelija implements KeyListener {
 
     private Pelihahmo pelaaja;
+    private Peli hackman;
 
-    public Nappaimistonkuuntelija(Pelihahmo pelaaja) {
+    public Nappaimistonkuuntelija(Pelihahmo pelaaja, Peli hackman) {
         this.pelaaja = pelaaja;
+        this.hackman = hackman;
     }
 
     @Override
@@ -32,6 +35,9 @@ public class Nappaimistonkuuntelija implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             this.pelaaja.setSuunta(Suunta.ALAS);
         }
+//        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+//            
+//        }
     }
 
     @Override

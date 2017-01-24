@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Hackman.Paaohjelma;
+package hackman.paaohjelma;
 
 import Hackman.logiikka.Kayttoliittyma;
 import Hackman.peli.Peli;
