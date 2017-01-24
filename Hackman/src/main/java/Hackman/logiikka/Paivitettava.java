@@ -1,5 +1,5 @@
 package hackman.logiikka;
 
 public interface Paivitettava {
-    void paivita();
+    boolean paivita();
 }

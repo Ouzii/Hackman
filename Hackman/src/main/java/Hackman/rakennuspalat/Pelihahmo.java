@@ -29,25 +29,25 @@ public class Pelihahmo {
         return "(" + hahmo.getX() + "," + hahmo.getY() + ")";
     }
 
-    public void liiku() {
+    public boolean liiku() {
         if (null != this.suunta) {
             switch (this.suunta) {
                 case ALAS:
                     hahmo.setY(hahmo.getY() + 1);
-                    break;
+                    return true;
                 case YLOS:
                     hahmo.setY(hahmo.getY() - 1);
-                    break;
+                    return true;
                 case OIKEA:
                     hahmo.setX(hahmo.getX() + 1);
-                    break;
+                    return true;
                 case VASEN:
                     hahmo.setX(hahmo.getX() - 1);
-                    break;
+                    return true;
                 default:
-                    break;
+                    return false;
             }
         }
-
+        return false;
     }
 }

@@ -22,22 +22,22 @@ public class Peli extends Timer implements ActionListener {
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.pelaaja = new Pelihahmo(10, 10);
-        this.bitti = new Bitti(leveys / 2, korkeus / 2);
-        addActionListener(this);
-        setInitialDelay(200);
-        setDelay(100);
+//        this.bitti = new Bitti(leveys / 2, korkeus / 2);
+        this.addActionListener(this);
+        super.setInitialDelay(200);
+        super.setDelay(100);
     }
 
     public Pelihahmo getPelaaja() {
-        return pelaaja;
+            return this.pelaaja;
     }
 
     public int getLeveys() {
-        return leveys;
+            return this.leveys;
     }
 
     public int getKorkeus() {
-        return korkeus;
+            return this.korkeus;
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {

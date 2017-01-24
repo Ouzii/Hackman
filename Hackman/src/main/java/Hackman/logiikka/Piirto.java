@@ -31,8 +31,9 @@ public class Piirto extends JPanel implements Paivitettava {
     }
 
     @Override
-    public void paivita() {
+    public boolean paivita() {
         repaint();
+        return true;
     }
 
 }
