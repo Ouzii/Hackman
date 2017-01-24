@@ -6,5 +6,5 @@
 
 - [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 - [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
-- [Checkstyle-raportti](dokumentaatio/Checkstyle-raportti.md)
-- [Pit-raportti](dokumentaatio/Pit-raportti.md)
+- [Checkstyle-raportti](dokumentaatio/Checkstyle-raportti)
+- [Pit-raportti](dokumentaatio/Pit-raportti)
