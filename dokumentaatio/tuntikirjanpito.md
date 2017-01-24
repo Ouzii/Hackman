@@ -2,4 +2,5 @@
 Päivä | Tunnit | Kuvaus
 --------------- | ----- | ------
 18.01.2017 | 1.5h | Aiheen suunnittelua ja repon luonti. Githubin configurointi windowsille.
+22.01.2017 | 3.5h | Peruspalikoiden luonti, pelaajan hahmo laitettu tottelemaan nuolinäppäimiä.
 ... | ... | ...
