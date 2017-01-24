@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Hackman.logiikka;
+package hackman.logiikka;
 
-import Hackman.peli.Peli;
+import hackman.peli.Peli;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;

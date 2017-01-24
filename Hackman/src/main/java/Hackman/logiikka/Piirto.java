@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Hackman.logiikka;
+package hackman.logiikka;
 
-import Hackman.peli.Peli;
+import hackman.peli.Peli;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -16,9 +16,9 @@ public class Piirto extends JPanel implements Paivitettava {
     private Peli peli;
     private int palikanKoko;
 
-    public Piirto(Peli peli, int PalikanKoko) {
+    public Piirto(Peli peli, int palikanKoko) {
         this.peli = peli;
-        this.palikanKoko = PalikanKoko;
+        this.palikanKoko = palikanKoko;
     }
 
     @Override

@@ -1,5 +1,5 @@
 
-package Hackman.rakennuspalat;
+package hackman.rakennuspalat;
 
 public class Bitti extends Palikka {
     

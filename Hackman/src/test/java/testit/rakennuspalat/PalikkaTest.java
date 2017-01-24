@@ -5,7 +5,7 @@
  */
 package testit.rakennuspalat;
 
-import Hackman.rakennuspalat.Palikka;
+import hackman.rakennuspalat.Palikka;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

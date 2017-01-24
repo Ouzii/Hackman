@@ -1,8 +1,8 @@
-package Hackman.logiikka;
+package hackman.logiikka;
 
 import hackman.paaohjelma.Suunta;
-import Hackman.peli.Peli;
-import Hackman.rakennuspalat.Pelihahmo;
+import hackman.peli.Peli;
+import hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

@@ -1,8 +1,8 @@
-package Hackman.peli;
+package hackman.peli;
 
-import Hackman.logiikka.Paivitettava;
-import Hackman.rakennuspalat.Bitti;
-import Hackman.rakennuspalat.Pelihahmo;
+import hackman.logiikka.Paivitettava;
+import hackman.rakennuspalat.Bitti;
+import hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;

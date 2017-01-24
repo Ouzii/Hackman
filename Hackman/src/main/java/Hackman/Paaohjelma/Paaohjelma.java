@@ -5,8 +5,8 @@
  */
 package hackman.paaohjelma;
 
-import Hackman.logiikka.Kayttoliittyma;
-import Hackman.peli.Peli;
+import hackman.logiikka.Kayttoliittyma;
+import hackman.peli.Peli;
 import javax.swing.SwingUtilities;
 
 /**
@@ -19,7 +19,7 @@ public class Paaohjelma {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-                Peli hackman = new Peli(20, 20);
+        Peli hackman = new Peli(20, 20);
 
         Kayttoliittyma kali = new Kayttoliittyma(hackman, 20);
         SwingUtilities.invokeLater(kali);
@@ -34,7 +34,7 @@ public class Paaohjelma {
 
         hackman.setPaivitettava(kali.getPaivitettava());
         hackman.start();
-        
+
     }
-    
+
 }

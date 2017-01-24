@@ -1,8 +1,8 @@
-
-package Hackman.rakennuspalat;
+package hackman.rakennuspalat;
 
 public class Palikka {
-        private int x;
+
+    private int x;
     private int y;
 
     public Palikka(int x, int y) {
@@ -25,10 +25,9 @@ public class Palikka {
     public void setY(int y) {
         this.y = y;
     }
-    
-    
+
     public boolean osuu(Palikka palikka) {
-        if(this.x == palikka.getX() && this.y == palikka.getY()) {
+        if (this.x == palikka.getX() && this.y == palikka.getY()) {
             return true;
         } else {
             return false;
@@ -37,6 +36,6 @@ public class Palikka {
 
     @Override
     public String toString() {
-        return "("+this.x+","+this.y+")";
+        return "(" + this.x + "," + this.y + ")";
     }
 }

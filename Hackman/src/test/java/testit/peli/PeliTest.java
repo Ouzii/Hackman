@@ -6,7 +6,7 @@ package testit.peli;
  * and open the template in the editor.
  */
 
-import Hackman.peli.Peli;
+import hackman.peli.Peli;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
