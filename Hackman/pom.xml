@@ -37,10 +37,14 @@
                     <targetClasses>
                         <param>hackman.peli.*</param>
                         <param>hackman.rakennuspalat.*</param>
+                        <param>hackman.paaohjelma.*</param>
+                        <param>hackman.logiikka.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>hakcman.peli.*</param>
                         <param>hackman.rakennuspalat.*</param>
+                        <param>hackman.paaohjelma.*</param>
+                        <param>hackman.logiikka.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
