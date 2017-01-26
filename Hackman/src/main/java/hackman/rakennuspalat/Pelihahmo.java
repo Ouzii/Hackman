@@ -28,6 +28,23 @@ public class Pelihahmo {
     public String toString() {
         return "(" + hahmo.getX() + "," + hahmo.getY() + ")";
     }
+    
+    public boolean osuuSeinaan(Palikka seina) {
+        if(this.suunta == Suunta.ALAS && this.hahmo.getX() == seina.getX() && this.hahmo.getY()+1 == seina.getY()) {
+            return true;
+        }
+        if(this.suunta == Suunta.YLOS && this.hahmo.getX() == seina.getX() && this.hahmo.getY()-1 == seina.getY()) {
+            return true;
+        }
+        if(this.suunta == Suunta.VASEN && this.hahmo.getX()-1 == seina.getX() && this.hahmo.getY() == seina.getY()) {
+            return true;
+        }
+        if(this.suunta == Suunta.OIKEA && this.hahmo.getX()+1 == seina.getX() && this.hahmo.getY() == seina.getY()) {
+            return true;
+        }
+        
+        return false;
+    }
 
     public boolean liiku() {
         if (null != this.suunta) {

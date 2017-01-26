@@ -5,9 +5,9 @@
  */
 package hackman.logiikka;
 
+import Hackman.rakennuspalat.Seina;
 import hackman.peli.Peli;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
@@ -27,6 +27,8 @@ public class Piirto extends JPanel implements Paivitettava {
 
         g.setColor(Color.GREEN);
         g.fill3DRect(this.peli.getPelaaja().getHahmo().getX() * this.palikanKoko, this.peli.getPelaaja().getHahmo().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+        g.setColor(Color.red);
+        
 
     }
 
