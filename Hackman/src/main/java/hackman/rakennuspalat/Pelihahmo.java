@@ -42,28 +42,7 @@ public class Pelihahmo {
         if(this.suunta == Suunta.VASEN && this.hahmo.getY() == seina.getY() && this.hahmo.getX()-1 == seina.getX()) {
             return true;
         }
-//        if (null != this.suunta) {
-//            switch (this.suunta) {
-//                case ALAS:
-//                    if (this.hahmo.getY() + 1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
-//                        return true;
-//                    }
-//                case YLOS:
-//                    if (this.hahmo.getY() - 1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
-//                        return true;
-//                    }
-//                case OIKEA:
-//                    if (this.hahmo.getX() + 1 == seina.getX() && this.hahmo.getY() == seina.getY()) {
-//                        return true;
-//                    }
-//                case VASEN:
-//                    if (this.hahmo.getX() - 1 == seina.getX() && this.hahmo.getY() == seina.getY()) {
-//                        return true;
-//                    }
-//                default:
-//                    return false;
-//            }
-//        }
+        
         return false;
     }
 

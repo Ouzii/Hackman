@@ -30,7 +30,7 @@ public class Piirto extends JPanel implements Paivitettava {
         if (!this.peli.getBitti().isKeratty()) {
             g.fill3DRect(this.peli.getBitti().getX() * this.palikanKoko, this.peli.getBitti().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
-        
+        g.drawString(""+this.peli.getPojot(), this.palikanKoko, this.palikanKoko);
         g.setColor(Color.GRAY);
         g.fill3DRect(this.peli.getSeina().getX() * this.palikanKoko, this.peli.getSeina().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
 

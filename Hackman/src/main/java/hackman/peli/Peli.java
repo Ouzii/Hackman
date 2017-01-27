@@ -17,6 +17,7 @@ public class Peli extends Timer implements ActionListener {
     private Pelihahmo pelaaja;
     private Bitti bitti;
     private Palikka seina;
+    private int pojot;
 
     public Peli(int leveys, int korkeus) {
         super(1000, null);
@@ -25,6 +26,7 @@ public class Peli extends Timer implements ActionListener {
         this.pelaaja = new Pelihahmo(10, 10);
         this.bitti = new Bitti(8, 8);
         this.seina = new Palikka(13, 13);
+        this.pojot = 0;
         this.addActionListener(this);
         super.setDelay(100);
     }
@@ -37,6 +39,10 @@ public class Peli extends Timer implements ActionListener {
         return this.bitti;
     }
 
+    public int getPojot() {
+        return pojot;
+    }
+    
     public Palikka getSeina() {
         return seina;
     }
@@ -67,6 +73,7 @@ public class Peli extends Timer implements ActionListener {
         
         if (this.pelaaja.getHahmo().osuu(this.bitti) && !this.bitti.isKeratty()) {
             this.bitti.setKeratty(true);
+            this.pojot++;
         }
 
     }
