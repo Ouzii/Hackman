@@ -5,4 +5,5 @@ Päivä | Tunnit | Kuvaus
 22.01.2017 | 3.5h | Peruspalikoiden luonti, pelaajan hahmo laitettu tottelemaan nuolinäppäimiä.
 24.01.2017 | 2h | Hienosäädetty koodia. Confattu Checkstyle ja korjattu virheet. Säädetty Pitiä.
 26.01.2017 | 3h | Tehty seinän koodi, debugattu liikkumista.
+27.01.2017 | 3h | Yritetty rakentaa karttaa, päivitetty testejä.
 ... | ... | ...
