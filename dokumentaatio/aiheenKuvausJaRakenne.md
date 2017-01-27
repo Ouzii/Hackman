@@ -19,4 +19,4 @@
 - Päivitetään mahdollisesti liikkumaan poispäin pelaajasta, kun pelaaja poimii kirsikan (tms. joka muuttaa pelaajan voittamattomaksi)
 
 
-![Määrittelyvaiheen luokkakaavio](/hackman-luokkakaavio-maarittelyvaihe.jpg)
+![Määrittelyvaiheen luokkakaavio](/hackman-luokkakaavio-maarittelyvaihe.jpg "Luokkakaavio")
