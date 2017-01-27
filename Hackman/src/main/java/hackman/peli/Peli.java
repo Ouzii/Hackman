@@ -1,13 +1,11 @@
 package hackman.peli;
 
-import Hackman.rakennuspalat.Seina;
+
 import hackman.logiikka.Paivitettava;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Pelihahmo;
-import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.Timer;
 
 public class Peli extends Timer implements ActionListener {
@@ -18,7 +16,6 @@ public class Peli extends Timer implements ActionListener {
     private boolean alkaa;
     private Pelihahmo pelaaja;
     private Bitti bitti;
-    private List<Seina> seinat;
 
     public Peli(int leveys, int korkeus) {
         super(1000, null);
@@ -33,12 +30,6 @@ public class Peli extends Timer implements ActionListener {
     public Pelihahmo getPelaaja() {
             return this.pelaaja;
     }
-
-    public List<Seina> getSeinat() {
-        return this.seinat;
-    }
-    
-    
 
     public Bitti getBitti() {
         return this.bitti;
