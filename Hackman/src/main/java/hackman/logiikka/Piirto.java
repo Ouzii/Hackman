@@ -25,7 +25,7 @@ public class Piirto extends JPanel implements Paivitettava {
         super.paintComponent(g);
 
         g.setColor(Color.GREEN);
-        if(this.peli.getPelaaja().isElossa()) {
+        if (this.peli.getPelaaja().isElossa()) {
             g.fill3DRect(this.peli.getPelaaja().getHahmo().getX() * this.palikanKoko, this.peli.getPelaaja().getHahmo().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
         g.setColor(Color.BLUE);
@@ -34,21 +34,21 @@ public class Piirto extends JPanel implements Paivitettava {
         }
         g.setColor(Color.red);
         g.fill3DRect(this.peli.getVihu().getHahmo().getX() * this.palikanKoko, this.peli.getVihu().getHahmo().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
-        g.drawString(""+this.peli.getPojot(),3 * this.palikanKoko, 3 * this.palikanKoko);
+        g.drawString("" + this.peli.getPojot(), 3 * this.palikanKoko, 3 * this.palikanKoko);
         g.setColor(Color.GRAY);
 //        for (Palikka seina : this.peli.getKartta().getSeinat()) {
 //            g.fill3DRect(seina.getX() * this.palikanKoko, seina.getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
 //        }
-        for (int i = 0; i <= this.peli.getLeveys()+1; i++) {
+        for (int i = 0; i <= this.peli.getLeveys() + 1; i++) {
             g.fill3DRect(i * this.palikanKoko, this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
-        for (int i = 0; i <= this.peli.getKorkeus()+1; i++) {
+        for (int i = 0; i <= this.peli.getKorkeus() + 1; i++) {
             g.fill3DRect(this.palikanKoko, i * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
-        for (int i = this.peli.getLeveys()+1; i >= 0; i--) {
+        for (int i = this.peli.getLeveys() + 1; i >= 0; i--) {
             g.fill3DRect(i * this.palikanKoko, 20 * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
-        for (int i = this.peli.getKorkeus()+1; i >= 0; i--) {
+        for (int i = this.peli.getKorkeus() + 1; i >= 0; i--) {
             g.fill3DRect(20 * this.palikanKoko, i * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
         g.fill3DRect(this.peli.getSeina().getX() * this.palikanKoko, this.peli.getSeina().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);

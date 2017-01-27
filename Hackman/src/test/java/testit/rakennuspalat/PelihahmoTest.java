@@ -5,7 +5,6 @@ package testit.rakennuspalat;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import hackman.rakennuspalat.Pelihahmo;
 import hackman.paaohjelma.Suunta;
 import org.junit.After;
@@ -20,9 +19,9 @@ import static org.junit.Assert.*;
  * @author Oce
  */
 public class PelihahmoTest {
-    
+
     private Pelihahmo hahmo;
-    
+
     public PelihahmoTest() {
     }
 
@@ -30,12 +29,12 @@ public class PelihahmoTest {
     public void setUp() {
         this.hahmo = new Pelihahmo(10, 10);
     }
-    
+
     @Test
     public void luominenToimii() {
         assertEquals("(10,10)", this.hahmo.toString());
     }
-    
+
     @Test
     public void liikuToimiiVasen() {
         this.hahmo.liiku();
@@ -43,7 +42,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         assertEquals(7, this.hahmo.getHahmo().getX());
     }
-    
+
     @Test
     public void suuntaMuuttuu() {
         this.hahmo.liiku();
@@ -53,7 +52,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         assertEquals("(9,7)", this.hahmo.toString());
     }
-    
+
     @Test
     public void liikuToimiiOikea() {
         this.hahmo.setSuunta(Suunta.OIKEA);
@@ -65,7 +64,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         assertEquals(16, this.hahmo.getHahmo().getX());
     }
-    
+
     @Test
     public void liikuToimiiAlas() {
         this.hahmo.setSuunta(Suunta.ALAS);
@@ -73,7 +72,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         assertEquals(12, this.hahmo.getHahmo().getY());
     }
-    
+
     @Test
     public void liikuToimiiYlos() {
         this.hahmo.setSuunta(Suunta.YLOS);

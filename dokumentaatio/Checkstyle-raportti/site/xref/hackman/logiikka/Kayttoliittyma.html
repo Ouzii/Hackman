@@ -38,8 +38,8 @@
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>      @Override
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>          frame = <strong class="jxr_keyword">new</strong> JFrame(<span class="jxr_string">"HACKMAN"</span>);
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">int</strong> leveys = (hackman.getLeveys() + 1) * sivunPituus + 16;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>          <strong class="jxr_keyword">int</strong> korkeus = (hackman.getKorkeus() + 2) * sivunPituus + 18;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">int</strong> leveys = (hackman.getLeveys()) * (sivunPituus + 3);
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          <strong class="jxr_keyword">int</strong> korkeus = (hackman.getKorkeus()) * (sivunPituus + 4);
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>          frame.setPreferredSize(<strong class="jxr_keyword">new</strong> Dimension(leveys, korkeus));
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>          frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

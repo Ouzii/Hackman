@@ -33,7 +33,6 @@ public class Palikka {
             return false;
         }
     }
-    
 
     @Override
     public String toString() {

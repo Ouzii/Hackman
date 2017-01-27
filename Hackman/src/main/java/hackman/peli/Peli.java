@@ -38,6 +38,7 @@ public class Peli extends Timer implements ActionListener {
         super.setDelay(400);
     }
 
+//    HUOM !! KOODI SEKAVAA, KOSKA KOKEILUVAIHEESSA
     public Pelihahmo getPelaaja() {
         return this.pelaaja;
     }
@@ -53,7 +54,7 @@ public class Peli extends Timer implements ActionListener {
     public int getPojot() {
         return pojot;
     }
-    
+
     public Palikka getSeina() {
         return seina;
     }
@@ -65,9 +66,6 @@ public class Peli extends Timer implements ActionListener {
 //    public Kartta getKartta() {
 //        return this.kartta;
 //    }
-    
-    
-
     public int getLeveys() {
         return this.leveys;
     }
@@ -79,19 +77,19 @@ public class Peli extends Timer implements ActionListener {
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
     }
-    
+
     public void lopeta() {
         super.stop();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if(this.pelaaja.getHahmo().osuu(this.vihu.getHahmo())) {
+
+        if (this.pelaaja.getHahmo().osuu(this.vihu.getHahmo())) {
             this.pelaaja.kuole();
             super.stop();
         }
-        
+
 //        int i = 0;
 //        for (Palikka seina : this.kartta.getSeinat()) {
 //            if(!this.pelaaja.osuuSeinaan(seina)) {
@@ -104,13 +102,13 @@ public class Peli extends Timer implements ActionListener {
 //        if(!this.kartta.osuuSeinaan(this.pelaaja)) {
 //            this.pelaaja.liiku();
 //        }
-        
+
         if (!this.vihu.osuuSeinaan(this.seina) && !this.vihu.osuuSeinaan(this.seina1)) {
             this.vihu.liiku();
         } else {
             this.vihu.vaihdaSuunta();
         }
-        
+
         if (this.pelaaja.getHahmo().osuu(this.bitti) && !this.bitti.isKeratty()) {
             this.bitti.setKeratty(true);
             this.pojot++;

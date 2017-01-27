@@ -12,7 +12,7 @@ import java.util.List;
  * @author Oce
  */
 public class Kartta {
-    
+
     private List<Palikka> seinat;
     private List<Bitti> bitit;
 
@@ -20,11 +20,11 @@ public class Kartta {
         this.seinat = new ArrayList<>();
         this.bitit = new ArrayList<>();
         int i = 0;
-        while(i<leveys) {
+        while (i < leveys) {
             this.seinat.add(new Palikka(i, 0));
         }
         i = 0;
-        while(i<korkeus) {
+        while (i < korkeus) {
             this.seinat.add(new Palikka(0, i));
         }
     }
@@ -36,7 +36,7 @@ public class Kartta {
     public List<Palikka> getSeinat() {
         return this.seinat;
     }
-    
+
     public boolean osuuSeinaan(Pelihahmo hahmo) {
         for (Palikka seina : seinat) {
 //            if(hahmo.getSuunta() == Suunta.ALAS && hahmo.getHahmo().getX() == seina.getX() && hahmo.getHahmo().getY()+1 == seina.getY()) {
@@ -51,15 +51,11 @@ public class Kartta {
 //            if(hahmo.getSuunta() == Suunta.VASEN && hahmo.getHahmo().getX()-1 == seina.getX() && hahmo.getHahmo().getY() == seina.getY()) {
 //                return true;
 //            }
-            if(hahmo.osuuSeinaan(seina)) {
+            if (hahmo.osuuSeinaan(seina)) {
                 return true;
             }
         }
         return false;
     }
-    
-    
-    
-    
-    
+
 }

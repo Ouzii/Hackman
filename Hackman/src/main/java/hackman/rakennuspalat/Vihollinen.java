@@ -23,22 +23,22 @@ public class Vihollinen {
 
     public void vaihdaSuunta() {
         int i = new Random().nextInt(3);
-        if(i == 0) {
+        if (i == 0) {
             setSuunta(Suunta.ALAS);
         }
-        
-        if(i == 1) {
+
+        if (i == 1) {
             setSuunta(Suunta.YLOS);
         }
-        
-        if(i == 2) {
+
+        if (i == 2) {
             setSuunta(Suunta.OIKEA);
         }
-        
-        if(i == 3) {
+
+        if (i == 3) {
             setSuunta(Suunta.VASEN);
         }
-        
+
     }
 
     public boolean liiku() {
@@ -63,21 +63,21 @@ public class Vihollinen {
         }
         return false;
     }
-    
+
     public boolean osuuSeinaan(Palikka seina) {
-        if(this.suunta == Suunta.ALAS && this.hahmo.getY()+1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
+        if (this.suunta == Suunta.ALAS && this.hahmo.getY() + 1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
             return true;
         }
-        if(this.suunta == Suunta.YLOS && this.hahmo.getY()-1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
+        if (this.suunta == Suunta.YLOS && this.hahmo.getY() - 1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
             return true;
         }
-        if(this.suunta == Suunta.OIKEA && this.hahmo.getY() == seina.getY() && this.hahmo.getX()+1 == seina.getX()) {
+        if (this.suunta == Suunta.OIKEA && this.hahmo.getY() == seina.getY() && this.hahmo.getX() + 1 == seina.getX()) {
             return true;
         }
-        if(this.suunta == Suunta.VASEN && this.hahmo.getY() == seina.getY() && this.hahmo.getX()-1 == seina.getX()) {
+        if (this.suunta == Suunta.VASEN && this.hahmo.getY() == seina.getY() && this.hahmo.getX() - 1 == seina.getX()) {
             return true;
         }
-        
+
         return false;
     }
 }

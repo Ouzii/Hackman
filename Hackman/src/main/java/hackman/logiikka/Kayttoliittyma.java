@@ -52,5 +52,4 @@ public class Kayttoliittyma implements Runnable {
         return this.piirto;
     }
 
-
 }

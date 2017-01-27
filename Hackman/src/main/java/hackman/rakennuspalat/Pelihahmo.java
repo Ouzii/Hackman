@@ -33,25 +33,26 @@ public class Pelihahmo {
     public void kuole() {
         this.elossa = false;
     }
+
     @Override
     public String toString() {
         return "(" + hahmo.getX() + "," + hahmo.getY() + ")";
     }
 
     public boolean osuuSeinaan(Palikka seina) {
-        if(this.suunta == Suunta.ALAS && this.hahmo.getY()+1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
+        if (this.suunta == Suunta.ALAS && this.hahmo.getY() + 1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
             return true;
         }
-        if(this.suunta == Suunta.YLOS && this.hahmo.getY()-1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
+        if (this.suunta == Suunta.YLOS && this.hahmo.getY() - 1 == seina.getY() && this.hahmo.getX() == seina.getX()) {
             return true;
         }
-        if(this.suunta == Suunta.OIKEA && this.hahmo.getY() == seina.getY() && this.hahmo.getX()+1 == seina.getX()) {
+        if (this.suunta == Suunta.OIKEA && this.hahmo.getY() == seina.getY() && this.hahmo.getX() + 1 == seina.getX()) {
             return true;
         }
-        if(this.suunta == Suunta.VASEN && this.hahmo.getY() == seina.getY() && this.hahmo.getX()-1 == seina.getX()) {
+        if (this.suunta == Suunta.VASEN && this.hahmo.getY() == seina.getY() && this.hahmo.getX() - 1 == seina.getX()) {
             return true;
         }
-        
+
         return false;
     }
 
@@ -76,5 +77,5 @@ public class Pelihahmo {
         }
         return false;
     }
-    
+
 }
