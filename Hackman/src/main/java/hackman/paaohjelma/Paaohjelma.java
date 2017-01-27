@@ -19,7 +19,7 @@ public class Paaohjelma {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Peli hackman = new Peli(50, 50);
+        Peli hackman = new Peli(20, 20);
 
         Kayttoliittyma kali = new Kayttoliittyma(hackman, 20);
         SwingUtilities.invokeLater(kali);

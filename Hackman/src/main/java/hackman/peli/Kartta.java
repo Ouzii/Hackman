@@ -1,7 +1,9 @@
 package hackman.peli;
 
+import hackman.paaohjelma.Suunta;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
+import hackman.rakennuspalat.Pelihahmo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +35,27 @@ public class Kartta {
 
     public List<Palikka> getSeinat() {
         return this.seinat;
+    }
+    
+    public boolean osuuSeinaan(Pelihahmo hahmo) {
+        for (Palikka seina : seinat) {
+//            if(hahmo.getSuunta() == Suunta.ALAS && hahmo.getHahmo().getX() == seina.getX() && hahmo.getHahmo().getY()+1 == seina.getY()) {
+//                return true;
+//            }
+//            if(hahmo.getSuunta() == Suunta.YLOS && hahmo.getHahmo().getX() == seina.getX() && hahmo.getHahmo().getY()-1 == seina.getY()) {
+//                return true;
+//            }
+//            if(hahmo.getSuunta() == Suunta.OIKEA && hahmo.getHahmo().getX()+1 == seina.getX() && hahmo.getHahmo().getY() == seina.getY()) {
+//                return true;
+//            }
+//            if(hahmo.getSuunta() == Suunta.VASEN && hahmo.getHahmo().getX()-1 == seina.getX() && hahmo.getHahmo().getY() == seina.getY()) {
+//                return true;
+//            }
+            if(hahmo.osuuSeinaan(seina)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     

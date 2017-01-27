@@ -6,10 +6,12 @@ public class Pelihahmo {
 
     private Palikka hahmo;
     private Suunta suunta;
+    private boolean elossa;
 
     public Pelihahmo(int x, int y) {
-        this.suunta = suunta.YLOS;
+        this.suunta = suunta.VASEN;
         this.hahmo = new Palikka(x, y);
+        this.elossa = true;
     }
 
     public void setSuunta(Suunta suunta) {
@@ -21,9 +23,16 @@ public class Pelihahmo {
     }
 
     public Palikka getHahmo() {
-        return hahmo;
+        return this.hahmo;
     }
 
+    public boolean isElossa() {
+        return this.elossa;
+    }
+
+    public void kuole() {
+        this.elossa = false;
+    }
     @Override
     public String toString() {
         return "(" + hahmo.getX() + "," + hahmo.getY() + ")";
@@ -67,4 +76,5 @@ public class Pelihahmo {
         }
         return false;
     }
+    
 }
