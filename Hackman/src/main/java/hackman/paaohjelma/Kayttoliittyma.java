@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hackman.logiikka;
+package hackman.paaohjelma;
 
+import hackman.logiikka.Nappaimistonkuuntelija;
+import hackman.logiikka.Paivitettava;
+import hackman.logiikka.Piirto;
 import hackman.peli.Peli;
 import java.awt.Container;
 import java.awt.Dimension;
