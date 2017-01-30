@@ -6,4 +6,5 @@ Päivä | Tunnit | Kuvaus
 24.01.2017 | 2h | Hienosäädetty koodia. Confattu Checkstyle ja korjattu virheet. Säädetty Pitiä.
 26.01.2017 | 3h | Tehty seinän koodi, debugattu liikkumista.
 27.01.2017 | 3h | Yritetty rakentaa karttaa, päivitetty testejä.
+30.01.2017 | 1h | Debugattu pajassa, korjattu seinät.
 ... | ... | ...

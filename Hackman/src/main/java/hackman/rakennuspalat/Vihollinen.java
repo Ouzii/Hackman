@@ -1,20 +1,25 @@
 package hackman.rakennuspalat;
 
-import hackman.paaohjelma.Suunta;
 import java.util.Random;
 
 public class Vihollinen {
 
     private Palikka hahmo;
     private Suunta suunta;
+//    private int askelia;
 
     public Vihollinen(int x, int y) {
         this.hahmo = new Palikka(x, y);
         this.suunta = Suunta.ALAS;
+//        this.askelia = 0;
     }
 
     public Palikka getHahmo() {
         return hahmo;
+    }
+
+    public Suunta getSuunta() {
+        return suunta;
     }
 
     public void setSuunta(Suunta suunta) {
@@ -22,27 +27,32 @@ public class Vihollinen {
     }
 
     public void vaihdaSuunta() {
-        int i = new Random().nextInt(3);
-        if (i == 0) {
+//        this.askelia = 0;
+        int i = new Random().nextInt(3) + 1;
+        if (i == 1) {
             setSuunta(Suunta.ALAS);
         }
 
-        if (i == 1) {
+        if (i == 2) {
             setSuunta(Suunta.YLOS);
         }
 
-        if (i == 2) {
+        if (i == 3) {
             setSuunta(Suunta.OIKEA);
         }
 
-        if (i == 3) {
+        if (i == 4) {
             setSuunta(Suunta.VASEN);
         }
 
     }
 
     public boolean liiku() {
-
+//        if (this.askelia >= 5) {
+//            this.vaihdaSuunta();
+//        } else {
+//            this.askelia++;
+//        }
         if (null != this.suunta) {
             switch (this.suunta) {
                 case ALAS:

@@ -1,5 +1,5 @@
 
-package hackman.paaohjelma;
+package hackman.rakennuspalat;
 
 public enum Suunta {
 

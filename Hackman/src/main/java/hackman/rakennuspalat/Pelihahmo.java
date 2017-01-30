@@ -1,7 +1,5 @@
 package hackman.rakennuspalat;
 
-import hackman.paaohjelma.Suunta;
-
 public class Pelihahmo {
 
     private Palikka hahmo;

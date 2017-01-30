@@ -6,7 +6,7 @@ package testit.rakennuspalat;
  * and open the template in the editor.
  */
 import hackman.rakennuspalat.Pelihahmo;
-import hackman.paaohjelma.Suunta;
+import hackman.rakennuspalat.Suunta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

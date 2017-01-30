@@ -1,6 +1,6 @@
 package hackman.logiikka;
 
-import hackman.paaohjelma.Suunta;
+import hackman.rakennuspalat.Suunta;
 import hackman.peli.Peli;
 import hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.KeyEvent;
@@ -16,10 +16,6 @@ public class Nappaimistonkuuntelija implements KeyListener {
         this.hackman = hackman;
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -45,8 +41,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void keyTyped(KeyEvent e) {
     }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+
 
 }
