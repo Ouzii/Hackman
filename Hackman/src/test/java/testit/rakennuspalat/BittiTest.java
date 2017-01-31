@@ -5,7 +5,8 @@
  */
 package testit.rakennuspalat;
 
-import hackman.rakennuspalat.Palikka;
+import hackman.rakennuspalat.Bitti;
+import hackman.rakennuspalat.Pelihahmo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,27 +18,27 @@ import static org.junit.Assert.*;
  *
  * @author Oce
  */
-public class PalikkaTest {
-    
-    private Palikka palikka;
-    
-    public PalikkaTest() {
+public class BittiTest {
+
+    private Bitti bitti;
+
+    public BittiTest() {
     }
 
     @Before
     public void setUp() {
-        this.palikka = new Palikka(10, 10);
+        this.bitti = new Bitti(8, 10);
     }
     
     @Test
-    public void luominenToimii() {
-        assertEquals("(10, 10)", palikka.toString());
+    public void bitinLuominenToimii() {
+        assertEquals("(8, 10)", this.bitti.toString());
     }
     
     @Test
-    public void osuuToimii() {
-        Palikka p2 = new Palikka(10, 10);
-        assertTrue(this.palikka.osuu(p2));
+    public void alussaEiOleKeratty() {
+        assertFalse(this.bitti.isKeratty());
     }
+    
 
 }

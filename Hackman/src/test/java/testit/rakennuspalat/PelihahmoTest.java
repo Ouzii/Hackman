@@ -32,7 +32,7 @@ public class PelihahmoTest {
 
     @Test
     public void luominenToimii() {
-        assertEquals("(10,10)", this.hahmo.toString());
+        assertEquals("(10, 10)", this.hahmo.toString());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         this.hahmo.liiku();
         this.hahmo.liiku();
-        assertEquals(7, this.hahmo.getHahmo().getX());
+        assertEquals(7, this.hahmo.getX());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         this.hahmo.liiku();
         this.hahmo.liiku();
-        assertEquals("(9,7)", this.hahmo.toString());
+        assertEquals("(9, 7)", this.hahmo.toString());
     }
 
     @Test
@@ -62,7 +62,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         this.hahmo.liiku();
         this.hahmo.liiku();
-        assertEquals(16, this.hahmo.getHahmo().getX());
+        assertEquals(16, this.hahmo.getX());
     }
 
     @Test
@@ -70,7 +70,7 @@ public class PelihahmoTest {
         this.hahmo.setSuunta(Suunta.ALAS);
         this.hahmo.liiku();
         this.hahmo.liiku();
-        assertEquals(12, this.hahmo.getHahmo().getY());
+        assertEquals(12, this.hahmo.getY());
     }
 
     @Test
@@ -81,7 +81,7 @@ public class PelihahmoTest {
         this.hahmo.liiku();
         this.hahmo.liiku();
         this.hahmo.liiku();
-        assertEquals(5, this.hahmo.getHahmo().getY());
+        assertEquals(5, this.hahmo.getY());
     }
 
 }

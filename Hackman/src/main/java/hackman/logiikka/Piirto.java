@@ -8,6 +8,7 @@ package hackman.logiikka;
 import hackman.peli.Peli;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
+import hackman.rakennuspalat.Vihollinen;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -29,11 +30,11 @@ public class Piirto extends JPanel implements Paivitettava {
 
         g.setColor(Color.GREEN);
         if (this.peli.getPelaaja().isElossa()) {
-            g.fill3DRect(this.peli.getPelaaja().getHahmo().getX() * this.palikanKoko, this.peli.getPelaaja().getHahmo().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.fill3DRect(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
         
         g.setColor(Color.red);
-        g.fill3DRect(this.peli.getVihu().getHahmo().getX() * this.palikanKoko, this.peli.getVihu().getHahmo().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+        g.fill3DRect(this.peli.getVihu().getX() * this.palikanKoko, this.peli.getVihu().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
         g.drawString("PISTEET: " + this.peli.getPojot(), 3 * this.palikanKoko-20, 3 * this.palikanKoko-41);
         g.setColor(Color.GRAY);

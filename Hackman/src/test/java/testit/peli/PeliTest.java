@@ -37,12 +37,4 @@ public class PeliTest {
         assertEquals(20, this.peli.getLeveys());
     }
             
-    
-
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

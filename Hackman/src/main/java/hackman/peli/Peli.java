@@ -16,9 +16,6 @@ public class Peli extends Timer implements ActionListener {
     private Paivitettava paivitettava;
     private boolean alkaa;
     private Pelihahmo pelaaja;
-    private Bitti bitti;
-    private Palikka seina;
-    private Palikka seina1;
     private Kartta kartta;
     private Vihollinen vihu;
     private int askelia;
@@ -74,7 +71,7 @@ public class Peli extends Timer implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (this.pelaaja.getHahmo().osuu(this.vihu.getHahmo())) {
+        if (this.pelaaja.osuu(this.vihu)) {
             this.pelaaja.kuole();
             super.stop();
         }
@@ -108,7 +105,7 @@ public class Peli extends Timer implements ActionListener {
         }
 
         for (Bitti bitti : this.kartta.getBitit()) {
-            if (this.pelaaja.getHahmo().osuu(bitti) && !bitti.isKeratty()) {
+            if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
                 bitti.setKeratty(true);
                 this.pojot++;
             }
