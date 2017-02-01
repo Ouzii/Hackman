@@ -32,22 +32,22 @@ public class Piirto extends JPanel implements Paivitettava {
         if (this.peli.getPelaaja().isElossa()) {
             g.fill3DRect(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
-        
+
         g.setColor(Color.red);
         g.fill3DRect(this.peli.getVihu().getX() * this.palikanKoko, this.peli.getVihu().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
-        g.drawString("PISTEET: " + this.peli.getPojot(), 3 * this.palikanKoko-20, 3 * this.palikanKoko-41);
+        g.drawString("PISTEET: " + this.peli.getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
         g.setColor(Color.GRAY);
 
         for (Palikka seina : this.peli.getKartta().getSeinat()) {
             g.fill3DRect(seina.getX() * this.palikanKoko, seina.getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
-        
+
         g.setColor(Color.BLUE);
-        
+
         for (Bitti bitti : this.peli.getKartta().getBitit()) {
             if (!bitti.isKeratty()) {
-                g.fill3DRect(bitti.getX() * this.palikanKoko+3, bitti.getY() * this.palikanKoko+3, this.palikanKoko-5, this.palikanKoko-5, true);
+                g.fill3DRect(bitti.getX() * this.palikanKoko + 3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 5, this.palikanKoko - 5, true);
             }
         }
     }

@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testit.rakennuspalat;
+package testit.peli;
 
-import hackman.rakennuspalat.Bitti;
-import hackman.rakennuspalat.Pelihahmo;
+import hackman.peli.Kartta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,26 +17,20 @@ import static org.junit.Assert.*;
  *
  * @author Oce
  */
-public class BittiTest {
-
-    private Bitti bitti;
-
-    public BittiTest() {
+public class KarttaTest {
+    
+    private Kartta kartta;
+    
+    public KarttaTest() {
     }
-
+    
     @Before
     public void setUp() {
-        this.bitti = new Bitti(8, 10);
+        this.kartta = new Kartta(20, 20);
     }
-
+    
     @Test
-    public void bitinLuominenToimii() {
-        assertEquals("(8, 10)", this.bitti.toString());
+    public void luominenToimii() {
+        assertEquals("Koko: 20 * 20, bittien määrä: 81", this.kartta.toString());
     }
-
-    @Test
-    public void alussaEiOleKeratty() {
-        assertFalse(this.bitti.isKeratty());
-    }
-
 }

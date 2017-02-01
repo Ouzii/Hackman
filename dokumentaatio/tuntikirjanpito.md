@@ -9,4 +9,5 @@ Päivä | Tunnit | Kuvaus
 30.01.2017 | 1h | Debugattu pajassa, korjattu seinät.
 30.01.2017 | 2.5h | Tehty ensimmäinen kartta, debugattu vihollista.
 31.01.2017 | 1h | Siistitty koodia ja lisätty pari testiä
+01.02.2017 | 0.5h | Tehty lisää testejä ja siistitty koodia.
 ... | ... | ...

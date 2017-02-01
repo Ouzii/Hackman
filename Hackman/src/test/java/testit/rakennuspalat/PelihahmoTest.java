@@ -34,54 +34,15 @@ public class PelihahmoTest {
     public void luominenToimii() {
         assertEquals("(10, 10)", this.hahmo.toString());
     }
-
+    
     @Test
-    public void liikuToimiiVasen() {
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        assertEquals(7, this.hahmo.getX());
+    public void alussaOnElossa() {
+        assertTrue(this.hahmo.isElossa());
     }
-
+    
     @Test
-    public void suuntaMuuttuu() {
-        this.hahmo.liiku();
-        this.hahmo.setSuunta(Suunta.YLOS);
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        assertEquals("(9, 7)", this.hahmo.toString());
+    public void kuolemaToimii() {
+        this.hahmo.kuole();
+        assertFalse(this.hahmo.isElossa());
     }
-
-    @Test
-    public void liikuToimiiOikea() {
-        this.hahmo.setSuunta(Suunta.OIKEA);
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        assertEquals(16, this.hahmo.getX());
-    }
-
-    @Test
-    public void liikuToimiiAlas() {
-        this.hahmo.setSuunta(Suunta.ALAS);
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        assertEquals(12, this.hahmo.getY());
-    }
-
-    @Test
-    public void liikuToimiiYlos() {
-        this.hahmo.setSuunta(Suunta.YLOS);
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        this.hahmo.liiku();
-        assertEquals(5, this.hahmo.getY());
-    }
-
 }

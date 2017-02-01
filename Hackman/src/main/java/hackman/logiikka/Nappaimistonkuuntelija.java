@@ -16,7 +16,6 @@ public class Nappaimistonkuuntelija implements KeyListener {
         this.hackman = hackman;
     }
 
-
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -47,6 +46,5 @@ public class Nappaimistonkuuntelija implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
     }
-
 
 }

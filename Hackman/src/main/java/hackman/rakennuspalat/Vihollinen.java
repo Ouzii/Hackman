@@ -4,14 +4,13 @@ import java.util.Random;
 
 public class Vihollinen extends Palikka {
 
-
     public Vihollinen(int x, int y) {
         super(x, y);
         super.setSuunta(Suunta.ALAS);
     }
-    
+
     public boolean vaihdaSuunta() {
-        
+
         int i = new Random().nextInt(3) + 1;
         if (i == 1) {
             setSuunta(Suunta.ALAS);
@@ -32,7 +31,7 @@ public class Vihollinen extends Palikka {
             setSuunta(Suunta.VASEN);
             return true;
         }
-        
+
         return false;
     }
 }

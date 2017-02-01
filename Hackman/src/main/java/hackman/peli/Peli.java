@@ -19,6 +19,7 @@ public class Peli extends Timer implements ActionListener {
     private Kartta kartta;
     private Vihollinen vihu;
     private int askelia;
+    private int vuoro;
     private int pojot;
 
     public Peli(int leveys, int korkeus) {
@@ -30,8 +31,9 @@ public class Peli extends Timer implements ActionListener {
         this.pojot = 0;
         this.vihu = new Vihollinen(4, 3);
         this.askelia = 0;
+        this.vuoro = 0;
         this.addActionListener(this);
-        super.setDelay(400);
+        super.setDelay(200);
     }
 
 //    HUOM !! KOODI SEKAVAA, KOSKA KOKEILUVAIHEESSA
@@ -55,7 +57,6 @@ public class Peli extends Timer implements ActionListener {
         this.askelia = askelia;
     }
 
-    
     public int getLeveys() {
         return this.leveys;
     }
@@ -75,35 +76,38 @@ public class Peli extends Timer implements ActionListener {
             this.pelaaja.kuole();
             super.stop();
         }
-
-        int i = 0;
-        for (Palikka seina : this.kartta.getSeinat()) {
-            if (!this.kartta.osuuSeinaan(this.pelaaja)) {
-                i++;
+        if (this.vuoro == 0) {
+            int i = 0;
+            for (Palikka seina : this.kartta.getSeinat()) {
+                if (!this.kartta.osuuSeinaan(this.pelaaja)) {
+                    i++;
+                }
             }
-        }
 
-        if (i >= this.korkeus) {
-            pelaaja.liiku();
-        }
-        if(this.askelia >= 5) {
-            this.vihu.vaihdaSuunta();
-            this.askelia = 0;
-        } else {
-            this.askelia++;
-        }
-        int a = 0;
-        for (Palikka seina : this.kartta.getSeinat()) {
-            if (!this.kartta.osuuSeinaan(this.vihu)) {
-                a++;
+            if (i >= this.korkeus) {
+                pelaaja.liiku();
             }
-        }
-        if (a >= this.korkeus) {
-            vihu.liiku();
+            this.vuoro++;
         } else {
-            this.vihu.vaihdaSuunta();
+            if (this.askelia >= 5) {
+                this.vihu.vaihdaSuunta();
+                this.askelia = 0;
+            } else {
+                this.askelia++;
+            }
+            int a = 0;
+            for (Palikka seina : this.kartta.getSeinat()) {
+                if (!this.kartta.osuuSeinaan(this.vihu)) {
+                    a++;
+                }
+            }
+            if (a >= this.korkeus) {
+                vihu.liiku();
+            } else {
+                this.vihu.vaihdaSuunta();
+            }
+            this.vuoro--;
         }
-
         for (Bitti bitti : this.kartta.getBitit()) {
             if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
                 bitti.setKeratty(true);

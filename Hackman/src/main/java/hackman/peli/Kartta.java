@@ -14,11 +14,15 @@ import java.util.List;
  */
 public class Kartta {
 
+    private int korkeus;
+    private int leveys;
     private List<Palikka> seinat;
     private List<Bitti> bitit;
     private List<Vihollinen> vihut;
 
     public Kartta(int leveys, int korkeus) {
+        this.korkeus = korkeus;
+        this.leveys = leveys;
         this.seinat = new ArrayList<>();
         this.bitit = new ArrayList<>();
         this.vihut = new ArrayList<>();
@@ -43,14 +47,14 @@ public class Kartta {
             }
             i++;
         }
-        for (int i = 2; i < leveys-1; i++) {
-            for (int k = 2; k < korkeus-1; k++) {
+        for (int i = 2; i < leveys - 1; i++) {
+            for (int k = 2; k < korkeus - 1; k++) {
                 this.bitit.add(new Bitti(i, k));
                 k++;
             }
             i++;
         }
-        
+
     }
 
     public List<Bitti> getBitit() {
@@ -64,9 +68,8 @@ public class Kartta {
     public List<Vihollinen> getVihut() {
         return vihut;
     }
-    
 
-    public boolean osuuSeinaan(Pelihahmo hahmo) {
+    public boolean osuuSeinaan(Palikka hahmo) {
         for (Palikka seina : seinat) {
             if (hahmo.getSuunta() == Suunta.ALAS && hahmo.getX() == seina.getX() && hahmo.getY() + 1 == seina.getY()) {
                 return true;
@@ -83,23 +86,12 @@ public class Kartta {
         }
         return false;
     }
-    
-        public boolean osuuSeinaan(Vihollinen vihu) {
-        for (Palikka seina : seinat) {
-            if (vihu.getSuunta() == Suunta.ALAS && vihu.getX() == seina.getX() && vihu.getY() + 1 == seina.getY()) {
-                return true;
-            }
-            if (vihu.getSuunta() == Suunta.YLOS && vihu.getX() == seina.getX() && vihu.getY() - 1 == seina.getY()) {
-                return true;
-            }
-            if (vihu.getSuunta() == Suunta.OIKEA && vihu.getX() + 1 == seina.getX() && vihu.getY() == seina.getY()) {
-                return true;
-            }
-            if (vihu.getSuunta() == Suunta.VASEN && vihu.getX() - 1 == seina.getX() && vihu.getY() == seina.getY()) {
-                return true;
-            }
-        }
-        return false;
+
+    @Override
+    public String toString() {
+        return "Koko: "+this.leveys+" * "+this.korkeus+", bittien määrä: "+this.bitit.size();
     }
+    
+    
 
 }

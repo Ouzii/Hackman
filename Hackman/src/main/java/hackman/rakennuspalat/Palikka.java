@@ -23,7 +23,7 @@ public class Palikka {
     public Suunta getSuunta() {
         return this.suunta;
     }
-    
+
     public void setSuunta(Suunta suunta) {
         this.suunta = suunta;
     }
@@ -43,8 +43,8 @@ public class Palikka {
             return false;
         }
     }
-    
-        public boolean osuuSeinaan(Palikka seina) {
+
+    public boolean osuuSeinaan(Palikka seina) {
         if (this.suunta == Suunta.ALAS && this.getY() + 1 == seina.getY() && this.getX() == seina.getX()) {
             return true;
         }
@@ -60,8 +60,8 @@ public class Palikka {
 
         return false;
     }
-        
-            public boolean liiku() {
+
+    public boolean liiku() {
         if (null != this.suunta) {
             switch (this.suunta) {
                 case ALAS:

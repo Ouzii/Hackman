@@ -34,8 +34,8 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("HACKMAN");
-        int leveys = (hackman.getLeveys()) * (sivunPituus + 2)-4;
-        int korkeus = (hackman.getKorkeus()) * (sivunPituus + 3)-2;
+        int leveys = (hackman.getLeveys()) * (sivunPituus + 2) - 4;
+        int korkeus = (hackman.getKorkeus()) * (sivunPituus + 3) - 2;
 
         frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

@@ -2,7 +2,6 @@ package hackman.rakennuspalat;
 
 public class Pelihahmo extends Palikka {
 
-
     private boolean elossa;
 
     public Pelihahmo(int x, int y) {
@@ -17,10 +16,5 @@ public class Pelihahmo extends Palikka {
     public void kuole() {
         this.elossa = false;
     }
-
-
-
-
-
 
 }
