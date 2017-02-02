@@ -2,8 +2,8 @@ package hackman.rakennuspalat;
 
 public class Palikka {
 
-    private int x;
-    private int y;
+    public int x;
+    public int y;
     private Suunta suunta;
 
     public Palikka(int x, int y) {

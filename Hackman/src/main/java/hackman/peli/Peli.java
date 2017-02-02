@@ -72,10 +72,10 @@ public class Peli extends Timer implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (this.pelaaja.osuu(this.vihu)) {
-            this.pelaaja.kuole();
+        if (this.pelaaja.osuuVihuun(this.vihu)) {
             super.stop();
         }
+
         if (this.vuoro == 0) {
             int i = 0;
             for (Palikka seina : this.kartta.getSeinat()) {

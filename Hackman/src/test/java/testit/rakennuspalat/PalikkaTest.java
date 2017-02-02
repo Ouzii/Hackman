@@ -122,7 +122,7 @@ public class PalikkaTest {
         this.palikka.liiku();
         assertTrue(this.palikka.osuuSeinaan(seina));
     }
-    
+
     @Test
     public void osuuSeinaanPalauttaaFalseJosEiOsu() {
         Palikka seina = new Palikka(8, 10);

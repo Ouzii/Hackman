@@ -17,4 +17,13 @@ public class Pelihahmo extends Palikka {
         this.elossa = false;
     }
 
+    public boolean osuuVihuun(Vihollinen vihu) {
+        if (super.x == vihu.getX() && super.y == vihu.getY()) {
+            this.kuole();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -18,14 +18,14 @@ public class Kartta {
     private int leveys;
     private List<Palikka> seinat;
     private List<Bitti> bitit;
-    private List<Vihollinen> vihut;
+//    private List<Vihollinen> vihut;
 
     public Kartta(int leveys, int korkeus) {
         this.korkeus = korkeus;
         this.leveys = leveys;
         this.seinat = new ArrayList<>();
         this.bitit = new ArrayList<>();
-        this.vihut = new ArrayList<>();
+//        this.vihut = new ArrayList<>();
 
         for (int i = 0; i <= leveys; i++) {
             this.seinat.add(new Palikka(i, 1));
@@ -65,10 +65,9 @@ public class Kartta {
         return this.seinat;
     }
 
-    public List<Vihollinen> getVihut() {
-        return vihut;
-    }
-
+//    public List<Vihollinen> getVihut() {
+//        return vihut;
+//    }
     public boolean osuuSeinaan(Palikka hahmo) {
         for (Palikka seina : seinat) {
             if (hahmo.getSuunta() == Suunta.ALAS && hahmo.getX() == seina.getX() && hahmo.getY() + 1 == seina.getY()) {
@@ -89,9 +88,7 @@ public class Kartta {
 
     @Override
     public String toString() {
-        return "Koko: "+this.leveys+" * "+this.korkeus+", bittien määrä: "+this.bitit.size();
+        return "Koko: " + this.leveys + " * " + this.korkeus + ", bittien määrä: " + this.bitit.size();
     }
-    
-    
 
 }

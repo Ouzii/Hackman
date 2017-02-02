@@ -5,6 +5,7 @@
  */
 package testit.rakennuspalat;
 
+import hackman.rakennuspalat.Suunta;
 import hackman.rakennuspalat.Vihollinen;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,30 +19,30 @@ import static org.junit.Assert.*;
  * @author Oce
  */
 public class VihollinenTest {
-    
+
     private Vihollinen vihu;
-    
+
     public VihollinenTest() {
     }
-    
+
     @Before
     public void setUp() {
         this.vihu = new Vihollinen(4, 3);
     }
-    
+
     @Test
     public void luoVihollinenToimii() {
         assertEquals("(4, 3)", this.vihu.toString());
     }
-    
+
     @Test
-    public void suunnanMuutosToimii() {
-        assertTrue(this.vihu.vaihdaSuunta());       
+    public void alussaSuuntaAlas() {
+        assertEquals(Suunta.ALAS, this.vihu.getSuunta());
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void suunnanMuutosToimii() {
+        assertTrue(this.vihu.vaihdaSuunta());
+    }
+
 }
