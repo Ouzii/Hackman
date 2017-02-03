@@ -11,4 +11,5 @@ Päivä | Tunnit | Kuvaus
 31.01.2017 | 1h | Siistitty koodia ja lisätty pari testiä
 01.02.2017 | 0.5h | Tehty lisää testejä ja siistitty koodia.
 02.02.2017 | 1.5h | Lisätty testejä.
+03.02.2017 | 1h | Selkeytetty pakettirakennetta, generoitu uudet testit.
 ... | ... | ...
