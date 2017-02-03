@@ -46,20 +46,6 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.logiikka.Piirto.java">hackman/logiikka/Piirto.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Pelihahmo.java">hackman/rakennuspalat/Pelihahmo.java</a>
                 </td>
                 <td>
@@ -88,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.logiikka.Nappaimistonkuuntelija.java">hackman/logiikka/Nappaimistonkuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Bitti.java">hackman/rakennuspalat/Bitti.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Bitti.java">hackman/rakennuspalat/Bitti.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Kayttoliittyma.java">hackman/kayttoliittyma/Kayttoliittyma.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.logiikka.Kayttoliittyma.java">hackman/logiikka/Kayttoliittyma.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Nappaimistonkuuntelija.java">hackman/kayttoliittyma/Nappaimistonkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +144,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.paaohjelma.Suunta.java">hackman/paaohjelma/Suunta.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Piirtaja.java">hackman/kayttoliittyma/Piirtaja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Paivitettava.java">hackman/kayttoliittyma/Paivitettava.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.peli.Peli.java">hackman/peli/Peli.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Suunta.java">hackman/rakennuspalat/Suunta.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.logiikka.Paivitettava.java">hackman/logiikka/Paivitettava.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.peli.Peli.java">hackman/peli/Peli.java</a>
                 </td>
                 <td>
                   0

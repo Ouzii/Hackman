@@ -13,7 +13,7 @@
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">package</strong> hackman.paaohjelma;
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> hackman.logiikka.Kayttoliittyma;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> hackman.kayttoliittyma.Kayttoliittyma;
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> hackman.peli.Peli;
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> javax.swing.SwingUtilities;
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  
@@ -29,7 +29,7 @@
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>          <a href="../../hackman/peli/Peli.html">Peli</a> hackman = <strong class="jxr_keyword">new</strong> <a href="../../hackman/peli/Peli.html">Peli</a>(20, 20);
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>          <a href="../../hackman/logiikka/Kayttoliittyma.html">Kayttoliittyma</a> kali = <strong class="jxr_keyword">new</strong> <a href="../../hackman/logiikka/Kayttoliittyma.html">Kayttoliittyma</a>(hackman, 20);
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          <a href="../../hackman/kayttoliittyma/Kayttoliittyma.html">Kayttoliittyma</a> kali = <strong class="jxr_keyword">new</strong> <a href="../../hackman/kayttoliittyma/Kayttoliittyma.html">Kayttoliittyma</a>(hackman, 20);
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>          SwingUtilities.invokeLater(kali);
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">while</strong> (kali.getPaivitettava() == <strong class="jxr_keyword">null</strong>) {
