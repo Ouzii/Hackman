@@ -1,6 +1,6 @@
 package hackman.peli;
 
-import hackman.logiikka.Paivitettava;
+import hackman.kayttoliittyma.Paivitettava;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import hackman.rakennuspalat.Pelihahmo;

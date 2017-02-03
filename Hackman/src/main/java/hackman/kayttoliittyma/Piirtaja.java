@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hackman.logiikka;
+package hackman.kayttoliittyma;
 
 import hackman.peli.Peli;
 import hackman.rakennuspalat.Bitti;
@@ -14,12 +14,12 @@ import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-public class Piirto extends JPanel implements Paivitettava {
+public class Piirtaja extends JPanel implements Paivitettava {
 
     private final Peli peli;
     private final int palikanKoko;
 
-    public Piirto(Peli peli, int palikanKoko) {
+    public Piirtaja(Peli peli, int palikanKoko) {
         this.peli = peli;
         this.palikanKoko = palikanKoko;
     }

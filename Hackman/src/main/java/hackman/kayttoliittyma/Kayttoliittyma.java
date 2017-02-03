@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hackman.paaohjelma;
+package hackman.kayttoliittyma;
 
-import hackman.logiikka.Nappaimistonkuuntelija;
-import hackman.logiikka.Paivitettava;
-import hackman.logiikka.Piirto;
+import hackman.kayttoliittyma.Nappaimistonkuuntelija;
+import hackman.kayttoliittyma.Paivitettava;
+import hackman.kayttoliittyma.Piirtaja;
 import hackman.peli.Peli;
 import java.awt.Color;
 import java.awt.Container;
@@ -24,7 +24,7 @@ public class Kayttoliittyma implements Runnable {
     private JFrame frame;
     private Peli hackman;
     private int sivunPituus;
-    private Piirto piirto;
+    private Piirtaja piirto;
 
     public Kayttoliittyma(Peli hackman, int sivunPituus) {
         this.hackman = hackman;
@@ -46,7 +46,7 @@ public class Kayttoliittyma implements Runnable {
     }
 
     public void luoKomponentit(Container container) {
-        this.piirto = new Piirto(this.hackman, this.sivunPituus);
+        this.piirto = new Piirtaja(this.hackman, this.sivunPituus);
         container.add(piirto);
         Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.hackman.getPelaaja(), this.hackman);
         frame.addKeyListener(nk);

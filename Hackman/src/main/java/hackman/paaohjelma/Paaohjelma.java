@@ -5,6 +5,7 @@
  */
 package hackman.paaohjelma;
 
+import hackman.kayttoliittyma.Kayttoliittyma;
 import hackman.peli.Peli;
 import javax.swing.SwingUtilities;
 
