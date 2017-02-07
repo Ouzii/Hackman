@@ -12,4 +12,5 @@ Päivä | Tunnit | Kuvaus
 01.02.2017 | 0.5h | Tehty lisää testejä ja siistitty koodia.
 02.02.2017 | 1.5h | Lisätty testejä.
 03.02.2017 | 1h | Selkeytetty pakettirakennetta, generoitu uudet testit.
+07.02.2017 | 2.5h | Kokeiltu rakentaa päävalikko, lisätty highscore -lista.
 ... | ... | ...
