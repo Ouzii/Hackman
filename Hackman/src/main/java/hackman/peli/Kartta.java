@@ -4,7 +4,7 @@ import hackman.rakennuspalat.Suunta;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import hackman.rakennuspalat.Pelihahmo;
-import hackman.rakennuspalat.VihollinenPunainen;
+import hackman.rakennuspalat.Vihollinen;
 import java.util.ArrayList;
 import java.util.List;
 

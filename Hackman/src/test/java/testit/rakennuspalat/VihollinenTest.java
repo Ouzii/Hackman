@@ -6,7 +6,7 @@
 package testit.rakennuspalat;
 
 import hackman.rakennuspalat.Suunta;
-import hackman.rakennuspalat.VihollinenPunainen;
+import hackman.rakennuspalat.Vihollinen;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,14 +20,14 @@ import static org.junit.Assert.*;
  */
 public class VihollinenTest {
 
-    private VihollinenPunainen vihu;
+    private Vihollinen vihu;
 
     public VihollinenTest() {
     }
 
     @Before
     public void setUp() {
-        this.vihu = new VihollinenPunainen(4, 3);
+        this.vihu = new Vihollinen(4, 3);
     }
 
     @Test

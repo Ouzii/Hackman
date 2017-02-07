@@ -5,8 +5,7 @@ import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import hackman.rakennuspalat.Pelihahmo;
 import hackman.rakennuspalat.Suunta;
-import hackman.rakennuspalat.VihollinenMusta;
-import hackman.rakennuspalat.VihollinenPunainen;
+import hackman.rakennuspalat.Vihollinen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -19,8 +18,10 @@ public class Peli extends Timer implements ActionListener {
     private boolean alkaa;
     private Pelihahmo pelaaja;
     private Kartta kartta;
-    private VihollinenPunainen vihuPun;
-    private VihollinenMusta vihuMus;
+    private Vihollinen vihuPun;
+    private Vihollinen vihuMus;
+    private Vihollinen vihuKel;
+    private Vihollinen vihuPin;
     private int askelia;
     private int vuoro;
     private int pojot;
@@ -33,10 +34,12 @@ public class Peli extends Timer implements ActionListener {
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.pelaaja = new Pelihahmo(10, 10);
-        this.kartta = new Kartta1(20, 20);
+        this.kartta = new Kartta2(20, 20);
         this.pojot = 0;
-        this.vihuPun = new VihollinenPunainen(4, 3);
-        this.vihuMus = new VihollinenMusta(leveys-2, korkeus-2);
+        this.vihuPun = new Vihollinen(2, 2);
+        this.vihuMus = new Vihollinen(leveys-2, korkeus-2);
+        this.vihuKel = new Vihollinen(leveys-2, 2);
+        this.vihuPin = new Vihollinen(2, korkeus-2);
         this.askelia = 0;
         this.vuoro = 0;
         this.alkaa = false;
@@ -65,12 +68,20 @@ public class Peli extends Timer implements ActionListener {
         this.highscore = highscore;
     }
 
-    public VihollinenPunainen getVihuPun() {
-        return vihuPun;
+    public Vihollinen getVihuPun() {
+        return this.vihuPun;
     }
 
-    public VihollinenMusta getVihuMus() {
-        return vihuMus;
+    public Vihollinen getVihuMus() {
+        return this.vihuMus;
+    }
+
+    public Vihollinen getVihuKel() {
+        return this.vihuKel;
+    }
+
+    public Vihollinen getVihuOra() {
+        return vihuPin;
     }
 
     public boolean isAlkaa() {
@@ -137,20 +148,6 @@ public class Peli extends Timer implements ActionListener {
         }
     }
     
-    public void liikuVihollinenPun() {
-        int a = 0;
-        for (Palikka seina : this.kartta.getSeinat()) {
-            if (!this.kartta.osuuSeinaan(this.vihuPun)) {
-                a++;
-            }
-        }
-        if (a >= this.korkeus) {
-            vihuPun.liiku();
-        } else {
-            this.vihuPun.vaihdaSuunta();
-        }
-    }
-    
     public void liikuVihollinenMus() {
         if(this.pelaaja.getX() == this.vihuMus.getX() && this.pelaaja.getY() < this.vihuMus.getY()) {
             this.vihuMus.setSuunta(Suunta.YLOS);
@@ -165,16 +162,43 @@ public class Peli extends Timer implements ActionListener {
             this.vihuMus.setSuunta(Suunta.OIKEA);
         }
         
+        this.liikuVihollinen(this.vihuMus);
+        
+    }
+    
+    public void liikuVihollinenKel() {
+        if(this.pelaaja.getX() < this.vihuKel.getX() && this.pelaaja.getY() == this.vihuKel.getY()) {
+            this.vihuKel.setSuunta(Suunta.VASEN);
+        }
+        if(this.pelaaja.getX() > this.vihuKel.getX() && this.pelaaja.getY() == this.vihuKel.getY()) {
+            this.vihuKel.setSuunta(Suunta.OIKEA);
+        }
+        
+        this.liikuVihollinen(this.vihuKel);
+    }
+    
+    public void liikuVihollinenOra() {
+        if(this.pelaaja.getX() == this.vihuPin.getX() && this.pelaaja.getY() < this.vihuPin.getY()) {
+            this.vihuPin.setSuunta(Suunta.YLOS);
+        }
+         if(this.pelaaja.getX() == this.vihuPin.getX() && this.pelaaja.getY() > this.vihuPin.getY()) {
+            this.vihuPin.setSuunta(Suunta.ALAS);
+        }
+        
+        this.liikuVihollinen(this.vihuPin);
+    }
+    
+    public void liikuVihollinen(Palikka vihollinen) {
         int a = 0;
         for (Palikka seina : this.kartta.getSeinat()) {
-            if (!this.kartta.osuuSeinaan(this.vihuMus)) {
+            if (!this.kartta.osuuSeinaan(vihollinen)) {
                 a++;
             }
         }
         if (a >= this.korkeus) {
-            vihuMus.liiku();
+            vihollinen.liiku();
         } else {
-            this.vihuMus.vaihdaSuunta();
+            vihollinen.vaihdaSuunta();
         }
     }
 
@@ -185,6 +209,12 @@ public class Peli extends Timer implements ActionListener {
             this.havia();
         }
         if (this.pelaaja.osuuVihuun(this.vihuMus)) {
+            this.havia();
+        }
+        if (this.pelaaja.osuuVihuun(this.vihuKel)) {
+            this.havia();
+        }
+        if (this.pelaaja.osuuVihuun(this.vihuPin)) {
             this.havia();
         }
 
@@ -198,8 +228,10 @@ public class Peli extends Timer implements ActionListener {
             } else {
                 this.askelia++;
             }
-            this.liikuVihollinenPun();
+            this.liikuVihollinen(this.vihuPun);
             this.liikuVihollinenMus();
+            this.liikuVihollinenKel();
+            this.liikuVihollinenOra();
             this.vuoro--;
         }
         

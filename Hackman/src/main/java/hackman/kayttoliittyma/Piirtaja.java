@@ -3,7 +3,7 @@ package hackman.kayttoliittyma;
 import hackman.peli.Peli;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
-import hackman.rakennuspalat.VihollinenPunainen;
+import hackman.rakennuspalat.Vihollinen;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -35,20 +35,22 @@ public class Piirtaja extends JPanel implements Paivitettava {
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
 
         if (!this.peli.isAlkaa()) {
-            
-            if(!this.peli.isHighscore()) {
-            g.drawString("Aloita painamalla <Enter>", 4 * this.palikanKoko, 7 * this.palikanKoko);
-            g.setColor(Color.red);
-            g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 9 * this.palikanKoko);
-            g.drawString("painamalla <Esc>", 6 * this.palikanKoko, 10 * this.palikanKoko);
+
+            if (!this.peli.isHighscore()) {
+                g.drawString("Aloita painamalla <Enter>", 4 * this.palikanKoko, 7 * this.palikanKoko);
+                g.setColor(Color.RED);
+                g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 9 * this.palikanKoko);
+                g.drawString("painamalla <Esc>", 6 * this.palikanKoko, 10 * this.palikanKoko);
             } else {
                 try {
                     Scanner tiedostonLukija = new Scanner(new File("src/main/resources/highscore.txt"));
                     int y = 4;
-                    while(tiedostonLukija.hasNextLine()) {
-                        g.drawString(tiedostonLukija.nextLine(), 5 * this.palikanKoko, y * this.palikanKoko);
+                    while (tiedostonLukija.hasNextLine()) {
+                        g.drawString(tiedostonLukija.nextLine(), 8 * this.palikanKoko, y * this.palikanKoko);
                         y++;
                     }
+                    g.setColor(Color.RED);
+                    g.drawString("Paina <Esc> palataksesi takaisin", 2 * this.palikanKoko, (y + 2) * this.palikanKoko);
                 } catch (Exception e) {
                     System.out.println("fail");
                 }
@@ -60,18 +62,6 @@ public class Piirtaja extends JPanel implements Paivitettava {
                 g.fill3DRect(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
             }
 
-            g.setColor(Color.red);
-            g.fill3DRect(this.peli.getVihuPun().getX() * this.palikanKoko, this.peli.getVihuPun().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
-            g.setColor(Color.BLACK);
-            g.fill3DRect(this.peli.getVihuMus().getX() * this.palikanKoko, this.peli.getVihuMus().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
-            g.setColor(Color.red);
-            g.drawString("PISTEET: " + this.peli.getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
-            g.setColor(Color.GRAY);
-
-            for (Palikka seina : this.peli.getKartta().getSeinat()) {
-                g.fill3DRect(seina.getX() * this.palikanKoko, seina.getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
-            }
-
             g.setColor(Color.BLUE);
 
             for (Bitti bitti : this.peli.getKartta().getBitit()) {
@@ -80,13 +70,29 @@ public class Piirtaja extends JPanel implements Paivitettava {
 
                 }
             }
-            
-            if(this.peli.isVoita()) {
+
+            g.setColor(Color.RED);
+            g.fill3DRect(this.peli.getVihuPun().getX() * this.palikanKoko, this.peli.getVihuPun().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.setColor(Color.BLACK);
+            g.fill3DRect(this.peli.getVihuMus().getX() * this.palikanKoko, this.peli.getVihuMus().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.setColor(Color.YELLOW);
+            g.fill3DRect(this.peli.getVihuKel().getX() * this.palikanKoko, this.peli.getVihuKel().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.setColor(Color.PINK);
+            g.fill3DRect(this.peli.getVihuOra().getX() * this.palikanKoko, this.peli.getVihuOra().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.setColor(Color.RED);
+            g.drawString("PISTEET: " + this.peli.getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
+            g.setColor(Color.GRAY);
+
+            for (Palikka seina : this.peli.getKartta().getSeinat()) {
+                g.fill3DRect(seina.getX() * this.palikanKoko, seina.getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            }
+
+            if (this.peli.isVoita()) {
                 g.setColor(Color.MAGENTA);
                 g.setFont(new Font("Comic Sans MS", Font.BOLD, 34));
                 g.drawString("VOITIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
             }
-            if(this.peli.isHavia()) {
+            if (this.peli.isHavia()) {
                 g.setColor(Color.MAGENTA);
                 g.setFont(new Font("Comic Sans MS", Font.BOLD, 34));
                 g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
