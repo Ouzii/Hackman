@@ -13,4 +13,5 @@ Päivä | Tunnit | Kuvaus
 02.02.2017 | 1.5h | Lisätty testejä.
 03.02.2017 | 1h | Selkeytetty pakettirakennetta, generoitu uudet testit.
 07.02.2017 | 2.5h | Kokeiltu rakentaa päävalikko, lisätty highscore -lista.
+07.02.2017 | 2h | Tehty uusi kartta ja lisätty uusi vihollinen uudella tekoälyllä.
 ... | ... | ...
