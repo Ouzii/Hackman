@@ -33,8 +33,14 @@ public class Nappaimistonkuuntelija implements KeyListener {
             this.pelaaja.setSuunta(Suunta.ALAS);
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            this.pelaaja.setX(10);
-            this.pelaaja.setY(10);
+//            this.pelaaja.setX(10);
+//            this.pelaaja.setY(10);
+            if(this.peli.isRunning()) {
+                this.peli.stop();
+            } else {
+                this.peli.restart();
+            }
+            
         }
         if(e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.isAlkaa()) {
             this.peli.setAlkaa();

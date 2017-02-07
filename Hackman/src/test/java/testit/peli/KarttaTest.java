@@ -6,6 +6,7 @@
 package testit.peli;
 
 import hackman.peli.Kartta;
+import hackman.peli.Kartta1;
 import hackman.rakennuspalat.Pelihahmo;
 import hackman.rakennuspalat.Suunta;
 import org.junit.After;
@@ -28,7 +29,7 @@ public class KarttaTest {
 
     @Before
     public void setUp() {
-        this.kartta = new Kartta(20, 20);
+        this.kartta = new Kartta1(20, 20);
     }
 
     @Test

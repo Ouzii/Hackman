@@ -4,7 +4,7 @@ import hackman.rakennuspalat.Suunta;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import hackman.rakennuspalat.Pelihahmo;
-import hackman.rakennuspalat.Vihollinen;
+import hackman.rakennuspalat.VihollinenPunainen;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +16,8 @@ public class Kartta {
 
     private int korkeus;
     private int leveys;
-    private List<Palikka> seinat;
-    private List<Bitti> bitit;
+    public List<Palikka> seinat;
+    public List<Bitti> bitit;
 //    private List<Vihollinen> vihut;
 
     public Kartta(int leveys, int korkeus) {
@@ -40,22 +40,22 @@ public class Kartta {
             this.seinat.add(new Palikka(i, korkeus - 1));
         }
 
-        for (int i = 3; i <= leveys - 3; i++) {
-            for (int j = 3; j <= leveys - 3; j++) {
-                this.seinat.add(new Palikka(j, i));
-                j++;
-            }
-            i++;
-        }
-        for (int i = 2; i < leveys - 1; i++) {
-            for (int k = 2; k < korkeus - 1; k++) {
-                if(i != 10 || k != 10) {
-                    this.bitit.add(new Bitti(i, k));
-                }               
-                k++;
-            }
-            i++;
-        }
+//        for (int i = 3; i <= leveys - 3; i++) {
+//            for (int j = 3; j <= leveys - 3; j++) {
+//                this.seinat.add(new Palikka(j, i));
+//                j++;
+//            }
+//            i++;
+//        }
+//        for (int i = 2; i < leveys - 1; i++) {
+//            for (int k = 2; k < korkeus - 1; k++) {
+//                if(i != 10 || k != 10) {
+//                    this.bitit.add(new Bitti(i, k));
+//                }               
+//                k++;
+//            }
+//            i++;
+//        }
 
     }
 

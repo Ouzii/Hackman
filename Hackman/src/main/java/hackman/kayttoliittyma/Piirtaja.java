@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hackman.kayttoliittyma;
 
 import hackman.peli.Peli;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
-import hackman.rakennuspalat.Vihollinen;
+import hackman.rakennuspalat.VihollinenPunainen;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -66,7 +61,10 @@ public class Piirtaja extends JPanel implements Paivitettava {
             }
 
             g.setColor(Color.red);
-            g.fill3DRect(this.peli.getVihu().getX() * this.palikanKoko, this.peli.getVihu().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.fill3DRect(this.peli.getVihuPun().getX() * this.palikanKoko, this.peli.getVihuPun().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.setColor(Color.BLACK);
+            g.fill3DRect(this.peli.getVihuMus().getX() * this.palikanKoko, this.peli.getVihuMus().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.setColor(Color.red);
             g.drawString("PISTEET: " + this.peli.getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
             g.setColor(Color.GRAY);
 
@@ -84,9 +82,14 @@ public class Piirtaja extends JPanel implements Paivitettava {
             }
             
             if(this.peli.isVoita()) {
-                g.setColor(Color.red);
-                g.drawString("VOITIT!", 8 * this.palikanKoko, 9 * this.palikanKoko);
-                frame.add(new JTextField("Anna nimesi: "));
+                g.setColor(Color.MAGENTA);
+                g.setFont(new Font("Comic Sans MS", Font.BOLD, 34));
+                g.drawString("VOITIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
+            }
+            if(this.peli.isHavia()) {
+                g.setColor(Color.MAGENTA);
+                g.setFont(new Font("Comic Sans MS", Font.BOLD, 34));
+                g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
             }
         }
     }
