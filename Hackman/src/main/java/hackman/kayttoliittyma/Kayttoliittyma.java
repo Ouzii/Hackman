@@ -12,6 +12,7 @@ import hackman.peli.Peli;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -22,20 +23,20 @@ import javax.swing.WindowConstants;
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private Peli hackman;
+    private Peli peli;
     private int sivunPituus;
     private Piirtaja piirto;
 
     public Kayttoliittyma(Peli hackman, int sivunPituus) {
-        this.hackman = hackman;
+        this.peli = hackman;
         this.sivunPituus = sivunPituus;
     }
 
     @Override
     public void run() {
         frame = new JFrame("HACKMAN");
-        int leveys = (hackman.getLeveys()) * (sivunPituus + 2) - 4;
-        int korkeus = (hackman.getKorkeus()) * (sivunPituus + 3) - 2;
+        int leveys = (peli.getLeveys()) * (sivunPituus + 2) - 4;
+        int korkeus = (peli.getKorkeus()) * (sivunPituus + 3) - 2;
 
         frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -46,9 +47,9 @@ public class Kayttoliittyma implements Runnable {
     }
 
     public void luoKomponentit(Container container) {
-        this.piirto = new Piirtaja(this.hackman, this.sivunPituus);
+        this.piirto = new Piirtaja(this.peli, this.sivunPituus, frame);
         container.add(piirto);
-        Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.hackman.getPelaaja(), this.hackman);
+        Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.peli.getPelaaja(), this.peli);
         frame.addKeyListener(nk);
     }
 

@@ -54,7 +54,7 @@ public class PeliTest {
     
     @Test
     public void getKarttaToimii() {
-        assertEquals("Koko: 20 * 20, bittien määrä: 81", this.peli.getKartta().toString());
+        assertEquals("Koko: 20 * 20, bittien määrä: 80", this.peli.getKartta().toString());
     }
     
     @Test

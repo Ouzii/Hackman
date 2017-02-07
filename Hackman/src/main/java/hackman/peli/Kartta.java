@@ -49,7 +49,9 @@ public class Kartta {
         }
         for (int i = 2; i < leveys - 1; i++) {
             for (int k = 2; k < korkeus - 1; k++) {
-                this.bitit.add(new Bitti(i, k));
+                if(i != 10 || k != 10) {
+                    this.bitit.add(new Bitti(i, k));
+                }               
                 k++;
             }
             i++;

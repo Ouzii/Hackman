@@ -15,9 +15,6 @@ import javax.swing.SwingUtilities;
  */
 public class Paaohjelma {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Peli hackman = new Peli(20, 20);
 
@@ -33,7 +30,7 @@ public class Paaohjelma {
         }
 
         hackman.setPaivitettava(kali.getPaivitettava());
-        hackman.start();
+//        hackman.start();
 
     }
 

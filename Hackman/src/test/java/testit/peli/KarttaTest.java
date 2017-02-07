@@ -33,12 +33,12 @@ public class KarttaTest {
 
     @Test
     public void luominenToimii() {
-        assertEquals("Koko: 20 * 20, bittien määrä: 81", this.kartta.toString());
+        assertEquals("Koko: 20 * 20, bittien määrä: 80", this.kartta.toString());
     }
 
     @Test
     public void getBititToimii() {
-        assertEquals(81, this.kartta.getBitit().size());
+        assertEquals(80, this.kartta.getBitit().size());
     }
 
     @Test
@@ -53,7 +53,7 @@ public class KarttaTest {
 
     @Test
     public void bittienLuominenOikein() {
-        assertEquals(81, this.kartta.getBitit().size());
+        assertEquals(80, this.kartta.getBitit().size());
     }
 
     @Test
