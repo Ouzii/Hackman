@@ -40,7 +40,6 @@ public class Kartta1 extends Kartta {
 //        for (int i = korkeus; i >= 0; i--) {
 //            this.seinat.add(new Palikka(i, korkeus - 1));
 //        }
-
         for (int i = 3; i <= leveys - 3; i++) {
             for (int j = 3; j <= leveys - 3; j++) {
                 super.seinat.add(new Palikka(j, i));
@@ -50,9 +49,9 @@ public class Kartta1 extends Kartta {
         }
         for (int i = 2; i < leveys - 1; i++) {
             for (int k = 2; k < korkeus - 1; k++) {
-                if(i != 10 || k != 10) {
+                if (i != 10 || k != 10) {
                     super.bitit.add(new Bitti(i, k));
-                }               
+                }
                 k++;
             }
             i++;
@@ -67,7 +66,6 @@ public class Kartta1 extends Kartta {
 //    public List<Palikka> getSeinat() {
 //        return this.seinat;
 //    }
-
 //    public List<Vihollinen> getVihut() {
 //        return vihut;
 //    }
@@ -88,10 +86,8 @@ public class Kartta1 extends Kartta {
 //        }
 //        return false;
 //    }
-
 //    @Override
 //    public String toString() {
 //        return "Koko: " + this.leveys + " * " + this.korkeus + ", bittien määrä: " + this.bitit.size();
 //    }
-
 }

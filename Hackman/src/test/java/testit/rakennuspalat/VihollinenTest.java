@@ -36,11 +36,6 @@ public class VihollinenTest {
     }
 
     @Test
-    public void alussaSuuntaAlas() {
-        assertEquals(Suunta.ALAS, this.vihu.getSuunta());
-    }
-
-    @Test
     public void suunnanMuutosToimii() {
         assertTrue(this.vihu.vaihdaSuunta());
     }

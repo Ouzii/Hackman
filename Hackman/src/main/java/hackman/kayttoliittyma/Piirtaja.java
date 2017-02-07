@@ -21,28 +21,36 @@ public class Piirtaja extends JPanel implements Paivitettava {
 
     private final Peli peli;
     private final int palikanKoko;
-    private JFrame frame;
 
-    public Piirtaja(Peli peli, int palikanKoko, JFrame frame) {
+    public Piirtaja(Peli peli, int palikanKoko) {
         this.peli = peli;
         this.palikanKoko = palikanKoko;
-        this.frame = frame;
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
-
+            g.setColor(Color.LIGHT_GRAY);
+            g.fill3DRect(0, 0, 21 * this.palikanKoko, 21 * this.palikanKoko, true);
         if (!this.peli.isAlkaa()) {
-
+//            g.setColor(Color.LIGHT_GRAY);
+//            g.fill3DRect(0, 0, 21 * this.palikanKoko, 21 * this.palikanKoko, true);
             if (!this.peli.isHighscore()) {
+                g.setColor(Color.BLACK);
                 g.drawString("Aloita painamalla <Enter>", 4 * this.palikanKoko, 7 * this.palikanKoko);
-                g.setColor(Color.RED);
+                g.setColor(Color.BLUE);
                 g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 9 * this.palikanKoko);
-                g.drawString("painamalla <Esc>", 6 * this.palikanKoko, 10 * this.palikanKoko);
+                g.drawString("painamalla <F1>", 6 * this.palikanKoko, 10 * this.palikanKoko);
+                g.setColor(Color.BLACK);
+                g.drawString("Pelissä paina <R>", 4 * this.palikanKoko, 12 * this.palikanKoko);
+                g.drawString("aloittaaksesi alusta", 6 * this.palikanKoko, 13 * this.palikanKoko);
+                g.setColor(Color.BLUE);
+                g.drawString("Pelissä paina <Space>", 4 * this.palikanKoko, 15 * this.palikanKoko);
+                g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 16 * this.palikanKoko);
             } else {
                 try {
+                    g.setColor(Color.BLACK);
                     Scanner tiedostonLukija = new Scanner(new File("src/main/resources/highscore.txt"));
                     int y = 4;
                     while (tiedostonLukija.hasNextLine()) {
@@ -66,8 +74,8 @@ public class Piirtaja extends JPanel implements Paivitettava {
 
             for (Bitti bitti : this.peli.getKartta().getBitit()) {
                 if (!bitti.isKeratty()) {
-                    g.fill3DRect(bitti.getX() * this.palikanKoko + 3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 5, this.palikanKoko - 5, true);
-
+//                    g.fill3DRect(bitti.getX() * this.palikanKoko + 3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 5, this.palikanKoko - 5, true);
+                    g.fillOval(bitti.getX() * this.palikanKoko +3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 7, this.palikanKoko - 7);
                 }
             }
 

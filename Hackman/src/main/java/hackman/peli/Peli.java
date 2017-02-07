@@ -34,12 +34,12 @@ public class Peli extends Timer implements ActionListener {
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.pelaaja = new Pelihahmo(10, 10);
-        this.kartta = new Kartta2(20, 20);
+        this.kartta = new Kartta1(20, 20);
         this.pojot = 0;
         this.vihuPun = new Vihollinen(2, 2);
-        this.vihuMus = new Vihollinen(leveys-2, korkeus-2);
-        this.vihuKel = new Vihollinen(leveys-2, 2);
-        this.vihuPin = new Vihollinen(2, korkeus-2);
+        this.vihuMus = new Vihollinen(leveys - 2, korkeus - 2);
+        this.vihuKel = new Vihollinen(leveys - 2, 2);
+        this.vihuPin = new Vihollinen(2, korkeus - 2);
         this.askelia = 0;
         this.vuoro = 0;
         this.alkaa = false;
@@ -47,6 +47,7 @@ public class Peli extends Timer implements ActionListener {
         this.havia = false;
         this.highscore = false;
         this.addActionListener(this);
+        super.setInitialDelay(500);
         super.setDelay(200);
         super.stop();
     }
@@ -105,12 +106,12 @@ public class Peli extends Timer implements ActionListener {
     public boolean isHavia() {
         return havia;
     }
-    
+
     public void havia() {
         this.havia = true;
         super.stop();
     }
-    
+
     public int getPojot() {
         return pojot;
     }
@@ -134,7 +135,7 @@ public class Peli extends Timer implements ActionListener {
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
     }
-    
+
     public void liikuPelaaja() {
         int i = 0;
         for (Palikka seina : this.kartta.getSeinat()) {
@@ -147,47 +148,47 @@ public class Peli extends Timer implements ActionListener {
             pelaaja.liiku();
         }
     }
-    
+
     public void liikuVihollinenMus() {
-        if(this.pelaaja.getX() == this.vihuMus.getX() && this.pelaaja.getY() < this.vihuMus.getY()) {
+        if (this.pelaaja.getX() == this.vihuMus.getX() && this.pelaaja.getY() < this.vihuMus.getY()) {
             this.vihuMus.setSuunta(Suunta.YLOS);
         }
-        if(this.pelaaja.getX() == this.vihuMus.getX() && this.pelaaja.getY() > this.vihuMus.getY()) {
+        if (this.pelaaja.getX() == this.vihuMus.getX() && this.pelaaja.getY() > this.vihuMus.getY()) {
             this.vihuMus.setSuunta(Suunta.ALAS);
         }
-        if(this.pelaaja.getX() < this.vihuMus.getX() && this.pelaaja.getY() == this.vihuMus.getY()) {
+        if (this.pelaaja.getX() < this.vihuMus.getX() && this.pelaaja.getY() == this.vihuMus.getY()) {
             this.vihuMus.setSuunta(Suunta.VASEN);
         }
-        if(this.pelaaja.getX() > this.vihuMus.getX() && this.pelaaja.getY() == this.vihuMus.getY()) {
+        if (this.pelaaja.getX() > this.vihuMus.getX() && this.pelaaja.getY() == this.vihuMus.getY()) {
             this.vihuMus.setSuunta(Suunta.OIKEA);
         }
-        
+
         this.liikuVihollinen(this.vihuMus);
-        
+
     }
-    
+
     public void liikuVihollinenKel() {
-        if(this.pelaaja.getX() < this.vihuKel.getX() && this.pelaaja.getY() == this.vihuKel.getY()) {
+        if (this.pelaaja.getX() < this.vihuKel.getX() && this.pelaaja.getY() == this.vihuKel.getY()) {
             this.vihuKel.setSuunta(Suunta.VASEN);
         }
-        if(this.pelaaja.getX() > this.vihuKel.getX() && this.pelaaja.getY() == this.vihuKel.getY()) {
+        if (this.pelaaja.getX() > this.vihuKel.getX() && this.pelaaja.getY() == this.vihuKel.getY()) {
             this.vihuKel.setSuunta(Suunta.OIKEA);
         }
-        
+
         this.liikuVihollinen(this.vihuKel);
     }
-    
+
     public void liikuVihollinenOra() {
-        if(this.pelaaja.getX() == this.vihuPin.getX() && this.pelaaja.getY() < this.vihuPin.getY()) {
+        if (this.pelaaja.getX() == this.vihuPin.getX() && this.pelaaja.getY() < this.vihuPin.getY()) {
             this.vihuPin.setSuunta(Suunta.YLOS);
         }
-         if(this.pelaaja.getX() == this.vihuPin.getX() && this.pelaaja.getY() > this.vihuPin.getY()) {
+        if (this.pelaaja.getX() == this.vihuPin.getX() && this.pelaaja.getY() > this.vihuPin.getY()) {
             this.vihuPin.setSuunta(Suunta.ALAS);
         }
-        
+
         this.liikuVihollinen(this.vihuPin);
     }
-    
+
     public void liikuVihollinen(Palikka vihollinen) {
         int a = 0;
         for (Palikka seina : this.kartta.getSeinat()) {
@@ -234,16 +235,15 @@ public class Peli extends Timer implements ActionListener {
             this.liikuVihollinenOra();
             this.vuoro--;
         }
-        
-        
+
         for (Bitti bitti : this.kartta.getBitit()) {
             if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
                 bitti.setKeratty(true);
                 this.pojot++;
             }
         }
-        
-        if(this.pojot == this.kartta.getBitit().size()) {
+
+        if (this.pojot == this.kartta.getBitit().size()) {
             this.voita();
         }
 

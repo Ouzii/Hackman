@@ -15,4 +15,5 @@ Päivä | Tunnit | Kuvaus
 07.02.2017 | 2.5h | Kokeiltu rakentaa päävalikko, lisätty highscore -lista.
 07.02.2017 | 2h | Tehty uusi kartta ja lisätty uusi vihollinen uudella tekoälyllä.
 07.02.2017 | 1h | Lisätty kaksi uutta vihollista.
+07.02.2017 | 1h | Lisätty päävalikon toiminnallisuutta ja uusia näppäinkomentoja.
 ... | ... | ...

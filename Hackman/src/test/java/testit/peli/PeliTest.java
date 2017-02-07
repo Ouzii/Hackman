@@ -38,27 +38,27 @@ public class PeliTest {
     public void luominenToimiiLeveys() {
         assertEquals(20, this.peli.getLeveys());
     }
-    
+
     @Test
     public void getPelaajaToimii() {
         assertEquals("(10, 10)", this.peli.getPelaaja().toString());
     }
-    
+
     @Test
-    public void getVihuToimii() {
-        assertEquals("(4, 3)", this.peli.getVihuPun().toString());
+    public void getVihuPunToimii() {
+        assertEquals("(2, 2)", this.peli.getVihuPun().toString());
     }
-    
+
     @Test
     public void getPojotToimii() {
         assertEquals(0, this.peli.getPojot());
     }
-    
+
     @Test
     public void getKarttaToimii() {
         assertEquals("Koko: 20 * 20, bittien määrä: 80", this.peli.getKartta().toString());
     }
-    
+
     @Test
     public void pelaajaKuoleeJosOsuuViholliseen() {
         this.peli.getVihuPun().setX(9);
@@ -67,10 +67,5 @@ public class PeliTest {
         this.peli.getPelaaja().osuuVihuun(this.peli.getVihuPun());
         assertFalse(this.peli.getPelaaja().isElossa());
     }
-    
-    
-    
-    
-    
 
 }

@@ -84,8 +84,8 @@ public class Palikka {
         }
         return false;
     }
-    
-        public boolean vaihdaSuunta() {
+
+    public boolean vaihdaSuunta() {
 
         int i = new Random().nextInt(3) + 1;
         if (i == 1) {

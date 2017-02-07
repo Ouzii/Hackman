@@ -47,10 +47,10 @@ public class Kayttoliittyma implements Runnable {
     }
 
     public void luoKomponentit(Container container) {
-        this.piirto = new Piirtaja(this.peli, this.sivunPituus, frame);
+        this.piirto = new Piirtaja(this.peli, this.sivunPituus);
         this.peli.setPaivitettava(piirto);
         container.add(piirto);
-        Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.peli.getPelaaja(), this.peli);
+        Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.peli.getPelaaja(), this.peli, this);
         frame.addKeyListener(nk);
     }
 
@@ -58,4 +58,20 @@ public class Kayttoliittyma implements Runnable {
         return this.piirto;
     }
 
+    public void resetti() {
+        menu();
+        this.peli.setAlkaa();
+    }
+    
+    public void menu() {
+        frame.remove(this.piirto);
+        this.peli = new Peli(20, 20);
+        this.piirto = new Piirtaja(this.peli, this.sivunPituus);
+        this.peli.setPaivitettava(piirto);
+        frame.getContentPane().add(piirto);
+        Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.peli.getPelaaja(), this.peli, this);
+        frame.addKeyListener(nk);
+        frame.pack();
+        frame.setVisible(true);
+    }
 }
