@@ -25,41 +25,47 @@ public class Nappaimistonkuuntelija implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             this.pelaaja.setSuunta(Suunta.OIKEA);
         }
-        
+
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             this.pelaaja.setSuunta(Suunta.VASEN);
         }
-        
+
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             this.pelaaja.setSuunta(Suunta.YLOS);
         }
-        
+
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             this.pelaaja.setSuunta(Suunta.ALAS);
         }
-        
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-//            this.pelaaja.setX(10);
-//            this.pelaaja.setY(10);
+
+        if (e.getKeyCode() == KeyEvent.VK_P) {
             if (this.peli.isRunning()) {
                 this.peli.stop();
             } else {
                 this.peli.restart();
             }
         }
-        
-        if(e.getKeyCode() == KeyEvent.VK_R) {
-                kali.resetti();          
+
+        if (e.getKeyCode() == KeyEvent.VK_R) {
+            kali.uusiPeli();
         }
-        
-        if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             kali.menu();
         }
-        
+
         if (e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.isAlkaa()) {
-            this.peli.setAlkaa();
+            if (this.peli.isHavia()) {
+                kali.uusiPeli();
+            } else {
+                this.peli.setAlkaa();
+            }
         }
-        
+
+        if (e.getKeyCode() == KeyEvent.VK_SPACE && this.peli.isVoita()) {
+            this.kali.nextMap();
+        }
+
         if (e.getKeyCode() == KeyEvent.VK_F1) {
             if (!this.peli.isHighscore()) {
                 this.peli.setHighscore(true);

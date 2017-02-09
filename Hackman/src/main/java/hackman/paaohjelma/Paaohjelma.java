@@ -6,7 +6,7 @@
 package hackman.paaohjelma;
 
 import hackman.kayttoliittyma.Kayttoliittyma;
-import hackman.peli.Kartta1;
+import hackman.kartat.Kartta1;
 import hackman.peli.Peli;
 import javax.swing.SwingUtilities;
 

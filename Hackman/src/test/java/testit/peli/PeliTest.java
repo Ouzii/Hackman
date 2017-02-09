@@ -5,7 +5,7 @@ package testit.peli;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import hackman.peli.Kartta1;
+import hackman.kartat.Kartta1;
 import hackman.peli.Peli;
 import javax.swing.JFrame;
 import static org.junit.Assert.assertEquals;
@@ -26,7 +26,7 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        this.peli = new Peli(20, 20);
+        this.peli = new Peli(20, 20, new Kartta1(20, 20));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class PeliTest {
 
     @Test
     public void getVihuPunToimii() {
-        assertEquals("(2, 2)", this.peli.getVihuPun().toString());
+        assertEquals("(2, 2)", this.peli.getKartta().getVihuPun().toString());
     }
 
     @Test
@@ -61,10 +61,10 @@ public class PeliTest {
 
     @Test
     public void pelaajaKuoleeJosOsuuViholliseen() {
-        this.peli.getVihuPun().setX(9);
-        this.peli.getVihuPun().setY(10);
+        this.peli.getKartta().getVihuPun().setX(9);
+        this.peli.getKartta().getVihuPun().setY(10);
         this.peli.getPelaaja().liiku();
-        this.peli.getPelaaja().osuuVihuun(this.peli.getVihuPun());
+        this.peli.getPelaaja().osuuVihuun(this.peli.getKartta().getVihuPun());
         assertFalse(this.peli.getPelaaja().isElossa());
     }
 

@@ -5,8 +5,8 @@
  */
 package testit.peli;
 
-import hackman.peli.Kartta;
-import hackman.peli.Kartta1;
+import hackman.kartat.Kartta;
+import hackman.kartat.Kartta1;
 import hackman.rakennuspalat.Pelihahmo;
 import hackman.rakennuspalat.Suunta;
 import org.junit.After;

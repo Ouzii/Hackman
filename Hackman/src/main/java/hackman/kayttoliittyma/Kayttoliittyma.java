@@ -8,7 +8,9 @@ package hackman.kayttoliittyma;
 import hackman.kayttoliittyma.Nappaimistonkuuntelija;
 import hackman.kayttoliittyma.Paivitettava;
 import hackman.kayttoliittyma.Piirtaja;
-import hackman.peli.Kartta1;
+import hackman.kartat.Kartta;
+import hackman.kartat.Kartta1;
+import hackman.kartat.Kartta2;
 import hackman.peli.Peli;
 import java.awt.Color;
 import java.awt.Container;
@@ -27,10 +29,12 @@ public class Kayttoliittyma implements Runnable {
     private Peli peli;
     private int sivunPituus;
     private Piirtaja piirto;
+    public int pojot;
 
     public Kayttoliittyma(int sivunPituus) {
         this.sivunPituus = sivunPituus;
-        this.peli = new Peli(20, 20);
+        this.peli = new Peli(20, 20, new Kartta1(20, 20));
+        this.pojot = 0;
     }
 
     @Override
@@ -58,19 +62,31 @@ public class Kayttoliittyma implements Runnable {
         return this.piirto;
     }
 
-    public void resetti() {
-        menu();
-        this.peli.setAlkaa();
-    }
-    
     public void menu() {
-        frame.remove(this.piirto);
-        this.peli = new Peli(20, 20);
-        this.piirto = new Piirtaja(this.peli, this.sivunPituus);
-        this.peli.setPaivitettava(piirto);
-        frame.getContentPane().add(piirto);
-        Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.peli.getPelaaja(), this.peli, this);
-        frame.addKeyListener(nk);
+        this.peli.pysayta();
+        this.piirto.paivita();
+    }
+
+    public void nextMap() {
+        frame.remove(piirto);
+        frame.removeKeyListener(frame.getKeyListeners()[0]);
+        this.pojot = this.peli.getPojot();
+        if (this.peli.getKartta().toString().equals("Kartta1")) {
+            this.peli = new Peli(20, 20, new Kartta2(20, 20));
+            this.peli.setPojot(this.pojot);
+            this.peli.setAlkaa();
+        }
+        this.luoKomponentit(frame);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public void uusiPeli() {
+        frame.remove(piirto);
+        frame.removeKeyListener(frame.getKeyListeners()[0]);
+        this.peli = new Peli(20, 20, new Kartta1(20, 20));
+        this.peli.setAlkaa();
+        this.luoKomponentit(frame);
         frame.pack();
         frame.setVisible(true);
     }
