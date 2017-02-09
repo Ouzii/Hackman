@@ -16,4 +16,5 @@ Päivä | Tunnit | Kuvaus
 07.02.2017 | 2h | Tehty uusi kartta ja lisätty uusi vihollinen uudella tekoälyllä.
 07.02.2017 | 1h | Lisätty kaksi uutta vihollista.
 07.02.2017 | 1h | Lisätty päävalikon toiminnallisuutta ja uusia näppäinkomentoja.
+09.02.2017 | 4h | Siistitty koodia, lisätty uusi kartta pelattavaksi ja korjattu käyttöliittymän bugeja.
 ... | ... | ...
