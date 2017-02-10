@@ -45,7 +45,7 @@ public class PeliTest {
     @Test
     public void getteritToimii() {
         assertEquals("(10, 10)", this.peli.getPelaaja().toString());
-        assertEquals(0, this.peli.getPojot());
+        assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals("Kartta1", this.peli.getKartta().toString());
         assertFalse(this.peli.isHighscore());
         assertFalse(this.peli.isAlkaa());
@@ -64,8 +64,8 @@ public class PeliTest {
         assertTrue(this.peli.isHighscore());
         this.peli.setVoita(true);
         assertTrue(this.peli.isVoita());
-        this.peli.setPojot(99);
-        assertEquals(99, this.peli.getPojot());
+        this.peli.getLogiikka().setPojot(99);
+        assertEquals(99, this.peli.getLogiikka().getPojot());
     }
 
     @Test
@@ -77,6 +77,7 @@ public class PeliTest {
         assertEquals(false, this.peli.isRunning());
         
     }
+    
     @Test
     public void haviaToimii() {
         this.peli.start();
@@ -95,50 +96,6 @@ public class PeliTest {
         this.peli.voita();
         assertTrue(this.peli.isVoita());
         assertEquals(false, this.peli.isRunning());
-    }
-
-    @Test
-    public void liikuPelaajaToimii() {
-        assertTrue(this.peli.liikuPelaaja());
-        this.peli.getPelaaja().setSuunta(Suunta.ALAS);
-        assertFalse(this.peli.liikuPelaaja());
-        this.peli.liikuPelaaja();
-        assertNotEquals("(10, 10)", this.peli.getPelaaja().toString());
-    }
-    
-    @Test
-    public void kuoleekoToimii() {
-        assertFalse(this.peli.isHavia());
-        assertTrue(this.peli.getPelaaja().isElossa());
-        Vihollinen vihu = new Vihollinen(10, 10);
-        this.peli.kuoleeko(vihu);
-        assertFalse(this.peli.getPelaaja().isElossa());
-        assertTrue(this.peli.isHavia());
-    }
-    
-    @Test
-    public void liikutaVihollisiaToimii() {
-        assertEquals("(2, 2)", this.peli.getKartta().getVihuPun().toString());
-        assertEquals("(18, 18)", this.peli.getKartta().getVihuMus().toString());
-        assertEquals("(18, 2)", this.peli.getKartta().getVihuKel().toString());
-        assertEquals("(2, 18)", this.peli.getKartta().getVihuPin().toString());
-        
-        this.peli.liikutaVihollisia();
-        
-        assertEquals("(2, 3)", this.peli.getKartta().getVihuPun().toString());
-        assertEquals("(18, 17)", this.peli.getKartta().getVihuMus().toString());
-        assertEquals("(17, 2)", this.peli.getKartta().getVihuKel().toString());
-        assertEquals("(3, 18)", this.peli.getKartta().getVihuPin().toString()); 
-    }
-    
-    @Test
-    public void askelLukuToimii() {
-        assertFalse(this.peli.askelLuku());
-        assertFalse(this.peli.askelLuku());
-        assertTrue(this.peli.askelLuku());
-        assertFalse(this.peli.askelLuku());
-        assertFalse(this.peli.askelLuku());
-        assertTrue(this.peli.askelLuku());
     }
 
 }

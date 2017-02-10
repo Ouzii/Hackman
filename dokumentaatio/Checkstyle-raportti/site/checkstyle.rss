@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 12,
+      <title>File: 15,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -75,34 +75,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Bitti.java">hackman/rakennuspalat/Bitti.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Kayttoliittyma.java">hackman/kayttoliittyma/Kayttoliittyma.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#hackman.peli.Kartta.java">hackman/peli/Kartta.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +158,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Suunta.java">hackman/rakennuspalat/Suunta.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.peli.Peli.java">hackman/peli/Peli.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +172,77 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.peli.Peli.java">hackman/peli/Peli.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.kartat.Kartta2.java">hackman/kartat/Kartta2.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.kartat.Kartta.java">hackman/kartat/Kartta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Kayttoliittyma.java">hackman/kayttoliittyma/Kayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.kartat.Kartta1.java">hackman/kartat/Kartta1.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.peli.PeliLogiikka.java">hackman/peli/PeliLogiikka.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Suunta.java">hackman/rakennuspalat/Suunta.java</a>
                 </td>
                 <td>
                   0

@@ -31,7 +31,9 @@ public class Kayttoliittyma implements Runnable {
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.pojot = 0;
     }
-
+    /**
+     * Käynnistää avattavan ikkunan.
+     */
     @Override
     public void run() {
         frame = new JFrame("HACKMAN");
@@ -44,7 +46,10 @@ public class Kayttoliittyma implements Runnable {
         frame.pack();
         frame.setVisible(true);
     }
-
+    /**
+     * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
+     * @param container 
+     */
     public void luoKomponentit(Container container) {
         this.piirto = new Piirtaja(this.peli, this.sivunPituus);
         this.peli.setPaivitettava(piirto);
@@ -56,26 +61,32 @@ public class Kayttoliittyma implements Runnable {
     public Paivitettava getPaivitettava() {
         return this.piirto;
     }
-
+    /**
+     * Palauttaa päävalikkonäkymän.
+     */
     public void menu() {
         this.peli.pysayta();
         this.piirto.paivita();
     }
-
+    /**
+     * Luo uuden pelin seuraavalla kartalla, jos edellinen kartta voitettu.
+     */
     public void nextMap() {
         frame.remove(piirto);
         frame.removeKeyListener(frame.getKeyListeners()[0]);
-        this.pojot = this.peli.getPojot();
+        this.pojot = this.peli.getLogiikka().getPojot();
         if (this.peli.getKartta().toString().equals("Kartta1")) {
             this.peli = new Peli(20, 20, new Kartta2(20, 20));
-            this.peli.setPojot(this.pojot);
+            this.peli.getLogiikka().setPojot(this.pojot);
             this.peli.setAlkaa();
         }
         this.luoKomponentit(frame);
         frame.pack();
         frame.setVisible(true);
     }
-
+    /**
+     * Luo uuden pelin ensimmäisellä kartalla.
+     */
     public void uusiPeli() {
         frame.remove(piirto);
         frame.removeKeyListener(frame.getKeyListeners()[0]);

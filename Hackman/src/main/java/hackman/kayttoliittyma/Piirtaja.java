@@ -30,7 +30,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
         this.palikanKoko = palikanKoko;
     }
 
-    public void piirraMenu(Graphics g) {
+    private void piirraMenu(Graphics g) {
         g.setColor(Color.BLACK);
         g.drawString("Aloita painamalla <Enter>", 4 * this.palikanKoko, 7 * this.palikanKoko);
         g.setColor(Color.BLUE);
@@ -44,7 +44,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
         g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 16 * this.palikanKoko);
     }
 
-    public void piirraHighscore(Graphics g) {
+    private void piirraHighscore(Graphics g) {
         try {
             g.setColor(Color.BLACK);
             Scanner tiedostonLukija = new Scanner(new File("src/main/resources/highscore.txt"));
@@ -62,14 +62,14 @@ public class Piirtaja extends JPanel implements Paivitettava {
         }
     }
 
-    public void piirraPelaaja(Graphics g) {
+    private void piirraPelaaja(Graphics g) {
         g.setColor(Color.GREEN);
         if (this.peli.getPelaaja().isElossa()) {
             g.fill3DRect(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
     }
 
-    public void piirraBitit(Graphics g) {
+    private void piirraBitit(Graphics g) {
         g.setColor(Color.BLUE);
         for (Bitti bitti : this.peli.getKartta().getBitit()) {
             if (!bitti.isKeratty()) {
@@ -78,7 +78,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
         }
     }
 
-    public void piirraViholliset(Graphics g) {
+    private void piirraViholliset(Graphics g) {
         g.setColor(Color.RED);
         g.fill3DRect(this.peli.getKartta().getVihuPun().getX() * this.palikanKoko, this.peli.getKartta().getVihuPun().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
 
@@ -92,14 +92,17 @@ public class Piirtaja extends JPanel implements Paivitettava {
         g.fill3DRect(this.peli.getKartta().getVihuPin().getX() * this.palikanKoko, this.peli.getKartta().getVihuPin().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
     }
 
-    public void piirraSeinat(Graphics g) {
+    private void piirraSeinat(Graphics g) {
         g.setColor(Color.GRAY);
 
         for (Palikka seina : this.peli.getKartta().getSeinat()) {
             g.fill3DRect(seina.getX() * this.palikanKoko, seina.getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
     }
-
+    /**
+     * Päämetodi piirtämiselle, joka suorittaa muut piirtometodit.
+     * @param g 
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -123,7 +126,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
             this.piirraViholliset(g);
             this.piirraSeinat(g);
             g.setColor(Color.RED);
-            g.drawString("PISTEET: " + this.peli.getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
+            g.drawString("PISTEET: " + this.peli.getLogiikka().getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
             if (this.peli.isVoita()) {
                 g.setColor(Color.BLUE);
                 g.setFont(suuri);
@@ -139,7 +142,10 @@ public class Piirtaja extends JPanel implements Paivitettava {
             }
         }
     }
-
+    /**
+     * Kutsuttava metodi, joka piirtää uudelleen muuttuneet grafiikat.
+     * @return 
+     */
     @Override
     public boolean paivita() {
         repaint();

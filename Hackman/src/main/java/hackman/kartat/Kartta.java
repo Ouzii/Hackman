@@ -76,6 +76,11 @@ public class Kartta {
         return this.vihuPin;
     }
 
+    /**
+     * Liikuttaa vihollista, jos seinä ei ole edessä.
+     * @param vihollinen
+     * @return true, jos liikutaan ja false, jos ei liikuta.
+     */
     public boolean liikuVihollinen(Vihollinen vihollinen) {
         int a = 0;
         for (Palikka seina : this.seinat) {
@@ -92,6 +97,11 @@ public class Kartta {
         }
     }
 
+    /**
+     * Tarkistaa, onko seuraava palikka seinä, eli voiko liikkua eteenpäin.
+     * @param hahmo
+     * @return true, jos seinä on edessä ja false, jos ei ole.
+     */
     public boolean osuuSeinaan(Palikka hahmo) {
         for (Palikka seina : seinat) {
             if (hahmo.getSuunta() == Suunta.ALAS && hahmo.getX() == seina.getX() && hahmo.getY() + 1 == seina.getY()) {

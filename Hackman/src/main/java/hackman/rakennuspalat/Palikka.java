@@ -43,6 +43,11 @@ public class Palikka {
         this.y = y;
     }
 
+    /**
+     * Metodi tarkistaa osuuko olio parametrina annettuun palikkaan.
+     * @param palikka
+     * @return true, jos osuu ja false, jos ei osu
+     */
     public boolean osuu(Palikka palikka) {
         if (this.x == palikka.getX() && this.y == palikka.getY()) {
             return true;
@@ -50,7 +55,11 @@ public class Palikka {
             return false;
         }
     }
-
+    /**
+     * Metodi tarkistaa, onko parametrina annetun palikan edessä seinää.
+     * @param seina
+     * @return true, jos on seinä edessä ja false, jos ei ole.
+     */
     public boolean osuuSeinaan(Palikka seina) {
         if (this.suunta == Suunta.ALAS && this.getY() + 1 == seina.getY() && this.getX() == seina.getX()) {
             return true;
@@ -67,7 +76,10 @@ public class Palikka {
 
         return false;
     }
-
+    /**
+     * Siirtää olion X- tai Y-koordinaattia suunnan mukaan.
+     * @return true, jos liikutaan ja false, jos suuntaa ei ole määritetty.
+     */
     public boolean liiku() {
         if (null != this.suunta) {
             switch (this.suunta) {

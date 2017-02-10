@@ -3,7 +3,7 @@ package hackman.rakennuspalat;
 import java.util.Random;
 
 /**
- * Rakennusosat pelissä nähtäville vihollisille.
+ * Peruslogiikka pelissä nähtäville vihollisille.
  *
  * @author Oce
  */
@@ -12,7 +12,10 @@ public class Vihollinen extends Palikka {
     public Vihollinen(int x, int y) {
         super(x, y);
     }
-
+    /**
+     * Muuttaa mustan vihollisen suuntaa sen mukaan, missä päin pelaaja on.
+     * @param pelaaja 
+     */
     public void liikuVihollinenMus(Pelihahmo pelaaja) {
         if (pelaaja.getX() == this.getX() && pelaaja.getY() <= this.getY()) {
             this.setSuunta(Suunta.YLOS);
@@ -27,7 +30,10 @@ public class Vihollinen extends Palikka {
             this.setSuunta(Suunta.OIKEA);
         }
     }
-
+    /**
+     * Vaihtaa vihollisen suunnan satunnaiseksi suunnaksi.
+     * @return 
+     */
     public boolean vaihdaSuunta() {
 
         int i = new Random().nextInt(3) + 1;
@@ -49,7 +55,10 @@ public class Vihollinen extends Palikka {
         }
         return false;
     }
-
+    /**
+     * Muuttaa keltaisen vihollisen suuntaa pelaajaa kohti, jos Y-koordinaatit ovat samat.
+     * @param pelaaja 
+     */
     public void liikuVihollinenKel(Pelihahmo pelaaja) {
         if (pelaaja.getX() <= this.getX() && pelaaja.getY() == this.getY()) {
             this.setSuunta(Suunta.VASEN);
@@ -58,7 +67,10 @@ public class Vihollinen extends Palikka {
             this.setSuunta(Suunta.OIKEA);
         }
     }
-
+    /**
+     * Muuttaa pinkin vihollisen suuntaa pelaajaa kohti, jos X-koordinaatit ovat samat.
+     * @param pelaaja 
+     */
     public void liikuVihollinenPin(Pelihahmo pelaaja) {
         if (pelaaja.getX() == this.getX() && pelaaja.getY() <= this.getY()) {
             this.setSuunta(Suunta.YLOS);

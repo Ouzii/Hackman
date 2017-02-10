@@ -29,12 +29,7 @@ public class KarttaTest {
 
     @Before
     public void setUp() {
-        this.kartta = new Kartta1(20, 20);
-    }
-
-    @Test
-    public void luominenToimii() {
-        assertEquals("Kartta1", this.kartta.toString());
+        this.kartta = new Kartta(20, 20);
     }
     
     @Test
@@ -45,12 +40,12 @@ public class KarttaTest {
 
     @Test
     public void getBititToimii() {
-        assertEquals(80, this.kartta.getBitit().size());
+        assertEquals(0, this.kartta.getBitit().size());
     }
 
     @Test
     public void getSeinatToimii() {
-        assertEquals(148, this.kartta.getSeinat().size());
+        assertEquals(84, this.kartta.getSeinat().size());
     }
 
     @Test
@@ -71,45 +66,38 @@ public class KarttaTest {
     
     @Test
     public void seinienLuominenOikein() {
-        assertEquals(148, this.kartta.getSeinat().size());
+        assertEquals(84, this.kartta.getSeinat().size());
     }
 
     @Test
     public void bittienLuominenOikein() {
-        assertEquals(80, this.kartta.getBitit().size());
+        assertEquals(0, this.kartta.getBitit().size());
     }
 
     @Test
     public void osuuSeinaanToimiiVasen() {
-        Pelihahmo pelaaja = new Pelihahmo(5, 10);
-        pelaaja.liiku();
-        pelaaja.liiku();
-        pelaaja.liiku();
+        Pelihahmo pelaaja = new Pelihahmo(2, 2);
+        pelaaja.setSuunta(Suunta.VASEN);
         assertTrue(this.kartta.osuuSeinaan(pelaaja));
     }
 
     @Test
     public void osuuSeinaanToimiiOikea() {
-        Pelihahmo pelaaja = new Pelihahmo(15, 10);
+        Pelihahmo pelaaja = new Pelihahmo(18, 10);
         pelaaja.setSuunta(Suunta.OIKEA);
-        pelaaja.liiku();
-        pelaaja.liiku();
-        pelaaja.liiku();
         assertTrue(this.kartta.osuuSeinaan(pelaaja));
     }
 
     @Test
     public void osuuSeinaanToimiiAlas() {
-        Pelihahmo pelaaja = new Pelihahmo(10, 10);
-        pelaaja.liiku();
+        Pelihahmo pelaaja = new Pelihahmo(10, 18);
         pelaaja.setSuunta(Suunta.ALAS);
         assertTrue(this.kartta.osuuSeinaan(pelaaja));
     }
     
     @Test
     public void osuuSeinaanToimiiYlos() {
-        Pelihahmo pelaaja = new Pelihahmo(10, 10);
-        pelaaja.liiku();
+        Pelihahmo pelaaja = new Pelihahmo(10, 2);
         pelaaja.setSuunta(Suunta.YLOS);
         assertTrue(this.kartta.osuuSeinaan(pelaaja));
     }
