@@ -17,4 +17,5 @@ Päivä | Tunnit | Kuvaus
 07.02.2017 | 1h | Lisätty kaksi uutta vihollista.
 07.02.2017 | 1h | Lisätty päävalikon toiminnallisuutta ja uusia näppäinkomentoja.
 09.02.2017 | 4h | Siistitty koodia, lisätty uusi kartta pelattavaksi ja korjattu käyttöliittymän bugeja.
+10.02.2017 | 3h | Lisätty testejä, aloitettu JavaDocsien tekoa ja siistitty koodia.
 ... | ... | ...
