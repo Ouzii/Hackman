@@ -83,7 +83,9 @@ public class PeliLogiikka {
     public void setAskelia(int askelia) {
         this.askelia = askelia;
     }
-
+    /**
+     * Metodi pysäyttää pelin Timerin ja siirtyy valikkonäkymään.
+     */
     public void pysayta() {
         this.alkaa = false;
         this.peli.stop();
