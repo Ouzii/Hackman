@@ -119,9 +119,9 @@
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>         g.setFont(pieni);
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>         g.setColor(Color.LIGHT_GRAY);
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>         g.fill3DRect(-20, -20, 40 * <strong class="jxr_keyword">this</strong>.palikanKoko, 40 * <strong class="jxr_keyword">this</strong>.palikanKoko, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L114" href="#L114">114</a>         <strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.peli.isAlkaa()) {
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         <strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.peli.getLogiikka().isAlkaa()) {
 <a class="jxr_linenumber" name="L115" href="#L115">115</a> 
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>             <strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.peli.isHighscore()) {
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             <strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.peli.getLogiikka().isHighscore()) {
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>                 <strong class="jxr_keyword">this</strong>.piirraMenu(g);
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>             } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>                 <strong class="jxr_keyword">this</strong>.piirraHighscore(g);
@@ -135,7 +135,7 @@
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>             <strong class="jxr_keyword">this</strong>.piirraSeinat(g);
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>             g.setColor(Color.RED);
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>             g.drawString(<span class="jxr_string">"PISTEET: "</span> + <strong class="jxr_keyword">this</strong>.peli.getLogiikka().getPojot(), 3 * <strong class="jxr_keyword">this</strong>.palikanKoko - 20, 3 * <strong class="jxr_keyword">this</strong>.palikanKoko - 41);
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.peli.isVoita()) {
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.peli.getLogiikka().isVoita()) {
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>                 g.setColor(Color.BLUE);
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>                 g.setFont(suuri);
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>                 g.drawString(<span class="jxr_string">"VOITIT!"</span>, 6 * <strong class="jxr_keyword">this</strong>.palikanKoko, 9 * <strong class="jxr_keyword">this</strong>.palikanKoko);
@@ -143,7 +143,7 @@
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>                 g.drawString(<span class="jxr_string">"Paina &lt;Space&gt; siirtyäksesi"</span>, 3 * <strong class="jxr_keyword">this</strong>.palikanKoko, 11 * <strong class="jxr_keyword">this</strong>.palikanKoko);
 <a class="jxr_linenumber" name="L136" href="#L136">136</a>                 g.drawString(<span class="jxr_string">"seuraavalle tasolle"</span>, 5 * <strong class="jxr_keyword">this</strong>.palikanKoko, 12 * <strong class="jxr_keyword">this</strong>.palikanKoko);
 <a class="jxr_linenumber" name="L137" href="#L137">137</a>             }
-<a class="jxr_linenumber" name="L138" href="#L138">138</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.peli.isHavia()) {
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.peli.getLogiikka().isHavia()) {
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>                 g.setColor(Color.RED);
 <a class="jxr_linenumber" name="L140" href="#L140">140</a>                 g.setFont(suuri);
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>                 g.drawString(<span class="jxr_string">"HÄVISIT!"</span>, 6 * <strong class="jxr_keyword">this</strong>.palikanKoko, 9 * <strong class="jxr_keyword">this</strong>.palikanKoko);

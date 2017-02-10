@@ -57,23 +57,23 @@ public class Nappaimistonkuuntelija implements KeyListener {
             kali.menu();
         }
 
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.isAlkaa()) {
-            if (this.peli.isHavia()) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.getLogiikka().isAlkaa()) {
+            if (this.peli.getLogiikka().isHavia()) {
                 kali.uusiPeli();
             } else {
-                this.peli.setAlkaa();
+                this.peli.getLogiikka().setAlkaa();
             }
         }
 
-        if (e.getKeyCode() == KeyEvent.VK_SPACE && this.peli.isVoita()) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE && this.peli.getLogiikka().isVoita()) {
             this.kali.nextMap();
         }
 
         if (e.getKeyCode() == KeyEvent.VK_F1) {
-            if (!this.peli.isHighscore()) {
-                this.peli.setHighscore(true);
+            if (!this.peli.getLogiikka().isHighscore()) {
+                this.peli.getLogiikka().setHighscore(true);
             } else {
-                this.peli.setHighscore(false);
+                this.peli.getLogiikka().setHighscore(false);
             }
 
             this.peli.getPaivitettava().paivita();

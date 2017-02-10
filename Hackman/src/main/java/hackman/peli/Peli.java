@@ -12,8 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 /**
- * Pelin logiikkaluokka. Huolehtii pelin tärkeimmistä toiminnoista ja muistaa
- * tärkeimmät muuttujat.
+ * Pelin rakenneluokka. Yhdistää pelin eri osat yhteen ja hoitaa Timerin tehtäviä.
  *
  * @author Oce
  */
@@ -22,12 +21,8 @@ public class Peli extends Timer implements ActionListener {
     private int leveys;
     private int korkeus;
     private Paivitettava paivitettava;
-    private boolean alkaa;
     private Pelihahmo pelaaja;
     private Kartta kartta;
-    private boolean voita;
-    private boolean havia;
-    private boolean highscore;
     private PeliLogiikka logiikka;
 
     public Peli(int leveys, int korkeus, Kartta kartta) {
@@ -37,10 +32,6 @@ public class Peli extends Timer implements ActionListener {
         this.logiikka = new PeliLogiikka(this);
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
-        this.alkaa = false;
-        this.voita = false;
-        this.havia = false;
-        this.highscore = false;
         super.addActionListener(this);
         super.setInitialDelay(500);
         super.setDelay(200);
@@ -56,58 +47,8 @@ public class Peli extends Timer implements ActionListener {
         return paivitettava;
     }
 
-    public boolean isHighscore() {
-        return highscore;
-    }
-
-    public void setHighscore(boolean highscore) {
-        this.highscore = highscore;
-    }
-
-    public boolean isAlkaa() {
-        return alkaa;
-    }
-
-    public void setAlkaa() {
-        this.alkaa = true;
-        super.start();
-    }
-
     public PeliLogiikka getLogiikka() {
         return logiikka;
-    }
-
-    public void pysayta() {
-        this.alkaa = false;
-        super.stop();
-    }
-
-    public boolean isVoita() {
-        return voita;
-    }
-
-    public void setVoita(boolean voita) {
-        this.voita = voita;
-    }
-
-    /**
-     * Metodi muuttaa pelin voita-tilaan ja pysäyttää Timerin.
-     */
-    public void voita() {
-        this.voita = true;
-        super.stop();
-    }
-
-    public boolean isHavia() {
-        return havia;
-    }
-
-    /**
-     * Metodi muuttaa pelin häviä-tilaan ja pysäyttää Timerin.
-     */
-    public void havia() {
-        this.havia = true;
-        super.stop();
     }
 
     public Kartta getKartta() {
@@ -152,7 +93,7 @@ public class Peli extends Timer implements ActionListener {
             }
         }
         if (this.logiikka.getPojot() == this.kartta.getBitit().size()) {
-            this.voita();
+            this.logiikka.voita();
         }
         paivitettava.paivita();
     }

@@ -19,4 +19,4 @@
 - Päivitetään mahdollisesti liikkumaan poispäin pelaajasta, kun pelaaja poimii kirsikan (tms. joka muuttaa pelaajan voittamattomaksi)
 
 
-![Luokkakaavio](http://i1259.photobucket.com/albums/ii553/Oce43/HackmanParempi_zpsjp0r4rym.jpg?t=1486034712 "Luokkakaavio")
+![Luokkakaavio](http://i1259.photobucket.com/albums/ii553/Oce43/HackmanLuokkakaavio_zpspwat9ygr.jpg?t=1486657012"Luokkakaavio")

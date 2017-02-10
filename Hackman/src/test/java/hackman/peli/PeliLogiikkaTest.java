@@ -32,6 +32,33 @@ public class PeliLogiikkaTest {
     }
 
     @Test
+    public void getteritToimii() {
+        assertFalse(this.peli.getLogiikka().isHighscore());
+        assertFalse(this.peli.getLogiikka().isVuoro());
+        assertEquals(0, this.peli.getLogiikka().getPojot());
+        assertEquals(0, this.peli.getLogiikka().getAskelia());
+        assertFalse(this.peli.getLogiikka().isAlkaa());
+        assertFalse(this.peli.getLogiikka().isVoita());
+        assertFalse(this.peli.getLogiikka().isHavia());
+    }
+
+    @Test
+    public void setteritToimii() {
+        this.peli.getLogiikka().setAlkaa();
+        assertTrue(this.peli.isRunning());
+        this.peli.getLogiikka().setVoita(true);
+        assertTrue(this.peli.getLogiikka().isVoita());
+        this.peli.getLogiikka().setHighscore(true);
+        assertTrue(this.peli.getLogiikka().isHighscore());
+        this.peli.getLogiikka().setAskelia(2);
+        assertEquals(2, this.peli.getLogiikka().getAskelia());
+        this.peli.getLogiikka().setPojot(99);
+        assertEquals(99, this.peli.getLogiikka().getPojot());
+        this.peli.getLogiikka().setVuoro(true);
+        assertTrue(this.peli.getLogiikka().isVuoro());
+    }
+
+    @Test
     public void liikuPelaajaToimii() {
         assertTrue(this.peli.getLogiikka().liikuPelaaja());
         this.peli.getPelaaja().setSuunta(Suunta.ALAS);
@@ -42,12 +69,22 @@ public class PeliLogiikkaTest {
 
     @Test
     public void kuoleekoToimii() {
-        assertFalse(this.peli.isHavia());
+        assertFalse(this.peli.getLogiikka().isHavia());
         assertTrue(this.peli.getPelaaja().isElossa());
         Vihollinen vihu = new Vihollinen(10, 10);
         this.peli.getLogiikka().kuoleeko(vihu);
         assertFalse(this.peli.getPelaaja().isElossa());
-        assertTrue(this.peli.isHavia());
+        assertTrue(this.peli.getLogiikka().isHavia());
+    }
+
+    @Test
+    public void pysaytaToimii() {
+        this.peli.getLogiikka().setAlkaa();
+        assertTrue(this.peli.getLogiikka().isAlkaa());
+        this.peli.getLogiikka().pysayta();
+        assertFalse(this.peli.getLogiikka().isAlkaa());
+        assertEquals(false, this.peli.isRunning());
+
     }
 
     @Test
@@ -73,6 +110,26 @@ public class PeliLogiikkaTest {
         assertFalse(this.peli.getLogiikka().askelLuku());
         assertFalse(this.peli.getLogiikka().askelLuku());
         assertTrue(this.peli.getLogiikka().askelLuku());
+    }
+    
+        @Test
+    public void haviaToimii() {
+        this.peli.start();
+        assertTrue(this.peli.isRunning());
+        assertFalse(this.peli.getLogiikka().isHavia());
+        this.peli.getLogiikka().havia();
+        assertTrue(this.peli.getLogiikka().isHavia());
+        assertEquals(false, this.peli.isRunning());
+    }
+
+    @Test
+    public void voitaToimii() {
+        this.peli.start();
+        assertTrue(this.peli.isRunning());
+        assertFalse(this.peli.getLogiikka().isVoita());
+        this.peli.getLogiikka().voita();
+        assertTrue(this.peli.getLogiikka().isVoita());
+        assertEquals(false, this.peli.isRunning());
     }
 
 }

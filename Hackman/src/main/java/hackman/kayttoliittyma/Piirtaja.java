@@ -111,9 +111,9 @@ public class Piirtaja extends JPanel implements Paivitettava {
         g.setFont(pieni);
         g.setColor(Color.LIGHT_GRAY);
         g.fill3DRect(-20, -20, 40 * this.palikanKoko, 40 * this.palikanKoko, true);
-        if (!this.peli.isAlkaa()) {
+        if (!this.peli.getLogiikka().isAlkaa()) {
 
-            if (!this.peli.isHighscore()) {
+            if (!this.peli.getLogiikka().isHighscore()) {
                 this.piirraMenu(g);
             } else {
                 this.piirraHighscore(g);
@@ -127,7 +127,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
             this.piirraSeinat(g);
             g.setColor(Color.RED);
             g.drawString("PISTEET: " + this.peli.getLogiikka().getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
-            if (this.peli.isVoita()) {
+            if (this.peli.getLogiikka().isVoita()) {
                 g.setColor(Color.BLUE);
                 g.setFont(suuri);
                 g.drawString("VOITIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
@@ -135,7 +135,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
                 g.drawString("Paina <Space> siirtyäksesi", 3 * this.palikanKoko, 11 * this.palikanKoko);
                 g.drawString("seuraavalle tasolle", 5 * this.palikanKoko, 12 * this.palikanKoko);
             }
-            if (this.peli.isHavia()) {
+            if (this.peli.getLogiikka().isHavia()) {
                 g.setColor(Color.RED);
                 g.setFont(suuri);
                 g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);

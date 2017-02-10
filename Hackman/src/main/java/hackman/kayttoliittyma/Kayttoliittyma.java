@@ -65,7 +65,7 @@ public class Kayttoliittyma implements Runnable {
      * Palauttaa päävalikkonäkymän.
      */
     public void menu() {
-        this.peli.pysayta();
+        this.peli.getLogiikka().pysayta();
         this.piirto.paivita();
     }
     /**
@@ -78,7 +78,7 @@ public class Kayttoliittyma implements Runnable {
         if (this.peli.getKartta().toString().equals("Kartta1")) {
             this.peli = new Peli(20, 20, new Kartta2(20, 20));
             this.peli.getLogiikka().setPojot(this.pojot);
-            this.peli.setAlkaa();
+            this.peli.getLogiikka().setAlkaa();
         }
         this.luoKomponentit(frame);
         frame.pack();
@@ -91,7 +91,7 @@ public class Kayttoliittyma implements Runnable {
         frame.remove(piirto);
         frame.removeKeyListener(frame.getKeyListeners()[0]);
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
-        this.peli.setAlkaa();
+        this.peli.getLogiikka().setAlkaa();
         this.luoKomponentit(frame);
         frame.pack();
         frame.setVisible(true);
