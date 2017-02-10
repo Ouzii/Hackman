@@ -16,7 +16,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Pelin grafiikoiden piirtäjä-luokka.
+ * @author Oce
+ */
 public class Piirtaja extends JPanel implements Paivitettava {
 
     private final Peli peli;

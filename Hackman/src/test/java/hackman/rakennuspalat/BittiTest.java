@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testit.rakennuspalat;
+package hackman.rakennuspalat;
 
-import hackman.rakennuspalat.Suunta;
-import hackman.rakennuspalat.Vihollinen;
+import hackman.rakennuspalat.Bitti;
+import hackman.rakennuspalat.Pelihahmo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,26 +18,26 @@ import static org.junit.Assert.*;
  *
  * @author Oce
  */
-public class VihollinenTest {
+public class BittiTest {
 
-    private Vihollinen vihu;
+    private Bitti bitti;
 
-    public VihollinenTest() {
+    public BittiTest() {
     }
 
     @Before
     public void setUp() {
-        this.vihu = new Vihollinen(4, 3);
+        this.bitti = new Bitti(8, 10);
     }
 
     @Test
-    public void luoVihollinenToimii() {
-        assertEquals("(4, 3)", this.vihu.toString());
+    public void bitinLuominenToimii() {
+        assertEquals("(8, 10)", this.bitti.toString());
     }
 
     @Test
-    public void suunnanMuutosToimii() {
-        assertTrue(this.vihu.vaihdaSuunta());
+    public void alussaEiOleKeratty() {
+        assertFalse(this.bitti.isKeratty());
     }
 
 }

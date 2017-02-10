@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testit.peli;
+package hackman.kartat;
 
 import hackman.kartat.Kartta;
 import hackman.kartat.Kartta1;
@@ -34,7 +34,13 @@ public class KarttaTest {
 
     @Test
     public void luominenToimii() {
-        assertEquals("Koko: 20 * 20, bittien määrä: 80", this.kartta.toString());
+        assertEquals("Kartta1", this.kartta.toString());
+    }
+    
+    @Test
+    public void karttaToStringToimii() {
+        this.kartta = new Kartta(20, 20);
+        assertEquals("Koko: 20 * 20, bittien määrä: 0", this.kartta.toString());
     }
 
     @Test
@@ -47,6 +53,22 @@ public class KarttaTest {
         assertEquals(148, this.kartta.getSeinat().size());
     }
 
+    @Test
+    public void getVihollisetToimii() {
+        assertEquals("(2, 2)", this.kartta.getVihuPun().toString());
+        assertEquals("(18, 18)", this.kartta.getVihuMus().toString());
+        assertEquals("(2, 18)", this.kartta.getVihuPin().toString());
+        assertEquals("(18, 2)", this.kartta.getVihuKel().toString());
+    }
+    
+    @Test
+    public void liikuVihollinenToimii() {
+        this.kartta.getVihuPun().setSuunta(Suunta.VASEN);
+        assertFalse(this.kartta.liikuVihollinen(this.kartta.getVihuPun()));
+        this.kartta.getVihuPun().setSuunta(Suunta.ALAS);
+        assertTrue(this.kartta.liikuVihollinen(this.kartta.getVihuPun()));
+    }
+    
     @Test
     public void seinienLuominenOikein() {
         assertEquals(148, this.kartta.getSeinat().size());

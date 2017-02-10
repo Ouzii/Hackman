@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testit.rakennuspalat;
+package hackman.rakennuspalat;
 
 import hackman.rakennuspalat.Palikka;
 import hackman.rakennuspalat.Suunta;
@@ -39,6 +39,8 @@ public class PalikkaTest {
     public void osuuToimii() {
         Palikka p2 = new Palikka(10, 10);
         assertTrue(this.palikka.osuu(p2));
+        p2.liiku();
+        assertFalse(this.palikka.osuu(p2));
     }
 
     @Test
@@ -51,6 +53,10 @@ public class PalikkaTest {
         assertEquals("(9, 7)", this.palikka.toString());
     }
 
+    @Test
+    public void liikuToimii() {
+        assertTrue(this.palikka.liiku());
+    }
     @Test
     public void liikuToimiiVasen() {
         this.palikka.liiku();

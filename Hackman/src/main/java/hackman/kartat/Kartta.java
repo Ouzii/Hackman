@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Perusta pelissä pelattaville kartoille.
  *
  * @author Oce
  */
@@ -22,7 +23,6 @@ public class Kartta {
     private Vihollinen vihuMus;
     private Vihollinen vihuKel;
     private Vihollinen vihuPin;
-//    private List<Vihollinen> vihut;
 
     public Kartta(int leveys, int korkeus) {
         this.korkeus = korkeus;
@@ -30,10 +30,13 @@ public class Kartta {
         this.seinat = new ArrayList<>();
         this.bitit = new ArrayList<>();
         this.vihuPun = new Vihollinen(2, 2);
+        this.vihuPun.setSuunta(Suunta.ALAS);
         this.vihuMus = new Vihollinen(leveys - 2, korkeus - 2);
+        this.vihuMus.setSuunta(Suunta.YLOS);
         this.vihuKel = new Vihollinen(leveys - 2, 2);
+        this.vihuKel.setSuunta(Suunta.VASEN);
         this.vihuPin = new Vihollinen(2, korkeus - 2);
-//        this.vihut = new ArrayList<>();
+        this.vihuPin.setSuunta(Suunta.OIKEA);
 
         for (int i = 0; i <= leveys; i++) {
             this.seinat.add(new Palikka(i, 1));
@@ -73,7 +76,7 @@ public class Kartta {
         return this.vihuPin;
     }
 
-    public void liikuVihollinen(Palikka vihollinen) {
+    public boolean liikuVihollinen(Vihollinen vihollinen) {
         int a = 0;
         for (Palikka seina : this.seinat) {
             if (!this.osuuSeinaan(vihollinen)) {
@@ -82,8 +85,10 @@ public class Kartta {
         }
         if (a >= this.korkeus) {
             vihollinen.liiku();
+            return true;
         } else {
             vihollinen.vaihdaSuunta();
+            return false;
         }
     }
 

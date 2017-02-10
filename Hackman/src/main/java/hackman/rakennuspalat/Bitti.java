@@ -1,5 +1,8 @@
 package hackman.rakennuspalat;
-
+/**
+ * Logiikka pelissä kerättäville biteille.
+ * @author Oce
+ */
 public class Bitti extends Palikka {
 
     private boolean keratty;

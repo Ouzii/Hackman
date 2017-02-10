@@ -37,14 +37,16 @@
                     <targetClasses>
                         <param>hackman.peli.*</param>
                         <param>hackman.rakennuspalat.*</param>
+                        <param>hackman.kartat.*</param>
 <!--                        <param>hackman.paaohjelma.*</param>
-                        <param>hackman.logiikka.*</param>-->
+                        <param>hackman.kayttoliittyma.*</param>-->
                     </targetClasses>
                     <targetTests>
-                        <param>testit.peli.*</param>
-                        <param>testit.rakennuspalat.*</param>
+                        <param>hackman.peli.*</param>
+                        <param>hackman.rakennuspalat.*</param>
+                        <param>hackman.kartat.*</param>
 <!--                        <param>hackman.paaohjelma.*</param>
-                        <param>hackman.logiikka.*</param>-->
+                        <param>hackman.kayttoliittyma.*</param>-->
                     </targetTests>
                 </configuration>
             </plugin>

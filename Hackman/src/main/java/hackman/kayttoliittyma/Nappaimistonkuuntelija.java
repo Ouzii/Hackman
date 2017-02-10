@@ -7,7 +7,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.Scanner;
-
+/**
+ * Näppäimistönkuuntelija, joka siirtää näppäinten painallukset logiikan käyttöön.
+ * @author Oce
+ */
 public class Nappaimistonkuuntelija implements KeyListener {
 
     private Pelihahmo pelaaja;

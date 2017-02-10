@@ -1,5 +1,8 @@
 package hackman.rakennuspalat;
-
+/**
+ * Pelaajan ohjaaman hahmon peruslogiikka.
+ * @author Oce
+ */
 public class Pelihahmo extends Palikka {
 
     private boolean elossa;

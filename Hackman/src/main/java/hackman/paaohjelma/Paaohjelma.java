@@ -11,13 +11,13 @@ import hackman.peli.Peli;
 import javax.swing.SwingUtilities;
 
 /**
- *
+ * Pääohjelma-luokka, joka käynnistyy, kun ohjelma käynnistetään. 
+ * Hoitaa käyttöliittymän käynnistämisen.
  * @author oce
  */
 public class Paaohjelma {
 
     public static void main(String[] args) {
-//        Peli hackman = new Peli(20, 20, new Kartta1(20, 20));
 
         Kayttoliittyma kali = new Kayttoliittyma(20);
         SwingUtilities.invokeLater(kali);
@@ -29,10 +29,6 @@ public class Paaohjelma {
                 System.out.println("Jokin meni pieleen, yritä uudestaan!");
             }
         }
-
-        
-//        hackman.start();
-
     }
 
 }

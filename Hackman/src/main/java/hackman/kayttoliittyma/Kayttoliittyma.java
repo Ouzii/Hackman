@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hackman.kayttoliittyma;
 
 import hackman.kayttoliittyma.Nappaimistonkuuntelija;
@@ -20,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
- *
+ * Käyttöliittymä, joka huolehtii pelin valikoista ja käynnistyksestä.
  * @author oce
  */
 public class Kayttoliittyma implements Runnable {

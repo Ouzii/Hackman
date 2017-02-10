@@ -4,7 +4,7 @@ import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 
 /**
- *
+ * Pelin ensimmäinen kartta.
  * @author Oce
  */
 public class Kartta1 extends Kartta {

@@ -11,6 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+/**
+ * Pelin logiikkaluokka. Huolehtii pelin tärkeimmistä toiminnoista ja muistaa
+ * tärkeimmät muuttujat.
+ *
+ * @author Oce
+ */
 public class Peli extends Timer implements ActionListener {
 
     private int leveys;
@@ -20,7 +26,7 @@ public class Peli extends Timer implements ActionListener {
     private Pelihahmo pelaaja;
     private Kartta kartta;
     private int askelia;
-    private int vuoro;
+    private boolean vuoro;
     private int pojot;
     private boolean voita;
     private boolean havia;
@@ -34,7 +40,7 @@ public class Peli extends Timer implements ActionListener {
         this.kartta = kartta;
         this.pojot = 0;
         this.askelia = 0;
-        this.vuoro = 0;
+        this.vuoro = false;
         this.alkaa = false;
         this.voita = false;
         this.havia = false;
@@ -50,12 +56,12 @@ public class Peli extends Timer implements ActionListener {
         return this.pelaaja;
     }
 
-    public boolean isHighscore() {
-        return highscore;
-    }
-
     public Paivitettava getPaivitettava() {
         return paivitettava;
+    }
+
+    public boolean isHighscore() {
+        return highscore;
     }
 
     public void setHighscore(boolean highscore) {
@@ -110,10 +116,6 @@ public class Peli extends Timer implements ActionListener {
         return this.kartta;
     }
 
-    public void setAskelia(int askelia) {
-        this.askelia = askelia;
-    }
-
     public int getLeveys() {
         return this.leveys;
     }
@@ -126,16 +128,18 @@ public class Peli extends Timer implements ActionListener {
         this.paivitettava = paivitettava;
     }
 
-    public void liikuPelaaja() {
+    public boolean liikuPelaaja() {
         int i = 0;
         for (Palikka seina : this.kartta.getSeinat()) {
             if (!this.kartta.osuuSeinaan(this.pelaaja)) {
                 i++;
             }
         }
-
         if (i >= this.korkeus) {
             pelaaja.liiku();
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -155,41 +159,40 @@ public class Peli extends Timer implements ActionListener {
         this.kartta.liikuVihollinen(this.kartta.getVihuPin());
     }
 
+    public boolean askelLuku() {
+        if (this.askelia >= 2) {
+            this.kartta.getVihuPun().vaihdaSuunta();
+            this.askelia = 0;
+            return true;
+        } else {
+            this.askelia++;
+            return false;
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-
         this.kuoleeko(this.kartta.getVihuPun());
         this.kuoleeko(this.kartta.getVihuMus());
         this.kuoleeko(this.kartta.getVihuKel());
         this.kuoleeko(this.kartta.getVihuPin());
-
-        if (this.vuoro == 0) {
+        if (this.vuoro == false) {
             this.liikuPelaaja();
-            this.vuoro++;
+            this.vuoro = true;
         } else {
-            if (this.askelia >= 5) {
-                this.kartta.getVihuPun().vaihdaSuunta();
-                this.askelia = 0;
-            } else {
-                this.askelia++;
-            }
+            this.askelLuku();
             this.liikutaVihollisia();
-            this.vuoro--;
+            this.vuoro = false;
         }
-
         for (Bitti bitti : this.kartta.getBitit()) {
             if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
                 bitti.setKeratty(true);
                 this.pojot++;
             }
         }
-
         if (this.pojot == this.kartta.getBitit().size()) {
             this.voita();
         }
-
         paivitettava.paivita();
-
     }
-
 }
