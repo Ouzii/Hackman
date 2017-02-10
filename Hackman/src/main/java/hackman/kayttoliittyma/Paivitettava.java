@@ -4,5 +4,5 @@ package hackman.kayttoliittyma;
  * @author Oce
  */
 public interface Paivitettava {
-    boolean paivita();
+    void paivita();
 }

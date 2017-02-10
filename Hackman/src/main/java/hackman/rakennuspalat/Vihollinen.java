@@ -14,7 +14,7 @@ public class Vihollinen extends Palikka {
     }
     /**
      * Muuttaa mustan vihollisen suuntaa sen mukaan, missä päin pelaaja on.
-     * @param pelaaja 
+     * @param pelaaja Pelihahmo, johon koordinaatteja verrataan.
      */
     public void liikuVihollinenMus(Pelihahmo pelaaja) {
         if (pelaaja.getX() == this.getX() && pelaaja.getY() <= this.getY()) {
@@ -32,7 +32,7 @@ public class Vihollinen extends Palikka {
     }
     /**
      * Vaihtaa vihollisen suunnan satunnaiseksi suunnaksi.
-     * @return 
+     * @return true, jos suunta muuttuu ja false, jos ei.
      */
     public boolean vaihdaSuunta() {
 
@@ -57,7 +57,7 @@ public class Vihollinen extends Palikka {
     }
     /**
      * Muuttaa keltaisen vihollisen suuntaa pelaajaa kohti, jos Y-koordinaatit ovat samat.
-     * @param pelaaja 
+     * @param pelaaja Pelihahmo, johon koordinaatteja verrataan.
      */
     public void liikuVihollinenKel(Pelihahmo pelaaja) {
         if (pelaaja.getX() <= this.getX() && pelaaja.getY() == this.getY()) {
@@ -69,7 +69,7 @@ public class Vihollinen extends Palikka {
     }
     /**
      * Muuttaa pinkin vihollisen suuntaa pelaajaa kohti, jos X-koordinaatit ovat samat.
-     * @param pelaaja 
+     * @param pelaaja Pelihahmo, johon koordinaatteja verrataan.
      */
     public void liikuVihollinenPin(Pelihahmo pelaaja) {
         if (pelaaja.getX() == this.getX() && pelaaja.getY() <= this.getY()) {

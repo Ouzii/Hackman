@@ -135,7 +135,7 @@ public class PeliLogiikka {
      * Tarkistaa, osuuko pelaaja vihollisiin ja tappaa pelaajan sekä kutsuu
      * pelin havia-metodia, jos osuu.
      *
-     * @param vihu
+     * @param vihu Vihollinen, jonka osumiseen tarkistetaan.
      */
     public void kuoleeko(Vihollinen vihu) {
         if (this.peli.getPelaaja().osuu(vihu)) {

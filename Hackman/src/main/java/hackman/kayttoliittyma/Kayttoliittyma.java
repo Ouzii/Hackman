@@ -48,7 +48,7 @@ public class Kayttoliittyma implements Runnable {
     }
     /**
      * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
-     * @param container 
+     * @param container Piirtoalue.
      */
     public void luoKomponentit(Container container) {
         this.piirto = new Piirtaja(this.peli, this.sivunPituus);

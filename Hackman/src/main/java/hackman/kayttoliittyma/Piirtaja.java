@@ -101,7 +101,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
     }
     /**
      * Päämetodi piirtämiselle, joka suorittaa muut piirtometodit.
-     * @param g 
+     * @param g Grafiikanluonti Javassa.
      */
     @Override
     public void paintComponent(Graphics g) {
@@ -144,12 +144,10 @@ public class Piirtaja extends JPanel implements Paivitettava {
     }
     /**
      * Kutsuttava metodi, joka piirtää uudelleen muuttuneet grafiikat.
-     * @return 
      */
     @Override
-    public boolean paivita() {
+    public void paivita() {
         repaint();
-        return true;
     }
 
 }

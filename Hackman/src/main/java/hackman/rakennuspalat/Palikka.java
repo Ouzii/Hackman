@@ -45,7 +45,7 @@ public class Palikka {
 
     /**
      * Metodi tarkistaa osuuko olio parametrina annettuun palikkaan.
-     * @param palikka
+     * @param palikka tarkistettava palikka.
      * @return true, jos osuu ja false, jos ei osu
      */
     public boolean osuu(Palikka palikka) {
@@ -57,7 +57,7 @@ public class Palikka {
     }
     /**
      * Metodi tarkistaa, onko parametrina annetun palikan edessä seinää.
-     * @param seina
+     * @param seina tarkistettava seinä.
      * @return true, jos on seinä edessä ja false, jos ei ole.
      */
     public boolean osuuSeinaan(Palikka seina) {

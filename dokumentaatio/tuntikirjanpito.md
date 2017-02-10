@@ -19,4 +19,5 @@ Päivä | Tunnit | Kuvaus
 09.02.2017 | 4h | Siistitty koodia, lisätty uusi kartta pelattavaksi ja korjattu käyttöliittymän bugeja.
 10.02.2017 | 3h | Lisätty testejä, aloitettu JavaDocsien tekoa ja siistitty koodia.
 10.02.2017 | 2.5h | Lisätty pelin logiikalle oma luokka, tehty Javadocsit, lisätty testejä, päivitetty luokkakaavio ja generoitu uudet raportit.
+10.02.2017 | 0.5h | Viimeistelty Javadocsit ja generoitu uudet raportit.
 ... | ... | ...

@@ -70,7 +70,7 @@ public class Peli extends Timer implements ActionListener {
     /**
      * Hoitaa tapahtumien kulun, kun Timer antaa ActionEventin.
      *
-     * @param e
+     * @param e Timerin antama ActionEvent.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
