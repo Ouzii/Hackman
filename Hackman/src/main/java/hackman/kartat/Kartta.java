@@ -78,6 +78,7 @@ public class Kartta {
 
     /**
      * Liikuttaa vihollista, jos seinä ei ole edessä.
+     *
      * @param vihollinen vihollinen, jota halutaan liikuttaa.
      * @return true, jos liikutaan ja false, jos ei liikuta.
      */
@@ -99,6 +100,7 @@ public class Kartta {
 
     /**
      * Tarkistaa, onko seuraava palikka seinä, eli voiko liikkua eteenpäin.
+     *
      * @param hahmo hahmo, jota koitetaan osuuko seinään.
      * @return true, jos seinä on edessä ja false, jos ei ole.
      */

@@ -2,9 +2,12 @@ package hackman.kartat;
 
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Pelin ensimmäinen kartta.
+ *
  * @author Oce
  */
 public class Kartta1 extends Kartta {

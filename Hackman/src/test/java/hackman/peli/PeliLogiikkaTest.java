@@ -37,6 +37,7 @@ public class PeliLogiikkaTest {
         assertFalse(this.peli.getLogiikka().isVuoro());
         assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals(0, this.peli.getLogiikka().getAskelia());
+        assertEquals(0, this.peli.getLogiikka().getKeratty());
         assertFalse(this.peli.getLogiikka().isAlkaa());
         assertFalse(this.peli.getLogiikka().isVoita());
         assertFalse(this.peli.getLogiikka().isHavia());
@@ -56,6 +57,8 @@ public class PeliLogiikkaTest {
         assertEquals(99, this.peli.getLogiikka().getPojot());
         this.peli.getLogiikka().setVuoro(true);
         assertTrue(this.peli.getLogiikka().isVuoro());
+        this.peli.getLogiikka().setKeratty(100);
+        assertEquals(100, this.peli.getLogiikka().getKeratty());
     }
 
     @Test

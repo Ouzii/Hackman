@@ -12,7 +12,8 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 /**
- * Pelin rakenneluokka. Yhdistää pelin eri osat yhteen ja hoitaa Timerin tehtäviä.
+ * Pelin rakenneluokka. Yhdistää pelin eri osat yhteen ja hoitaa Timerin
+ * tehtäviä.
  *
  * @author Oce
  */
@@ -90,9 +91,10 @@ public class Peli extends Timer implements ActionListener {
             if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
                 bitti.setKeratty(true);
                 this.logiikka.setPojot(this.logiikka.getPojot() + 1);
+                this.logiikka.setKeratty(this.logiikka.getKeratty() + 1);
             }
         }
-        if (this.logiikka.getPojot() == this.kartta.getBitit().size()) {
+        if (this.logiikka.getKeratty() == this.kartta.getBitit().size()) {
             this.logiikka.voita();
         }
         paivitettava.paivita();

@@ -18,6 +18,7 @@ public class PeliLogiikka {
     private Peli peli;
     private int pojot;
     private int askelia;
+    private int keratty;
     private boolean vuoro;
     private boolean highscore;
     private boolean alkaa;
@@ -28,6 +29,7 @@ public class PeliLogiikka {
         this.peli = peli;
         this.pojot = 0;
         this.askelia = 0;
+        this.keratty = 0;
         this.vuoro = false;
         this.highscore = false;
         this.alkaa = false;
@@ -68,6 +70,14 @@ public class PeliLogiikka {
         return vuoro;
     }
 
+    public int getKeratty() {
+        return keratty;
+    }
+
+    public void setKeratty(int keratty) {
+        this.keratty = keratty;
+    }
+
     public void setHighscore(boolean highscore) {
         this.highscore = highscore;
     }
@@ -83,6 +93,7 @@ public class PeliLogiikka {
     public void setAskelia(int askelia) {
         this.askelia = askelia;
     }
+
     /**
      * Metodi pysäyttää pelin Timerin ja siirtyy valikkonäkymään.
      */
@@ -97,6 +108,7 @@ public class PeliLogiikka {
     public void voita() {
         this.voita = true;
         this.peli.stop();
+        this.keratty = 0;
     }
 
     /**
