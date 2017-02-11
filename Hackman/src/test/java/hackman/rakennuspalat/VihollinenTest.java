@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.rules.Timeout;
 
 /**
  *
@@ -58,7 +59,7 @@ public class VihollinenTest {
         assertEquals(Suunta.OIKEA, this.vihu.getSuunta());
     }
 
-    @Test
+    @Test 
     public void liikuVihollinenMusEiVaihdaSuuntaaJosEiTarvitse() {
         this.vihu.setX(2);
         this.vihu.setY(2);
