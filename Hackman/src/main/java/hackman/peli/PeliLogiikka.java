@@ -108,7 +108,7 @@ public class PeliLogiikka {
     public void voita() {
         this.voita = true;
         this.peli.stop();
-        this.keratty = 0;
+//        this.keratty = 0;
     }
 
     /**

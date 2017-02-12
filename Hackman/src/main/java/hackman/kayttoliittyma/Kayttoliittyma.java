@@ -6,6 +6,9 @@ import hackman.kayttoliittyma.Piirtaja;
 import hackman.kartat.Kartta;
 import hackman.kartat.Kartta1;
 import hackman.kartat.Kartta2;
+import hackman.kartat.Kartta3;
+import hackman.kartat.Kartta4;
+import hackman.kartat.Kartta5;
 import hackman.peli.Peli;
 import java.awt.Color;
 import java.awt.Container;
@@ -16,6 +19,7 @@ import javax.swing.WindowConstants;
 
 /**
  * Käyttöliittymä, joka huolehtii pelin valikoista ja käynnistyksestä.
+ *
  * @author oce
  */
 public class Kayttoliittyma implements Runnable {
@@ -31,6 +35,7 @@ public class Kayttoliittyma implements Runnable {
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.pojot = 0;
     }
+
     /**
      * Käynnistää avattavan ikkunan.
      */
@@ -46,8 +51,10 @@ public class Kayttoliittyma implements Runnable {
         frame.pack();
         frame.setVisible(true);
     }
+
     /**
      * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
+     *
      * @param container Piirtoalue.
      */
     public void luoKomponentit(Container container) {
@@ -61,6 +68,7 @@ public class Kayttoliittyma implements Runnable {
     public Paivitettava getPaivitettava() {
         return this.piirto;
     }
+
     /**
      * Palauttaa päävalikkonäkymän.
      */
@@ -68,6 +76,7 @@ public class Kayttoliittyma implements Runnable {
         this.peli.getLogiikka().pysayta();
         this.piirto.paivita();
     }
+
     /**
      * Luo uuden pelin seuraavalla kartalla, jos edellinen kartta voitettu.
      */
@@ -79,11 +88,24 @@ public class Kayttoliittyma implements Runnable {
             this.peli = new Peli(20, 20, new Kartta2(20, 20));
             this.peli.getLogiikka().setPojot(this.pojot);
             this.peli.getLogiikka().setAlkaa();
+        } else if (this.peli.getKartta().toString().equals("Kartta2")) {
+            this.peli = new Peli(20, 20, new Kartta3(20, 20));
+            this.peli.getLogiikka().setPojot(this.pojot);
+            this.peli.getLogiikka().setAlkaa();
+        } else if (this.peli.getKartta().toString().equals("Kartta3")) {
+            this.peli = new Peli(20, 20, new Kartta4(20, 20));
+            this.peli.getLogiikka().setPojot(this.pojot);
+            this.peli.getLogiikka().setAlkaa();
+        } else if (this.peli.getKartta().toString().equals("Kartta4")) {
+            this.peli = new Peli(20, 20, new Kartta5(20, 20));
+            this.peli.getLogiikka().setPojot(this.pojot);
+            this.peli.getLogiikka().setAlkaa();
         }
         this.luoKomponentit(frame);
         frame.pack();
         frame.setVisible(true);
     }
+
     /**
      * Luo uuden pelin ensimmäisellä kartalla.
      */

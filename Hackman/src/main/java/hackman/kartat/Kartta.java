@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class Kartta {
 
-    private int korkeus;
-    private int leveys;
+    public int korkeus;
+    public int leveys;
     public List<Palikka> seinat;
     public List<Bitti> bitit;
     private Vihollinen vihuPun;

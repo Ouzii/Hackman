@@ -21,4 +21,5 @@ Päivä | Tunnit | Kuvaus
 10.02.2017 | 2.5h | Lisätty pelin logiikalle oma luokka, tehty Javadocsit, lisätty testejä, päivitetty luokkakaavio ja generoitu uudet raportit.
 10.02.2017 | 0.5h | Viimeistelty Javadocsit ja generoitu uudet raportit.
 12.02.2017 | 0.5h | Korjattu bugi, joka sai pelaajan voittamaan keräämättä kaikkia bittejä toisessa kentässä.
+12.02.2017 | 2h | Lisätty kolme karttaa ja korjattu bugi, joka esti vihollisia kääntymästä vasemmalle.
 ... | ... | ...

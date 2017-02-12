@@ -35,7 +35,7 @@ public class Peli extends Timer implements ActionListener {
         this.kartta = kartta;
         super.addActionListener(this);
         super.setInitialDelay(500);
-        super.setDelay(200);
+        super.setDelay(150);
         super.stop();
     }
 
@@ -97,6 +97,10 @@ public class Peli extends Timer implements ActionListener {
         if (this.logiikka.getKeratty() == this.kartta.getBitit().size()) {
             this.logiikka.voita();
         }
-        paivitettava.paivita();
+        try {
+            paivitettava.paivita();
+        } catch (Exception ex) {
+//            this.getPaivitettava().paivita();
+        }
     }
 }

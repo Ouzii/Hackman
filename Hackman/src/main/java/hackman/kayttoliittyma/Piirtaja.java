@@ -120,11 +120,10 @@ public class Piirtaja extends JPanel implements Paivitettava {
             }
 
         } else {
-
+            this.piirraSeinat(g);
             this.piirraPelaaja(g);
             this.piirraBitit(g);
             this.piirraViholliset(g);
-            this.piirraSeinat(g);
             g.setColor(Color.RED);
             g.drawString("PISTEET: " + this.peli.getLogiikka().getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
             if (this.peli.getLogiikka().isVoita()) {
@@ -138,7 +137,9 @@ public class Piirtaja extends JPanel implements Paivitettava {
             if (this.peli.getLogiikka().isHavia()) {
                 g.setColor(Color.RED);
                 g.setFont(suuri);
-                g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
+                g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);     
+                g.setFont(pieni);
+                g.drawString("Paina <R> aloittaaksesi alusta", 2 * this.palikanKoko + 10, 11 * this.palikanKoko);
             }
         }
     }
