@@ -100,7 +100,7 @@ public class Peli extends Timer implements ActionListener {
         try {
             paivitettava.paivita();
         } catch (Exception ex) {
-//            this.getPaivitettava().paivita();
+            super.restart();
         }
     }
 }

@@ -100,6 +100,11 @@ public class Kayttoliittyma implements Runnable {
             this.peli = new Peli(20, 20, new Kartta5(20, 20));
             this.peli.getLogiikka().setPojot(this.pojot);
             this.peli.getLogiikka().setAlkaa();
+        } else if (this.peli.getKartta().toString().equals("Kartta5")) {
+            this.uusiPeli();
+            this.menu();
+            this.peli.getLogiikka().setHighscore(true);
+            return;
         }
         this.luoKomponentit(frame);
         frame.pack();
@@ -111,7 +116,9 @@ public class Kayttoliittyma implements Runnable {
      */
     public void uusiPeli() {
         frame.remove(piirto);
-        frame.removeKeyListener(frame.getKeyListeners()[0]);
+        if (frame.getKeyListeners().length != 0) {
+            frame.removeKeyListener(frame.getKeyListeners()[0]);
+        }
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.peli.getLogiikka().setAlkaa();
         this.luoKomponentit(frame);

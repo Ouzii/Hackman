@@ -44,4 +44,11 @@ public class Kartta5 extends Kartta {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Kartta5";
+    }
+    
+    
+
 }
