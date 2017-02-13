@@ -22,4 +22,5 @@ Päivä | Tunnit | Kuvaus
 10.02.2017 | 0.5h | Viimeistelty Javadocsit ja generoitu uudet raportit.
 12.02.2017 | 0.5h | Korjattu bugi, joka sai pelaajan voittamaan keräämättä kaikkia bittejä toisessa kentässä.
 12.02.2017 | 2h | Lisätty kolme karttaa ja korjattu bugi, joka esti vihollisia kääntymästä vasemmalle.
+14.02.2017 | 3h | Taisteltu uuden Highscore-luokan kanssa toimivuudesta, siinä kuitenkaan onnistumatta.
 ... | ... | ...
