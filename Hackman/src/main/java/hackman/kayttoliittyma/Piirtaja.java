@@ -3,21 +3,18 @@ package hackman.kayttoliittyma;
 import hackman.peli.Peli;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
-import hackman.rakennuspalat.Vihollinen;
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.PopupMenu;
 import java.io.File;
 import java.util.Scanner;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 /**
  * Pelin grafiikoiden piirtäjä-luokka.
+ *
  * @author Oce
  */
 public class Piirtaja extends JPanel implements Paivitettava {
@@ -47,12 +44,16 @@ public class Piirtaja extends JPanel implements Paivitettava {
     private void piirraHighscore(Graphics g) {
         try {
             g.setColor(Color.BLACK);
-            Scanner tiedostonLukija = new Scanner(new File("src/main/resources/highscore.txt"));
+            Scanner tiedostonLukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
             int y = 4;
             while (tiedostonLukija.hasNextLine()) {
-                g.drawString(tiedostonLukija.nextLine(), 8 * this.palikanKoko, y * this.palikanKoko);
+                g.drawString(tiedostonLukija.nextLine(), 6 * this.palikanKoko, y * this.palikanKoko);
                 y++;
             }
+//            for (int i = 0; i < this.peli.getLogiikka().getTulos().riveja(); i++) {
+//                g.drawString(this.peli.getLogiikka().getTulos().annaRivi(i), 8 * this.palikanKoko, y * this.palikanKoko);
+//                y++;
+//            }
             g.setColor(Color.RED);
             g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (y + 2) * this.palikanKoko);
         } catch (Exception e) {
@@ -99,8 +100,10 @@ public class Piirtaja extends JPanel implements Paivitettava {
             g.fill3DRect(seina.getX() * this.palikanKoko, seina.getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
     }
+
     /**
      * Päämetodi piirtämiselle, joka suorittaa muut piirtometodit.
+     *
      * @param g Grafiikanluonti Javassa.
      */
     @Override
@@ -137,12 +140,13 @@ public class Piirtaja extends JPanel implements Paivitettava {
             if (this.peli.getLogiikka().isHavia()) {
                 g.setColor(Color.RED);
                 g.setFont(suuri);
-                g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);     
+                g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
                 g.setFont(pieni);
                 g.drawString("Paina <R> aloittaaksesi alusta", 2 * this.palikanKoko + 10, 11 * this.palikanKoko);
             }
         }
     }
+
     /**
      * Kutsuttava metodi, joka piirtää uudelleen muuttuneet grafiikat.
      */

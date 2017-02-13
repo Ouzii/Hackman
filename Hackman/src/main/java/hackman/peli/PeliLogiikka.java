@@ -5,6 +5,7 @@
  */
 package hackman.peli;
 
+import hackman.kayttoliittyma.Piirtaja;
 import hackman.rakennuspalat.Palikka;
 import hackman.rakennuspalat.Vihollinen;
 
@@ -24,6 +25,7 @@ public class PeliLogiikka {
     private boolean alkaa;
     private boolean voita;
     private boolean havia;
+//    private Highscore tulos;
 
     public PeliLogiikka(Peli peli) {
         this.peli = peli;
@@ -35,7 +37,12 @@ public class PeliLogiikka {
         this.alkaa = false;
         this.voita = false;
         this.havia = false;
+//        this.tulos = new Highscore();
     }
+
+//    public Highscore getTulos() {
+//        return tulos;
+//    }
 
     public boolean isAlkaa() {
         return alkaa;

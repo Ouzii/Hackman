@@ -78,6 +78,11 @@ public class Nappaimistonkuuntelija implements KeyListener {
 
             this.peli.getPaivitettava().paivita();
         }
+        
+//        if(e.getKeyCode() == KeyEvent.VK_F2) {
+//            this.peli.getLogiikka().getTulos().kirjoita();
+//            this.peli.getPaivitettava().paivita();
+//        }
     }
 
     @Override

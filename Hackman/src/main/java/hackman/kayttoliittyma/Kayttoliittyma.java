@@ -10,11 +10,15 @@ import hackman.kartat.Kartta3;
 import hackman.kartat.Kartta4;
 import hackman.kartat.Kartta5;
 import hackman.peli.Peli;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 /**
