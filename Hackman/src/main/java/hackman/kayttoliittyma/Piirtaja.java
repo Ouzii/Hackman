@@ -5,10 +5,12 @@ import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.io.File;
 import java.util.Scanner;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,12 +21,14 @@ import javax.swing.JTextField;
  */
 public class Piirtaja extends JPanel implements Paivitettava {
 
-    private final Peli peli;
-    private final int palikanKoko;
+    private Peli peli;
+    private int palikanKoko;
+    private Kayttoliittyma kali;
 
-    public Piirtaja(Peli peli, int palikanKoko) {
+    public Piirtaja(Peli peli, int palikanKoko, Kayttoliittyma kali) {
         this.peli = peli;
         this.palikanKoko = palikanKoko;
+        this.kali = kali;
     }
 
     private void piirraMenu(Graphics g) {
@@ -66,7 +70,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
     private void piirraPelaaja(Graphics g) {
         g.setColor(Color.GREEN);
         if (this.peli.getPelaaja().isElossa()) {
-            g.fill3DRect(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
+            g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko);
         }
     }
 
@@ -109,6 +113,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
         Font suuri = new Font("Comic Sans MS", Font.BOLD, 34);
         Font pieni = new Font("Comic Sans MS", Font.BOLD, 22);
         g.setFont(pieni);

@@ -25,6 +25,8 @@ public class PeliLogiikka {
     private boolean alkaa;
     private boolean voita;
     private boolean havia;
+    private boolean kirjaudu;
+    private String nimi;
 //    private Highscore tulos;
 
     public PeliLogiikka(Peli peli) {
@@ -37,6 +39,8 @@ public class PeliLogiikka {
         this.alkaa = false;
         this.voita = false;
         this.havia = false;
+        this.kirjaudu = false;
+        this.nimi = "";
 //        this.tulos = new Highscore();
     }
 
@@ -44,6 +48,20 @@ public class PeliLogiikka {
 //        return tulos;
 //    }
 
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
+    
+    public boolean isKirjaudu() {
+        return kirjaudu;
+    }
+
+    public void setKirjaudu(boolean kirjaudu) {
+        this.kirjaudu = kirjaudu;
+    }
+
+    
     public boolean isAlkaa() {
         return alkaa;
     }

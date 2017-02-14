@@ -1,9 +1,8 @@
 package hackman.kayttoliittyma;
 
-import hackman.kayttoliittyma.Nappaimistonkuuntelija;
+import hackman.kayttoliittyma.NappaimistonKuuntelija;
 import hackman.kayttoliittyma.Paivitettava;
 import hackman.kayttoliittyma.Piirtaja;
-import hackman.kartat.Kartta;
 import hackman.kartat.Kartta1;
 import hackman.kartat.Kartta2;
 import hackman.kartat.Kartta3;
@@ -11,13 +10,10 @@ import hackman.kartat.Kartta4;
 import hackman.kartat.Kartta5;
 import hackman.peli.Peli;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -50,11 +46,26 @@ public class Kayttoliittyma implements Runnable {
         int korkeus = (peli.getKorkeus()) * (sivunPituus + 3) - 2;
         frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        BorderLayout l = new BorderLayout();
+//        frame.setLayout(l);
+//        JButton b = new JButton("Kirjaudu");
+//        b.setPreferredSize(new Dimension(150, 150));
+//        JTextField t = new JTextField("Anna nimesi: ");
+//        b.addActionListener(new NapinKuuntelija(this.peli, t, this));
+//        frame.add(t, BorderLayout.CENTER);
+//        frame.add(b, BorderLayout.SOUTH);
+
         luoKomponentit(frame.getContentPane());
 
         frame.pack();
         frame.setVisible(true);
     }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+    
+    
 
     /**
      * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
@@ -62,10 +73,10 @@ public class Kayttoliittyma implements Runnable {
      * @param container Piirtoalue.
      */
     public void luoKomponentit(Container container) {
-        this.piirto = new Piirtaja(this.peli, this.sivunPituus);
+        this.piirto = new Piirtaja(this.peli, this.sivunPituus, this);
         this.peli.setPaivitettava(piirto);
         container.add(piirto);
-        Nappaimistonkuuntelija nk = new Nappaimistonkuuntelija(this.peli.getPelaaja(), this.peli, this);
+        NappaimistonKuuntelija nk = new NappaimistonKuuntelija(this.peli.getPelaaja(), this.peli, this);
         frame.addKeyListener(nk);
     }
 
@@ -119,7 +130,10 @@ public class Kayttoliittyma implements Runnable {
      * Luo uuden pelin ensimmäisellä kartalla.
      */
     public void uusiPeli() {
-        frame.remove(piirto);
+//        frame.setLayout(null);
+        if (this.piirto != null) {
+            frame.remove(piirto);
+        }
         if (frame.getKeyListeners().length != 0) {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
         }

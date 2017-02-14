@@ -11,13 +11,13 @@ import java.util.Scanner;
  * Näppäimistönkuuntelija, joka siirtää näppäinten painallukset logiikan käyttöön.
  * @author Oce
  */
-public class Nappaimistonkuuntelija implements KeyListener {
+public class NappaimistonKuuntelija implements KeyListener {
 
     private Pelihahmo pelaaja;
     private Peli peli;
     private Kayttoliittyma kali;
 
-    public Nappaimistonkuuntelija(Pelihahmo pelaaja, Peli peli, Kayttoliittyma kali) {
+    public NappaimistonKuuntelija(Pelihahmo pelaaja, Peli peli, Kayttoliittyma kali) {
         this.pelaaja = pelaaja;
         this.peli = peli;
         this.kali = kali;

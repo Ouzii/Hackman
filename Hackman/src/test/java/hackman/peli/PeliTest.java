@@ -6,6 +6,7 @@ package hackman.peli;
  * and open the template in the editor.
  */
 import hackman.kartat.Kartta1;
+import hackman.kayttoliittyma.Kayttoliittyma;
 import hackman.kayttoliittyma.Piirtaja;
 import hackman.rakennuspalat.Suunta;
 import hackman.rakennuspalat.Vihollinen;
@@ -38,7 +39,7 @@ public class PeliTest {
         assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals("Kartta1", this.peli.getKartta().toString());
         assertEquals(null, this.peli.getPaivitettava());
-        this.peli.setPaivitettava(new Piirtaja(this.peli, 20));
+        this.peli.setPaivitettava(new Piirtaja(this.peli, 20, new Kayttoliittyma(20)));
         assertNotEquals(null, this.peli.getPaivitettava());
         assertEquals(20, this.peli.getKorkeus());
         assertEquals(20, this.peli.getLeveys());

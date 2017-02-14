@@ -23,4 +23,5 @@ Päivä | Tunnit | Kuvaus
 12.02.2017 | 0.5h | Korjattu bugi, joka sai pelaajan voittamaan keräämättä kaikkia bittejä toisessa kentässä.
 12.02.2017 | 2h | Lisätty kolme karttaa ja korjattu bugi, joka esti vihollisia kääntymästä vasemmalle.
 14.02.2017 | 3h | Taisteltu uuden Highscore-luokan kanssa toimivuudesta, siinä kuitenkaan onnistumatta.
+14.02.2017 | 1.5h | Pyritty saamaan JTextField alkuun, jolla pelaaja voisi kirjautua omalla nimellä highscore-listaa varten.
 ... | ... | ...
