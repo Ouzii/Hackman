@@ -26,14 +26,25 @@ public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private Peli peli;
-    private int sivunPituus;
+    private final int sivunPituus;
     private Piirtaja piirto;
     public int pojot;
+    private String nimi;
 
     public Kayttoliittyma(int sivunPituus) {
         this.sivunPituus = sivunPituus;
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.pojot = 0;
+        this.nimi = "";
+
+    }
+
+    public String getNimi() {
+        return nimi;
+    }
+
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
     }
 
     /**
@@ -64,8 +75,6 @@ public class Kayttoliittyma implements Runnable {
     public JFrame getFrame() {
         return frame;
     }
-    
-    
 
     /**
      * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
@@ -129,8 +138,8 @@ public class Kayttoliittyma implements Runnable {
     /**
      * Luo uuden pelin ensimmäisellä kartalla.
      */
-    public void uusiPeli() {
-//        frame.setLayout(null);
+    public Peli uusiPeli() {
+        frame.setLayout(null);
         if (this.piirto != null) {
             frame.remove(piirto);
         }
@@ -142,5 +151,6 @@ public class Kayttoliittyma implements Runnable {
         this.luoKomponentit(frame);
         frame.pack();
         frame.setVisible(true);
+        return this.peli;
     }
 }

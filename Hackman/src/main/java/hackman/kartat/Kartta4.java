@@ -100,7 +100,7 @@ public class Kartta4 extends Kartta {
         }
     }
 
-        @Override
+    @Override
     public String toString() {
         return "Kartta4";
     }

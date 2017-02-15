@@ -40,19 +40,12 @@ public class PeliLogiikka {
         this.voita = false;
         this.havia = false;
         this.kirjaudu = false;
-        this.nimi = "";
 //        this.tulos = new Highscore();
     }
 
 //    public Highscore getTulos() {
 //        return tulos;
 //    }
-
-    public void setNimi(String nimi) {
-        this.nimi = nimi;
-    }
-
-    
     public boolean isKirjaudu() {
         return kirjaudu;
     }
@@ -61,7 +54,6 @@ public class PeliLogiikka {
         this.kirjaudu = kirjaudu;
     }
 
-    
     public boolean isAlkaa() {
         return alkaa;
     }

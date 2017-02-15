@@ -15,30 +15,33 @@ import javax.swing.JTextField;
  * @author Oce
  */
 public class NapinKuuntelija implements ActionListener {
-    
+
     private Peli peli;
     private JTextField teksti;
 //    private Piirtaja piirto;
     private Kayttoliittyma kali;
 
-    public NapinKuuntelija(Peli peli, JTextField t,Kayttoliittyma kali) {
+    public NapinKuuntelija(Peli peli, JTextField t, Kayttoliittyma kali) {
         this.peli = peli;
         this.teksti = t;
 //        this.piirto = piirto;
         this.kali = kali;
     }
-    
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.peli.getLogiikka().setNimi(this.teksti.getText());
-        this.peli.getLogiikka().setKirjaudu(true);
-        this.kali.uusiPeli();
-        this.kali.getPaivitettava().paivita();
+        this.kali.setNimi(this.teksti.getText());
+        this.peli = this.kali.uusiPeli();
         this.kali.getFrame().removeAll();
+        this.peli.getLogiikka().setKirjaudu(true);
+        if (this.peli.getPaivitettava() != null) {
+            this.peli.getPaivitettava().paivita();
+        } else {
+            System.out.println("asddd");
+        }
+        this.kali.getFrame().repaint();
         System.out.println(this.teksti.getText());
         System.out.println(this.peli.getLogiikka().isKirjaudu());
     }
-    
+
 }

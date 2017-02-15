@@ -7,8 +7,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.Scanner;
+
 /**
- * Näppäimistönkuuntelija, joka siirtää näppäinten painallukset logiikan käyttöön.
+ * Näppäimistönkuuntelija, joka siirtää näppäinten painallukset logiikan
+ * käyttöön.
+ *
  * @author Oce
  */
 public class NappaimistonKuuntelija implements KeyListener {
@@ -78,7 +81,7 @@ public class NappaimistonKuuntelija implements KeyListener {
 
             this.peli.getPaivitettava().paivita();
         }
-        
+
 //        if(e.getKeyCode() == KeyEvent.VK_F2) {
 //            this.peli.getLogiikka().getTulos().kirjoita();
 //            this.peli.getPaivitettava().paivita();
