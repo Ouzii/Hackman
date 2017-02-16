@@ -20,6 +20,6 @@
 
 
 ![Luokkakaavio](http://i1259.photobucket.com/albums/ii553/Oce43/HackmanLuokkakaavio3_zps15oyq2as.jpg?t=1487180340"Luokkakaavio")
-![Sekvenssikaavio-PelinKaynnistys](http://i1259.photobucket.com/albums/ii553/Oce43/Pelin%20kaynnisaminen_zpsnbnowkgf.png?t=14871639713"SekvenssikaavioPelinKaynnistys")
+![Sekvenssikaavio-PelinKaynnistys](http://i1259.photobucket.com/albums/ii553/Oce43/Pelin%20kaynnistys2_zpsjfbyjctr.png?t=1487190867"SekvenssikaavioPelinKaynnistys")
 ![Sekvenssikaavio-SuunnanMuuttaminen](http://i1259.photobucket.com/albums/ii553/Oce43/Suunnan%20Muuttaminen_zpsiing56hj.png?t=1487163268"SekvenssikaavioSuunnanMuuttaminen")
 ![Sekvenssikaavio-MustanVihollisenSuunnanMuuttaminen](http://i1259.photobucket.com/albums/ii553/Oce43/MustanVihollisenSuunnanMuuttaminen_zpskotedrm8.png?t=1487163807"SekvenssikaavioMustanVihollisenSuunnanMuuttaminen")

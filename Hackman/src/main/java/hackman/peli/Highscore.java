@@ -34,7 +34,6 @@ public class Highscore {
             this.lukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
             this.lisaaListaan();
         } catch (Exception e) {
-            
         }
     }
 
