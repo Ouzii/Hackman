@@ -25,10 +25,12 @@ public class Peli extends Timer implements ActionListener {
     private Pelihahmo pelaaja;
     private Kartta kartta;
     private PeliLogiikka logiikka;
+    private Highscore highscore;
 
     /**
-     * Konstruktori pelille, joka asettaa mittasuhteet oikein
-     * ja luo uuden pelihahmon sekä käynnistää Timerin.
+     * Konstruktori pelille, joka asettaa mittasuhteet oikein ja luo uuden
+     * pelihahmon sekä käynnistää Timerin.
+     *
      * @param leveys Kartan leveys.
      * @param korkeus Kartan korkeus.
      * @param kartta Kartta.
@@ -40,6 +42,7 @@ public class Peli extends Timer implements ActionListener {
         this.logiikka = new PeliLogiikka(this);
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
+        this.highscore = new Highscore();
         super.addActionListener(this);
         super.setInitialDelay(500);
         super.setDelay(150);
@@ -49,6 +52,10 @@ public class Peli extends Timer implements ActionListener {
 //    HUOM !! KOODI SEKAVAA, KOSKA KOKEILUVAIHEESSA
     public Pelihahmo getPelaaja() {
         return this.pelaaja;
+    }
+
+    public Highscore getHighscore() {
+        return highscore;
     }
 
     public Paivitettava getPaivitettava() {

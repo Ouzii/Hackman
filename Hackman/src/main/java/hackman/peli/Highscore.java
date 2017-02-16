@@ -1,103 +1,123 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
-//package hackman.peli;
-//
-//import hackman.kayttoliittyma.Piirtaja;
-//import java.io.File;
-//import java.io.FileNotFoundException;
-//import java.io.FileWriter;
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.Scanner;
-//
-///**
-// *
-// * @author Oce
-// */
-//public class Highscore {
-//
-//    private int pojot;
-//    private Scanner lukija;
-//    private FileWriter kirjoittaja;
-//    private boolean paalla;
-//    private List<String> rivit;
-//
-//    public Highscore() {
-//        this.pojot = 0;
-//        this.rivit = new ArrayList<>();
-//        try {
-//            File t = new File("src/main/resources/highscore.txt");
-//            this.lukija = new Scanner(t);
-//            this.lisaaListaan();
-//            this.kirjoittaja = new FileWriter(t);
-//        } catch (Exception e) {
-//
-//        }
-//
-//    }
-//
-//    private void lisaaListaan() {
-//        while (this.lukija.hasNextLine()) {
-//            this.rivit.add(this.lukija.nextLine());
-//        }
-//    }
-//
-//    public int getPojot() {
-//        return pojot;
-//    }
-//
-//    public boolean isPaalla() {
-//        return paalla;
-//    }
-//
-//    public void setPojot(int pojot) {
-//        this.pojot = pojot;
-//    }
-//
-//    public void setPaalla(boolean paalla) {
-//        this.paalla = paalla;
-//    }
-//
-//    public String annaRivi(int i) {
-//        return this.rivit.get(i);
-//    }
-//
-//    public int riveja() {
-//        return this.rivit.size();
-//    }
-//
-//    public void kirjoita() {
-//        try {
-//            this.lukija.close();
-//            this.lukija = new Scanner(new File("src/main/resources/highscore.txt"));
-//        } catch (Exception e) {
-//
-//        }
-//        ArrayList<String> apu = new ArrayList<>();
-//        for (String string : this.rivit) {
-//            apu.add(string);
-//        }
-//        this.rivit.clear();
-//        try {
-//            this.kirjoittaja = new FileWriter(new File("src/main/resources/highscore.txt"));
-//            for (int i = 0; i < 10; i++) {
-//                if (apu.get(i) != null) {
-//                    this.kirjoittaja.append(apu.get(i) + "\n");
-//                } else {
-//                    this.kirjoittaja.append((i + 1) + ". \n");
-//                }
-//
-//            }
-//            this.kirjoittaja.close();
-//            this.lisaaListaan();
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//    }
-//
-//}
+package hackman.peli;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+ * Highscore-luokka, joka huolehtii huipputulosten kirjaamisesta ja
+ * järjestämisestä.
+ *
+ * @author Oce
+ */
+public class Highscore {
+
+    private Scanner lukija;
+    private Map<Integer, String> rivit;
+    private String nimi;
+    private boolean menuun;
+
+    /**
+     * Luo LinkedHashMapin, jossa pidetään kirjaa pisteistä ja scannerin, joka
+     * lukee pisteet tekstitiedostosta.
+     */
+    public Highscore() {
+        this.rivit = new LinkedHashMap<>();
+        this.nimi = "";
+        this.menuun = false;
+        try {
+            this.lukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
+            this.lisaaListaan();
+        } catch (Exception e) {
+        }
+    }
+
+    public String getNimi() {
+        return nimi;
+    }
+
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
+    public boolean isMenuun() {
+        return menuun;
+    }
+
+    public void setMenuun(boolean menuun) {
+        this.menuun = menuun;
+    }
+
+    private void lisaaListaan() {
+        int riveja = 0;
+        while (this.lukija.hasNextLine()) {
+            String s = this.lukija.nextLine();
+            String[] apu = s.split(" ");
+            this.rivit.put(Integer.parseInt(apu[1]), apu[2]);
+            riveja++;
+        }
+        if (riveja < 10) {
+            int score = 10;
+            while (riveja < 10) {
+                this.rivit.put(score, "-tyhja-");
+                riveja++;
+                score += 10;
+            }
+        }
+        this.jarjesta();
+    }
+
+    private void jarjesta() {
+        List<Integer> apu = new ArrayList<>();
+        for (Integer integer : this.rivit.keySet()) {
+            apu.add(integer);
+        }
+        Collections.sort(apu);
+        Map<Integer, String> apuMap = new LinkedHashMap<>();
+        for (int i = 1; i <= 10; i++) {
+            apuMap.put(apu.get(apu.size() - i), this.rivit.get(apu.get(apu.size() - i)));
+        }
+
+        this.rivit = apuMap;
+    }
+
+    /**
+     * Tarkastaa, onko pelaajan saavuttamat pisteet tarpeeksi suuret listalle
+     * päästäkseen.
+     * @param pojot Pelaajan keräämät pisteet kutsuntahetkellä.
+     */
+    public void onkoHighscore(int pojot) {
+        List<Integer> apu = new ArrayList<>();
+        for (Integer integer : this.rivit.keySet()) {
+            apu.add(integer);
+        }
+
+        if (pojot > apu.get(apu.size() - 1)) {
+            this.rivit.put(pojot, this.nimi);
+        }
+
+        this.jarjesta();
+    }
+
+    /**
+     * Kirjoittaa pisteet tekstitiedostoon.
+     */
+    public void kirjoita() {
+        try {
+            FileWriter kirjoittaja = new FileWriter(new File("src/main/resources/highscore.txt"));
+            int i = 1;
+            for (Integer integer : this.rivit.keySet()) {
+                kirjoittaja.append(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
+                i++;
+            }
+            kirjoittaja.close();
+        } catch (Exception e) {
+        }
+    }
+
+}

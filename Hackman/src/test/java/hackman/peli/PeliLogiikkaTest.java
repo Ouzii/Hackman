@@ -33,7 +33,6 @@ public class PeliLogiikkaTest {
 
     @Test
     public void getteritToimii() {
-        assertFalse(this.peli.getLogiikka().isHighscore());
         assertFalse(this.peli.getLogiikka().isVuoro());
         assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals(0, this.peli.getLogiikka().getAskelia());
@@ -49,8 +48,6 @@ public class PeliLogiikkaTest {
         assertTrue(this.peli.isRunning());
         this.peli.getLogiikka().setVoita(true);
         assertTrue(this.peli.getLogiikka().isVoita());
-        this.peli.getLogiikka().setHighscore(true);
-        assertTrue(this.peli.getLogiikka().isHighscore());
         this.peli.getLogiikka().setAskelia(2);
         assertEquals(2, this.peli.getLogiikka().getAskelia());
         this.peli.getLogiikka().setPojot(99);
@@ -114,8 +111,8 @@ public class PeliLogiikkaTest {
         assertFalse(this.peli.getLogiikka().askelLuku());
         assertTrue(this.peli.getLogiikka().askelLuku());
     }
-    
-        @Test
+
+    @Test
     public void haviaToimii() {
         this.peli.start();
         assertTrue(this.peli.isRunning());

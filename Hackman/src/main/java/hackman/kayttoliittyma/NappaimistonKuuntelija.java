@@ -21,8 +21,9 @@ public class NappaimistonKuuntelija implements KeyListener {
     private Kayttoliittyma kali;
 
     /**
-     * Konstruktori näppäimistönkuuntelijalle, joka linkittää näppäimistönkuuntelijan
-     * tarvittaviin muihin luokkiin.
+     * Konstruktori näppäimistönkuuntelijalle, joka linkittää
+     * näppäimistönkuuntelijan tarvittaviin muihin luokkiin.
+     *
      * @param pelaaja Pelaajan ohjaama pelihahmo.
      * @param peli Peliluokka.
      * @param kali Käyttöliittymäluokka.
@@ -80,19 +81,14 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_F1) {
-            if (!this.peli.getLogiikka().isHighscore()) {
-                this.peli.getLogiikka().setHighscore(true);
+            if (!this.peli.getHighscore().isMenuun()) {
+                this.peli.getHighscore().setMenuun(true);
             } else {
-                this.peli.getLogiikka().setHighscore(false);
+                this.peli.getHighscore().setMenuun(false);
             }
 
             this.peli.getPaivitettava().paivita();
         }
-
-//        if(e.getKeyCode() == KeyEvent.VK_F2) {
-//            this.peli.getLogiikka().getTulos().kirjoita();
-//            this.peli.getPaivitettava().paivita();
-//        }
     }
 
     @Override

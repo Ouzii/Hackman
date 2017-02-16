@@ -6,6 +6,7 @@ import hackman.rakennuspalat.Vihollinen;
 
 /**
  * Luokka, joka hoitaa peliin liittyviä loogisia metodeja.
+ *
  * @author Oce
  */
 public class PeliLogiikka {
@@ -15,7 +16,6 @@ public class PeliLogiikka {
     private int askelia;
     private int keratty;
     private boolean vuoro;
-    private boolean highscore;
     private boolean alkaa;
     private boolean voita;
     private boolean havia;
@@ -23,6 +23,7 @@ public class PeliLogiikka {
 
     /**
      * Konstruktori PeliLogiikalle, joka asettaa asetukset alkutilaan luotaessa.
+     *
      * @param peli Peli, johon logiikat liittyvät.
      */
     public PeliLogiikka(Peli peli) {
@@ -31,7 +32,6 @@ public class PeliLogiikka {
         this.askelia = 0;
         this.keratty = 0;
         this.vuoro = false;
-        this.highscore = false;
         this.alkaa = false;
         this.voita = false;
         this.havia = false;
@@ -49,6 +49,7 @@ public class PeliLogiikka {
     public boolean isAlkaa() {
         return alkaa;
     }
+
     /**
      * Aloittaa pelin.
      */
@@ -63,10 +64,6 @@ public class PeliLogiikka {
 
     public void setVoita(boolean voita) {
         this.voita = voita;
-    }
-
-    public boolean isHighscore() {
-        return highscore;
     }
 
     public int getPojot() {
@@ -87,10 +84,6 @@ public class PeliLogiikka {
 
     public void setKeratty(int keratty) {
         this.keratty = keratty;
-    }
-
-    public void setHighscore(boolean highscore) {
-        this.highscore = highscore;
     }
 
     public void setPojot(int pojot) {
@@ -119,14 +112,16 @@ public class PeliLogiikka {
     public void voita() {
         this.voita = true;
         this.peli.stop();
-//        this.keratty = 0;
     }
 
     /**
-     * Metodi muuttaa pelin häviä-tilaan ja pysäyttää Timerin.
+     * Metodi muuttaa pelin häviä-tilaan ja pysäyttää Timerin. Lisäksi kirjaa
+     * pisteet huipputulosten listalle, jos tarvetta.
      */
     public void havia() {
         this.havia = true;
+        this.peli.getHighscore().onkoHighscore(this.pojot);
+        this.peli.getHighscore().kirjoita();
         this.peli.stop();
     }
 
@@ -136,6 +131,7 @@ public class PeliLogiikka {
 
     /**
      * Tarkastaa, onko pelaajan edessä seinää ja liikuttaa, jos ei ole.
+     *
      * @return true, jos liikutaan ja false, jos ei liikuta.
      */
     public boolean liikuPelaaja() {
@@ -156,6 +152,7 @@ public class PeliLogiikka {
     /**
      * Tarkistaa, osuuko pelaaja vihollisiin ja tappaa pelaajan sekä kutsuu
      * pelin havia-metodia, jos osuu.
+     *
      * @param vihu Vihollinen, jonka osumiseen tarkistetaan.
      */
     public void kuoleeko(Vihollinen vihu) {
@@ -181,6 +178,7 @@ public class PeliLogiikka {
     /**
      * Joka kolmannella askeleella muuttaa punaisen vihollisen suuntaa
      * satunnaisesti.
+     *
      * @return true, jos muutetaan suuntaa ja false, jos ei muuteta.
      */
     public boolean askelLuku() {

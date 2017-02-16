@@ -26,4 +26,5 @@ Päivä | Tunnit | Kuvaus
 14.02.2017 | 1.5h | Pyritty saamaan JTextField alkuun, jolla pelaaja voisi kirjautua omalla nimellä highscore-listaa varten.
 15.02.2017 | 0.5h | Jatkettu kirjautumisikkunan kanssa säätämistä.
 16.02.2017 | 2h | Tehty sekvenssikaaviot, testit uusille luokille ja generoitu uudet raportit. Javadocit päivitetty.
+16.02.2017 | 2h | Lisätty kirjautumisikkuna, korjattu Highscore-luokka toimivaksi ja säädetty ulkoasua. Korjattu Javadocs.
 ... | ... | ...

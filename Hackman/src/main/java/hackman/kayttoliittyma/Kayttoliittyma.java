@@ -10,15 +10,20 @@ import hackman.kartat.Kartta4;
 import hackman.kartat.Kartta5;
 import hackman.peli.Peli;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 /**
  * Käyttöliittymä, joka huolehtii pelin valikoista ja käynnistyksestä.
+ *
  * @author oce
  */
 public class Kayttoliittyma implements Runnable {
@@ -29,9 +34,14 @@ public class Kayttoliittyma implements Runnable {
     private Piirtaja piirto;
     public int pojot;
     private String nimi;
+    private JButton nappi;
+    private JTextField tekstikentta;
+    private JLabel merkinta;
 
     /**
-     * Konstruktori käyttöliittymälle, joka luo uuden pelin ja asettaa oikean mittasuhteen pelille.
+     * Konstruktori käyttöliittymälle, joka luo uuden pelin ja asettaa oikean
+     * mittasuhteen pelille.
+     *
      * @param sivunPituus Annettava koko palikoille pelissä.
      */
     public Kayttoliittyma(int sivunPituus) {
@@ -39,15 +49,46 @@ public class Kayttoliittyma implements Runnable {
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.pojot = 0;
         this.nimi = "";
+        this.nappi = new JButton("Kirjaudu");
+        this.tekstikentta = new JTextField("");
+        this.merkinta = new JLabel("Anna nimesi:", SwingConstants.CENTER);
+        this.asetaUlkoasu();
+    }
 
+    private void asetaUlkoasu() {
+        Font fontti = new Font("Comic Sans MS", Font.BOLD, 34);
+        Dimension dimenssio = new Dimension(150, 150);
+        this.merkinta.setFont(fontti);
+        this.nappi.setFont(fontti);
+        this.tekstikentta.setFont(fontti);
+        this.merkinta.setOpaque(true);
+        this.merkinta.setBackground(Color.BLACK);
+        this.merkinta.setForeground(Color.WHITE);
+        this.merkinta.setPreferredSize(dimenssio);
+        this.tekstikentta.setOpaque(true);
+        this.tekstikentta.setBorder(null);
+        this.tekstikentta.setBackground(Color.BLACK);
+        this.tekstikentta.setForeground(Color.RED);
+        this.tekstikentta.setPreferredSize(dimenssio);
+        this.tekstikentta.setHorizontalAlignment(SwingConstants.CENTER);
+        this.nappi.setOpaque(true);
+        this.nappi.setBackground(Color.WHITE);
+        this.nappi.setForeground(Color.BLACK);
+        this.nappi.setPreferredSize(dimenssio);
     }
 
     public String getNimi() {
         return nimi;
     }
 
+    /**
+     * Asettaa JTextFieldistä saadun merkkijonon pelaajan nimeksi
+     * Highscore-luokkaan.
+     *
+     * @param nimi pelaajan antama nimi.
+     */
     public void setNimi(String nimi) {
-        this.nimi = nimi;
+        this.peli.getHighscore().setNimi(nimi);
     }
 
     /**
@@ -60,17 +101,12 @@ public class Kayttoliittyma implements Runnable {
         int korkeus = (peli.getKorkeus()) * (sivunPituus + 3) - 2;
         frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        BorderLayout l = new BorderLayout();
-//        frame.setLayout(l);
-//        JButton b = new JButton("Kirjaudu");
-//        b.setPreferredSize(new Dimension(150, 150));
-//        JTextField t = new JTextField("Anna nimesi: ");
-//        b.addActionListener(new NapinKuuntelija(this.peli, t, this));
-//        frame.add(t, BorderLayout.CENTER);
-//        frame.add(b, BorderLayout.SOUTH);
-
-        luoKomponentit(frame.getContentPane());
-
+        BorderLayout l = new BorderLayout();
+        frame.setLayout(l);
+        this.nappi.addActionListener(new NapinKuuntelija(this.peli, this.tekstikentta, this));
+        frame.add(this.merkinta, BorderLayout.NORTH);
+        frame.add(this.tekstikentta, BorderLayout.CENTER);
+        frame.add(this.nappi, BorderLayout.SOUTH);
         frame.pack();
         frame.setVisible(true);
     }
@@ -81,9 +117,13 @@ public class Kayttoliittyma implements Runnable {
 
     /**
      * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
+     *
      * @param container Piirtoalue.
      */
     public void luoKomponentit(Container container) {
+        frame.remove(this.merkinta);
+        frame.remove(this.nappi);
+        frame.remove(this.tekstikentta);
         this.piirto = new Piirtaja(this.peli, this.sivunPituus, this);
         this.peli.setPaivitettava(piirto);
         container.add(piirto);
@@ -129,7 +169,7 @@ public class Kayttoliittyma implements Runnable {
         } else if (this.peli.getKartta().toString().equals("Kartta5")) {
             this.uusiPeli();
             this.menu();
-            this.peli.getLogiikka().setHighscore(true);
+            this.peli.getHighscore().setMenuun(true);
             return;
         }
         this.luoKomponentit(frame);
@@ -139,10 +179,10 @@ public class Kayttoliittyma implements Runnable {
 
     /**
      * Luo uuden pelin ensimmäisellä kartalla.
+     *
      * @return Peli palauttaa uuden pelin.
      */
     public Peli uusiPeli() {
-//        frame.setLayout(null);
         if (this.piirto != null) {
             frame.remove(piirto);
         }
