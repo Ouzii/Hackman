@@ -4,11 +4,16 @@ import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 
 /**
- *
+ * Pelin neljäs kartta.
  * @author Oce
  */
 public class Kartta4 extends Kartta {
 
+    /**
+     * Luo seinät ja bitit kartalle.
+     * @param leveys Kartan leveys.
+     * @param korkeus Kartan korkeus.
+     */
     public Kartta4(int leveys, int korkeus) {
         super(leveys, korkeus);
         this.lisaaLaatikonUlkoseinat();
@@ -24,7 +29,7 @@ public class Kartta4 extends Kartta {
         }
     }
 
-    public void lisaaLaatikonKeskus() {
+    private void lisaaLaatikonKeskus() {
         for (int i = 5; i <= 7; i++) {
             for (int j = 5; j <= 7; j++) {
                 super.seinat.add(new Palikka(i, j));
@@ -47,7 +52,7 @@ public class Kartta4 extends Kartta {
         }
     }
 
-    public void lisaaLaatikonUlkoseinat() {
+    private void lisaaLaatikonUlkoseinat() {
         for (int i = 3; i <= super.korkeus / 2 - 1; i++) {
             for (int j = 3; j <= super.leveys - 3; j += 8) {
                 super.seinat.add(new Palikka(j, i));

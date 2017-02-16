@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hackman.peli;
 
 import hackman.kayttoliittyma.Piirtaja;
@@ -11,7 +6,6 @@ import hackman.rakennuspalat.Vihollinen;
 
 /**
  * Luokka, joka hoitaa peliin liittyviä loogisia metodeja.
- *
  * @author Oce
  */
 public class PeliLogiikka {
@@ -26,9 +20,11 @@ public class PeliLogiikka {
     private boolean voita;
     private boolean havia;
     private boolean kirjaudu;
-    private String nimi;
-//    private Highscore tulos;
 
+    /**
+     * Konstruktori PeliLogiikalle, joka asettaa asetukset alkutilaan luotaessa.
+     * @param peli Peli, johon logiikat liittyvät.
+     */
     public PeliLogiikka(Peli peli) {
         this.peli = peli;
         this.pojot = 0;
@@ -40,12 +36,8 @@ public class PeliLogiikka {
         this.voita = false;
         this.havia = false;
         this.kirjaudu = false;
-//        this.tulos = new Highscore();
     }
 
-//    public Highscore getTulos() {
-//        return tulos;
-//    }
     public boolean isKirjaudu() {
         return kirjaudu;
     }
@@ -57,7 +49,9 @@ public class PeliLogiikka {
     public boolean isAlkaa() {
         return alkaa;
     }
-
+    /**
+     * Aloittaa pelin.
+     */
     public void setAlkaa() {
         this.alkaa = true;
         this.peli.start();
@@ -142,7 +136,6 @@ public class PeliLogiikka {
 
     /**
      * Tarkastaa, onko pelaajan edessä seinää ja liikuttaa, jos ei ole.
-     *
      * @return true, jos liikutaan ja false, jos ei liikuta.
      */
     public boolean liikuPelaaja() {
@@ -163,7 +156,6 @@ public class PeliLogiikka {
     /**
      * Tarkistaa, osuuko pelaaja vihollisiin ja tappaa pelaajan sekä kutsuu
      * pelin havia-metodia, jos osuu.
-     *
      * @param vihu Vihollinen, jonka osumiseen tarkistetaan.
      */
     public void kuoleeko(Vihollinen vihu) {
@@ -189,7 +181,6 @@ public class PeliLogiikka {
     /**
      * Joka kolmannella askeleella muuttaa punaisen vihollisen suuntaa
      * satunnaisesti.
-     *
      * @return true, jos muutetaan suuntaa ja false, jos ei muuteta.
      */
     public boolean askelLuku() {

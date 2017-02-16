@@ -25,6 +25,12 @@ public class Piirtaja extends JPanel implements Paivitettava {
     private int palikanKoko;
     private Kayttoliittyma kali;
 
+    /**
+     * Konstruktori piirtäjälle, joka asettaa tarvittavat yhteydet.
+     * @param peli Peli, jonka pohjalta grafiikat piirretään.
+     * @param palikanKoko Koko palikoille, jotka piirretään.
+     * @param kali Käyttöliittymä-luokka.
+     */
     public Piirtaja(Peli peli, int palikanKoko, Kayttoliittyma kali) {
         this.peli = peli;
         this.palikanKoko = palikanKoko;

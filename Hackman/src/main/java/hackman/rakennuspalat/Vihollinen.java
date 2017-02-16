@@ -9,6 +9,11 @@ import java.util.Random;
  */
 public class Vihollinen extends Palikka {
 
+    /**
+     * Konstruktori Viholliselle, joka asettaa alkukoordinaatit parametrien mukaan.
+     * @param x X-koordinaatti alussa.
+     * @param y Y-koordinaatti alussa.
+     */
     public Vihollinen(int x, int y) {
         super(x, y);
     }

@@ -4,5 +4,9 @@ package hackman.kayttoliittyma;
  * @author Oce
  */
 public interface Paivitettava {
+
+    /**
+     * Rajapinnan metodi, joka ylikirjoitetaan päivittämään.
+     */
     void paivita();
 }

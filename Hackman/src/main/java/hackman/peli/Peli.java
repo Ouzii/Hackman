@@ -26,6 +26,13 @@ public class Peli extends Timer implements ActionListener {
     private Kartta kartta;
     private PeliLogiikka logiikka;
 
+    /**
+     * Konstruktori pelille, joka asettaa mittasuhteet oikein
+     * ja luo uuden pelihahmon sekä käynnistää Timerin.
+     * @param leveys Kartan leveys.
+     * @param korkeus Kartan korkeus.
+     * @param kartta Kartta.
+     */
     public Peli(int leveys, int korkeus, Kartta kartta) {
         super(1000, null);
         this.leveys = leveys;

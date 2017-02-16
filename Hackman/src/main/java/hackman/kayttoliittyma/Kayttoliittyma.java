@@ -19,7 +19,6 @@ import javax.swing.WindowConstants;
 
 /**
  * Käyttöliittymä, joka huolehtii pelin valikoista ja käynnistyksestä.
- *
  * @author oce
  */
 public class Kayttoliittyma implements Runnable {
@@ -31,6 +30,10 @@ public class Kayttoliittyma implements Runnable {
     public int pojot;
     private String nimi;
 
+    /**
+     * Konstruktori käyttöliittymälle, joka luo uuden pelin ja asettaa oikean mittasuhteen pelille.
+     * @param sivunPituus Annettava koko palikoille pelissä.
+     */
     public Kayttoliittyma(int sivunPituus) {
         this.sivunPituus = sivunPituus;
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
@@ -78,7 +81,6 @@ public class Kayttoliittyma implements Runnable {
 
     /**
      * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
-     *
      * @param container Piirtoalue.
      */
     public void luoKomponentit(Container container) {
@@ -137,9 +139,10 @@ public class Kayttoliittyma implements Runnable {
 
     /**
      * Luo uuden pelin ensimmäisellä kartalla.
+     * @return Peli palauttaa uuden pelin.
      */
     public Peli uusiPeli() {
-        frame.setLayout(null);
+//        frame.setLayout(null);
         if (this.piirto != null) {
             frame.remove(piirto);
         }

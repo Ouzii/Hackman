@@ -23,7 +23,12 @@ public class Kartta {
     private Vihollinen vihuMus;
     private Vihollinen vihuKel;
     private Vihollinen vihuPin;
-
+    
+    /**
+     * Luo pohjan kartoille sekä viholliset.
+     * @param leveys Kartan leveys.
+     * @param korkeus Kartan korkeus.
+     */
     public Kartta(int leveys, int korkeus) {
         this.korkeus = korkeus;
         this.leveys = leveys;

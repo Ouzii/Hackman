@@ -20,6 +20,13 @@ public class NappaimistonKuuntelija implements KeyListener {
     private Peli peli;
     private Kayttoliittyma kali;
 
+    /**
+     * Konstruktori näppäimistönkuuntelijalle, joka linkittää näppäimistönkuuntelijan
+     * tarvittaviin muihin luokkiin.
+     * @param pelaaja Pelaajan ohjaama pelihahmo.
+     * @param peli Peliluokka.
+     * @param kali Käyttöliittymäluokka.
+     */
     public NappaimistonKuuntelija(Pelihahmo pelaaja, Peli peli, Kayttoliittyma kali) {
         this.pelaaja = pelaaja;
         this.peli = peli;

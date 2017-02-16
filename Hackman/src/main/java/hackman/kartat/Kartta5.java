@@ -5,11 +5,16 @@ import hackman.rakennuspalat.Palikka;
 import java.util.Random;
 
 /**
- *
+ * Pelin viides kartta.
  * @author Oce
  */
 public class Kartta5 extends Kartta {
 
+    /**
+     * Luo seinät ja bitit kartalle.
+     * @param leveys Kartan leveys.
+     * @param korkeus Kartan korkeus.
+     */
     public Kartta5(int leveys, int korkeus) {
         super(leveys, korkeus);
         for (int i = 3; i < this.korkeus - 2; i += new Random().nextInt(2) + 1) {

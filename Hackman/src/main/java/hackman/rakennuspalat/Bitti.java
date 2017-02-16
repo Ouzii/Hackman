@@ -7,6 +7,11 @@ public class Bitti extends Palikka {
 
     private boolean keratty;
 
+    /**
+     * Luo bitin annettuihin koordinaatteihin ja asettaa bitin keräämättömäksi.
+     * @param x X-koordinaatti alussa.
+     * @param y Y-koordinaatti alussa.
+     */
     public Bitti(int x, int y) {
         super(x, y);
         this.keratty = false;

@@ -17,6 +17,10 @@ import javax.swing.SwingUtilities;
  */
 public class Paaohjelma {
 
+    /**
+     * Luo ja käynnistää käyttöliittymän.
+     * @param args Javan komennot String muodossa.
+     */
     public static void main(String[] args) {
 
         Kayttoliittyma kali = new Kayttoliittyma(20);

@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 /**
- *
+ * Napinkuuntelija, joka toteuttaa nimenanto-nappulalle toiminnallisuuden.
  * @author Oce
  */
 public class NapinKuuntelija implements ActionListener {
@@ -21,6 +21,12 @@ public class NapinKuuntelija implements ActionListener {
 //    private Piirtaja piirto;
     private Kayttoliittyma kali;
 
+    /**
+     * Konstruktori NapinKuuntelijalle, joka asettaa tarvittavat yhteydet.
+     * @param peli Peliluokka, joka on käynnissä.
+     * @param t Tekstikentän teksti, joka otetaan talteen.
+     * @param kali Käyttöliittymä, jonka metodeja käytetään.
+     */
     public NapinKuuntelija(Peli peli, JTextField t, Kayttoliittyma kali) {
         this.peli = peli;
         this.teksti = t;

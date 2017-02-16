@@ -12,6 +12,11 @@ import java.util.List;
  */
 public class Kartta2 extends Kartta {
 
+    /**
+     * Luo seinät ja bitit kartalle.
+     * @param leveys Kartan leveys.
+     * @param korkeus Kartan korkeus.
+     */
     public Kartta2(int leveys, int korkeus) {
         super(leveys, korkeus);
         for (int i = 3; i <= leveys - 3; i++) {

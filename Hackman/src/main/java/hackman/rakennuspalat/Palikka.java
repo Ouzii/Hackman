@@ -13,6 +13,11 @@ public class Palikka {
     public int y;
     private Suunta suunta;
 
+    /**
+     * Asettaa koordinaatit parametrien mukaisesti ja muuttaa suunnan vasemmalle.
+     * @param x X-koordinaatti alussa.
+     * @param y Y-koordinaatti alussa.
+     */
     public Palikka(int x, int y) {
         this.x = x;
         this.y = y;
