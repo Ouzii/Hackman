@@ -1,10 +1,6 @@
 package hackman.kayttoliittyma;
 
-import hackman.kartat.Kartta1;
-import hackman.kartat.Kartta2;
-import hackman.kartat.Kartta3;
-import hackman.kartat.Kartta4;
-import hackman.kartat.Kartta5;
+import hackman.kartat.*;
 import hackman.peli.Peli;
 import java.awt.BorderLayout;
 import java.awt.Color;
