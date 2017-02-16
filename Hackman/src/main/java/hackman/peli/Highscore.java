@@ -26,14 +26,15 @@ public class Highscore {
      * Luo LinkedHashMapin, jossa pidetään kirjaa pisteistä ja scannerin, joka
      * lukee pisteet tekstitiedostosta.
      */
-    public Highscore() {
+    public Highscore(String nimi) {
         this.rivit = new LinkedHashMap<>();
-        this.nimi = "";
+        this.nimi = nimi;
         this.menuun = false;
         try {
             this.lukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
             this.lisaaListaan();
         } catch (Exception e) {
+            
         }
     }
 
@@ -107,7 +108,7 @@ public class Highscore {
     /**
      * Kirjoittaa pisteet tekstitiedostoon.
      */
-    public void kirjoita() {
+    public boolean kirjoita() {
         try {
             FileWriter kirjoittaja = new FileWriter(new File("src/main/resources/highscore.txt"));
             int i = 1;
@@ -116,7 +117,9 @@ public class Highscore {
                 i++;
             }
             kirjoittaja.close();
+            return true;
         } catch (Exception e) {
+            return false;
         }
     }
 

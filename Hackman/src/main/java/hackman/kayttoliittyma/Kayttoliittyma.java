@@ -1,8 +1,5 @@
 package hackman.kayttoliittyma;
 
-import hackman.kayttoliittyma.NappaimistonKuuntelija;
-import hackman.kayttoliittyma.Paivitettava;
-import hackman.kayttoliittyma.Piirtaja;
 import hackman.kartat.Kartta1;
 import hackman.kartat.Kartta2;
 import hackman.kartat.Kartta3;
@@ -88,6 +85,7 @@ public class Kayttoliittyma implements Runnable {
      * @param nimi pelaajan antama nimi.
      */
     public void setNimi(String nimi) {
+        this.nimi = nimi;
         this.peli.getHighscore().setNimi(nimi);
     }
 
@@ -170,6 +168,8 @@ public class Kayttoliittyma implements Runnable {
             this.uusiPeli();
             this.menu();
             this.peli.getHighscore().setMenuun(true);
+            this.peli.getHighscore().onkoHighscore(pojot);
+            this.peli.getHighscore().kirjoita();
             return;
         }
         this.luoKomponentit(frame);
@@ -189,7 +189,7 @@ public class Kayttoliittyma implements Runnable {
         if (frame.getKeyListeners().length != 0) {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
         }
-        this.peli = new Peli(20, 20, new Kartta1(20, 20));
+        this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi);
         this.peli.getLogiikka().setAlkaa();
         this.luoKomponentit(frame);
         frame.pack();

@@ -42,10 +42,24 @@ public class Peli extends Timer implements ActionListener {
         this.logiikka = new PeliLogiikka(this);
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
-        this.highscore = new Highscore();
+        this.highscore = new Highscore("");
         super.addActionListener(this);
         super.setInitialDelay(500);
-        super.setDelay(150);
+        super.setDelay(135);
+        super.stop();
+    }
+    
+    public Peli(int leveys, int korkeus, Kartta kartta, String nimi) {
+        super(1000, null);
+        this.leveys = leveys;
+        this.korkeus = korkeus;
+        this.logiikka = new PeliLogiikka(this);
+        this.pelaaja = new Pelihahmo(10, 10);
+        this.kartta = kartta;
+        this.highscore = new Highscore(nimi);
+        super.addActionListener(this);
+        super.setInitialDelay(500);
+        super.setDelay(135);
         super.stop();
     }
 

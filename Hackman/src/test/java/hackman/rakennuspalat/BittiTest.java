@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hackman.rakennuspalat;
 
 import hackman.rakennuspalat.Bitti;
-import hackman.rakennuspalat.Pelihahmo;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -33,6 +24,13 @@ public class BittiTest {
     @Test
     public void bitinLuominenToimii() {
         assertEquals("(8, 10)", this.bitti.toString());
+    }
+    
+    @Test
+    public void setKerattyToimii() {
+        assertFalse(this.bitti.isKeratty());
+        this.bitti.setKeratty(true);
+        assertTrue(this.bitti.isKeratty());
     }
 
     @Test
