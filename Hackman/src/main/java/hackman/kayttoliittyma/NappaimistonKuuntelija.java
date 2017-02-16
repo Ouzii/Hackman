@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.Scanner;
+import javax.swing.SwingUtilities;
 
 /**
  * Näppäimistönkuuntelija, joka siirtää näppäinten painallukset logiikan
@@ -53,10 +54,12 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_P) {
-            if (this.peli.isRunning()) {
-                this.peli.stop();
-            } else {
-                this.peli.restart();
+            if (!this.peli.getLogiikka().isHavia() && !this.peli.getLogiikka().isVoita()) {
+                if (this.peli.isRunning()) {
+                    this.peli.stop();
+                } else {
+                    this.peli.restart();
+                }
             }
         }
 
@@ -65,7 +68,14 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-            kali.menu();
+            if (!this.peli.getLogiikka().isAlkaa() && !this.peli.getHighscore().isMenuun()) {
+                this.kali.getFrame().setVisible(false);
+                this.kali.getFrame().removeAll();
+                this.kali = new Kayttoliittyma(20, false);
+                SwingUtilities.invokeLater(kali);
+            } else {
+                kali.menu();
+            }
         }
 
         if (e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.getLogiikka().isAlkaa()) {

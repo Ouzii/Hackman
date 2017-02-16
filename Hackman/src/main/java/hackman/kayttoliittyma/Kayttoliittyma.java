@@ -2,17 +2,8 @@ package hackman.kayttoliittyma;
 
 import hackman.kartat.*;
 import hackman.peli.Peli;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  * Käyttöliittymä, joka huolehtii pelin valikoista ja käynnistyksestä.
@@ -37,21 +28,26 @@ public class Kayttoliittyma implements Runnable {
      *
      * @param sivunPituus Annettava koko palikoille pelissä.
      */
-    public Kayttoliittyma(int sivunPituus) {
+    public Kayttoliittyma(int sivunPituus, boolean error) {
         this.sivunPituus = sivunPituus;
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.pojot = 0;
         this.nimi = "";
         this.nappi = new JButton("Kirjaudu");
         this.tekstikentta = new JTextField("");
-        this.merkinta = new JLabel("Anna nimesi:", SwingConstants.CENTER);
+        if(!error) {
+            this.merkinta = new JLabel("Anna nimesi: (max. 20 merkkiä)", SwingConstants.CENTER);
+        } else {
+            this.merkinta = new JLabel("Liian pitkä nimi!", SwingConstants.CENTER);
+        }
         this.asetaUlkoasu();
     }
 
     private void asetaUlkoasu() {
         Font fontti = new Font("Comic Sans MS", Font.BOLD, 34);
+        Font fontti2 = new Font("Comic Sans MS", Font.BOLD, 24);
         Dimension dimenssio = new Dimension(150, 150);
-        this.merkinta.setFont(fontti);
+        this.merkinta.setFont(fontti2);
         this.nappi.setFont(fontti);
         this.tekstikentta.setFont(fontti);
         this.merkinta.setOpaque(true);

@@ -42,16 +42,20 @@ public class Piirtaja extends JPanel implements Paivitettava {
     
     private void piirraMenu(Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawString("Aloita painamalla <Enter>", 4 * this.palikanKoko, 7 * this.palikanKoko);
+        g.drawString("Aloita/jatka peliä ", 4 * this.palikanKoko, 5 * this.palikanKoko);
+        g.drawString("painamalla <Enter>", 4 * this.palikanKoko, 6 * this.palikanKoko);
         g.setColor(Color.BLUE);
-        g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 9 * this.palikanKoko);
-        g.drawString("painamalla <F1>", 6 * this.palikanKoko, 10 * this.palikanKoko);
+        g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 8 * this.palikanKoko);
+        g.drawString("painamalla <F1>", 6 * this.palikanKoko, 9 * this.palikanKoko);
         g.setColor(Color.BLACK);
-        g.drawString("Pelissä paina <R>", 4 * this.palikanKoko, 12 * this.palikanKoko);
-        g.drawString("aloittaaksesi alusta", 6 * this.palikanKoko, 13 * this.palikanKoko);
+        g.drawString("Pelissä paina <R>", 4 * this.palikanKoko, 11 * this.palikanKoko);
+        g.drawString("aloittaaksesi alusta", 6 * this.palikanKoko, 12 * this.palikanKoko);
         g.setColor(Color.BLUE);
-        g.drawString("Pelissä paina <P>", 4 * this.palikanKoko, 15 * this.palikanKoko);
-        g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 16 * this.palikanKoko);
+        g.drawString("Pelissä paina <P>", 4 * this.palikanKoko, 14 * this.palikanKoko);
+        g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 15 * this.palikanKoko);
+        g.setColor(Color.BLACK);
+        g.drawString("Paina <Esc> vaihtaaksesi", 4 * this.palikanKoko, 17 * this.palikanKoko);
+        g.drawString("käyttäjän nimeä", 6 * this.palikanKoko, 18 * this.palikanKoko);
     }
     
     private void piirraHighscore(Graphics g) {
