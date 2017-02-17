@@ -28,8 +28,9 @@ public class Kayttoliittyma implements Runnable {
      *
      * @param sivunPituus Annettava koko palikoille pelissä.
      * @param error Kertoo käynnistetäänkö error-moodissa.
+     * @param errorMsg Antaa tulostettavan merkkijonon.
      */
-    public Kayttoliittyma(int sivunPituus, boolean error) {
+    public Kayttoliittyma(int sivunPituus, boolean error, String errorMsg) {
         this.sivunPituus = sivunPituus;
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.pojot = 0;
@@ -39,7 +40,7 @@ public class Kayttoliittyma implements Runnable {
         if (!error) {
             this.merkinta = new JLabel("Anna nimesi: (max. 20 merkkiä)", SwingConstants.CENTER);
         } else {
-            this.merkinta = new JLabel("Liian pitkä nimi!", SwingConstants.CENTER);
+            this.merkinta = new JLabel(errorMsg, SwingConstants.CENTER);
         }
         this.asetaUlkoasu();
     }

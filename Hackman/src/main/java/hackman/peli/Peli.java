@@ -3,10 +3,7 @@ package hackman.peli;
 import hackman.kartat.Kartta;
 import hackman.kayttoliittyma.Paivitettava;
 import hackman.rakennuspalat.Bitti;
-import hackman.rakennuspalat.Palikka;
 import hackman.rakennuspalat.Pelihahmo;
-import hackman.rakennuspalat.Suunta;
-import hackman.rakennuspalat.Vihollinen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -57,7 +54,6 @@ public class Peli extends Timer implements ActionListener {
      * @param kartta Kartta.
      * @param nimi Pelaajan antama nimi.
      */
-
     public Peli(int leveys, int korkeus, Kartta kartta, String nimi) {
         super(1000, null);
         this.leveys = leveys;

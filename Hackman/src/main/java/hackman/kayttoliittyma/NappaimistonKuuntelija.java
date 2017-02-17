@@ -5,8 +5,6 @@ import hackman.peli.Peli;
 import hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.util.Scanner;
 import javax.swing.SwingUtilities;
 
 /**
@@ -71,7 +69,7 @@ public class NappaimistonKuuntelija implements KeyListener {
             if (!this.peli.getLogiikka().isAlkaa() && !this.peli.getHighscore().isMenuun()) {
                 this.kali.getFrame().setVisible(false);
                 this.kali.getFrame().removeAll();
-                this.kali = new Kayttoliittyma(20, false);
+                this.kali = new Kayttoliittyma(20, false, "");
                 SwingUtilities.invokeLater(kali);
             } else {
                 kali.menu();

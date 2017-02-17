@@ -8,12 +8,8 @@ package hackman.peli;
 import hackman.kartat.Kartta1;
 import hackman.kayttoliittyma.Kayttoliittyma;
 import hackman.kayttoliittyma.Piirtaja;
-import hackman.rakennuspalat.Suunta;
-import hackman.rakennuspalat.Vihollinen;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,7 +35,7 @@ public class PeliTest {
         assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals("Kartta1", this.peli.getKartta().toString());
         assertEquals(null, this.peli.getPaivitettava());
-        this.peli.setPaivitettava(new Piirtaja(this.peli, 20, new Kayttoliittyma(20, false)));
+        this.peli.setPaivitettava(new Piirtaja(this.peli, 20, new Kayttoliittyma(20, false, "")));
         assertNotEquals(null, this.peli.getPaivitettava());
         assertEquals(20, this.peli.getKorkeus());
         assertEquals(20, this.peli.getLeveys());

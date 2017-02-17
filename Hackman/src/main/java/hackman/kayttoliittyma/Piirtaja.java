@@ -3,16 +3,13 @@ package hackman.kayttoliittyma;
 import hackman.peli.Peli;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.io.File;
 import java.util.Scanner;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  * Pelin grafiikoiden piirtäjä-luokka.
@@ -61,7 +58,12 @@ public class Piirtaja extends JPanel implements Paivitettava {
     private void piirraHighscore(Graphics g) {
         try {
             this.peli.getHighscore().kirjoita();
+            g.setColor(Color.BLUE);
+            g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+            g.drawString("Sija   pisteet     nimi", 6 * this.palikanKoko, 3 * this.palikanKoko);
             g.setColor(Color.BLACK);
+            g.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
+
             Scanner tiedostonLukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
             int y = 4;
             while (tiedostonLukija.hasNextLine()) {
@@ -72,7 +74,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
             g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (y + 2) * this.palikanKoko);
         } catch (Exception e) {
             g.setColor(Color.RED);
-            g.drawString("Jokin meni pieleen, yritä uudelleen", this.palikanKoko, 10 * this.palikanKoko);
+            g.drawString("Jokin meni pieleen, yritä uudelleen" + e.getMessage(), this.palikanKoko, 10 * this.palikanKoko);
             g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (12) * this.palikanKoko);
         }
     }

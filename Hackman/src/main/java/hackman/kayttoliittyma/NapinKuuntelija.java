@@ -3,7 +3,6 @@ package hackman.kayttoliittyma;
 import hackman.peli.Peli;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentListener;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -33,19 +32,23 @@ public class NapinKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (this.teksti.getText().length() <= 20) {
+        if (this.teksti.getText().length() > 20) {
+            this.kali.getFrame().setVisible(false);
+            this.kali.getFrame().removeAll();
+            this.kali = new Kayttoliittyma(20, true, "Nimi liian pitkä!");
+            SwingUtilities.invokeLater(kali);
+        } else if (this.teksti.getText().length() == 0) {
+            this.kali.getFrame().setVisible(false);
+            this.kali.getFrame().removeAll();
+            this.kali = new Kayttoliittyma(20, true, "Et antanut nimeäsi!");
+            SwingUtilities.invokeLater(kali);
+        } else {
             this.kali.setNimi(this.teksti.getText());
             this.peli.getLogiikka().setKirjaudu(true);
             this.kali.luoKomponentit(this.kali.getFrame().getContentPane());
             this.kali.getFrame().dispose();
             this.kali.getFrame().pack();
             this.kali.getFrame().setVisible(true);
-        } else {
-            this.kali.getFrame().setVisible(false);
-            this.kali.getFrame().removeAll();
-            this.kali = new Kayttoliittyma(20, true);
-            this.teksti.setName("Nimi liian pitkä!");
-            SwingUtilities.invokeLater(kali);
         }
     }
 

@@ -6,8 +6,6 @@
 package hackman.paaohjelma;
 
 import hackman.kayttoliittyma.Kayttoliittyma;
-import hackman.kartat.Kartta1;
-import hackman.peli.Peli;
 import javax.swing.SwingUtilities;
 
 /**
@@ -25,7 +23,7 @@ public class Paaohjelma {
      */
     public static void main(String[] args) {
 
-        Kayttoliittyma kali = new Kayttoliittyma(20, false);
+        Kayttoliittyma kali = new Kayttoliittyma(20, false, "");
         SwingUtilities.invokeLater(kali);
 
         while (kali.getPaivitettava() == null) {
