@@ -29,4 +29,5 @@ Päivä | Tunnit | Kuvaus
 16.02.2017 | 2h | Lisätty kirjautumisikkuna, korjattu Highscore-luokka toimivaksi ja säädetty ulkoasua. Korjattu Javadocs.
 16.02.2017 | 0.5h | Lisätty testejä ja generoitu uudet raportit.
 17.02.2017 | 0.5h | Lisätty käyttäjänimen vaihto-ominaisuus.
+17.02.2017 | 0.5h | Korjattu bugi, joka sai ohjelman kaatumaan pelaajan syöttäessä tyhjän merkkijonon nimekseen.
 ... | ... | ...
