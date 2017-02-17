@@ -11,14 +11,16 @@ import hackman.peli.Peli;
 import javax.swing.SwingUtilities;
 
 /**
- * Pääohjelma-luokka, joka käynnistyy, kun ohjelma käynnistetään. 
- * Hoitaa käyttöliittymän käynnistämisen.
+ * Pääohjelma-luokka, joka käynnistyy, kun ohjelma käynnistetään. Hoitaa
+ * käyttöliittymän käynnistämisen.
+ *
  * @author oce
  */
 public class Paaohjelma {
 
     /**
      * Luo ja käynnistää käyttöliittymän.
+     *
      * @param args Javan komennot String muodossa.
      */
     public static void main(String[] args) {

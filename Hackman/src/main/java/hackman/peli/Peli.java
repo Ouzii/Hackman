@@ -48,7 +48,16 @@ public class Peli extends Timer implements ActionListener {
         super.setDelay(135);
         super.stop();
     }
-    
+
+    /**
+     * Toinen konstruktori, jolla pidetään String nimi tallessa.
+     *
+     * @param leveys Kartan leveys.
+     * @param korkeus Kartan korkeus.
+     * @param kartta Kartta.
+     * @param nimi Pelaajan antama nimi.
+     */
+
     public Peli(int leveys, int korkeus, Kartta kartta, String nimi) {
         super(1000, null);
         this.leveys = leveys;

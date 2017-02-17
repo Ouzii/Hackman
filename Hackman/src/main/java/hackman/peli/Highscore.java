@@ -25,6 +25,8 @@ public class Highscore {
     /**
      * Luo LinkedHashMapin, jossa pidetään kirjaa pisteistä ja scannerin, joka
      * lukee pisteet tekstitiedostosta.
+     *
+     * @param nimi Pelaajan antama nimi.
      */
     public Highscore(String nimi) {
         this.rivit = new LinkedHashMap<>();
@@ -89,6 +91,7 @@ public class Highscore {
     /**
      * Tarkastaa, onko pelaajan saavuttamat pisteet tarpeeksi suuret listalle
      * päästäkseen.
+     *
      * @param pojot Pelaajan keräämät pisteet kutsuntahetkellä.
      */
     public void onkoHighscore(int pojot) {
@@ -106,6 +109,8 @@ public class Highscore {
 
     /**
      * Kirjoittaa pisteet tekstitiedostoon.
+     *
+     * @return Palauttaa true, jos onnistuu ja false, jos ei onnistu.
      */
     public boolean kirjoita() {
         try {

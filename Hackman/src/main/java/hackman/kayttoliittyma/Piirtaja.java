@@ -20,7 +20,7 @@ import javax.swing.JTextField;
  * @author Oce
  */
 public class Piirtaja extends JPanel implements Paivitettava {
-    
+
     private Peli peli;
     private int palikanKoko;
     private Kayttoliittyma kali;
@@ -39,7 +39,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
         this.setOpaque(true);
         this.setBackground(Color.LIGHT_GRAY);
     }
-    
+
     private void piirraMenu(Graphics g) {
         g.setColor(Color.BLACK);
         g.drawString("Aloita/jatka peliä ", 4 * this.palikanKoko, 5 * this.palikanKoko);
@@ -57,7 +57,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
         g.drawString("Paina <Esc> vaihtaaksesi", 4 * this.palikanKoko, 17 * this.palikanKoko);
         g.drawString("käyttäjän nimeä", 6 * this.palikanKoko, 18 * this.palikanKoko);
     }
-    
+
     private void piirraHighscore(Graphics g) {
         try {
             this.peli.getHighscore().kirjoita();
@@ -76,14 +76,14 @@ public class Piirtaja extends JPanel implements Paivitettava {
             g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (12) * this.palikanKoko);
         }
     }
-    
+
     private void piirraPelaaja(Graphics g) {
         g.setColor(Color.GREEN);
         if (this.peli.getPelaaja().isElossa()) {
             g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko);
         }
     }
-    
+
     private void piirraBitit(Graphics g) {
         g.setColor(Color.BLUE);
         for (Bitti bitti : this.peli.getKartta().getBitit()) {
@@ -92,24 +92,24 @@ public class Piirtaja extends JPanel implements Paivitettava {
             }
         }
     }
-    
+
     private void piirraViholliset(Graphics g) {
         g.setColor(Color.RED);
         g.fill3DRect(this.peli.getKartta().getVihuPun().getX() * this.palikanKoko, this.peli.getKartta().getVihuPun().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
-        
+
         g.setColor(Color.BLACK);
         g.fill3DRect(this.peli.getKartta().getVihuMus().getX() * this.palikanKoko, this.peli.getKartta().getVihuMus().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
-        
+
         g.setColor(Color.YELLOW);
         g.fill3DRect(this.peli.getKartta().getVihuKel().getX() * this.palikanKoko, this.peli.getKartta().getVihuKel().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
-        
+
         g.setColor(Color.PINK);
         g.fill3DRect(this.peli.getKartta().getVihuPin().getX() * this.palikanKoko, this.peli.getKartta().getVihuPin().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
     }
-    
+
     private void piirraSeinat(Graphics g) {
         g.setColor(Color.GRAY);
-        
+
         for (Palikka seina : this.peli.getKartta().getSeinat()) {
             g.fill3DRect(seina.getX() * this.palikanKoko, seina.getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko, true);
         }
@@ -123,20 +123,20 @@ public class Piirtaja extends JPanel implements Paivitettava {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        
+
         Font suuri = new Font("Comic Sans MS", Font.BOLD, 34);
         Font pieni = new Font("Comic Sans MS", Font.BOLD, 22);
         g.setFont(pieni);
         g.setColor(Color.LIGHT_GRAY);
 //        g.fill3DRect(-20, -20, 40 * this.palikanKoko, 40 * this.palikanKoko, true);
         if (!this.peli.getLogiikka().isAlkaa()) {
-            
+
             if (!this.peli.getHighscore().isMenuun()) {
                 this.piirraMenu(g);
             } else {
                 this.piirraHighscore(g);
             }
-            
+
         } else {
             this.piirraSeinat(g);
             this.piirraPelaaja(g);
@@ -169,5 +169,5 @@ public class Piirtaja extends JPanel implements Paivitettava {
     public void paivita() {
         repaint();
     }
-    
+
 }

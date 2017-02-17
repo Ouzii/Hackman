@@ -27,6 +27,7 @@ public class Kayttoliittyma implements Runnable {
      * mittasuhteen pelille.
      *
      * @param sivunPituus Annettava koko palikoille pelissä.
+     * @param error Kertoo käynnistetäänkö error-moodissa.
      */
     public Kayttoliittyma(int sivunPituus, boolean error) {
         this.sivunPituus = sivunPituus;
@@ -35,7 +36,7 @@ public class Kayttoliittyma implements Runnable {
         this.nimi = "";
         this.nappi = new JButton("Kirjaudu");
         this.tekstikentta = new JTextField("");
-        if(!error) {
+        if (!error) {
             this.merkinta = new JLabel("Anna nimesi: (max. 20 merkkiä)", SwingConstants.CENTER);
         } else {
             this.merkinta = new JLabel("Liian pitkä nimi!", SwingConstants.CENTER);
