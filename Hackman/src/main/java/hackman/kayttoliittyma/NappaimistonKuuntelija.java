@@ -1,7 +1,7 @@
 package hackman.kayttoliittyma;
 
 import hackman.rakennuspalat.Suunta;
-import hackman.peli.Peli;
+import hackman.logiikka.Peli;
 import hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -69,10 +69,10 @@ public class NappaimistonKuuntelija implements KeyListener {
             if (!this.peli.getLogiikka().isAlkaa() && !this.peli.getHighscore().isMenuun()) {
                 this.kali.getFrame().setVisible(false);
                 this.kali.getFrame().removeAll();
-                this.kali = new Kayttoliittyma(20, false, "");
+                this.kali = new Kayttoliittyma(25, false, "");
                 SwingUtilities.invokeLater(kali);
             } else {
-                kali.menu();
+                kali.menuun();
             }
         }
 
@@ -89,6 +89,7 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_F1) {
+            System.out.println("aasi");
             if (!this.peli.getHighscore().isMenuun()) {
                 this.peli.getHighscore().setMenuun(true);
             } else {

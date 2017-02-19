@@ -1,7 +1,7 @@
 package hackman.kayttoliittyma;
 
 import hackman.kartat.*;
-import hackman.peli.Peli;
+import hackman.logiikka.Peli;
 import java.awt.*;
 import javax.swing.*;
 
@@ -18,9 +18,7 @@ public class Kayttoliittyma implements Runnable {
     private Piirtaja piirto;
     public int pojot;
     private String nimi;
-    private JButton nappi;
-    private JTextField tekstikentta;
-    private JLabel merkinta;
+    private MenunUlkoasu menunUlkoasu;
 
     /**
      * Konstruktori käyttöliittymälle, joka luo uuden pelin ja asettaa oikean
@@ -35,52 +33,12 @@ public class Kayttoliittyma implements Runnable {
         this.peli = new Peli(20, 20, new Kartta1(20, 20));
         this.pojot = 0;
         this.nimi = "";
-        this.nappi = new JButton("Kirjaudu");
-        this.tekstikentta = new JTextField("");
-        if (!error) {
-            this.merkinta = new JLabel("Anna nimesi: (max. 20 merkkiä)", SwingConstants.CENTER);
-        } else {
-            this.merkinta = new JLabel(errorMsg, SwingConstants.CENTER);
-        }
-        this.asetaUlkoasu();
+        this.menunUlkoasu = new MenunUlkoasu(this, error, errorMsg);
+
     }
 
-    private void asetaUlkoasu() {
-        Font fontti = new Font("Comic Sans MS", Font.BOLD, 34);
-        Font fontti2 = new Font("Comic Sans MS", Font.BOLD, 24);
-        Dimension dimenssio = new Dimension(150, 150);
-        this.merkinta.setFont(fontti2);
-        this.nappi.setFont(fontti);
-        this.tekstikentta.setFont(fontti);
-        this.merkinta.setOpaque(true);
-        this.merkinta.setBackground(Color.BLACK);
-        this.merkinta.setForeground(Color.WHITE);
-        this.merkinta.setPreferredSize(dimenssio);
-        this.tekstikentta.setOpaque(true);
-        this.tekstikentta.setBorder(null);
-        this.tekstikentta.setBackground(Color.BLACK);
-        this.tekstikentta.setForeground(Color.RED);
-        this.tekstikentta.setPreferredSize(dimenssio);
-        this.tekstikentta.setHorizontalAlignment(SwingConstants.CENTER);
-        this.nappi.setOpaque(true);
-        this.nappi.setBackground(Color.WHITE);
-        this.nappi.setForeground(Color.BLACK);
-        this.nappi.setPreferredSize(dimenssio);
-    }
-
-    public String getNimi() {
-        return nimi;
-    }
-
-    /**
-     * Asettaa JTextFieldistä saadun merkkijonon pelaajan nimeksi
-     * Highscore-luokkaan.
-     *
-     * @param nimi pelaajan antama nimi.
-     */
     public void setNimi(String nimi) {
         this.nimi = nimi;
-        this.peli.getHighscore().setNimi(nimi);
     }
 
     /**
@@ -89,16 +47,12 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("HACKMAN");
-        int leveys = (peli.getLeveys()) * (sivunPituus + 2) - 4;
-        int korkeus = (peli.getKorkeus()) * (sivunPituus + 3) - 2;
+        int leveys = (this.peli.getLeveys()) * (this.sivunPituus + 2) - 4;
+        int korkeus = (this.peli.getKorkeus()) * (this.sivunPituus + 3) - 2;
         frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        BorderLayout l = new BorderLayout();
-        frame.setLayout(l);
-        this.nappi.addActionListener(new NapinKuuntelija(this.peli, this.tekstikentta, this));
-        frame.add(this.merkinta, BorderLayout.NORTH);
-        frame.add(this.tekstikentta, BorderLayout.CENTER);
-        frame.add(this.nappi, BorderLayout.SOUTH);
+        frame.setLayout(new BorderLayout());
+        this.menunUlkoasu.aseta();
         frame.pack();
         frame.setVisible(true);
     }
@@ -107,15 +61,18 @@ public class Kayttoliittyma implements Runnable {
         return frame;
     }
 
+    public Peli getPeli() {
+        return peli;
+    }
+
     /**
      * Luo piirtäjän ikkunalle ja lisää ikkunalle näppäimistönkuuntelijan.
+     * Lisäksi poistaa kirjautumisikkunan komponentit.
      *
      * @param container Piirtoalue.
      */
     public void luoKomponentit(Container container) {
-        frame.remove(this.merkinta);
-        frame.remove(this.nappi);
-        frame.remove(this.tekstikentta);
+        this.menunUlkoasu.poistaKomponentit();
         this.piirto = new Piirtaja(this.peli, this.sivunPituus, this);
         this.peli.setPaivitettava(piirto);
         container.add(piirto);
@@ -130,7 +87,7 @@ public class Kayttoliittyma implements Runnable {
     /**
      * Palauttaa päävalikkonäkymän.
      */
-    public void menu() {
+    public void menuun() {
         this.peli.getLogiikka().pysayta();
         this.piirto.paivita();
     }
@@ -143,24 +100,16 @@ public class Kayttoliittyma implements Runnable {
         frame.removeKeyListener(frame.getKeyListeners()[0]);
         this.pojot = this.peli.getLogiikka().getPojot();
         if (this.peli.getKartta().toString().equals("Kartta1")) {
-            this.peli = new Peli(20, 20, new Kartta2(20, 20));
-            this.peli.getLogiikka().setPojot(this.pojot);
-            this.peli.getLogiikka().setAlkaa();
+            asetaKartta(new Kartta2(20, 20));
         } else if (this.peli.getKartta().toString().equals("Kartta2")) {
-            this.peli = new Peli(20, 20, new Kartta3(20, 20));
-            this.peli.getLogiikka().setPojot(this.pojot);
-            this.peli.getLogiikka().setAlkaa();
+            asetaKartta(new Kartta3(20, 20));
         } else if (this.peli.getKartta().toString().equals("Kartta3")) {
-            this.peli = new Peli(20, 20, new Kartta4(20, 20));
-            this.peli.getLogiikka().setPojot(this.pojot);
-            this.peli.getLogiikka().setAlkaa();
+            asetaKartta(new Kartta4(20, 20));
         } else if (this.peli.getKartta().toString().equals("Kartta4")) {
-            this.peli = new Peli(20, 20, new Kartta5(20, 20));
-            this.peli.getLogiikka().setPojot(this.pojot);
-            this.peli.getLogiikka().setAlkaa();
+            asetaKartta(new Kartta5(20, 20));
         } else if (this.peli.getKartta().toString().equals("Kartta5")) {
             this.uusiPeli();
-            this.menu();
+            this.menuun();
             this.peli.getHighscore().setMenuun(true);
             this.peli.getHighscore().onkoHighscore(pojot);
             this.peli.getHighscore().kirjoita();
@@ -169,6 +118,12 @@ public class Kayttoliittyma implements Runnable {
         this.luoKomponentit(frame);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    private void asetaKartta(Kartta kartta) {
+        this.peli = new Peli(20, 20, kartta, this.nimi);
+        this.peli.getLogiikka().setPojot(this.pojot);
+        this.peli.getLogiikka().setAlkaa();
     }
 
     /**

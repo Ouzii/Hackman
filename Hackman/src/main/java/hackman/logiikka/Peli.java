@@ -1,9 +1,10 @@
-package hackman.peli;
+package hackman.logiikka;
 
 import hackman.kartat.Kartta;
 import hackman.kayttoliittyma.Paivitettava;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Pelihahmo;
+import hackman.rakennuspalat.Vihollinen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -97,6 +98,9 @@ public class Peli extends Timer implements ActionListener {
         return this.korkeus;
     }
 
+    
+    
+
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
     }
@@ -108,10 +112,14 @@ public class Peli extends Timer implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.logiikka.kuoleeko(this.kartta.getVihuPun());
-        this.logiikka.kuoleeko(this.kartta.getVihuMus());
-        this.logiikka.kuoleeko(this.kartta.getVihuKel());
-        this.logiikka.kuoleeko(this.kartta.getVihuPin());
+        this.paivitettava.paivita();
+//        this.logiikka.kuoleeko(this.kartta.getVihuPun());
+//        this.logiikka.kuoleeko(this.kartta.getVihuMus());
+//        this.logiikka.kuoleeko(this.kartta.getVihuKel());
+//        this.logiikka.kuoleeko(this.kartta.getVihuPin());
+        for (Vihollinen vihu : this.kartta.getVihut()) {
+            this.logiikka.kuoleeko(vihu);
+        }
         if (this.logiikka.isVuoro() == false) {
             this.logiikka.liikuPelaaja();
             this.logiikka.setVuoro(true);
@@ -130,10 +138,10 @@ public class Peli extends Timer implements ActionListener {
         if (this.logiikka.getKeratty() == this.kartta.getBitit().size()) {
             this.logiikka.voita();
         }
-        try {
-            paivitettava.paivita();
-        } catch (Exception ex) {
-            super.restart();
-        }
+//        try {
+//            paivitettava.paivita();
+//        } catch (Exception ex) {
+//            super.restart();
+//        }
     }
 }

@@ -19,13 +19,15 @@ public class Kartta {
     public int leveys;
     public List<Palikka> seinat;
     public List<Bitti> bitit;
+    public List<Vihollinen> vihut;
     private Vihollinen vihuPun;
     private Vihollinen vihuMus;
     private Vihollinen vihuKel;
     private Vihollinen vihuPin;
-    
+
     /**
      * Luo pohjan kartoille sekä viholliset.
+     *
      * @param leveys Kartan leveys.
      * @param korkeus Kartan korkeus.
      */
@@ -34,15 +36,27 @@ public class Kartta {
         this.leveys = leveys;
         this.seinat = new ArrayList<>();
         this.bitit = new ArrayList<>();
+        this.vihut = new ArrayList<>();
+        luoViholliset();
+        luoSeinat();
+    }
+
+    private void luoViholliset() {
         this.vihuPun = new Vihollinen(2, 2);
         this.vihuPun.setSuunta(Suunta.ALAS);
+        this.vihut.add(this.vihuPun);
         this.vihuMus = new Vihollinen(leveys - 2, korkeus - 2);
         this.vihuMus.setSuunta(Suunta.YLOS);
+        this.vihut.add(this.vihuMus);
         this.vihuKel = new Vihollinen(leveys - 2, 2);
         this.vihuKel.setSuunta(Suunta.VASEN);
+        this.vihut.add(this.vihuKel);
         this.vihuPin = new Vihollinen(2, korkeus - 2);
         this.vihuPin.setSuunta(Suunta.OIKEA);
+        this.vihut.add(this.vihuPin);
+    }
 
+    private void luoSeinat() {
         for (int i = 0; i <= leveys; i++) {
             this.seinat.add(new Palikka(i, 1));
         }
@@ -63,6 +77,10 @@ public class Kartta {
 
     public List<Palikka> getSeinat() {
         return this.seinat;
+    }
+
+    public List<Vihollinen> getVihut() {
+        return vihut;
     }
 
     public Vihollinen getVihuPun() {

@@ -1,6 +1,6 @@
 package hackman.kayttoliittyma;
 
-import hackman.peli.Peli;
+import hackman.logiikka.Peli;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import java.awt.Color;

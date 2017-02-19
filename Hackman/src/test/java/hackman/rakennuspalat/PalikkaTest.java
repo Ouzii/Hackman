@@ -35,13 +35,13 @@ public class PalikkaTest {
         assertEquals("(10, 10)", palikka.toString());
     }
 
-    @Test
-    public void osuuToimii() {
-        Palikka p2 = new Palikka(10, 10);
-        assertTrue(this.palikka.osuu(p2));
-        p2.liiku();
-        assertFalse(this.palikka.osuu(p2));
-    }
+//    @Test
+//    public void osuuToimii() {
+//        Palikka p2 = new Palikka(10, 10);
+//        assertTrue(this.palikka.osuu(p2));
+//        p2.liiku();
+//        assertFalse(this.palikka.osuu(p2));
+//    }
 
     @Test
     public void suuntaMuuttuu() {

@@ -1,4 +1,4 @@
-package hackman.peli;
+package hackman.logiikka;
 
 import java.io.File;
 import java.io.FileWriter;

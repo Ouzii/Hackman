@@ -5,6 +5,7 @@
  */
 package hackman.peli;
 
+import hackman.logiikka.Peli;
 import hackman.kartat.Kartta1;
 import hackman.rakennuspalat.Suunta;
 import hackman.rakennuspalat.Vihollinen;

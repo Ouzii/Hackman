@@ -1,4 +1,4 @@
-package hackman.peli;
+package hackman.logiikka;
 
 import hackman.kayttoliittyma.Piirtaja;
 import hackman.rakennuspalat.Palikka;

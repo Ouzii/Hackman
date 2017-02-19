@@ -23,14 +23,14 @@ public class Paaohjelma {
      */
     public static void main(String[] args) {
 
-        Kayttoliittyma kali = new Kayttoliittyma(20, false, "");
+        Kayttoliittyma kali = new Kayttoliittyma(25, false, "");
         SwingUtilities.invokeLater(kali);
 
         while (kali.getPaivitettava() == null) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
-                System.out.println("Jokin meni pieleen, yritä uudestaan!");
+                Thread.yield();
             }
         }
     }

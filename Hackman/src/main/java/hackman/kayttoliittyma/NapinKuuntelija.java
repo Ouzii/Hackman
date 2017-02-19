@@ -1,6 +1,6 @@
 package hackman.kayttoliittyma;
 
-import hackman.peli.Peli;
+import hackman.logiikka.Peli;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
@@ -43,6 +43,7 @@ public class NapinKuuntelija implements ActionListener {
             this.kali = new Kayttoliittyma(20, true, "Et antanut nimeäsi!");
             SwingUtilities.invokeLater(kali);
         } else {
+            this.peli.getHighscore().setNimi(this.teksti.getText());
             this.kali.setNimi(this.teksti.getText());
             this.peli.getLogiikka().setKirjaudu(true);
             this.kali.luoKomponentit(this.kali.getFrame().getContentPane());

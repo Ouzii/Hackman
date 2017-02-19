@@ -5,6 +5,7 @@
  */
 package hackman.peli;
 
+import hackman.logiikka.Peli;
 import hackman.kartat.Kartta1;
 import org.junit.After;
 import org.junit.AfterClass;

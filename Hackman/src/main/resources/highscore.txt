@@ -1,10 +1,10 @@
 1. 100 -tyhja-
 2. 90 -tyhja-
 3. 80 -tyhja-
-4. 72 11111111111111111111
+4. 79 e
 5. 70 -tyhja-
 6. 60 -tyhja-
 7. 50 -tyhja-
-8. 40 -tyhja-
-9. 30 -tyhja-
-10. 20 -tyhja-
+8. 40 e
+9. 31 Oce
+10. 30 -tyhja-
