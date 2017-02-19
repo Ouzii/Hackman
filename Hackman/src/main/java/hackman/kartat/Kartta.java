@@ -37,8 +37,8 @@ public class Kartta {
         this.seinat = new ArrayList<>();
         this.bitit = new ArrayList<>();
         this.vihut = new ArrayList<>();
-        luoViholliset();
-        luoSeinat();
+        this.luoViholliset();
+        this.luoSeinat();
     }
 
     private void luoViholliset() {

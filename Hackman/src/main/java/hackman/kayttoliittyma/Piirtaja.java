@@ -59,18 +59,18 @@ public class Piirtaja extends JPanel implements Paivitettava {
         g.setColor(Color.BLACK);
         if (this.peli.getVaikeustaso().equals(Vaikeustaso.HELPPO)) {
             g.setColor(Color.RED);
-            g.drawString("HELPPO", 3 * this.palikanKoko, 2 * this.palikanKoko);
+            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
             g.setColor(Color.BLACK);
             g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
             g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
         } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
-            g.drawString("HELPPO", 3 * this.palikanKoko, 2 * this.palikanKoko);
+            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
             g.setColor(Color.RED);
             g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
             g.setColor(Color.BLACK);
             g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
         } else {
-            g.drawString("HELPPO", 3 * this.palikanKoko, 2 * this.palikanKoko);
+            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
             g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
             g.setColor(Color.RED);
             g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);

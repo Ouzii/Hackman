@@ -109,7 +109,7 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_F1) {
-            if (!this.peli.getHighscore().isMenuun()) {
+            if (!this.peli.getHighscore().isMenuun() && !this.peli.getLogiikka().isAlkaa()) {
                 this.peli.getHighscore().setMenuun(true);
             } else {
                 this.peli.getHighscore().setMenuun(false);

@@ -5,19 +5,29 @@ import hackman.rakennuspalat.Palikka;
 
 /**
  * Pelin neljäs kartta.
+ *
  * @author Oce
  */
 public class Kartta4 extends Kartta {
 
     /**
      * Luo seinät ja bitit kartalle.
+     *
      * @param leveys Kartan leveys.
      * @param korkeus Kartan korkeus.
      */
     public Kartta4(int leveys, int korkeus) {
         super(leveys, korkeus);
+        this.luoSeinat();
+        this.luoBitit();
+    }
+
+    private void luoSeinat() {
         this.lisaaLaatikonUlkoseinat();
         this.lisaaLaatikonKeskus();
+    }
+
+    private void luoBitit() {
         for (int i = 2; i < leveys - 1; i++) {
             for (int k = 2; k <= leveys - 1; k++) {
                 if ((i != 10 || k != 10) && (i != 6 || k != 6) && (i != 14 || k != 14) && (i != 6 || k != 14) && (i != 14 || k != 6)) {
@@ -53,6 +63,13 @@ public class Kartta4 extends Kartta {
     }
 
     private void lisaaLaatikonUlkoseinat() {
+        this.ulkoSeinatYlariviPysty();
+        this.ulkoSeinatAlariviPysty();
+        this.ulkoSeinatVasenPuoliVaaka();
+        this.ulkoSeinatOikeaPuoliVaaka();
+    }
+
+    private void ulkoSeinatYlariviPysty() {
         for (int i = 3; i <= super.korkeus / 2 - 1; i++) {
             for (int j = 3; j <= super.leveys - 3; j += 8) {
                 super.seinat.add(new Palikka(j, i));
@@ -63,7 +80,9 @@ public class Kartta4 extends Kartta {
                 super.seinat.add(new Palikka(j, i));
             }
         }
+    }
 
+    private void ulkoSeinatAlariviPysty() {
         for (int i = super.korkeus / 2 + 1; i <= super.korkeus - 3; i++) {
             for (int j = 3; j <= super.korkeus - 3; j += 8) {
                 super.seinat.add(new Palikka(j, i));
@@ -74,7 +93,9 @@ public class Kartta4 extends Kartta {
                 super.seinat.add(new Palikka(j, i));
             }
         }
+    }
 
+    private void ulkoSeinatVasenPuoliVaaka() {
         for (int i = 4; i <= 8; i++) {
             for (int j = 3; j <= super.korkeus - 3; j += 8) {
                 if (i != 6) {
@@ -89,6 +110,9 @@ public class Kartta4 extends Kartta {
                 }
             }
         }
+    }
+
+    private void ulkoSeinatOikeaPuoliVaaka() {
         for (int i = 12; i <= 16; i++) {
             for (int j = 3; j <= super.korkeus - 3; j += 8) {
                 if (i != 14) {
