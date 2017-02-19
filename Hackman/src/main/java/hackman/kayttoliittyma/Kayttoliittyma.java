@@ -2,6 +2,7 @@ package hackman.kayttoliittyma;
 
 import hackman.kartat.*;
 import hackman.logiikka.Peli;
+import hackman.logiikka.Vaikeustaso;
 import java.awt.*;
 import javax.swing.*;
 
@@ -52,7 +53,7 @@ public class Kayttoliittyma implements Runnable {
         frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        this.menunUlkoasu.aseta();
+        this.menunUlkoasu.asetaUlkoasu();
         frame.pack();
         frame.setVisible(true);
     }
@@ -63,6 +64,14 @@ public class Kayttoliittyma implements Runnable {
 
     public Peli getPeli() {
         return peli;
+    }
+
+    public void setPeli(Peli peli) {
+        this.peli = peli;
+    }
+
+    public int getSivunPituus() {
+        return sivunPituus;
     }
 
     /**
@@ -108,7 +117,7 @@ public class Kayttoliittyma implements Runnable {
         } else if (this.peli.getKartta().toString().equals("Kartta4")) {
             asetaKartta(new Kartta5(20, 20));
         } else if (this.peli.getKartta().toString().equals("Kartta5")) {
-            this.uusiPeli();
+            this.uusiPeli(Vaikeustaso.NORMAALI);
             this.menuun();
             this.peli.getHighscore().setMenuun(true);
             this.peli.getHighscore().onkoHighscore(pojot);
@@ -121,7 +130,8 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void asetaKartta(Kartta kartta) {
-        this.peli = new Peli(20, 20, kartta, this.nimi);
+        Vaikeustaso vt = this.peli.getVaikeustaso();
+        this.peli = new Peli(20, 20, kartta, this.nimi, vt);
         this.peli.getLogiikka().setPojot(this.pojot);
         this.peli.getLogiikka().setAlkaa();
     }
@@ -129,16 +139,17 @@ public class Kayttoliittyma implements Runnable {
     /**
      * Luo uuden pelin ensimmäisellä kartalla.
      *
+     * @param vaikeustaso pelin vaikeustaso, joka uudelle pelille asetetaan.
      * @return Peli palauttaa uuden pelin.
      */
-    public Peli uusiPeli() {
+    public Peli uusiPeli(Vaikeustaso vaikeustaso) {
         if (this.piirto != null) {
             frame.remove(piirto);
         }
         if (frame.getKeyListeners().length != 0) {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
         }
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi);
+        this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi, vaikeustaso);
         this.peli.getLogiikka().setAlkaa();
         this.luoKomponentit(frame);
         frame.pack();

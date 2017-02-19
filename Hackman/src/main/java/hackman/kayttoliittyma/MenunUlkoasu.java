@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 /**
+ * Luokka, joka rakentaa kirjautumisikkunan ulkoasun.
  *
  * @author oce
  */
@@ -25,6 +26,13 @@ public class MenunUlkoasu {
     private JTextField tekstikentta;
     private JLabel merkinta;
 
+    /**
+     * Luodaan komponentit kirjautumisikkunalle.
+     *
+     * @param kali Käyttöliittymä.
+     * @param error boolean arvo siitä, tehdäänkö error-tilassa vai ei.
+     * @param errorMsg String, joka tulostetaan error-tilassa.
+     */
     public MenunUlkoasu(Kayttoliittyma kali, boolean error, String errorMsg) {
         this.kali = kali;
         this.nappi = new JButton("Kirjaudu");
@@ -35,19 +43,19 @@ public class MenunUlkoasu {
             this.merkinta = new JLabel(errorMsg, SwingConstants.CENTER);
         }
 
-        asetaUlkoasu();
+        muotoileUlkoasu();
     }
 
-    private void asetaUlkoasu() {
+    private void muotoileUlkoasu() {
         Font fontti = new Font("Comic Sans MS", Font.BOLD, 34);
         Font fontti2 = new Font("Comic Sans MS", Font.BOLD, 24);
         Dimension dimenssio = new Dimension(150, 150);
-        asetaNappi(fontti, dimenssio);
-        asetaTekstikentta(fontti, dimenssio);
-        asetaMerkinta(fontti2, dimenssio);
+        muotoileNappi(fontti, dimenssio);
+        muotoileTekstikentta(fontti, dimenssio);
+        muotoileMerkinta(fontti2, dimenssio);
     }
 
-    private void asetaNappi(Font fontti, Dimension dimenssio) {
+    private void muotoileNappi(Font fontti, Dimension dimenssio) {
         this.nappi.setFont(fontti);
         this.nappi.setOpaque(true);
         this.nappi.setBackground(Color.WHITE);
@@ -55,7 +63,7 @@ public class MenunUlkoasu {
         this.nappi.setPreferredSize(dimenssio);
     }
 
-    private void asetaTekstikentta(Font fontti, Dimension dimenssio) {
+    private void muotoileTekstikentta(Font fontti, Dimension dimenssio) {
         this.tekstikentta.setFont(fontti);
         this.tekstikentta.setOpaque(true);
         this.tekstikentta.setBorder(null);
@@ -65,7 +73,7 @@ public class MenunUlkoasu {
         this.tekstikentta.setHorizontalAlignment(SwingConstants.CENTER);
     }
 
-    private void asetaMerkinta(Font fontti, Dimension dimenssio) {
+    private void muotoileMerkinta(Font fontti, Dimension dimenssio) {
         this.merkinta.setFont(fontti);
         this.merkinta.setOpaque(true);
         this.merkinta.setBackground(Color.BLACK);
@@ -73,13 +81,19 @@ public class MenunUlkoasu {
         this.merkinta.setPreferredSize(dimenssio);
     }
 
-    public void aseta() {
+    /**
+     * Lisää kayttöliittymän JFrameen luodut komponentit.
+     */
+    public void asetaUlkoasu() {
         this.nappi.addActionListener(new NapinKuuntelija(this.kali.getPeli(), this.tekstikentta, this.kali));
         this.kali.getFrame().add(this.merkinta, BorderLayout.NORTH);
         this.kali.getFrame().add(this.tekstikentta, BorderLayout.CENTER);
         this.kali.getFrame().add(this.nappi, BorderLayout.SOUTH);
     }
-    
+
+    /**
+     * Poistaa luodut komponentit käyttöliittymän JFramesta.
+     */
     public void poistaKomponentit() {
         this.kali.getFrame().remove(this.merkinta);
         this.kali.getFrame().remove(this.nappi);

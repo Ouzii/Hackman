@@ -24,6 +24,7 @@ public class Peli extends Timer implements ActionListener {
     private Kartta kartta;
     private PeliLogiikka logiikka;
     private Highscore highscore;
+    private Vaikeustaso vaikeustaso;
 
     /**
      * Konstruktori pelille, joka asettaa mittasuhteet oikein ja luo uuden
@@ -41,9 +42,10 @@ public class Peli extends Timer implements ActionListener {
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
         this.highscore = new Highscore("");
+        this.vaikeustaso = Vaikeustaso.NORMAALI;
         super.addActionListener(this);
         super.setInitialDelay(500);
-        super.setDelay(135);
+        super.setDelay(150);
         super.stop();
     }
 
@@ -54,8 +56,9 @@ public class Peli extends Timer implements ActionListener {
      * @param korkeus Kartan korkeus.
      * @param kartta Kartta.
      * @param nimi Pelaajan antama nimi.
+     * @param vaikeustaso Vaikeustaso, joka asetetaan pelille.
      */
-    public Peli(int leveys, int korkeus, Kartta kartta, String nimi) {
+    public Peli(int leveys, int korkeus, Kartta kartta, String nimi, Vaikeustaso vaikeustaso) {
         super(1000, null);
         this.leveys = leveys;
         this.korkeus = korkeus;
@@ -63,13 +66,32 @@ public class Peli extends Timer implements ActionListener {
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
         this.highscore = new Highscore(nimi);
+        this.setVaikeustaso(vaikeustaso);
         super.addActionListener(this);
         super.setInitialDelay(500);
-        super.setDelay(135);
         super.stop();
     }
 
 //    HUOM !! KOODI SEKAVAA, KOSKA KOKEILUVAIHEESSA
+    public Vaikeustaso getVaikeustaso() {
+        return vaikeustaso;
+    }
+
+    /**
+     * Asettaa pelin vaikeustason ja muokkaa Timerin ajastusta sen mukaan.
+     * @param vaikeustaso Haluttu vaikeustaso.
+     */
+    public void setVaikeustaso(Vaikeustaso vaikeustaso) {
+        if (vaikeustaso.equals(Vaikeustaso.HELPPO)) {
+            super.setDelay(200);
+        } else if (vaikeustaso.equals(Vaikeustaso.NORMAALI)) {
+            super.setDelay(125);
+        } else {
+            super.setDelay(75);
+        }
+        this.vaikeustaso = vaikeustaso;
+    }
+
     public Pelihahmo getPelaaja() {
         return this.pelaaja;
     }
@@ -98,9 +120,6 @@ public class Peli extends Timer implements ActionListener {
         return this.korkeus;
     }
 
-    
-    
-
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
     }
@@ -113,10 +132,6 @@ public class Peli extends Timer implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         this.paivitettava.paivita();
-//        this.logiikka.kuoleeko(this.kartta.getVihuPun());
-//        this.logiikka.kuoleeko(this.kartta.getVihuMus());
-//        this.logiikka.kuoleeko(this.kartta.getVihuKel());
-//        this.logiikka.kuoleeko(this.kartta.getVihuPin());
         for (Vihollinen vihu : this.kartta.getVihut()) {
             this.logiikka.kuoleeko(vihu);
         }
@@ -131,17 +146,18 @@ public class Peli extends Timer implements ActionListener {
         for (Bitti bitti : this.kartta.getBitit()) {
             if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
                 bitti.setKeratty(true);
-                this.logiikka.setPojot(this.logiikka.getPojot() + 1);
+                if (this.vaikeustaso.equals(Vaikeustaso.HELPPO)) {
+                    this.logiikka.setPojot(this.logiikka.getPojot() + 1);
+                } else if (this.vaikeustaso.equals(Vaikeustaso.NORMAALI)) {
+                    this.logiikka.setPojot(this.logiikka.getPojot() + 2);
+                } else {
+                    this.logiikka.setPojot(this.logiikka.getPojot() + 3);
+                }
                 this.logiikka.setKeratty(this.logiikka.getKeratty() + 1);
             }
         }
         if (this.logiikka.getKeratty() == this.kartta.getBitit().size()) {
             this.logiikka.voita();
         }
-//        try {
-//            paivitettava.paivita();
-//        } catch (Exception ex) {
-//            super.restart();
-//        }
     }
 }

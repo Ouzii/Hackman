@@ -1,7 +1,9 @@
 package hackman.kayttoliittyma;
 
+import hackman.kartat.Kartta1;
 import hackman.rakennuspalat.Suunta;
 import hackman.logiikka.Peli;
+import hackman.logiikka.Vaikeustaso;
 import hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -62,7 +64,7 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_R) {
-            kali.uusiPeli();
+            kali.uusiPeli(this.peli.getVaikeustaso());
         }
 
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -78,10 +80,28 @@ public class NappaimistonKuuntelija implements KeyListener {
 
         if (e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.getLogiikka().isAlkaa()) {
             if (this.peli.getLogiikka().isHavia()) {
-                kali.uusiPeli();
+                kali.uusiPeli(this.peli.getVaikeustaso());
             } else {
                 this.peli.getLogiikka().setAlkaa();
             }
+        }
+
+        if (e.getKeyCode() == KeyEvent.VK_PLUS && !this.peli.getLogiikka().isAlkaa()) {
+            if (this.peli.getVaikeustaso().equals(Vaikeustaso.HELPPO)) {
+                this.kali.uusiPeli(Vaikeustaso.NORMAALI);
+            } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
+                this.kali.uusiPeli(Vaikeustaso.VAIKEA);
+            }
+            this.kali.menuun();
+        }
+
+        if (e.getKeyCode() == KeyEvent.VK_MINUS && !this.peli.getLogiikka().isAlkaa()) {
+            if (this.peli.getVaikeustaso().equals(Vaikeustaso.VAIKEA)) {
+                this.kali.uusiPeli(Vaikeustaso.NORMAALI);
+            } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
+                this.kali.uusiPeli(Vaikeustaso.HELPPO);
+            }
+            this.kali.menuun();
         }
 
         if (e.getKeyCode() == KeyEvent.VK_SPACE && this.peli.getLogiikka().isVoita()) {
@@ -89,7 +109,6 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_F1) {
-            System.out.println("aasi");
             if (!this.peli.getHighscore().isMenuun()) {
                 this.peli.getHighscore().setMenuun(true);
             } else {

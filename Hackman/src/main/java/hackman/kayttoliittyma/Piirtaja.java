@@ -1,6 +1,7 @@
 package hackman.kayttoliittyma;
 
 import hackman.logiikka.Peli;
+import hackman.logiikka.Vaikeustaso;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import java.awt.Color;
@@ -9,7 +10,6 @@ import java.awt.Graphics;
 import java.io.File;
 import java.util.Scanner;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 /**
  * Pelin grafiikoiden piirtäjä-luokka.
@@ -39,20 +39,45 @@ public class Piirtaja extends JPanel implements Paivitettava {
 
     private void piirraMenu(Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawString("Aloita/jatka peliä ", 4 * this.palikanKoko, 5 * this.palikanKoko);
-        g.drawString("painamalla <Enter>", 4 * this.palikanKoko, 6 * this.palikanKoko);
+        g.drawString("Aloita/jatka peliä ", 4 * this.palikanKoko, 4 * this.palikanKoko);
+        g.drawString("painamalla <Enter>", 4 * this.palikanKoko, 5 * this.palikanKoko);
         g.setColor(Color.BLUE);
-        g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 8 * this.palikanKoko);
-        g.drawString("painamalla <F1>", 6 * this.palikanKoko, 9 * this.palikanKoko);
+        g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 7 * this.palikanKoko);
+        g.drawString("painamalla <F1>", 6 * this.palikanKoko, 8 * this.palikanKoko);
         g.setColor(Color.BLACK);
-        g.drawString("Pelissä paina <R>", 4 * this.palikanKoko, 11 * this.palikanKoko);
-        g.drawString("aloittaaksesi alusta", 6 * this.palikanKoko, 12 * this.palikanKoko);
+        g.drawString("Pelissä paina <R>", 4 * this.palikanKoko, 10 * this.palikanKoko);
+        g.drawString("aloittaaksesi alusta", 6 * this.palikanKoko, 11 * this.palikanKoko);
         g.setColor(Color.BLUE);
-        g.drawString("Pelissä paina <P>", 4 * this.palikanKoko, 14 * this.palikanKoko);
-        g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 15 * this.palikanKoko);
+        g.drawString("Pelissä paina <P>", 4 * this.palikanKoko, 13 * this.palikanKoko);
+        g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 14 * this.palikanKoko);
         g.setColor(Color.BLACK);
-        g.drawString("Paina <Esc> vaihtaaksesi", 4 * this.palikanKoko, 17 * this.palikanKoko);
-        g.drawString("käyttäjän nimeä", 6 * this.palikanKoko, 18 * this.palikanKoko);
+        g.drawString("Paina <Esc> vaihtaaksesi", 4 * this.palikanKoko, 16 * this.palikanKoko);
+        g.drawString("käyttäjän nimeä", 6 * this.palikanKoko, 17 * this.palikanKoko);
+        g.setColor(Color.BLUE);
+        g.drawString("Muuta vaikeustasoa", 4 * this.palikanKoko, 19 * this.palikanKoko);
+        g.drawString("painamalla <+> ja <->", 6 * this.palikanKoko, 20 * this.palikanKoko);
+        g.setColor(Color.BLACK);
+        if (this.peli.getVaikeustaso().equals(Vaikeustaso.HELPPO)) {
+            g.setColor(Color.RED);
+            g.drawString("HELPPO", 3 * this.palikanKoko, 2 * this.palikanKoko);
+            g.setColor(Color.BLACK);
+            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
+            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
+        } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
+            g.drawString("HELPPO", 3 * this.palikanKoko, 2 * this.palikanKoko);
+            g.setColor(Color.RED);
+            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
+            g.setColor(Color.BLACK);
+            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
+        } else {
+            g.drawString("HELPPO", 3 * this.palikanKoko, 2 * this.palikanKoko);
+            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
+            g.setColor(Color.RED);
+            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
+        }
+        g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+        g.setColor(Color.BLUE);
+        g.drawString("0.5x pisteet                1.0x pisteet                  1.5x pisteet", 3 * this.palikanKoko + 5, 2 * this.palikanKoko + 14);
     }
 
     private void piirraHighscore(Graphics g) {
