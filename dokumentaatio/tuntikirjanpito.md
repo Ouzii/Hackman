@@ -30,4 +30,5 @@ Päivä | Tunnit | Kuvaus
 16.02.2017 | 0.5h | Lisätty testejä ja generoitu uudet raportit.
 17.02.2017 | 0.5h | Lisätty käyttäjänimen vaihto-ominaisuus.
 17.02.2017 | 0.5h | Korjattu bugi, joka sai ohjelman kaatumaan pelaajan syöttäessä tyhjän merkkijonon nimekseen.
+19.02.2017 | 3h | Lisätty vaikeustason valinta, korjattu bugeja ja siistitty koodia.
 ... | ... | ...
