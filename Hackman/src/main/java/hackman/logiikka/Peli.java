@@ -79,6 +79,7 @@ public class Peli extends Timer implements ActionListener {
 
     /**
      * Asettaa pelin vaikeustason ja muokkaa Timerin ajastusta sen mukaan.
+     *
      * @param vaikeustaso Haluttu vaikeustaso.
      */
     public void setVaikeustaso(Vaikeustaso vaikeustaso) {
@@ -131,7 +132,11 @@ public class Peli extends Timer implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.paivitettava.paivita();
+        try {
+            this.paivitettava.paivita();
+        } catch (Exception ex) {
+            super.restart();
+        }
         for (Vihollinen vihu : this.kartta.getVihut()) {
             this.logiikka.kuoleeko(vihu);
         }

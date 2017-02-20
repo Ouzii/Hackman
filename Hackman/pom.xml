@@ -40,14 +40,14 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>hackman.peli.*</param>
+                        <param>hackman.logiikka.*</param>
                         <param>hackman.rakennuspalat.*</param>
                         <param>hackman.kartat.*</param>
                         <!--                        <param>hackman.paaohjelma.*</param>
                         <param>hackman.kayttoliittyma.*</param>-->
                     </targetClasses>
                     <targetTests>
-                        <param>hackman.peli.*</param>
+                        <param>hackman.logiikka.*</param>
                         <param>hackman.rakennuspalat.*</param>
                         <param>hackman.kartat.*</param>
                         <!--                        <param>hackman.paaohjelma.*</param>

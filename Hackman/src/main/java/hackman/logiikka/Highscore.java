@@ -43,6 +43,10 @@ public class Highscore {
         return nimi;
     }
 
+    public Map<Integer, String> getRivit() {
+        return rivit;
+    }
+
     public void setNimi(String nimi) {
         this.nimi = nimi;
     }

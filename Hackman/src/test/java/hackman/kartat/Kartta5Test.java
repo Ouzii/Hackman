@@ -35,7 +35,7 @@ public class Kartta5Test {
 
     @Test
     public void getteritToimii() {
-        assertEquals(100, this.kartta.getBitit().size());
+        assertEquals(96, this.kartta.getBitit().size());
         assertEquals("(2, 2)", this.kartta.getVihuPun().toString());
         assertEquals("(18, 18)", this.kartta.getVihuMus().toString());
         assertEquals("(2, 18)", this.kartta.getVihuPin().toString());
