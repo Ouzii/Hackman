@@ -4,7 +4,7 @@
 4. 120 w
 5. 96 e
 6. 70 -tyhja-
-7. 60 -tyhja-
-8. 50 -tyhja-
-9. 40 -tyhja-
-10. 30 -tyhja-
+7. 63 i
+8. 60 -tyhja-
+9. 50 -tyhja-
+10. 40 -tyhja-

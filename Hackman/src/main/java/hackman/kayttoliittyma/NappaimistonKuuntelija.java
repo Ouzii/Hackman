@@ -86,7 +86,7 @@ public class NappaimistonKuuntelija implements KeyListener {
             }
         }
 
-        if (e.getKeyCode() == KeyEvent.VK_PLUS && !this.peli.getLogiikka().isAlkaa()) {
+        if ((e.getKeyCode() == KeyEvent.VK_PLUS || e.getKeyCode() == KeyEvent.VK_ADD) && !this.peli.getLogiikka().isAlkaa()) {
             if (this.peli.getVaikeustaso().equals(Vaikeustaso.HELPPO)) {
                 this.kali.uusiPeli(Vaikeustaso.NORMAALI);
             } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
@@ -95,7 +95,7 @@ public class NappaimistonKuuntelija implements KeyListener {
             this.kali.menuun();
         }
 
-        if (e.getKeyCode() == KeyEvent.VK_MINUS && !this.peli.getLogiikka().isAlkaa()) {
+        if ((e.getKeyCode() == KeyEvent.VK_MINUS || e.getKeyCode() == KeyEvent.VK_SUBTRACT) && !this.peli.getLogiikka().isAlkaa()) {
             if (this.peli.getVaikeustaso().equals(Vaikeustaso.VAIKEA)) {
                 this.kali.uusiPeli(Vaikeustaso.NORMAALI);
             } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
