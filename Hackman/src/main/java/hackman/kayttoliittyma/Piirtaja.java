@@ -7,6 +7,7 @@ import hackman.rakennuspalat.Palikka;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.Random;
 import javax.swing.JPanel;
 
 /**
@@ -67,9 +68,20 @@ public class Piirtaja extends JPanel implements Paivitettava {
 
     private void piirraBitit(Graphics g) {
         g.setColor(Color.BLUE);
+        g.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
         for (Bitti bitti : this.peli.getKartta().getBitit()) {
             if (!bitti.isKeratty()) {
-                g.fillOval(bitti.getX() * this.palikanKoko + 3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 7, this.palikanKoko - 7);
+                int random = new Random().nextInt(4);
+                if(random == 0) {
+                    g.drawString("00", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
+                } else if(random == 1) {
+                    g.drawString("01", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
+                } else if(random == 2) {
+                    g.drawString("10", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
+                } else if(random == 3) {
+                    g.drawString("11", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
+                }
+//                g.fillOval(bitti.getX() * this.palikanKoko + 3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 7, this.palikanKoko - 7);
             }
         }
     }
