@@ -37,7 +37,7 @@ public class NapinKuuntelija implements ActionListener {
             this.kali.getFrame().removeAll();
             this.kali = new Kayttoliittyma(25, true, "Nimi liian pitkä!");
             SwingUtilities.invokeLater(kali);
-        } else if (this.teksti.getText().trim().length() == 0) {
+        } else if (this.teksti.getText().trim().isEmpty()) {
             this.kali.getFrame().setVisible(false);
             this.kali.getFrame().removeAll();
             this.kali = new Kayttoliittyma(25, true, "Et antanut nimeäsi!");

@@ -38,15 +38,12 @@ public class PeliLogiikkaTest {
         assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals(0, this.peli.getLogiikka().getAskelia());
         assertEquals(0, this.peli.getLogiikka().getKeratty());
-        assertFalse(this.peli.getLogiikka().isAlkaa());
         assertFalse(this.peli.getLogiikka().isVoita());
         assertFalse(this.peli.getLogiikka().isHavia());
     }
 
     @Test
     public void setteritToimii() {
-        this.peli.getLogiikka().setAlkaa();
-        assertTrue(this.peli.isRunning());
         this.peli.getLogiikka().setVoita(true);
         assertTrue(this.peli.getLogiikka().isVoita());
         this.peli.getLogiikka().setAskelia(2);
@@ -76,16 +73,6 @@ public class PeliLogiikkaTest {
         this.peli.getLogiikka().kuoleeko(vihu);
         assertFalse(this.peli.getPelaaja().isElossa());
         assertTrue(this.peli.getLogiikka().isHavia());
-    }
-
-    @Test
-    public void pysaytaToimii() {
-        this.peli.getLogiikka().setAlkaa();
-        assertTrue(this.peli.getLogiikka().isAlkaa());
-        this.peli.getLogiikka().pysayta();
-        assertFalse(this.peli.getLogiikka().isAlkaa());
-        assertEquals(false, this.peli.isRunning());
-
     }
 
     @Test

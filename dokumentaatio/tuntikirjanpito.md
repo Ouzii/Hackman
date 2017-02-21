@@ -32,4 +32,5 @@ Päivä | Tunnit | Kuvaus
 17.02.2017 | 0.5h | Korjattu bugi, joka sai ohjelman kaatumaan pelaajan syöttäessä tyhjän merkkijonon nimekseen.
 19.02.2017 | 3h | Lisätty vaikeustason valinta, korjattu bugeja ja siistitty koodia.
 20.02.2017 | 0.5h | Korjattu bugi, joka antoi käyttäjän kirjata nimekseen välilyönnin ja lisätty numpad +/- vaikeustason valintaan.
+21.02.2017 | 2.5h | Lisätty pelihahmolle silmät, estetty kääntymästä kohti seinää ja lisätty toiminnallisuus, että seinään törmätessä suunta muutetaan päinvastaiseksi. Lisätty MenuTila-enum ja eriytetty menun piirtäminen omaksi luokakseen.
 ... | ... | ...

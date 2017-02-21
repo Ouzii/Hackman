@@ -25,6 +25,7 @@ public class Peli extends Timer implements ActionListener {
     private PeliLogiikka logiikka;
     private Highscore highscore;
     private Vaikeustaso vaikeustaso;
+    private MenuTila menutila;
 
     /**
      * Konstruktori pelille, joka asettaa mittasuhteet oikein ja luo uuden
@@ -43,6 +44,7 @@ public class Peli extends Timer implements ActionListener {
         this.kartta = kartta;
         this.highscore = new Highscore("");
         this.vaikeustaso = Vaikeustaso.NORMAALI;
+        this.menutila = MenuTila.MENU;
         super.addActionListener(this);
         super.setInitialDelay(500);
         super.setDelay(150);
@@ -66,6 +68,7 @@ public class Peli extends Timer implements ActionListener {
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
         this.highscore = new Highscore(nimi);
+        this.menutila = MenuTila.MENU;
         this.setVaikeustaso(vaikeustaso);
         super.addActionListener(this);
         super.setInitialDelay(500);
@@ -77,6 +80,14 @@ public class Peli extends Timer implements ActionListener {
         return vaikeustaso;
     }
 
+    public MenuTila getMenutila() {
+        return menutila;
+    }
+
+    public void setMenutila(MenuTila menutila) {
+        this.menutila = menutila;
+    }
+    
     /**
      * Asettaa pelin vaikeustason ja muokkaa Timerin ajastusta sen mukaan.
      *

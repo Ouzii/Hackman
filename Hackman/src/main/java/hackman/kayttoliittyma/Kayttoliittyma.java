@@ -1,6 +1,7 @@
 package hackman.kayttoliittyma;
 
 import hackman.kartat.*;
+import hackman.logiikka.MenuTila;
 import hackman.logiikka.Peli;
 import hackman.logiikka.Vaikeustaso;
 import java.awt.*;
@@ -97,7 +98,8 @@ public class Kayttoliittyma implements Runnable {
      * Palauttaa päävalikkonäkymän.
      */
     public void menuun() {
-        this.peli.getLogiikka().pysayta();
+        this.peli.stop();
+        this.peli.setMenutila(MenuTila.MENU);
         this.piirto.paivita();
     }
 
@@ -133,7 +135,8 @@ public class Kayttoliittyma implements Runnable {
         Vaikeustaso vt = this.peli.getVaikeustaso();
         this.peli = new Peli(20, 20, kartta, this.nimi, vt);
         this.peli.getLogiikka().setPojot(this.pojot);
-        this.peli.getLogiikka().setAlkaa();
+        this.peli.setMenutila(MenuTila.KAYNNISSA);
+        this.peli.start();
     }
 
     /**
@@ -150,7 +153,8 @@ public class Kayttoliittyma implements Runnable {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
         }
         this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi, vaikeustaso);
-        this.peli.getLogiikka().setAlkaa();
+        this.peli.setMenutila(MenuTila.KAYNNISSA);
+        this.peli.start();
         this.luoKomponentit(frame);
         frame.pack();
         frame.setVisible(true);

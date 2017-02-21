@@ -14,7 +14,9 @@ public class Palikka {
     private Suunta suunta;
 
     /**
-     * Asettaa koordinaatit parametrien mukaisesti ja muuttaa suunnan vasemmalle.
+     * Asettaa koordinaatit parametrien mukaisesti ja muuttaa suunnan
+     * vasemmalle.
+     *
      * @param x X-koordinaatti alussa.
      * @param y Y-koordinaatti alussa.
      */
@@ -22,6 +24,20 @@ public class Palikka {
         this.x = x;
         this.y = y;
         this.suunta = Suunta.VASEN;
+    }
+
+    /**
+     * Asettaa koordinaatit parametrien mukaisesti ja muuttaa suunnan annetuksi
+     * suunnaksi.
+     *
+     * @param x X-koordinaatti alussa.
+     * @param y Y-koordinaatti alussa.
+     * @param suunta Asetettava suunta.
+     */
+    public Palikka(int x, int y, Suunta suunta) {
+        this.x = x;
+        this.y = y;
+        this.suunta = suunta;
     }
 
     public int getX() {
@@ -50,6 +66,7 @@ public class Palikka {
 
     /**
      * Metodi tarkistaa osuuko olio parametrina annettuun palikkaan.
+     *
      * @param palikka tarkistettava palikka.
      * @return true, jos osuu ja false, jos ei osu
      */
@@ -60,8 +77,10 @@ public class Palikka {
             return false;
         }
     }
+
     /**
      * Metodi tarkistaa, onko parametrina annetun palikan edessä seinää.
+     *
      * @param seina tarkistettava seinä.
      * @return true, jos on seinä edessä ja false, jos ei ole.
      */
@@ -81,8 +100,10 @@ public class Palikka {
 
         return false;
     }
+
     /**
      * Siirtää olion X- tai Y-koordinaattia suunnan mukaan.
+     *
      * @return true, jos liikutaan ja false, jos suuntaa ei ole määritetty.
      */
     public boolean liiku() {

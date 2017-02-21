@@ -1,14 +1,12 @@
 package hackman.kayttoliittyma;
 
+import hackman.logiikka.MenuTila;
 import hackman.logiikka.Peli;
-import hackman.logiikka.Vaikeustaso;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.io.File;
-import java.util.Scanner;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +19,7 @@ public class Piirtaja extends JPanel implements Paivitettava {
     private Peli peli;
     private int palikanKoko;
     private Kayttoliittyma kali;
+    private MenunPiirtaja menunPiirtaja;
 
     /**
      * Konstruktori piirtäjälle, joka asettaa tarvittavat yhteydet.
@@ -33,81 +32,36 @@ public class Piirtaja extends JPanel implements Paivitettava {
         this.peli = peli;
         this.palikanKoko = palikanKoko;
         this.kali = kali;
+        this.menunPiirtaja = new MenunPiirtaja(this.peli, this.palikanKoko);
         this.setOpaque(true);
         this.setBackground(Color.LIGHT_GRAY);
-    }
-
-    private void piirraMenu(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.drawString("Aloita/jatka peliä ", 4 * this.palikanKoko, 4 * this.palikanKoko);
-        g.drawString("painamalla <Enter>", 4 * this.palikanKoko, 5 * this.palikanKoko);
-        g.setColor(Color.BLUE);
-        g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 7 * this.palikanKoko);
-        g.drawString("painamalla <F1>", 6 * this.palikanKoko, 8 * this.palikanKoko);
-        g.setColor(Color.BLACK);
-        g.drawString("Pelissä paina <R>", 4 * this.palikanKoko, 10 * this.palikanKoko);
-        g.drawString("aloittaaksesi alusta", 6 * this.palikanKoko, 11 * this.palikanKoko);
-        g.setColor(Color.BLUE);
-        g.drawString("Pelissä paina <P>", 4 * this.palikanKoko, 13 * this.palikanKoko);
-        g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 14 * this.palikanKoko);
-        g.setColor(Color.BLACK);
-        g.drawString("Paina <Esc> vaihtaaksesi", 4 * this.palikanKoko, 16 * this.palikanKoko);
-        g.drawString("käyttäjän nimeä", 6 * this.palikanKoko, 17 * this.palikanKoko);
-        g.setColor(Color.BLUE);
-        g.drawString("Muuta vaikeustasoa", 4 * this.palikanKoko, 19 * this.palikanKoko);
-        g.drawString("painamalla <+> ja <->", 6 * this.palikanKoko, 20 * this.palikanKoko);
-        g.setColor(Color.BLACK);
-        if (this.peli.getVaikeustaso().equals(Vaikeustaso.HELPPO)) {
-            g.setColor(Color.RED);
-            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
-            g.setColor(Color.BLACK);
-            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
-            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
-        } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
-            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
-            g.setColor(Color.RED);
-            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
-            g.setColor(Color.BLACK);
-            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
-        } else {
-            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
-            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
-            g.setColor(Color.RED);
-            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
-        }
-        g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
-        g.setColor(Color.BLUE);
-        g.drawString("0.5x pisteet                1.0x pisteet                  1.5x pisteet", 3 * this.palikanKoko + 5, 2 * this.palikanKoko + 14);
-    }
-
-    private void piirraHighscore(Graphics g) {
-        try {
-            this.peli.getHighscore().kirjoita();
-            g.setColor(Color.BLUE);
-            g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
-            g.drawString("Sija   pisteet     nimi", 6 * this.palikanKoko, 3 * this.palikanKoko);
-            g.setColor(Color.BLACK);
-            g.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
-
-            Scanner tiedostonLukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
-            int y = 4;
-            while (tiedostonLukija.hasNextLine()) {
-                g.drawString(tiedostonLukija.nextLine(), 6 * this.palikanKoko, y * this.palikanKoko);
-                y++;
-            }
-            g.setColor(Color.RED);
-            g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (y + 2) * this.palikanKoko);
-        } catch (Exception e) {
-            g.setColor(Color.RED);
-            g.drawString("Jokin meni pieleen, yritä uudelleen" + e.getMessage(), this.palikanKoko, 10 * this.palikanKoko);
-            g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (12) * this.palikanKoko);
-        }
     }
 
     private void piirraPelaaja(Graphics g) {
         g.setColor(Color.GREEN);
         if (this.peli.getPelaaja().isElossa()) {
             g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko, this.peli.getPelaaja().getY() * this.palikanKoko, this.palikanKoko, this.palikanKoko);
+            g.setColor(Color.BLACK);
+            switch (this.peli.getPelaaja().getSuunta()) {
+                case ALAS:
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 6, this.peli.getPelaaja().getY() * this.palikanKoko + 18, 5, 5);
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 14, this.peli.getPelaaja().getY() * this.palikanKoko + 18, 5, 5);
+                    break;
+                case YLOS:
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 6, this.peli.getPelaaja().getY() * this.palikanKoko + 2, 5, 5);
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 14, this.peli.getPelaaja().getY() * this.palikanKoko + 2, 5, 5);
+                    break;
+                case VASEN:
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 2, this.peli.getPelaaja().getY() * this.palikanKoko + 6, 5, 5);
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 2, this.peli.getPelaaja().getY() * this.palikanKoko + 14, 5, 5);
+                    break;
+                case OIKEA:
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 18, this.peli.getPelaaja().getY() * this.palikanKoko + 6, 5, 5);
+                    g.fillOval(this.peli.getPelaaja().getX() * this.palikanKoko + 18, this.peli.getPelaaja().getY() * this.palikanKoko + 14, 5, 5);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -150,18 +104,15 @@ public class Piirtaja extends JPanel implements Paivitettava {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         Font suuri = new Font("Comic Sans MS", Font.BOLD, 34);
         Font pieni = new Font("Comic Sans MS", Font.BOLD, 22);
         g.setFont(pieni);
-        g.setColor(Color.LIGHT_GRAY);
-//        g.fill3DRect(-20, -20, 40 * this.palikanKoko, 40 * this.palikanKoko, true);
-        if (!this.peli.getLogiikka().isAlkaa()) {
+        if (!this.peli.getMenutila().equals(MenuTila.KAYNNISSA)) {
 
-            if (!this.peli.getHighscore().isMenuun()) {
-                this.piirraMenu(g);
+            if (this.peli.getMenutila().equals(MenuTila.MENU)) {
+                this.menunPiirtaja.piirraMenu(g);
             } else {
-                this.piirraHighscore(g);
+                this.menunPiirtaja.piirraHighscore(g);
             }
 
         } else {

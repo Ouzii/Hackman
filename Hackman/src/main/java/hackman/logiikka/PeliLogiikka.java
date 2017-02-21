@@ -1,7 +1,7 @@
 package hackman.logiikka;
 
-import hackman.kayttoliittyma.Piirtaja;
 import hackman.rakennuspalat.Palikka;
+import hackman.rakennuspalat.Suunta;
 import hackman.rakennuspalat.Vihollinen;
 
 /**
@@ -16,7 +16,6 @@ public class PeliLogiikka {
     private int askelia;
     private int keratty;
     private boolean vuoro;
-    private boolean alkaa;
     private boolean voita;
     private boolean havia;
     private boolean kirjaudu;
@@ -32,7 +31,6 @@ public class PeliLogiikka {
         this.askelia = 0;
         this.keratty = 0;
         this.vuoro = false;
-        this.alkaa = false;
         this.voita = false;
         this.havia = false;
         this.kirjaudu = false;
@@ -44,18 +42,6 @@ public class PeliLogiikka {
 
     public void setKirjaudu(boolean kirjaudu) {
         this.kirjaudu = kirjaudu;
-    }
-
-    public boolean isAlkaa() {
-        return alkaa;
-    }
-
-    /**
-     * Aloittaa pelin.
-     */
-    public void setAlkaa() {
-        this.alkaa = true;
-        this.peli.start();
     }
 
     public boolean isVoita() {
@@ -99,14 +85,6 @@ public class PeliLogiikka {
     }
 
     /**
-     * Metodi pysäyttää pelin Timerin ja siirtyy valikkonäkymään.
-     */
-    public void pysayta() {
-        this.alkaa = false;
-        this.peli.stop();
-    }
-
-    /**
      * Metodi muuttaa pelin voita-tilaan ja pysäyttää Timerin.
      */
     public void voita() {
@@ -130,7 +108,8 @@ public class PeliLogiikka {
     }
 
     /**
-     * Tarkastaa, onko pelaajan edessä seinää ja liikuttaa, jos ei ole.
+     * Tarkastaa, onko pelaajan edessä seinää ja liikuttaa, jos ei ole. Vaihtaa
+     * suunnan vastakkaiseksi, jos osutaan seinään.
      *
      * @return true, jos liikutaan ja false, jos ei liikuta.
      */
@@ -145,6 +124,22 @@ public class PeliLogiikka {
             this.peli.getPelaaja().liiku();
             return true;
         } else {
+            switch (this.peli.getPelaaja().getSuunta()) {
+                case ALAS:
+                    this.peli.getPelaaja().setSuunta(Suunta.YLOS);
+                    break;
+                case YLOS:
+                    this.peli.getPelaaja().setSuunta(Suunta.ALAS);
+                    break;
+                case OIKEA:
+                    this.peli.getPelaaja().setSuunta(Suunta.VASEN);
+                    break;
+                case VASEN:
+                    this.peli.getPelaaja().setSuunta(Suunta.OIKEA);
+                    break;
+                default:
+                    break;
+            }
             return false;
         }
     }
