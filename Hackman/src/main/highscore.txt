@@ -5,6 +5,6 @@
 5. 60 -tyhja-
 6. 50 -tyhja-
 7. 40 -tyhja-
-8. 30 -tyhja-
+8. 30 eee
 9. 20 -tyhja-
 10. 10 -tyhja-
