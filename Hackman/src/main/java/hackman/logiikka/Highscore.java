@@ -2,6 +2,7 @@ package hackman.logiikka;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -35,6 +36,7 @@ public class Highscore {
         this.menuun = false;
         this.rivitLista = new ArrayList<>();
         try {
+//            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
             this.lukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
             this.lisaaKarttaan();
         } catch (Exception e) {

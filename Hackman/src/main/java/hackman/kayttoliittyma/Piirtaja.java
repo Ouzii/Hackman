@@ -72,13 +72,13 @@ public class Piirtaja extends JPanel implements Paivitettava {
         for (Bitti bitti : this.peli.getKartta().getBitit()) {
             if (!bitti.isKeratty()) {
                 int random = new Random().nextInt(4);
-                if(random == 0) {
+                if (random == 0) {
                     g.drawString("00", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
-                } else if(random == 1) {
+                } else if (random == 1) {
                     g.drawString("01", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
-                } else if(random == 2) {
+                } else if (random == 2) {
                     g.drawString("10", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
-                } else if(random == 3) {
+                } else if (random == 3) {
                     g.drawString("11", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
                 }
 //                g.fillOval(bitti.getX() * this.palikanKoko + 3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 7, this.palikanKoko - 7);
