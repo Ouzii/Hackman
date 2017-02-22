@@ -1,8 +1,13 @@
 package hackman.logiikka;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -36,11 +41,10 @@ public class Highscore {
         this.menuun = false;
         this.rivitLista = new ArrayList<>();
         try {
-//            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
-            this.lukija = new Scanner(new File("src/main/resources/highscore.txt"), "UTF-8");
+            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
+            this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
             this.lisaaKarttaan();
         } catch (Exception e) {
-
         }
     }
 
@@ -142,10 +146,11 @@ public class Highscore {
      */
     public boolean kirjoita() {
         try {
-            FileWriter kirjoittaja = new FileWriter(new File("src/main/resources/highscore.txt"));
+            BufferedWriter kirjoittaja = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream("src/main/highscore.txt"), "UTF-8"));
             int i = 1;
             for (Integer integer : this.rivit.keySet()) {
-                kirjoittaja.append(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
+                kirjoittaja.write(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
                 i++;
             }
             kirjoittaja.close();
