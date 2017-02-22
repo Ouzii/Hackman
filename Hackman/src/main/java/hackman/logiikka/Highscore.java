@@ -41,10 +41,11 @@ public class Highscore {
         this.menuun = false;
         this.rivitLista = new ArrayList<>();
         try {
-            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
-            this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
+//            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
+//            this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
             this.lisaaKarttaan();
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
@@ -81,6 +82,7 @@ public class Highscore {
 
     private void lisaaListaan() {
         int i = 1;
+        this.rivitLista.clear();
         for (Integer integer : this.rivit.keySet()) {
             this.rivitLista.add(i + ". " + integer + " " + this.rivit.get(integer));
             i++;
@@ -88,22 +90,28 @@ public class Highscore {
     }
 
     private void lisaaKarttaan() {
-        int riveja = 0;
-        while (this.lukija.hasNextLine()) {
-            String s = this.lukija.nextLine();
-            String[] apu = s.split(" ");
-            this.rivit.put(Integer.parseInt(apu[1]), apu[2]);
-            riveja++;
-        }
-        if (riveja < 10) {
-            int score = 10;
-            while (riveja < 10) {
-                this.rivit.put(score, "-tyhja-");
+        try {
+            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
+            this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
+            int riveja = 0;
+            while (this.lukija.hasNextLine()) {
+                String s = this.lukija.nextLine();
+                String[] apu = s.split(" ");
+                this.rivit.put(Integer.parseInt(apu[1]), apu[2]);
                 riveja++;
-                score += 10;
             }
+            if (riveja < 10) {
+                int score = 10;
+                while (riveja < 10) {
+                    this.rivit.put(score, "-tyhja-");
+                    riveja++;
+                    score += 10;
+                }
+            }
+            this.jarjesta();
+            this.lukija.close();
+        } catch (Exception e) {
         }
-        this.jarjesta();
     }
 
     private void jarjesta() {
@@ -147,15 +155,19 @@ public class Highscore {
     public boolean kirjoita() {
         try {
             BufferedWriter kirjoittaja = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream("src/main/highscore.txt"), "UTF-8"));
+                    new FileOutputStream("src/main/resources/highscore.txt"), "UTF-8"));
+//            FileWriter kirjoittaja = new FileWriter(new File("src/main/highscore.txt", "UTF-8"));
             int i = 1;
             for (Integer integer : this.rivit.keySet()) {
                 kirjoittaja.write(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
                 i++;
             }
+            kirjoittaja.flush();
             kirjoittaja.close();
+            this.lisaaKarttaan();
             return true;
         } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
     }
