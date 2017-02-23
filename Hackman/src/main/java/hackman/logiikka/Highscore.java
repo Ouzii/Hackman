@@ -27,7 +27,6 @@ public class Highscore {
     private Map<Integer, String> rivit;
     private List<String> rivitLista;
     private String nimi;
-    private boolean menuun;
 
     /**
      * Luo LinkedHashMapin, jossa pidetään kirjaa pisteistä ja scannerin, joka
@@ -38,7 +37,6 @@ public class Highscore {
     public Highscore(String nimi) {
         this.rivit = new LinkedHashMap<>();
         this.nimi = nimi;
-        this.menuun = false;
         this.rivitLista = new ArrayList<>();
         try {
 //            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
@@ -57,16 +55,12 @@ public class Highscore {
         return rivit;
     }
 
+    public void setRivit(Map<Integer, String> rivit) {
+        this.rivit = rivit;
+    }
+    
     public void setNimi(String nimi) {
         this.nimi = nimi;
-    }
-
-    public boolean isMenuun() {
-        return menuun;
-    }
-
-    public void setMenuun(boolean menuun) {
-        this.menuun = menuun;
     }
 
     /**
@@ -134,8 +128,9 @@ public class Highscore {
      * päästäkseen.
      *
      * @param pojot Pelaajan keräämät pisteet kutsuntahetkellä.
+     * @return true jos on uusi huipputulos, false jos ei ole.
      */
-    public void onkoHighscore(int pojot) {
+    public boolean onkoHighscore(int pojot) {
         List<Integer> apu = new ArrayList<>();
         for (Integer integer : this.rivit.keySet()) {
             apu.add(integer);
@@ -143,9 +138,12 @@ public class Highscore {
 
         if (pojot > apu.get(apu.size() - 1) && !apu.isEmpty()) {
             this.rivit.put(pojot, this.nimi);
+            this.jarjesta();
+            return true;
+        } else {
+            this.jarjesta();
+            return false;
         }
-
-        this.jarjesta();
     }
 
     /**

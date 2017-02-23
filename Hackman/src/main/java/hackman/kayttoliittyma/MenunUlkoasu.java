@@ -85,7 +85,7 @@ public class MenunUlkoasu {
      * Lisää kayttöliittymän JFrameen luodut komponentit.
      */
     public void asetaUlkoasu() {
-        this.nappi.addActionListener(new NapinKuuntelija(this.kali.getPeli(), this.tekstikentta, this.kali));
+        this.nappi.addActionListener(new NapinKuuntelija(this.tekstikentta, this.kali));
         this.kali.getFrame().add(this.merkinta, BorderLayout.NORTH);
         this.kali.getFrame().add(this.tekstikentta, BorderLayout.CENTER);
         this.kali.getFrame().add(this.nappi, BorderLayout.SOUTH);

@@ -51,14 +51,23 @@ public class PeliTest {
         assertEquals(20, this.peli2.getKorkeus());
         assertEquals(20, this.peli2.getLeveys());
         assertEquals(Vaikeustaso.NORMAALI, this.peli2.getVaikeustaso());
+        assertEquals(MenuTila.MENU, this.peli.getMenutila());
+        assertEquals(MenuTila.MENU, this.peli2.getMenutila());
     }
 
     @Test
     public void setteritToimii() {
+        this.peli2.setPaivitettava(new Piirtaja(this.peli2, 20, new Kayttoliittyma(20, false, "")));
+        assertNotEquals(null, this.peli2.getPaivitettava());
         this.peli.getLogiikka().setPojot(99);
         assertEquals(99, this.peli.getLogiikka().getPojot());
         this.peli2.setVaikeustaso(Vaikeustaso.VAIKEA);
         assertEquals(Vaikeustaso.VAIKEA, this.peli2.getVaikeustaso());
+        this.peli.setMenutila(MenuTila.KAYNNISSA);
+        assertEquals(MenuTila.KAYNNISSA, this.peli.getMenutila());
+        assertNotEquals(MenuTila.HIGHSCORE, this.peli2.getMenutila());
+        this.peli2.setMenutila(MenuTila.HIGHSCORE);
+        assertEquals(MenuTila.HIGHSCORE, this.peli2.getMenutila());
     }
 
 }

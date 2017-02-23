@@ -13,19 +13,18 @@ import javax.swing.SwingUtilities;
  */
 public class NapinKuuntelija implements ActionListener {
 
-    private Peli peli;
+
     private JTextField teksti;
     private Kayttoliittyma kali;
 
     /**
      * Konstruktori NapinKuuntelijalle, joka asettaa tarvittavat yhteydet.
      *
-     * @param peli Peliluokka, joka on käynnissä.
      * @param teksti Tekstikentän teksti, joka otetaan talteen.
      * @param kali Käyttöliittymä, jonka metodeja käytetään.
      */
-    public NapinKuuntelija(Peli peli, JTextField teksti, Kayttoliittyma kali) {
-        this.peli = peli;
+    public NapinKuuntelija(JTextField teksti, Kayttoliittyma kali) {
+
         this.teksti = teksti;
         this.kali = kali;
     }
@@ -43,9 +42,9 @@ public class NapinKuuntelija implements ActionListener {
             this.kali = new Kayttoliittyma(25, true, "Et antanut nimeäsi!");
             SwingUtilities.invokeLater(kali);
         } else {
-            this.peli.getHighscore().setNimi(this.teksti.getText());
+            this.kali.getPeli().getHighscore().setNimi(this.teksti.getText());
             this.kali.setNimi(this.teksti.getText());
-            this.peli.getLogiikka().setKirjaudu(true);
+            this.kali.getPeli().getLogiikka().setKirjaudu(true);
             this.kali.luoKomponentit(this.kali.getFrame().getContentPane());
             this.kali.getFrame().dispose();
             this.kali.getFrame().pack();

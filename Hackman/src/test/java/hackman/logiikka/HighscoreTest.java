@@ -7,6 +7,10 @@ package hackman.logiikka;
 
 import hackman.logiikka.Peli;
 import hackman.kartat.Kartta1;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,15 +37,16 @@ public class HighscoreTest {
     @Test
     public void getteritToimii() {
         assertEquals("", this.peli.getHighscore().getNimi());
-        assertFalse(this.peli.getHighscore().isMenuun());
-        assertEquals("", this.peli.getHighscore().getNimi());
+        assertEquals(10, this.peli.getHighscore().getRivit().size());
     }
 
     @Test
     public void setteritToimii() {
-        assertFalse(this.peli.getHighscore().isMenuun());
-        this.peli.getHighscore().setMenuun(true);
-        assertTrue(this.peli.getHighscore().isMenuun());
+        this.peli.getHighscore().setNimi("Pekka");
+        assertEquals("Pekka", this.peli.getHighscore().getNimi());
+        Map<Integer, String> testiMappi = new LinkedHashMap<>();
+        this.peli.getHighscore().setRivit(testiMappi);
+        assertEquals(0, this.peli.getHighscore().getRivit().size());
     }
 
     @Test
@@ -52,8 +57,55 @@ public class HighscoreTest {
     }
 
     @Test
-    public void kirjoitaTest() {
+    public void kirjoitaToimii() {
+        Map<Integer, String> testiMappi = new LinkedHashMap<>();
+        this.peli.getHighscore().setRivit(testiMappi);
         assertTrue(this.peli.getHighscore().kirjoita());
+        assertEquals("4. 70 -tyhja-", this.peli.getHighscore().annaRiviListalta(3));
+        assertEquals("3. 80 -tyhja-", this.peli.getHighscore().annaRiviListalta(2));
+
+        testiMappi.put(900, "Oce");
+
+        this.peli.getHighscore().setRivit(testiMappi);
+        assertTrue(this.peli.getHighscore().kirjoita());
+        assertEquals("1. 900 Oce", this.peli.getHighscore().annaRiviListalta(0));
+        assertEquals("2. 100 -tyhja-", this.peli.getHighscore().annaRiviListalta(1));
     }
 
+    @Test
+    public void annaRiviListaltaToimii() {
+        assertNotEquals("", this.peli.getHighscore().annaRiviListalta(0));
+        assertEquals("1. 100 -tyhja-", this.peli.getHighscore().annaRiviListalta(0));
+        assertEquals("2. 90 -tyhja-", this.peli.getHighscore().annaRiviListalta(1));
+        assertEquals("6. 50 -tyhja-", this.peli.getHighscore().annaRiviListalta(5));
+    }
+
+    @Test
+    public void onkoHighscoreToimii() {
+        assertFalse(this.peli.getHighscore().onkoHighscore(7));
+        assertTrue(this.peli.getHighscore().onkoHighscore(12));
+        assertTrue(this.peli.getHighscore().onkoHighscore(99));
+    }
+
+    @Test
+    public void jarjestaToimii() {
+        Map<Integer, String> testiMappi = new LinkedHashMap<>();
+
+        for (int i = 10; i > 0; i--) {
+            testiMappi.put(i * 10, "" + i);
+        }
+
+        this.peli.getHighscore().setRivit(testiMappi);
+        this.peli.getHighscore().onkoHighscore(1);
+
+        List<Integer> testiLista = new ArrayList<>();
+        for (Integer integer : this.peli.getHighscore().getRivit().keySet()) {
+            testiLista.add(integer);
+        }
+
+        assertTrue(testiLista.get(0) > testiLista.get(9));
+        assertTrue(testiLista.get(3) > testiLista.get(4));
+        assertTrue(testiLista.get(8) < testiLista.get(3));
+        assertFalse(testiLista.get(8) > testiLista.get(3));
+    }
 }

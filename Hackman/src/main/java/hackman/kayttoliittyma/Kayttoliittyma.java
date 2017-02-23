@@ -121,7 +121,7 @@ public class Kayttoliittyma implements Runnable {
         } else if (this.peli.getKartta().toString().equals("Kartta5")) {
             this.uusiPeli(Vaikeustaso.NORMAALI);
             this.menuun();
-            this.peli.getHighscore().setMenuun(true);
+            this.peli.setMenutila(MenuTila.HIGHSCORE);
             this.peli.getHighscore().onkoHighscore(pojot);
             this.peli.getHighscore().kirjoita();
             return;
