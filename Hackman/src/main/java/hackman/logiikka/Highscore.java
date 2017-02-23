@@ -111,6 +111,7 @@ public class Highscore {
             this.jarjesta();
             this.lukija.close();
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
@@ -140,7 +141,7 @@ public class Highscore {
             apu.add(integer);
         }
 
-        if (pojot > apu.get(apu.size() - 1)) {
+        if (pojot > apu.get(apu.size() - 1) && !apu.isEmpty()) {
             this.rivit.put(pojot, this.nimi);
         }
 

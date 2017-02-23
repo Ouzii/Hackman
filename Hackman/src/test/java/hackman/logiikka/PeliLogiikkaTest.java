@@ -65,15 +65,15 @@ public class PeliLogiikkaTest {
         assertNotEquals("(10, 10)", this.peli.getPelaaja().toString());
     }
 
-    @Test
-    public void kuoleekoToimii() {
-        assertFalse(this.peli.getLogiikka().isHavia());
-        assertTrue(this.peli.getPelaaja().isElossa());
-        Vihollinen vihu = new Vihollinen(10, 10);
-        this.peli.getLogiikka().kuoleeko(vihu);
-        assertFalse(this.peli.getPelaaja().isElossa());
-        assertTrue(this.peli.getLogiikka().isHavia());
-    }
+//    @Test
+//    public void kuoleekoToimii() {
+//        assertFalse(this.peli.getLogiikka().isHavia());
+//        assertTrue(this.peli.getPelaaja().isElossa());
+//        Vihollinen vihu = new Vihollinen(10, 10);
+//        this.peli.getLogiikka().kuoleeko(vihu);
+//        assertFalse(this.peli.getPelaaja().isElossa());
+//        assertTrue(this.peli.getLogiikka().isHavia());
+//    }
 
     @Test
     public void liikutaVihollisiaToimii() {
@@ -100,15 +100,15 @@ public class PeliLogiikkaTest {
         assertTrue(this.peli.getLogiikka().askelLuku());
     }
 
-    @Test
-    public void haviaToimii() {
-        this.peli.start();
-        assertTrue(this.peli.isRunning());
-        assertFalse(this.peli.getLogiikka().isHavia());
-        this.peli.getLogiikka().havia();
-        assertTrue(this.peli.getLogiikka().isHavia());
-        assertEquals(false, this.peli.isRunning());
-    }
+//    @Test
+//    public void haviaToimii() {
+//        this.peli.start();
+//        assertTrue(this.peli.isRunning());
+//        assertFalse(this.peli.getLogiikka().isHavia());
+//        this.peli.getLogiikka().havia();
+//        assertTrue(this.peli.getLogiikka().isHavia());
+//        assertEquals(false, this.peli.isRunning());
+//    }
 
     @Test
     public void voitaToimii() {
