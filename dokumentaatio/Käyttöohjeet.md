@@ -13,7 +13,7 @@
 
 
 Pelin käynnistyessä, syötä nimesi jolla haluat tallentaa huipputuloksesi. Paina "Kirjaudu" -nappia.
-Aloita peli painamalla ( Enter ). Vaihda pelihahmosi suuntaa nuolinäppäimillä. Voit pysäyttää pelin painamalla ( P ) tai aloittaa uuden pelin painamalla ( R ). Valikkonäkymässä paina ( F1 ) nähdäksesi huipputulokset tai ( Esc ) vaihtaaksesi käyttäjänimeä.
+Aloita peli painamalla ( Enter ) . Vaihda pelihahmosi suuntaa nuolinäppäimillä. Voit pysäyttää pelin painamalla ( P ) tai aloittaa uuden pelin painamalla ( R ). Valikkonäkymässä paina ( F1 ) nähdäksesi huipputulokset tai ( Esc ) vaihtaaksesi käyttäjänimeä.
 
 Voita kaikki viisi karttaa ja lisää nimesi historiankirjoihin lyömättömänä Hackman-mestarina!
 
