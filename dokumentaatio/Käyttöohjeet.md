@@ -1,14 +1,14 @@
 **Käyttöohjeet:**
 
-( Enter ) - aloita peli.
-( P ) - pysäytä peli.
-( R ) - nollaa peli.
-( Nuolinäppäimet ) - muuta pelihahmon suuntaa.
-( + ) - lisää vaikeustasoa.
-( - ) - vähennä vaikeustasoa.
-( Esc ) - palaa valikkoon/vaihda käyttäjää.
-( Välilyönti/Space ) - Mene seuraavalle tasolle (voitettuasi edellisen tason).
-( F1 ) - näytä huipputulokset.
+- ( Enter ) - aloita peli.
+- ( P ) - pysäytä peli.
+- ( R ) - nollaa peli.
+- ( Nuolinäppäimet ) - muuta pelihahmon suuntaa.
+- ( + ) - lisää vaikeustasoa.
+- ( - ) - vähennä vaikeustasoa.
+- ( Esc ) - palaa valikkoon/vaihda käyttäjää.
+- ( Välilyönti/Space ) - Mene seuraavalle tasolle (voitettuasi edellisen tason).
+- ( F1 ) - näytä huipputulokset.
 
 
 
