@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +26,7 @@ public class Highscore {
 
     private Scanner lukija;
     private Map<Integer, String> rivit;
-    private List<String> rivitLista;
+//    private List<String> rivitLista;
     private String nimi;
 
     /**
@@ -37,7 +38,7 @@ public class Highscore {
     public Highscore(String nimi) {
         this.rivit = new LinkedHashMap<>();
         this.nimi = nimi;
-        this.rivitLista = new ArrayList<>();
+//        this.rivitLista = new ArrayList<>();
         try {
 //            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
 //            this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
@@ -70,43 +71,44 @@ public class Highscore {
      * @return rivi String muodossa.
      */
     public String annaRiviListalta(int i) {
-        this.lisaaListaan();
-        return this.rivitLista.get(i);
+        List<String> apuLista = new ArrayList<>();
+        this.lisaaListaan(apuLista);
+        return apuLista.get(i);
     }
 
-    private void lisaaListaan() {
+    private void lisaaListaan(List apuLista) {
         int i = 1;
-        this.rivitLista.clear();
         for (Integer integer : this.rivit.keySet()) {
-            this.rivitLista.add(i + ". " + integer + " " + this.rivit.get(integer));
+            apuLista.add(i + ". " + integer + " " + this.rivit.get(integer));
             i++;
         }
     }
 
     private void lisaaKarttaan() {
         try {
+            this.lukija = new Scanner(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"), "UTF-8");
+        } catch (Exception e) {
+
             InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
             this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
-            int riveja = 0;
-            while (this.lukija.hasNextLine()) {
-                String s = this.lukija.nextLine();
-                String[] apu = s.split(" ");
-                this.rivit.put(Integer.parseInt(apu[1]), apu[2]);
-                riveja++;
-            }
-            if (riveja < 10) {
-                int score = 10;
-                while (riveja < 10) {
-                    this.rivit.put(score, "-tyhja-");
-                    riveja++;
-                    score += 10;
-                }
-            }
-            this.jarjesta();
-            this.lukija.close();
-        } catch (Exception e) {
-            System.out.println(e);
         }
+        int riveja = 0;
+        while (this.lukija.hasNextLine()) {
+            String s = this.lukija.nextLine();
+            String[] apu = s.split(" ");
+            this.rivit.put(Integer.parseInt(apu[1]), apu[2]);
+            riveja++;
+        }
+        if (riveja < 10) {
+            int score = 10;
+            while (riveja < 10) {
+                this.rivit.put(score, "-tyhja-");
+                riveja++;
+                score += 10;
+            }
+        }
+        this.jarjesta();
+        this.lukija.close();
     }
 
     private void jarjesta() {
@@ -138,10 +140,8 @@ public class Highscore {
 
         if (pojot > apu.get(apu.size() - 1) && !apu.isEmpty()) {
             this.rivit.put(pojot, this.nimi);
-            this.jarjesta();
             return true;
         } else {
-            this.jarjesta();
             return false;
         }
     }
@@ -153,9 +153,9 @@ public class Highscore {
      */
     public boolean kirjoita() {
         try {
-            BufferedWriter kirjoittaja = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream("src/main/resources/highscore.txt"), "UTF-8"));
-//            FileWriter kirjoittaja = new FileWriter(new File("src/main/highscore.txt", "UTF-8"));
+//            BufferedWriter kirjoittaja = new BufferedWriter(new OutputStreamWriter(
+//                    new FileOutputStream("highscore.txt"), "UTF-8"));
+            Writer kirjoittaja = new FileWriter(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"));
             int i = 1;
             for (Integer integer : this.rivit.keySet()) {
                 kirjoittaja.write(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
@@ -166,9 +166,8 @@ public class Highscore {
             this.lisaaKarttaan();
             return true;
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e + " kirjoittaja");
             return false;
         }
     }
-
 }

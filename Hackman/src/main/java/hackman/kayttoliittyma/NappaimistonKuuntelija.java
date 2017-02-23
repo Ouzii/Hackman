@@ -121,7 +121,7 @@ public class NappaimistonKuuntelija implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_F1) {
             if (!this.peli.getMenutila().equals(MenuTila.HIGHSCORE) && !this.peli.getMenutila().equals(MenuTila.KAYNNISSA)) {
                 this.peli.setMenutila(MenuTila.HIGHSCORE);
-            } else {
+            } else if(this.peli.getMenutila().equals(MenuTila.HIGHSCORE)) {
                 this.peli.setMenutila(MenuTila.MENU);
             }
 
