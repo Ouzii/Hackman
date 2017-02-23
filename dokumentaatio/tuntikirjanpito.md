@@ -35,4 +35,5 @@ Päivä | Tunnit | Kuvaus
 21.02.2017 | 2.5h | Lisätty pelihahmolle silmät, estetty kääntymästä kohti seinää ja lisätty toiminnallisuus, että seinään törmätessä suunta muutetaan päinvastaiseksi. Lisätty MenuTila-enum ja eriytetty menun piirtäminen omaksi luokakseen.
 22.02.2017 | 1h | Tehty Jar-file, korjattu highscore luokan bugeja.
 23.02.2017 | 3h | Päivitetty luokkakaavio, tehty käyttöohjeet ja rakennekuvaus. Lisätty testejä ja generoitu uudet raportit.
+23.02.2017 | 1.5h | Korjattu highscore-toiminnallisuus Jar-paketissa.
 ... | ... | ...
