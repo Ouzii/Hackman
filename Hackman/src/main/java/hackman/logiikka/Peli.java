@@ -34,15 +34,17 @@ public class Peli extends Timer implements ActionListener {
      * @param leveys Kartan leveys.
      * @param korkeus Kartan korkeus.
      * @param kartta Kartta.
+     * @param highscoreTestMode kertoo, että halutaanko highscore-luokka
+     * ajettavan testitilassa vai ei.
      */
-    public Peli(int leveys, int korkeus, Kartta kartta) {
+    public Peli(int leveys, int korkeus, Kartta kartta, boolean highscoreTestMode) {
         super(1000, null);
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.logiikka = new PeliLogiikka(this);
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
-        this.highscore = new Highscore("");
+        this.highscore = new Highscore("", highscoreTestMode);
         this.vaikeustaso = Vaikeustaso.NORMAALI;
         this.menutila = MenuTila.MENU;
         super.addActionListener(this);
@@ -59,15 +61,17 @@ public class Peli extends Timer implements ActionListener {
      * @param kartta Kartta.
      * @param nimi Pelaajan antama nimi.
      * @param vaikeustaso Vaikeustaso, joka asetetaan pelille.
+     * @param highscoreTestMode kertoo, että halutaanko highscore-luokka
+     * ajettavan testitilassa vai ei.
      */
-    public Peli(int leveys, int korkeus, Kartta kartta, String nimi, Vaikeustaso vaikeustaso) {
+    public Peli(int leveys, int korkeus, Kartta kartta, String nimi, Vaikeustaso vaikeustaso, boolean highscoreTestMode) {
         super(1000, null);
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.logiikka = new PeliLogiikka(this);
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
-        this.highscore = new Highscore(nimi);
+        this.highscore = new Highscore(nimi, highscoreTestMode);
         this.menutila = MenuTila.MENU;
         this.setVaikeustaso(vaikeustaso);
         super.addActionListener(this);
@@ -87,7 +91,7 @@ public class Peli extends Timer implements ActionListener {
     public void setMenutila(MenuTila menutila) {
         this.menutila = menutila;
     }
-    
+
     /**
      * Asettaa pelin vaikeustason ja muokkaa Timerin ajastusta sen mukaan.
      *

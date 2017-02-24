@@ -29,7 +29,7 @@ public class PeliLogiikkaTest {
 
     @Before
     public void setUp() {
-        this.peli = new Peli(20, 20, new Kartta1(20, 20));
+        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
     }
 
     @Test

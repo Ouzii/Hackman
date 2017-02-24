@@ -36,4 +36,5 @@ Päivä | Tunnit | Kuvaus
 22.02.2017 | 1h | Tehty Jar-file, korjattu highscore luokan bugeja.
 23.02.2017 | 3h | Päivitetty luokkakaavio, tehty käyttöohjeet ja rakennekuvaus. Lisätty testejä ja generoitu uudet raportit.
 23.02.2017 | 1.5h | Korjattu highscore-toiminnallisuus Jar-paketissa.
+24.02.2017 | 1h | Lisätty highscore-luokalle testMode, jotta voidaan testata ilman user.home hakemistoa.
 ... | ... | ...

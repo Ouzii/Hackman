@@ -28,8 +28,8 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        this.peli = new Peli(20, 20, new Kartta1(20, 20));
-        this.peli2 = new Peli(20, 20, new Kartta1(20, 20), "", Vaikeustaso.NORMAALI);
+        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
+        this.peli2 = new Peli(20, 20, new Kartta1(20, 20), "", Vaikeustaso.NORMAALI, false);
     }
 
     @Test

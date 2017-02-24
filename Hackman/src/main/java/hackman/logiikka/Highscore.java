@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
@@ -28,16 +27,20 @@ public class Highscore {
     private Map<Integer, String> rivit;
 //    private List<String> rivitLista;
     private String nimi;
+    private boolean testMode;
 
     /**
      * Luo LinkedHashMapin, jossa pidetään kirjaa pisteistä ja scannerin, joka
      * lukee pisteet tekstitiedostosta.
      *
      * @param nimi Pelaajan antama nimi.
+     * @param testMode kertoo ajetaanko highscore-luokan metodit testitilassa
+     * vai ei.
      */
-    public Highscore(String nimi) {
+    public Highscore(String nimi, boolean testMode) {
         this.rivit = new LinkedHashMap<>();
         this.nimi = nimi;
+        this.testMode = testMode;
 //        this.rivitLista = new ArrayList<>();
         try {
 //            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
@@ -59,7 +62,7 @@ public class Highscore {
     public void setRivit(Map<Integer, String> rivit) {
         this.rivit = rivit;
     }
-    
+
     public void setNimi(String nimi) {
         this.nimi = nimi;
     }
@@ -85,13 +88,18 @@ public class Highscore {
     }
 
     private void lisaaKarttaan() {
-        try {
-            this.lukija = new Scanner(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"), "UTF-8");
-        } catch (Exception e) {
-
+        if (!this.testMode) {
+            try {
+                this.lukija = new Scanner(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"), "UTF-8");
+            } catch (Exception e) {
+                InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
+                this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
+            }
+        } else {
             InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
             this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
         }
+
         int riveja = 0;
         while (this.lukija.hasNextLine()) {
             String s = this.lukija.nextLine();
@@ -152,22 +160,40 @@ public class Highscore {
      * @return Palauttaa true, jos onnistuu ja false, jos ei onnistu.
      */
     public boolean kirjoita() {
-        try {
-//            BufferedWriter kirjoittaja = new BufferedWriter(new OutputStreamWriter(
-//                    new FileOutputStream("highscore.txt"), "UTF-8"));
-            Writer kirjoittaja = new FileWriter(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"));
-            int i = 1;
-            for (Integer integer : this.rivit.keySet()) {
-                kirjoittaja.write(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
-                i++;
+        if (!this.testMode) {
+            try {
+                Writer kirjoittaja = new FileWriter(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"));
+                int i = 1;
+                for (Integer integer : this.rivit.keySet()) {
+                    kirjoittaja.write(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
+                    i++;
+                }
+                kirjoittaja.flush();
+                kirjoittaja.close();
+                this.lisaaKarttaan();
+                return true;
+            } catch (Exception e) {
+                System.out.println(e + " kirjoittaja");
+                return false;
             }
-            kirjoittaja.flush();
-            kirjoittaja.close();
-            this.lisaaKarttaan();
-            return true;
-        } catch (Exception e) {
-            System.out.println(e + " kirjoittaja");
-            return false;
+        } else {
+            try {
+                BufferedWriter kirjoittaja = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream("highscore.txt"), "UTF-8"));
+                int i = 1;
+                for (Integer integer : this.rivit.keySet()) {
+                    kirjoittaja.write(i + ". " + integer + " " + this.rivit.get(integer) + "\n");
+                    i++;
+                }
+                kirjoittaja.flush();
+                kirjoittaja.close();
+                this.lisaaKarttaan();
+                return true;
+            } catch (Exception e) {
+                System.out.println(e + " kirjoittaja");
+                return false;
+            }
         }
+
     }
 }

@@ -40,7 +40,7 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">public</strong> <a href="../../hackman/kayttoliittyma/Kayttoliittyma.html">Kayttoliittyma</a>(<strong class="jxr_keyword">int</strong> sivunPituus, <strong class="jxr_keyword">boolean</strong> error, String errorMsg) {
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>          <strong class="jxr_keyword">this</strong>.sivunPituus = sivunPituus;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>          <strong class="jxr_keyword">this</strong>.peli = <strong class="jxr_keyword">new</strong> <a href="../../hackman/logiikka/Peli.html">Peli</a>(20, 20, <strong class="jxr_keyword">new</strong> <a href="../../hackman/kartat/Kartta1.html">Kartta1</a>(20, 20));
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          <strong class="jxr_keyword">this</strong>.peli = <strong class="jxr_keyword">new</strong> <a href="../../hackman/logiikka/Peli.html">Peli</a>(20, 20, <strong class="jxr_keyword">new</strong> <a href="../../hackman/kartat/Kartta1.html">Kartta1</a>(20, 20), false);
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>          <strong class="jxr_keyword">this</strong>.pojot = 0;
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>          <strong class="jxr_keyword">this</strong>.nimi = <span class="jxr_string">""</span>;
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>          <strong class="jxr_keyword">this</strong>.menunUlkoasu = <strong class="jxr_keyword">new</strong> <a href="../../hackman/kayttoliittyma/MenunUlkoasu.html">MenunUlkoasu</a>(<strong class="jxr_keyword">this</strong>, error, errorMsg);
@@ -140,8 +140,8 @@
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>     }
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> asetaKartta(<a href="../../hackman/kartat/Kartta.html">Kartta</a> kartta) {
-<a class="jxr_linenumber" name="L135" href="#L135">135</a>         <a href="../../hackman/logiikka/Vaikeustaso.html">Vaikeustaso</a> vt = <strong class="jxr_keyword">this</strong>.peli.getVaikeustaso();
-<a class="jxr_linenumber" name="L136" href="#L136">136</a>         <strong class="jxr_keyword">this</strong>.peli = <strong class="jxr_keyword">new</strong> <a href="../../hackman/logiikka/Peli.html">Peli</a>(20, 20, kartta, <strong class="jxr_keyword">this</strong>.nimi, vt);
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>         <a href="../../hackman/logiikka/Vaikeustaso.html">Vaikeustaso</a> vaikeustaso = <strong class="jxr_keyword">this</strong>.peli.getVaikeustaso();
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         <strong class="jxr_keyword">this</strong>.peli = <strong class="jxr_keyword">new</strong> <a href="../../hackman/logiikka/Peli.html">Peli</a>(20, 20, kartta, <strong class="jxr_keyword">this</strong>.nimi, vaikeustaso, false);
 <a class="jxr_linenumber" name="L137" href="#L137">137</a>         <strong class="jxr_keyword">this</strong>.peli.getLogiikka().setPojot(<strong class="jxr_keyword">this</strong>.pojot);
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>         <strong class="jxr_keyword">this</strong>.peli.setMenutila(MenuTila.KAYNNISSA);
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>         <strong class="jxr_keyword">this</strong>.peli.start();
@@ -160,7 +160,7 @@
 <a class="jxr_linenumber" name="L152" href="#L152">152</a>         <strong class="jxr_keyword">if</strong> (frame.getKeyListeners().length != 0) {
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>             frame.removeKeyListener(frame.getKeyListeners()[0]);
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>         }
-<a class="jxr_linenumber" name="L155" href="#L155">155</a>         <strong class="jxr_keyword">this</strong>.peli = <strong class="jxr_keyword">new</strong> <a href="../../hackman/logiikka/Peli.html">Peli</a>(20, 20, <strong class="jxr_keyword">new</strong> <a href="../../hackman/kartat/Kartta1.html">Kartta1</a>(20, 20), <strong class="jxr_keyword">this</strong>.nimi, vaikeustaso);
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         <strong class="jxr_keyword">this</strong>.peli = <strong class="jxr_keyword">new</strong> <a href="../../hackman/logiikka/Peli.html">Peli</a>(20, 20, <strong class="jxr_keyword">new</strong> <a href="../../hackman/kartat/Kartta1.html">Kartta1</a>(20, 20), <strong class="jxr_keyword">this</strong>.nimi, vaikeustaso, false);
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>         <strong class="jxr_keyword">this</strong>.peli.setMenutila(MenuTila.KAYNNISSA);
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>         <strong class="jxr_keyword">this</strong>.peli.start();
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>         <strong class="jxr_keyword">this</strong>.luoKomponentit(frame);

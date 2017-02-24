@@ -9,6 +9,6 @@
 
 - [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 - [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
-- [Pit-raportti](https://htmlpreview.github.io/?https://github.com/Ouzii/Hackman/blob/master/dokumentaatio/Pit-raportti/201702232339/index.html)
+- [Pit-raportti](https://htmlpreview.github.io/?https://github.com/Ouzii/Hackman/blob/master/dokumentaatio/Pit-raportti/201702241253/index.html)
 - [CheckStyle-raportti](https://htmlpreview.github.io/?https://github.com/Ouzii/Hackman/blob/master/dokumentaatio/Checkstyle-raportti/site/checkstyle.html)
 - [Käyttöohjeet](dokumentaatio/Käyttöohjeet.md)

@@ -32,7 +32,7 @@ public class Kayttoliittyma implements Runnable {
      */
     public Kayttoliittyma(int sivunPituus, boolean error, String errorMsg) {
         this.sivunPituus = sivunPituus;
-        this.peli = new Peli(20, 20, new Kartta1(20, 20));
+        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
         this.pojot = 0;
         this.nimi = "";
         this.menunUlkoasu = new MenunUlkoasu(this, error, errorMsg);
@@ -132,8 +132,8 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void asetaKartta(Kartta kartta) {
-        Vaikeustaso vt = this.peli.getVaikeustaso();
-        this.peli = new Peli(20, 20, kartta, this.nimi, vt);
+        Vaikeustaso vaikeustaso = this.peli.getVaikeustaso();
+        this.peli = new Peli(20, 20, kartta, this.nimi, vaikeustaso, false);
         this.peli.getLogiikka().setPojot(this.pojot);
         this.peli.setMenutila(MenuTila.KAYNNISSA);
         this.peli.start();
@@ -152,7 +152,7 @@ public class Kayttoliittyma implements Runnable {
         if (frame.getKeyListeners().length != 0) {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
         }
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi, vaikeustaso);
+        this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi, vaikeustaso, false);
         this.peli.setMenutila(MenuTila.KAYNNISSA);
         this.peli.start();
         this.luoKomponentit(frame);

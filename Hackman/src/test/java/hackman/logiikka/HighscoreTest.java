@@ -5,16 +5,12 @@
  */
 package hackman.logiikka;
 
-import hackman.logiikka.Peli;
 import hackman.kartat.Kartta1;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -31,7 +27,7 @@ public class HighscoreTest {
 
     @Before
     public void setUp() {
-        this.peli = new Peli(20, 20, new Kartta1(20, 20));
+        this.peli = new Peli(20, 20, new Kartta1(20, 20), true);
     }
 
     @Test
@@ -64,13 +60,15 @@ public class HighscoreTest {
         assertEquals("4. 70 -tyhja-", this.peli.getHighscore().annaRiviListalta(3));
         assertEquals("3. 80 -tyhja-", this.peli.getHighscore().annaRiviListalta(2));
 
-//        testiMappi.put(900, "Oce");
-//
-//        this.peli.getHighscore().setRivit(testiMappi);
-//        assertTrue(this.peli.getHighscore().kirjoita());
-//        assertEquals("1. 900 Oce", this.peli.getHighscore().annaRiviListalta(0));
-//        assertEquals("2. 100 -tyhja-", this.peli.getHighscore().annaRiviListalta(1));
-//        this.peli.getHighscore().
+        testiMappi.put(900, "Oce");
+
+        this.peli.getHighscore().setRivit(testiMappi);
+        assertTrue(this.peli.getHighscore().kirjoita());
+        assertEquals("1. 900 Oce", this.peli.getHighscore().annaRiviListalta(0));
+        assertEquals("2. 100 -tyhja-", this.peli.getHighscore().annaRiviListalta(1));
+        testiMappi.remove(900);
+        this.peli.getHighscore().setRivit(testiMappi);
+        this.peli.getHighscore().kirjoita();
     }
 
     @Test
