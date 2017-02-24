@@ -1,8 +1,6 @@
 **Hackman** on pac-man tyylinen peli, jossa pelaaja pyrkii vihollisia väistellen keräämään kartan kaikki bitit.
 
 
-**HUOM! Ennen uutta pit-testiä tai testien suorittamista, poista user/home/.Hackman_highscore.txt tiedosto!**
-
 
 **Dokumentaatio:** 
 
