@@ -1,7 +1,7 @@
 package hackman.kayttoliittyma;
 
 import hackman.kartat.*;
-import hackman.logiikka.MenuTila;
+import hackman.logiikka.Menutila;
 import hackman.logiikka.Peli;
 import hackman.logiikka.Vaikeustaso;
 import java.awt.*;
@@ -99,7 +99,7 @@ public class Kayttoliittyma implements Runnable {
      */
     public void menuun() {
         this.peli.stop();
-        this.peli.setMenutila(MenuTila.MENU);
+        this.peli.setMenutila(Menutila.MENU);
         this.piirto.paivita();
     }
 
@@ -121,7 +121,7 @@ public class Kayttoliittyma implements Runnable {
         } else if (this.peli.getKartta().toString().equals("Kartta5")) {
             this.uusiPeli(Vaikeustaso.NORMAALI);
             this.menuun();
-            this.peli.setMenutila(MenuTila.HIGHSCORE);
+            this.peli.setMenutila(Menutila.HIGHSCORE);
             this.peli.getHighscore().onkoHighscore(pojot);
             this.peli.getHighscore().kirjoita();
             return;
@@ -135,7 +135,7 @@ public class Kayttoliittyma implements Runnable {
         Vaikeustaso vaikeustaso = this.peli.getVaikeustaso();
         this.peli = new Peli(20, 20, kartta, this.nimi, vaikeustaso, false);
         this.peli.getLogiikka().setPojot(this.pojot);
-        this.peli.setMenutila(MenuTila.KAYNNISSA);
+        this.peli.setMenutila(Menutila.KAYNNISSA);
         this.peli.start();
     }
 
@@ -153,7 +153,7 @@ public class Kayttoliittyma implements Runnable {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
         }
         this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi, vaikeustaso, false);
-        this.peli.setMenutila(MenuTila.KAYNNISSA);
+        this.peli.setMenutila(Menutila.KAYNNISSA);
         this.peli.start();
         this.luoKomponentit(frame);
         frame.pack();

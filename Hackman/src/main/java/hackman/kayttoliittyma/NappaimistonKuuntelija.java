@@ -1,9 +1,10 @@
 package hackman.kayttoliittyma;
 
 import hackman.kartat.Kartta1;
-import hackman.logiikka.MenuTila;
+import hackman.logiikka.Menutila;
 import hackman.rakennuspalat.Suunta;
 import hackman.logiikka.Peli;
+import hackman.logiikka.Pelitila;
 import hackman.logiikka.Vaikeustaso;
 import hackman.rakennuspalat.Pelihahmo;
 import java.awt.event.KeyEvent;
@@ -63,7 +64,7 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_P) {
-            if (!this.peli.getLogiikka().isHavia() && !this.peli.getLogiikka().isVoita()) {
+            if (this.peli.getLogiikka().getPelitila().equals(Pelitila.NEUTRAALI)) {
                 if (this.peli.isRunning()) {
                     this.peli.stop();
                 } else {
@@ -77,7 +78,7 @@ public class NappaimistonKuuntelija implements KeyListener {
         }
 
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-            if (this.peli.getMenutila().equals(MenuTila.MENU)) {
+            if (this.peli.getMenutila().equals(Menutila.MENU)) {
                 this.kali.getFrame().setVisible(false);
                 this.kali.getFrame().removeAll();
                 this.kali = new Kayttoliittyma(25, false, "");
@@ -87,16 +88,16 @@ public class NappaimistonKuuntelija implements KeyListener {
             }
         }
 
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.getMenutila().equals(MenuTila.KAYNNISSA)) {
-            if (this.peli.getLogiikka().isHavia()) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && !this.peli.getMenutila().equals(Menutila.KAYNNISSA)) {
+            if (this.peli.getLogiikka().getPelitila().equals(Pelitila.HAVIO)) {
                 kali.uusiPeli(this.peli.getVaikeustaso());
             } else {
-                this.peli.setMenutila(MenuTila.KAYNNISSA);
+                this.peli.setMenutila(Menutila.KAYNNISSA);
                 this.peli.start();
             }
         }
 
-        if ((e.getKeyCode() == KeyEvent.VK_PLUS || e.getKeyCode() == KeyEvent.VK_ADD) && this.peli.getMenutila().equals(MenuTila.MENU)) {
+        if ((e.getKeyCode() == KeyEvent.VK_PLUS || e.getKeyCode() == KeyEvent.VK_ADD) && this.peli.getMenutila().equals(Menutila.MENU)) {
             if (this.peli.getVaikeustaso().equals(Vaikeustaso.HELPPO)) {
                 this.kali.uusiPeli(Vaikeustaso.NORMAALI);
             } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
@@ -105,7 +106,7 @@ public class NappaimistonKuuntelija implements KeyListener {
             this.kali.menuun();
         }
 
-        if ((e.getKeyCode() == KeyEvent.VK_MINUS || e.getKeyCode() == KeyEvent.VK_SUBTRACT) && this.peli.getMenutila().equals(MenuTila.MENU)) {
+        if ((e.getKeyCode() == KeyEvent.VK_MINUS || e.getKeyCode() == KeyEvent.VK_SUBTRACT) && this.peli.getMenutila().equals(Menutila.MENU)) {
             if (this.peli.getVaikeustaso().equals(Vaikeustaso.VAIKEA)) {
                 this.kali.uusiPeli(Vaikeustaso.NORMAALI);
             } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
@@ -114,15 +115,15 @@ public class NappaimistonKuuntelija implements KeyListener {
             this.kali.menuun();
         }
 
-        if (e.getKeyCode() == KeyEvent.VK_SPACE && this.peli.getLogiikka().isVoita()) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE && this.peli.getLogiikka().getPelitila().equals(Pelitila.VOITTO)) {
             this.kali.nextMap();
         }
 
         if (e.getKeyCode() == KeyEvent.VK_F1) {
-            if (!this.peli.getMenutila().equals(MenuTila.HIGHSCORE) && !this.peli.getMenutila().equals(MenuTila.KAYNNISSA)) {
-                this.peli.setMenutila(MenuTila.HIGHSCORE);
-            } else if (this.peli.getMenutila().equals(MenuTila.HIGHSCORE)) {
-                this.peli.setMenutila(MenuTila.MENU);
+            if (!this.peli.getMenutila().equals(Menutila.HIGHSCORE) && !this.peli.getMenutila().equals(Menutila.KAYNNISSA)) {
+                this.peli.setMenutila(Menutila.HIGHSCORE);
+            } else if (this.peli.getMenutila().equals(Menutila.HIGHSCORE)) {
+                this.peli.setMenutila(Menutila.MENU);
             }
 
             this.peli.getPaivitettava().paivita();

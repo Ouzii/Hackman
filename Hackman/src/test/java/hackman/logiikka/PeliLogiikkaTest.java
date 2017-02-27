@@ -38,14 +38,13 @@ public class PeliLogiikkaTest {
         assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals(0, this.peli.getLogiikka().getAskelia());
         assertEquals(0, this.peli.getLogiikka().getKeratty());
-        assertFalse(this.peli.getLogiikka().isVoita());
-        assertFalse(this.peli.getLogiikka().isHavia());
+        assertEquals(Pelitila.NEUTRAALI, this.peli.getLogiikka().getPelitila());
     }
 
     @Test
     public void setteritToimii() {
-        this.peli.getLogiikka().setVoita(true);
-        assertTrue(this.peli.getLogiikka().isVoita());
+        this.peli.getLogiikka().setPelitila(Pelitila.VOITTO);
+        assertTrue(this.peli.getLogiikka().getPelitila().equals(Pelitila.VOITTO));
         this.peli.getLogiikka().setAskelia(2);
         assertEquals(2, this.peli.getLogiikka().getAskelia());
         this.peli.getLogiikka().setPojot(99);
@@ -67,12 +66,12 @@ public class PeliLogiikkaTest {
 
     @Test
     public void kuoleekoToimii() {
-        assertFalse(this.peli.getLogiikka().isHavia());
+        assertFalse(this.peli.getLogiikka().getPelitila().equals(Pelitila.HAVIO));
         assertTrue(this.peli.getPelaaja().isElossa());
         Vihollinen vihu = new Vihollinen(10, 10);
         this.peli.getLogiikka().kuoleeko(vihu);
         assertFalse(this.peli.getPelaaja().isElossa());
-        assertTrue(this.peli.getLogiikka().isHavia());
+        assertTrue(this.peli.getLogiikka().getPelitila().equals(Pelitila.HAVIO));
     }
 
     @Test
@@ -104,9 +103,9 @@ public class PeliLogiikkaTest {
     public void haviaToimii() {
         this.peli.start();
         assertTrue(this.peli.isRunning());
-        assertFalse(this.peli.getLogiikka().isHavia());
+        assertFalse(this.peli.getLogiikka().getPelitila().equals(Pelitila.HAVIO));
         this.peli.getLogiikka().havia();
-        assertTrue(this.peli.getLogiikka().isHavia());
+        assertTrue(this.peli.getLogiikka().getPelitila().equals(Pelitila.HAVIO));
         assertEquals(false, this.peli.isRunning());
     }
 
@@ -114,9 +113,9 @@ public class PeliLogiikkaTest {
     public void voitaToimii() {
         this.peli.start();
         assertTrue(this.peli.isRunning());
-        assertFalse(this.peli.getLogiikka().isVoita());
+        assertFalse(this.peli.getLogiikka().getPelitila().equals(Pelitila.VOITTO));
         this.peli.getLogiikka().voita();
-        assertTrue(this.peli.getLogiikka().isVoita());
+        assertTrue(this.peli.getLogiikka().getPelitila().equals(Pelitila.VOITTO));
         assertEquals(false, this.peli.isRunning());
     }
 

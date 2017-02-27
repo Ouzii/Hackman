@@ -44,7 +44,6 @@ public class NapinKuuntelija implements ActionListener {
         } else {
             this.kali.getPeli().getHighscore().setNimi(this.teksti.getText());
             this.kali.setNimi(this.teksti.getText());
-            this.kali.getPeli().getLogiikka().setKirjaudu(true);
             this.kali.luoKomponentit(this.kali.getFrame().getContentPane());
             this.kali.getFrame().dispose();
             this.kali.getFrame().pack();

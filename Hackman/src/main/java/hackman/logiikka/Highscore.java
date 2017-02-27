@@ -25,7 +25,6 @@ public class Highscore {
 
     private Scanner lukija;
     private Map<Integer, String> rivit;
-//    private List<String> rivitLista;
     private String nimi;
     private boolean testMode;
 
@@ -41,14 +40,7 @@ public class Highscore {
         this.rivit = new LinkedHashMap<>();
         this.nimi = nimi;
         this.testMode = testMode;
-//        this.rivitLista = new ArrayList<>();
-        try {
-//            InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
-//            this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
-            this.lisaaKarttaan();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        this.lisaaKarttaan();
     }
 
     public String getNimi() {
@@ -70,13 +62,13 @@ public class Highscore {
     /**
      * Antaa rivit järjestyksessä.
      *
-     * @param i monesko rivi.
+     * @param riviNro monesko rivi.
      * @return rivi String muodossa.
      */
-    public String annaRiviListalta(int i) {
+    public String annaRiviListalta(int riviNro) {
         List<String> apuLista = new ArrayList<>();
         this.lisaaListaan(apuLista);
-        return apuLista.get(i);
+        return apuLista.get(riviNro);
     }
 
     private void lisaaListaan(List apuLista) {
@@ -173,7 +165,6 @@ public class Highscore {
                 this.lisaaKarttaan();
                 return true;
             } catch (Exception e) {
-                System.out.println(e + " kirjoittaja");
                 return false;
             }
         } else {
@@ -190,7 +181,6 @@ public class Highscore {
                 this.lisaaKarttaan();
                 return true;
             } catch (Exception e) {
-                System.out.println(e + " kirjoittaja");
                 return false;
             }
         }

@@ -34,13 +34,13 @@ public class Kartta5 extends Kartta {
     }
 
     private void luoBitit() {
-        for (int i = 2; i <= this.leveys - 2; i++) {
+        for (int i = 2; i <= this.leveys - 3; i++) {
             this.bitit.add(new Bitti(i, 2));
         }
-        for (int i = 2; i <= this.leveys - 2; i++) {
+        for (int i = 2; i <= this.leveys - 3; i++) {
             this.bitit.add(new Bitti(i, 18));
         }
-        for (int i = 2; i <= this.korkeus - 2; i++) {
+        for (int i = 3; i <= this.korkeus - 3; i++) {
             this.bitit.add(new Bitti(2, i));
         }
         for (int i = 2; i <= this.korkeus - 2; i++) {

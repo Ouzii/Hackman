@@ -1,7 +1,8 @@
 package hackman.kayttoliittyma;
 
-import hackman.logiikka.MenuTila;
+import hackman.logiikka.Menutila;
 import hackman.logiikka.Peli;
+import hackman.logiikka.Pelitila;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
 import java.awt.Color;
@@ -119,9 +120,9 @@ public class Piirtaja extends JPanel implements Paivitettava {
         Font suuri = new Font("Comic Sans MS", Font.BOLD, 34);
         Font pieni = new Font("Comic Sans MS", Font.BOLD, 22);
         g.setFont(pieni);
-        if (!this.peli.getMenutila().equals(MenuTila.KAYNNISSA)) {
+        if (!this.peli.getMenutila().equals(Menutila.KAYNNISSA)) {
 
-            if (this.peli.getMenutila().equals(MenuTila.MENU)) {
+            if (this.peli.getMenutila().equals(Menutila.MENU)) {
                 this.menunPiirtaja.piirraMenu(g);
             } else {
                 this.menunPiirtaja.piirraHighscore(g);
@@ -133,21 +134,21 @@ public class Piirtaja extends JPanel implements Paivitettava {
             this.piirraBitit(g);
             this.piirraViholliset(g);
             g.setColor(Color.RED);
-            g.drawString("PISTEET: " + this.peli.getLogiikka().getPojot(), 3 * this.palikanKoko - 20, 3 * this.palikanKoko - 41);
-            if (this.peli.getLogiikka().isVoita()) {
+            g.drawString("PISTEET: " + this.peli.getLogiikka().getPojot(), 3 * this.palikanKoko - 20, 2 * this.palikanKoko - 30);
+            if (this.peli.getLogiikka().getPelitila().equals(Pelitila.VOITTO)) {
                 g.setColor(Color.BLUE);
                 g.setFont(suuri);
-                g.drawString("VOITIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
+                g.drawString("VOITIT!", 7 * this.palikanKoko + 10, 9 * this.palikanKoko);
                 g.setFont(pieni);
-                g.drawString("Paina <Space> siirtyäksesi", 3 * this.palikanKoko, 11 * this.palikanKoko);
-                g.drawString("seuraavalle tasolle", 5 * this.palikanKoko, 12 * this.palikanKoko);
+                g.drawString("Paina <Space> siirtyäksesi", 4 * this.palikanKoko + 10, 11 * this.palikanKoko);
+                g.drawString("seuraavalle tasolle", 6 * this.palikanKoko + 10, 12 * this.palikanKoko);
             }
-            if (this.peli.getLogiikka().isHavia()) {
-                g.setColor(Color.RED);
+            if (this.peli.getLogiikka().getPelitila().equals(Pelitila.HAVIO)) {
+                g.setColor(new Color(102, 0, 0));
                 g.setFont(suuri);
-                g.drawString("HÄVISIT!", 6 * this.palikanKoko, 9 * this.palikanKoko);
+                g.drawString("HÄVISIT!", 7 * this.palikanKoko, 9 * this.palikanKoko);
                 g.setFont(pieni);
-                g.drawString("Paina <R> aloittaaksesi alusta", 2 * this.palikanKoko + 10, 11 * this.palikanKoko);
+                g.drawString("Paina <R> aloittaaksesi alusta", 4 * this.palikanKoko, 11 * this.palikanKoko);
             }
         }
     }

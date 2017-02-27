@@ -25,7 +25,7 @@ public class Peli extends Timer implements ActionListener {
     private PeliLogiikka logiikka;
     private Highscore highscore;
     private Vaikeustaso vaikeustaso;
-    private MenuTila menutila;
+    private Menutila menutila;
 
     /**
      * Konstruktori pelille, joka asettaa mittasuhteet oikein ja luo uuden
@@ -46,7 +46,7 @@ public class Peli extends Timer implements ActionListener {
         this.kartta = kartta;
         this.highscore = new Highscore("", highscoreTestMode);
         this.vaikeustaso = Vaikeustaso.NORMAALI;
-        this.menutila = MenuTila.MENU;
+        this.menutila = Menutila.MENU;
         super.addActionListener(this);
         super.setInitialDelay(500);
         super.setDelay(150);
@@ -72,23 +72,22 @@ public class Peli extends Timer implements ActionListener {
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
         this.highscore = new Highscore(nimi, highscoreTestMode);
-        this.menutila = MenuTila.MENU;
+        this.menutila = Menutila.MENU;
         this.setVaikeustaso(vaikeustaso);
         super.addActionListener(this);
         super.setInitialDelay(500);
         super.stop();
     }
 
-//    HUOM !! KOODI SEKAVAA, KOSKA KOKEILUVAIHEESSA
     public Vaikeustaso getVaikeustaso() {
         return vaikeustaso;
     }
 
-    public MenuTila getMenutila() {
+    public Menutila getMenutila() {
         return menutila;
     }
 
-    public void setMenutila(MenuTila menutila) {
+    public void setMenutila(Menutila menutila) {
         this.menutila = menutila;
     }
 
@@ -143,8 +142,11 @@ public class Peli extends Timer implements ActionListener {
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
     }
-
-    private void lisaaPisteet() {
+    /**
+     * Tarkistetaan onko pelaaja bitin päällä, jota ei ole jo kerätty.
+     * Pisteitä lisätään pelin vaikeustason mukaan.
+     */
+    public void lisaaPisteet() {
         for (Bitti bitti : this.kartta.getBitit()) {
             if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
                 bitti.setKeratty(true);

@@ -16,9 +16,9 @@ public class PeliLogiikka {
     private int askelia;
     private int keratty;
     private boolean vuoro;
-    private boolean voita;
-    private boolean havia;
-    private boolean kirjaudu;
+//    private boolean voita;
+//    private boolean havia;
+    private Pelitila pelitila;
 
     /**
      * Konstruktori PeliLogiikalle, joka asettaa asetukset alkutilaan luotaessa.
@@ -31,26 +31,26 @@ public class PeliLogiikka {
         this.askelia = 0;
         this.keratty = 0;
         this.vuoro = false;
-        this.voita = false;
-        this.havia = false;
-        this.kirjaudu = false;
+//        this.voita = false;
+//        this.havia = false;
+        this.pelitila = Pelitila.NEUTRAALI;
     }
 
-    public boolean isKirjaudu() {
-        return kirjaudu;
+    public Pelitila getPelitila() {
+        return pelitila;
     }
 
-    public void setKirjaudu(boolean kirjaudu) {
-        this.kirjaudu = kirjaudu;
+    public void setPelitila(Pelitila pelitila) {
+        this.pelitila = pelitila;
     }
 
-    public boolean isVoita() {
-        return voita;
-    }
-
-    public void setVoita(boolean voita) {
-        this.voita = voita;
-    }
+//    public boolean isVoita() {
+//        return voita;
+//    }
+//
+//    public void setVoita(boolean voita) {
+//        this.voita = voita;
+//    }
 
     public int getPojot() {
         return pojot;
@@ -88,7 +88,8 @@ public class PeliLogiikka {
      * Metodi muuttaa pelin voita-tilaan ja pysäyttää Timerin.
      */
     public void voita() {
-        this.voita = true;
+//        this.voita = true;
+        this.pelitila = Pelitila.VOITTO;
         this.peli.stop();
     }
 
@@ -97,15 +98,16 @@ public class PeliLogiikka {
      * pisteet huipputulosten listalle, jos tarvetta.
      */
     public void havia() {
-        this.havia = true;
+//        this.havia = true;
+        this.pelitila = Pelitila.HAVIO;
         this.peli.getHighscore().onkoHighscore(this.pojot);
         this.peli.getHighscore().kirjoita();
         this.peli.stop();
     }
 
-    public boolean isHavia() {
-        return havia;
-    }
+//    public boolean isHavia() {
+//        return havia;
+//    }
 
     /**
      * Tarkastaa, onko pelaajan edessä seinää ja liikuttaa, jos ei ole. Vaihtaa

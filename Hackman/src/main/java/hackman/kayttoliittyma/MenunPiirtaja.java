@@ -43,23 +43,23 @@ public class MenunPiirtaja {
 
     private void piirraOhjeet(Graphics g) {
         g.setColor(Color.BLACK);
-        g.drawString("Aloita/jatka peliä ", 4 * this.palikanKoko, 4 * this.palikanKoko);
-        g.drawString("painamalla <Enter>", 4 * this.palikanKoko, 5 * this.palikanKoko);
+        g.drawString("Aloita/jatka peliä ", 5 * this.palikanKoko, 4 * this.palikanKoko);
+        g.drawString("painamalla <Enter>", 5 * this.palikanKoko, 5 * this.palikanKoko);
         g.setColor(Color.BLUE);
-        g.drawString("Tulosta huipputulokset", 4 * this.palikanKoko, 7 * this.palikanKoko);
-        g.drawString("painamalla <F1>", 6 * this.palikanKoko, 8 * this.palikanKoko);
+        g.drawString("Tulosta huipputulokset", 5 * this.palikanKoko, 7 * this.palikanKoko);
+        g.drawString("painamalla <F1>", 7 * this.palikanKoko, 8 * this.palikanKoko);
         g.setColor(Color.BLACK);
-        g.drawString("Pelissä paina <R>\naloittaaksesi alusta", 4 * this.palikanKoko, 10 * this.palikanKoko);
-        g.drawString("aloittaaksesi alusta", 6 * this.palikanKoko, 11 * this.palikanKoko);
+        g.drawString("Pelissä paina <R>", 5 * this.palikanKoko, 10 * this.palikanKoko);
+        g.drawString("aloittaaksesi alusta", 7 * this.palikanKoko, 11 * this.palikanKoko);
         g.setColor(Color.BLUE);
-        g.drawString("Pelissä paina <P>", 4 * this.palikanKoko, 13 * this.palikanKoko);
-        g.drawString("pysäyttääksesi pelin", 6 * this.palikanKoko, 14 * this.palikanKoko);
+        g.drawString("Pelissä paina <P>", 5 * this.palikanKoko, 13 * this.palikanKoko);
+        g.drawString("pysäyttääksesi pelin", 7 * this.palikanKoko, 14 * this.palikanKoko);
         g.setColor(Color.BLACK);
-        g.drawString("Paina <Esc> vaihtaaksesi", 4 * this.palikanKoko, 16 * this.palikanKoko);
-        g.drawString("käyttäjän nimeä", 6 * this.palikanKoko, 17 * this.palikanKoko);
+        g.drawString("Paina <Esc> vaihtaaksesi", 5 * this.palikanKoko, 16 * this.palikanKoko);
+        g.drawString("käyttäjän nimeä", 7 * this.palikanKoko, 17 * this.palikanKoko);
         g.setColor(Color.BLUE);
-        g.drawString("Muuta vaikeustasoa", 4 * this.palikanKoko, 19 * this.palikanKoko);
-        g.drawString("painamalla <+> ja <->", 6 * this.palikanKoko, 20 * this.palikanKoko);
+        g.drawString("Muuta vaikeustasoa", 5 * this.palikanKoko, 19 * this.palikanKoko);
+        g.drawString("painamalla <+> ja <->", 7 * this.palikanKoko, 20 * this.palikanKoko);
     }
 
     private void piirraVaikeustaso(Graphics g) {
@@ -106,10 +106,10 @@ public class MenunPiirtaja {
                 y++;
             }
             g.setColor(Color.RED);
-            g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (y + 2) * this.palikanKoko);
+            g.drawString("Paina <F1> palataksesi takaisin", 4 * this.palikanKoko, (y + 2) * this.palikanKoko);
         } catch (Exception e) {
             g.setColor(Color.RED);
-            g.drawString("Jokin meni pieleen, yritä uudelleen" + e.getMessage(), this.palikanKoko, 10 * this.palikanKoko);
+            g.drawString("Jokin meni pieleen, yritä uudelleen", this.palikanKoko, 10 * this.palikanKoko);
             g.drawString("Paina <F1> palataksesi takaisin", 2 * this.palikanKoko, (12) * this.palikanKoko);
         }
     }
