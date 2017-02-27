@@ -37,5 +37,6 @@ Päivä | Tunnit | Kuvaus
 23.02.2017 | 3h | Päivitetty luokkakaavio, tehty käyttöohjeet ja rakennekuvaus. Lisätty testejä ja generoitu uudet raportit.
 23.02.2017 | 1.5h | Korjattu highscore-toiminnallisuus Jar-paketissa.
 24.02.2017 | 1h | Lisätty highscore-luokalle testMode, jotta voidaan testata ilman user.home hakemistoa.
-27.02.2016 | 0.5h | Refaktoroitu peli-luokkaa ja muutettu highscore-tiedoston polkua.
+27.02.2017 | 0.5h | Refaktoroitu peli-luokkaa ja muutettu highscore-tiedoston polkua.
+27.02.2017 | 3.5h | Refaktoroitu koodia, lisätty testejä ja vihollisille omat luokat.
 ... | ... | ...
