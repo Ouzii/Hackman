@@ -5,6 +5,8 @@ package hackman.logiikka;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import hackman.enumit.Vaikeustaso;
+import hackman.enumit.Menutila;
 import hackman.kartat.Kartta1;
 import hackman.kayttoliittyma.Kayttoliittyma;
 import hackman.kayttoliittyma.Piirtaja;
@@ -27,8 +29,8 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
-        this.peli2 = new Peli(20, 20, new Kartta1(20, 20), "", Vaikeustaso.NORMAALI, false);
+        this.peli = new Peli(20, new Kartta1(20, 20), false);
+        this.peli2 = new Peli(20, new Kartta1(20, 20), "", Vaikeustaso.NORMAALI, false);
     }
 
     @Test
@@ -37,18 +39,16 @@ public class PeliTest {
         assertEquals(0, this.peli.getLogiikka().getPojot());
         assertEquals("Kartta1", this.peli.getKartta().toString());
         assertEquals(null, this.peli.getPaivitettava());
-        this.peli.setPaivitettava(new Piirtaja(this.peli, 20, new Kayttoliittyma(20, false, "")));
+        this.peli.setPaivitettava(new Piirtaja(20, new Kayttoliittyma(20, false, "")));
         assertNotEquals(null, this.peli.getPaivitettava());
-        assertEquals(20, this.peli.getKorkeus());
-        assertEquals(20, this.peli.getLeveys());
+        assertEquals(20, this.peli.getSivunPituus());
         assertEquals("(10, 10)", this.peli2.getPelaaja().toString());
         assertEquals(0, this.peli2.getLogiikka().getPojot());
         assertEquals("Kartta1", this.peli2.getKartta().toString());
         assertEquals(null, this.peli2.getPaivitettava());
-        this.peli2.setPaivitettava(new Piirtaja(this.peli2, 20, new Kayttoliittyma(20, false, "")));
+        this.peli2.setPaivitettava(new Piirtaja(20, new Kayttoliittyma(20, false, "")));
         assertNotEquals(null, this.peli2.getPaivitettava());
-        assertEquals(20, this.peli2.getKorkeus());
-        assertEquals(20, this.peli2.getLeveys());
+        assertEquals(20, this.peli2.getSivunPituus());
         assertEquals(Vaikeustaso.NORMAALI, this.peli2.getVaikeustaso());
         assertEquals(Menutila.MENU, this.peli.getMenutila());
         assertEquals(Menutila.MENU, this.peli2.getMenutila());
@@ -56,7 +56,7 @@ public class PeliTest {
 
     @Test
     public void setteritToimii() {
-        this.peli2.setPaivitettava(new Piirtaja(this.peli2, 20, new Kayttoliittyma(20, false, "")));
+        this.peli2.setPaivitettava(new Piirtaja(20, new Kayttoliittyma(20, false, "")));
         assertNotEquals(null, this.peli2.getPaivitettava());
         this.peli.getLogiikka().setPojot(99);
         assertEquals(99, this.peli.getLogiikka().getPojot());
@@ -80,7 +80,7 @@ public class PeliTest {
         assertEquals(3, this.peli.getLogiikka().getKeratty());
 
         
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
+        this.peli = new Peli(20, new Kartta1(20, 20), false);
         this.peli.setVaikeustaso(Vaikeustaso.VAIKEA);
         assertEquals(0, this.peli.getLogiikka().getPojot());
         for (int i = 0; i < 6; i++) {
@@ -91,7 +91,7 @@ public class PeliTest {
         assertEquals(3, this.peli.getLogiikka().getKeratty());
 
         
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
+        this.peli = new Peli(20, new Kartta1(20, 20), false);
         this.peli.setVaikeustaso(Vaikeustaso.HELPPO);
         assertEquals(0, this.peli.getLogiikka().getPojot());
         for (int i = 0; i < 6; i++) {

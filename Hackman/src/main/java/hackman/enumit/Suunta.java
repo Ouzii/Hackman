@@ -1,5 +1,5 @@
 
-package hackman.rakennuspalat;
+package hackman.enumit;
 /**
  * Määrittää suunnan liikkuville palasille.
  * @author Oce

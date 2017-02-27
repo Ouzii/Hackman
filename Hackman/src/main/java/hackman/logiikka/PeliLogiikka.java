@@ -1,7 +1,8 @@
 package hackman.logiikka;
 
+import hackman.enumit.Pelitila;
 import hackman.rakennuspalat.Palikka;
-import hackman.rakennuspalat.Suunta;
+import hackman.enumit.Suunta;
 import hackman.rakennuspalat.Vihollinen;
 
 /**
@@ -16,8 +17,6 @@ public class PeliLogiikka {
     private int askelia;
     private int keratty;
     private boolean vuoro;
-//    private boolean voita;
-//    private boolean havia;
     private Pelitila pelitila;
 
     /**
@@ -31,8 +30,6 @@ public class PeliLogiikka {
         this.askelia = 0;
         this.keratty = 0;
         this.vuoro = false;
-//        this.voita = false;
-//        this.havia = false;
         this.pelitila = Pelitila.NEUTRAALI;
     }
 
@@ -43,15 +40,7 @@ public class PeliLogiikka {
     public void setPelitila(Pelitila pelitila) {
         this.pelitila = pelitila;
     }
-
-//    public boolean isVoita() {
-//        return voita;
-//    }
-//
-//    public void setVoita(boolean voita) {
-//        this.voita = voita;
-//    }
-
+    
     public int getPojot() {
         return pojot;
     }
@@ -88,7 +77,6 @@ public class PeliLogiikka {
      * Metodi muuttaa pelin voita-tilaan ja pysäyttää Timerin.
      */
     public void voita() {
-//        this.voita = true;
         this.pelitila = Pelitila.VOITTO;
         this.peli.stop();
     }
@@ -98,16 +86,11 @@ public class PeliLogiikka {
      * pisteet huipputulosten listalle, jos tarvetta.
      */
     public void havia() {
-//        this.havia = true;
         this.pelitila = Pelitila.HAVIO;
         this.peli.getHighscore().onkoHighscore(this.pojot);
         this.peli.getHighscore().kirjoita();
         this.peli.stop();
     }
-
-//    public boolean isHavia() {
-//        return havia;
-//    }
 
     /**
      * Tarkastaa, onko pelaajan edessä seinää ja liikuttaa, jos ei ole. Vaihtaa
@@ -116,13 +99,13 @@ public class PeliLogiikka {
      * @return true, jos liikutaan ja false, jos ei liikuta.
      */
     public boolean liikuPelaaja() {
-        int i = 0;
+        int seinia = 0;
         for (Palikka seina : this.peli.getKartta().getSeinat()) {
             if (!this.peli.getKartta().osuuSeinaan(this.peli.getPelaaja())) {
-                i++;
+                seinia++;
             }
         }
-        if (i >= this.peli.getKorkeus()) {
+        if (seinia >= this.peli.getSivunPituus()) {
             this.peli.getPelaaja().liiku();
             return true;
         } else {
@@ -164,11 +147,11 @@ public class PeliLogiikka {
      */
     public void liikutaVihollisia() {
         this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuPun());
-        this.peli.getKartta().getVihuMus().liikuVihollinenMus(this.peli.getPelaaja());
+        this.peli.getKartta().getVihuMus().kaannaVihollinen(this.peli.getPelaaja());
         this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuMus());
-        this.peli.getKartta().getVihuKel().liikuVihollinenKel(this.peli.getPelaaja());
+        this.peli.getKartta().getVihuKel().kaannaVihollinen(this.peli.getPelaaja());
         this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuKel());
-        this.peli.getKartta().getVihuPin().liikuVihollinenPin(this.peli.getPelaaja());
+        this.peli.getKartta().getVihuPin().kaannaVihollinen(this.peli.getPelaaja());
         this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuPin());
     }
 

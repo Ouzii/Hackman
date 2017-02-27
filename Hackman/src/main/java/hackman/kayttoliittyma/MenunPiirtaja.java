@@ -6,12 +6,9 @@
 package hackman.kayttoliittyma;
 
 import hackman.logiikka.Peli;
-import hackman.logiikka.Vaikeustaso;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.io.File;
-import java.util.Scanner;
 
 /**
  * Huolehtii päävalikkonäkymän grafiikoiden piirtämisestä.
@@ -20,16 +17,16 @@ import java.util.Scanner;
 public class MenunPiirtaja {
 
     private int palikanKoko;
-    private Peli peli;
+    private Kayttoliittyma kali;
 
     /**
      * Asettaa viitteet oikein.
-     * @param peli Pelattava peli.
+     * @param kali Käyttöliittymä.
      * @param palikanKoko Palikan koko.
      */
-    public MenunPiirtaja(Peli peli, int palikanKoko) {
+    public MenunPiirtaja(Kayttoliittyma kali, int palikanKoko) {
         this.palikanKoko = palikanKoko;
-        this.peli = peli;
+        this.kali = kali;
     }
 
     /**
@@ -64,23 +61,27 @@ public class MenunPiirtaja {
 
     private void piirraVaikeustaso(Graphics g) {
         g.setColor(Color.BLACK);
-        if (this.peli.getVaikeustaso().equals(Vaikeustaso.HELPPO)) {
-            g.setColor(Color.RED);
-            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
-            g.setColor(Color.BLACK);
-            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
-            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
-        } else if (this.peli.getVaikeustaso().equals(Vaikeustaso.NORMAALI)) {
-            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
-            g.setColor(Color.RED);
-            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
-            g.setColor(Color.BLACK);
-            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
-        } else {
-            g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
-            g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
-            g.setColor(Color.RED);
-            g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
+        switch (this.kali.getPeli().getVaikeustaso()) {
+            case HELPPO:
+                g.setColor(Color.RED);
+                g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
+                g.setColor(Color.BLACK);
+                g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
+                g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
+                break;
+            case NORMAALI:
+                g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
+                g.setColor(Color.RED);
+                g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
+                g.setColor(Color.BLACK);
+                g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
+                break;
+            default:
+                g.drawString("HELPPO", 3 * this.palikanKoko - 4, 2 * this.palikanKoko);
+                g.drawString("NORMAALI", 8 * this.palikanKoko, 2 * this.palikanKoko);
+                g.setColor(Color.RED);
+                g.drawString("VAIKEA", 15 * this.palikanKoko, 2 * this.palikanKoko);
+                break;
         }
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
         g.setColor(Color.BLUE);
@@ -93,7 +94,7 @@ public class MenunPiirtaja {
      */
     public void piirraHighscore(Graphics g) {
         try {
-            this.peli.getHighscore().kirjoita();
+            this.kali.getPeli().getHighscore().kirjoita();
             g.setColor(Color.BLUE);
             g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
             g.drawString("Sija   pisteet     nimi", 6 * this.palikanKoko, 3 * this.palikanKoko);
@@ -102,7 +103,7 @@ public class MenunPiirtaja {
 
             int y = 4;
             for (int i = 0; i < 10; i++) {
-                g.drawString(this.peli.getHighscore().annaRiviListalta(i), 6 * this.palikanKoko, y * this.palikanKoko);
+                g.drawString(this.kali.getPeli().getHighscore().annaRiviListalta(i), 6 * this.palikanKoko, y * this.palikanKoko);
                 y++;
             }
             g.setColor(Color.RED);

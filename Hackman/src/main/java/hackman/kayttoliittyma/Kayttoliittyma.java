@@ -1,9 +1,9 @@
 package hackman.kayttoliittyma;
 
 import hackman.kartat.*;
-import hackman.logiikka.Menutila;
+import hackman.enumit.Menutila;
 import hackman.logiikka.Peli;
-import hackman.logiikka.Vaikeustaso;
+import hackman.enumit.Vaikeustaso;
 import java.awt.*;
 import javax.swing.*;
 
@@ -18,7 +18,6 @@ public class Kayttoliittyma implements Runnable {
     private Peli peli;
     private final int sivunPituus;
     private Piirtaja piirto;
-    public int pojot;
     private String nimi;
     private MenunUlkoasu menunUlkoasu;
 
@@ -32,8 +31,7 @@ public class Kayttoliittyma implements Runnable {
      */
     public Kayttoliittyma(int sivunPituus, boolean error, String errorMsg) {
         this.sivunPituus = sivunPituus;
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
-        this.pojot = 0;
+        this.peli = new Peli(20, new Kartta1(20, 20), false);
         this.nimi = "";
         this.menunUlkoasu = new MenunUlkoasu(this, error, errorMsg);
 
@@ -49,8 +47,8 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("HACKMAN");
-        int leveys = (this.peli.getLeveys()) * (this.sivunPituus + 2) - 4;
-        int korkeus = (this.peli.getKorkeus()) * (this.sivunPituus + 3) - 2;
+        int leveys = (this.peli.getSivunPituus()) * (this.sivunPituus + 2) - 4;
+        int korkeus = (this.peli.getSivunPituus()) * (this.sivunPituus + 3) - 2;
         frame.setPreferredSize(new Dimension(leveys, korkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -83,10 +81,10 @@ public class Kayttoliittyma implements Runnable {
      */
     public void luoKomponentit(Container container) {
         this.menunUlkoasu.poistaKomponentit();
-        this.piirto = new Piirtaja(this.peli, this.sivunPituus, this);
+        this.piirto = new Piirtaja(this.sivunPituus, this);
         this.peli.setPaivitettava(piirto);
         container.add(piirto);
-        NappaimistonKuuntelija nk = new NappaimistonKuuntelija(this.peli.getPelaaja(), this.peli, this);
+        NappaimistonKuuntelija nk = new NappaimistonKuuntelija(this);
         frame.addKeyListener(nk);
     }
 
@@ -109,15 +107,15 @@ public class Kayttoliittyma implements Runnable {
     public void nextMap() {
         frame.remove(piirto);
         frame.removeKeyListener(frame.getKeyListeners()[0]);
-        this.pojot = this.peli.getLogiikka().getPojot();
+        int pojot = this.peli.getLogiikka().getPojot();
         if (this.peli.getKartta().toString().equals("Kartta1")) {
-            asetaKartta(new Kartta2(20, 20));
+            asetaKartta(new Kartta2(20, 20), pojot);
         } else if (this.peli.getKartta().toString().equals("Kartta2")) {
-            asetaKartta(new Kartta3(20, 20));
+            asetaKartta(new Kartta3(20, 20), pojot);
         } else if (this.peli.getKartta().toString().equals("Kartta3")) {
-            asetaKartta(new Kartta4(20, 20));
+            asetaKartta(new Kartta4(20, 20), pojot);
         } else if (this.peli.getKartta().toString().equals("Kartta4")) {
-            asetaKartta(new Kartta5(20, 20));
+            asetaKartta(new Kartta5(20, 20), pojot);
         } else if (this.peli.getKartta().toString().equals("Kartta5")) {
             this.uusiPeli(Vaikeustaso.NORMAALI);
             this.menuun();
@@ -131,10 +129,10 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
-    private void asetaKartta(Kartta kartta) {
+    private void asetaKartta(Kartta kartta, int pojot) {
         Vaikeustaso vaikeustaso = this.peli.getVaikeustaso();
-        this.peli = new Peli(20, 20, kartta, this.nimi, vaikeustaso, false);
-        this.peli.getLogiikka().setPojot(this.pojot);
+        this.peli = new Peli(20, kartta, this.nimi, vaikeustaso, false);
+        this.peli.getLogiikka().setPojot(pojot);
         this.peli.setMenutila(Menutila.KAYNNISSA);
         this.peli.start();
     }
@@ -152,7 +150,7 @@ public class Kayttoliittyma implements Runnable {
         if (frame.getKeyListeners().length != 0) {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
         }
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), this.nimi, vaikeustaso, false);
+        this.peli = new Peli(20, new Kartta1(20, 20), this.nimi, vaikeustaso, false);
         this.peli.setMenutila(Menutila.KAYNNISSA);
         this.peli.start();
         this.luoKomponentit(frame);

@@ -6,7 +6,7 @@
 package hackman.rakennuspalat;
 
 import hackman.rakennuspalat.Palikka;
-import hackman.rakennuspalat.Suunta;
+import hackman.enumit.Suunta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

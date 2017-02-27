@@ -1,5 +1,7 @@
 package hackman.rakennuspalat;
 
+import hackman.enumit.Suunta;
+
 /**
  * Pelaajan ohjaaman hahmon peruslogiikka.
  *

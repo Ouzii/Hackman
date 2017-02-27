@@ -1,5 +1,6 @@
 package hackman.rakennuspalat;
 
+import hackman.enumit.Suunta;
 import java.util.Random;
 
 /**
@@ -87,14 +88,11 @@ public class Palikka {
     public boolean osuuSeinaan(Palikka seina) {
         if (this.suunta == Suunta.ALAS && this.getY() + 1 == seina.getY() && this.getX() == seina.getX()) {
             return true;
-        }
-        if (this.suunta == Suunta.YLOS && this.getY() - 1 == seina.getY() && this.getX() == seina.getX()) {
+        } else if (this.suunta == Suunta.YLOS && this.getY() - 1 == seina.getY() && this.getX() == seina.getX()) {
             return true;
-        }
-        if (this.suunta == Suunta.OIKEA && this.getY() == seina.getY() && this.getX() + 1 == seina.getX()) {
+        } else if (this.suunta == Suunta.OIKEA && this.getY() == seina.getY() && this.getX() + 1 == seina.getX()) {
             return true;
-        }
-        if (this.suunta == Suunta.VASEN && this.getY() == seina.getY() && this.getX() - 1 == seina.getX()) {
+        } else if (this.suunta == Suunta.VASEN && this.getY() == seina.getY() && this.getX() - 1 == seina.getX()) {
             return true;
         }
 

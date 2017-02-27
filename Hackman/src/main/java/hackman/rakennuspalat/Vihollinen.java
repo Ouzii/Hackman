@@ -1,5 +1,6 @@
 package hackman.rakennuspalat;
 
+import hackman.enumit.Suunta;
 import java.util.Random;
 
 /**
@@ -10,7 +11,9 @@ import java.util.Random;
 public class Vihollinen extends Palikka {
 
     /**
-     * Konstruktori Viholliselle, joka asettaa alkukoordinaatit parametrien mukaan.
+     * Konstruktori Viholliselle, joka asettaa alkukoordinaatit parametrien
+     * mukaan.
+     *
      * @param x X-koordinaatti alussa.
      * @param y Y-koordinaatti alussa.
      */
@@ -19,23 +22,13 @@ public class Vihollinen extends Palikka {
     }
 
     /**
-     * Muuttaa mustan vihollisen suuntaa sen mukaan, missä päin pelaaja on.
+     * Overridattava metodi vihollisille, jotta eri vihollisilla voi olla
+     * erilaiset tekoälyt kääntymiseen.
      *
-     * @param pelaaja Pelihahmo, johon koordinaatteja verrataan.
+     * @param pelaaja Pelin pelaajan ohjaama pelihahmo.
      */
-    public void liikuVihollinenMus(Pelihahmo pelaaja) {
-        if (pelaaja.getX() == this.getX() && pelaaja.getY() <= this.getY()) {
-            this.setSuunta(Suunta.YLOS);
-        }
-        if (pelaaja.getX() == this.getX() && pelaaja.getY() > this.getY()) {
-            this.setSuunta(Suunta.ALAS);
-        }
-        if (pelaaja.getX() <= this.getX() && pelaaja.getY() == this.getY()) {
-            this.setSuunta(Suunta.VASEN);
-        }
-        if (pelaaja.getX() > this.getX() && pelaaja.getY() == this.getY()) {
-            this.setSuunta(Suunta.OIKEA);
-        }
+    public void kaannaVihollinen(Pelihahmo pelaaja) {
+
     }
 
     /**
@@ -63,36 +56,6 @@ public class Vihollinen extends Palikka {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Muuttaa keltaisen vihollisen suuntaa pelaajaa kohti, jos Y-koordinaatit
-     * ovat samat.
-     *
-     * @param pelaaja Pelihahmo, johon koordinaatteja verrataan.
-     */
-    public void liikuVihollinenKel(Pelihahmo pelaaja) {
-        if (pelaaja.getX() <= this.getX() && pelaaja.getY() == this.getY()) {
-            this.setSuunta(Suunta.VASEN);
-        }
-        if (pelaaja.getX() > this.getX() && pelaaja.getY() == this.getY()) {
-            this.setSuunta(Suunta.OIKEA);
-        }
-    }
-
-    /**
-     * Muuttaa pinkin vihollisen suuntaa pelaajaa kohti, jos X-koordinaatit ovat
-     * samat.
-     *
-     * @param pelaaja Pelihahmo, johon koordinaatteja verrataan.
-     */
-    public void liikuVihollinenPin(Pelihahmo pelaaja) {
-        if (pelaaja.getX() == this.getX() && pelaaja.getY() <= this.getY()) {
-            this.setSuunta(Suunta.YLOS);
-        }
-        if (pelaaja.getX() == this.getX() && pelaaja.getY() > this.getY()) {
-            this.setSuunta(Suunta.ALAS);
-        }
     }
 
     @Override

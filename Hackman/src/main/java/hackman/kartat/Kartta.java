@@ -1,10 +1,12 @@
 package hackman.kartat;
 
-import hackman.rakennuspalat.Suunta;
+import hackman.enumit.Suunta;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;
-import hackman.rakennuspalat.Pelihahmo;
 import hackman.rakennuspalat.Vihollinen;
+import hackman.rakennuspalat.VihollinenKel;
+import hackman.rakennuspalat.VihollinenMus;
+import hackman.rakennuspalat.VihollinenPin;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +23,8 @@ public class Kartta {
     public List<Bitti> bitit;
     public List<Vihollinen> vihut;
     private Vihollinen vihuPun;
-    private Vihollinen vihuMus;
-    private Vihollinen vihuKel;
+    private VihollinenMus vihuMus;
+    private VihollinenKel vihuKel;
     private Vihollinen vihuPin;
 
     /**
@@ -45,13 +47,13 @@ public class Kartta {
         this.vihuPun = new Vihollinen(2, 2);
         this.vihuPun.setSuunta(Suunta.ALAS);
         this.vihut.add(this.vihuPun);
-        this.vihuMus = new Vihollinen(leveys - 2, korkeus - 2);
+        this.vihuMus = new VihollinenMus(leveys - 2, korkeus - 2);
         this.vihuMus.setSuunta(Suunta.YLOS);
         this.vihut.add(this.vihuMus);
-        this.vihuKel = new Vihollinen(leveys - 2, 2);
+        this.vihuKel = new VihollinenKel(leveys - 2, 2);
         this.vihuKel.setSuunta(Suunta.VASEN);
         this.vihut.add(this.vihuKel);
-        this.vihuPin = new Vihollinen(2, korkeus - 2);
+        this.vihuPin = new VihollinenPin(2, korkeus - 2);
         this.vihuPin.setSuunta(Suunta.OIKEA);
         this.vihut.add(this.vihuPin);
     }
@@ -106,13 +108,13 @@ public class Kartta {
      * @return true, jos liikutaan ja false, jos ei liikuta.
      */
     public boolean liikuVihollinen(Vihollinen vihollinen) {
-        int a = 0;
+        int seinia = 0;
         for (Palikka seina : this.seinat) {
             if (!this.osuuSeinaan(vihollinen)) {
-                a++;
+                seinia++;
             }
         }
-        if (a >= this.korkeus) {
+        if (seinia >= this.korkeus) {
             vihollinen.liiku();
             return true;
         } else {
@@ -131,14 +133,11 @@ public class Kartta {
         for (Palikka seina : seinat) {
             if (hahmo.getSuunta() == Suunta.ALAS && hahmo.getX() == seina.getX() && hahmo.getY() + 1 == seina.getY()) {
                 return true;
-            }
-            if (hahmo.getSuunta() == Suunta.YLOS && hahmo.getX() == seina.getX() && hahmo.getY() - 1 == seina.getY()) {
+            } else if (hahmo.getSuunta() == Suunta.YLOS && hahmo.getX() == seina.getX() && hahmo.getY() - 1 == seina.getY()) {
                 return true;
-            }
-            if (hahmo.getSuunta() == Suunta.OIKEA && hahmo.getX() + 1 == seina.getX() && hahmo.getY() == seina.getY()) {
+            } else if (hahmo.getSuunta() == Suunta.OIKEA && hahmo.getX() + 1 == seina.getX() && hahmo.getY() == seina.getY()) {
                 return true;
-            }
-            if (hahmo.getSuunta() == Suunta.VASEN && hahmo.getX() - 1 == seina.getX() && hahmo.getY() == seina.getY()) {
+            } else if (hahmo.getSuunta() == Suunta.VASEN && hahmo.getX() - 1 == seina.getX() && hahmo.getY() == seina.getY()) {
                 return true;
             }
         }

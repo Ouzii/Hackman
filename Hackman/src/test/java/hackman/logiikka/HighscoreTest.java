@@ -27,7 +27,7 @@ public class HighscoreTest {
 
     @Before
     public void setUp() {
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), true);
+        this.peli = new Peli(20, new Kartta1(20, 20), true);
     }
 
     @Test

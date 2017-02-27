@@ -6,7 +6,7 @@ package hackman.rakennuspalat;
  * and open the template in the editor.
  */
 import hackman.rakennuspalat.Pelihahmo;
-import hackman.rakennuspalat.Suunta;
+import hackman.enumit.Suunta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

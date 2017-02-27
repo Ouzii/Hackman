@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hackman.logiikka;
+package hackman.enumit;
 
 /**
  * Enum, joka määrittää vaikeustason pelille.

@@ -5,9 +5,10 @@
  */
 package hackman.logiikka;
 
+import hackman.enumit.Pelitila;
 import hackman.logiikka.Peli;
 import hackman.kartat.Kartta1;
-import hackman.rakennuspalat.Suunta;
+import hackman.enumit.Suunta;
 import hackman.rakennuspalat.Vihollinen;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -29,7 +30,7 @@ public class PeliLogiikkaTest {
 
     @Before
     public void setUp() {
-        this.peli = new Peli(20, 20, new Kartta1(20, 20), false);
+        this.peli = new Peli(20, new Kartta1(20, 20), false);
     }
 
     @Test
@@ -61,7 +62,39 @@ public class PeliLogiikkaTest {
         this.peli.getPelaaja().setSuunta(Suunta.ALAS);
         assertFalse(this.peli.getLogiikka().liikuPelaaja());
         this.peli.getLogiikka().liikuPelaaja();
-        assertNotEquals("(10, 10)", this.peli.getPelaaja().toString());
+        assertEquals("(9, 10)", this.peli.getPelaaja().toString());
+        this.peli.getPelaaja().setSuunta(Suunta.VASEN);
+
+        for (int i = 0; i < 7; i++) {
+            assertTrue(this.peli.getLogiikka().liikuPelaaja());
+        }
+        assertFalse(this.peli.getLogiikka().liikuPelaaja());
+        assertEquals(Suunta.OIKEA, this.peli.getPelaaja().getSuunta());
+        assertEquals("(2, 10)", this.peli.getPelaaja().toString());
+        this.peli.getPelaaja().setSuunta(Suunta.ALAS);
+
+        for (int i = 0; i < 8; i++) {
+            assertTrue(this.peli.getLogiikka().liikuPelaaja());
+        }
+        assertFalse(this.peli.getLogiikka().liikuPelaaja());
+        assertEquals(Suunta.YLOS, this.peli.getPelaaja().getSuunta());
+        assertEquals("(2, 18)", this.peli.getPelaaja().toString());
+
+        for (int i = 0; i < 16; i++) {
+            assertTrue(this.peli.getLogiikka().liikuPelaaja());
+        }
+        assertFalse(this.peli.getLogiikka().liikuPelaaja());
+        assertEquals(Suunta.ALAS, this.peli.getPelaaja().getSuunta());
+        assertEquals("(2, 2)", this.peli.getPelaaja().toString());
+        this.peli.getPelaaja().setSuunta(Suunta.OIKEA);
+
+        for (int i = 0; i < 16; i++) {
+            assertTrue(this.peli.getLogiikka().liikuPelaaja());
+        }
+        assertFalse(this.peli.getLogiikka().liikuPelaaja());
+        assertEquals(Suunta.VASEN, this.peli.getPelaaja().getSuunta());
+        assertEquals("(18, 2)", this.peli.getPelaaja().toString());
+
     }
 
     @Test
@@ -87,6 +120,19 @@ public class PeliLogiikkaTest {
         assertEquals("(18, 17)", this.peli.getKartta().getVihuMus().toString());
         assertEquals("(17, 2)", this.peli.getKartta().getVihuKel().toString());
         assertEquals("(3, 18)", this.peli.getKartta().getVihuPin().toString());
+        
+        this.peli.getKartta().getVihuMus().setX(10);
+        this.peli.getKartta().getVihuMus().setY(3);
+        this.peli.getKartta().getVihuKel().setX(3);
+        this.peli.getKartta().getVihuKel().setY(10);
+        this.peli.getKartta().getVihuPin().setX(10);
+        this.peli.getKartta().getVihuPin().setY(18);
+        
+        this.peli.getLogiikka().liikutaVihollisia();
+        
+        assertEquals(Suunta.ALAS, this.peli.getKartta().getVihuMus().getSuunta());
+        assertEquals(Suunta.YLOS, this.peli.getKartta().getVihuPin().getSuunta());
+        assertEquals(Suunta.OIKEA, this.peli.getKartta().getVihuKel().getSuunta());
     }
 
     @Test

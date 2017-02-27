@@ -1,4 +1,4 @@
-package hackman.logiikka;
+package hackman.enumit;
 
 /**
  * Enum, joka kertoo missä tilassa peli on.

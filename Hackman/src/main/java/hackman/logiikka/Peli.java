@@ -1,10 +1,10 @@
 package hackman.logiikka;
 
+import hackman.enumit.Vaikeustaso;
+import hackman.enumit.Menutila;
 import hackman.kartat.Kartta;
 import hackman.kayttoliittyma.Paivitettava;
-import hackman.rakennuspalat.Bitti;
-import hackman.rakennuspalat.Pelihahmo;
-import hackman.rakennuspalat.Vihollinen;
+import hackman.rakennuspalat.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -17,8 +17,7 @@ import javax.swing.Timer;
  */
 public class Peli extends Timer implements ActionListener {
 
-    private int leveys;
-    private int korkeus;
+    private int sivunPituus;
     private Paivitettava paivitettava;
     private Pelihahmo pelaaja;
     private Kartta kartta;
@@ -31,16 +30,14 @@ public class Peli extends Timer implements ActionListener {
      * Konstruktori pelille, joka asettaa mittasuhteet oikein ja luo uuden
      * pelihahmon sekä käynnistää Timerin.
      *
-     * @param leveys Kartan leveys.
-     * @param korkeus Kartan korkeus.
+     * @param sivunPituus Pelin sivujen pituus.
      * @param kartta Kartta.
      * @param highscoreTestMode kertoo, että halutaanko highscore-luokka
      * ajettavan testitilassa vai ei.
      */
-    public Peli(int leveys, int korkeus, Kartta kartta, boolean highscoreTestMode) {
+    public Peli(int sivunPituus, Kartta kartta, boolean highscoreTestMode) {
         super(1000, null);
-        this.leveys = leveys;
-        this.korkeus = korkeus;
+        this.sivunPituus = sivunPituus;
         this.logiikka = new PeliLogiikka(this);
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
@@ -56,18 +53,16 @@ public class Peli extends Timer implements ActionListener {
     /**
      * Toinen konstruktori, jolla pidetään String nimi tallessa.
      *
-     * @param leveys Kartan leveys.
-     * @param korkeus Kartan korkeus.
+     * @param sivunPituus Pelin sivujen pituus.
      * @param kartta Kartta.
      * @param nimi Pelaajan antama nimi.
      * @param vaikeustaso Vaikeustaso, joka asetetaan pelille.
      * @param highscoreTestMode kertoo, että halutaanko highscore-luokka
      * ajettavan testitilassa vai ei.
      */
-    public Peli(int leveys, int korkeus, Kartta kartta, String nimi, Vaikeustaso vaikeustaso, boolean highscoreTestMode) {
+    public Peli(int sivunPituus, Kartta kartta, String nimi, Vaikeustaso vaikeustaso, boolean highscoreTestMode) {
         super(1000, null);
-        this.leveys = leveys;
-        this.korkeus = korkeus;
+        this.sivunPituus = sivunPituus;
         this.logiikka = new PeliLogiikka(this);
         this.pelaaja = new Pelihahmo(10, 10);
         this.kartta = kartta;
@@ -131,12 +126,8 @@ public class Peli extends Timer implements ActionListener {
         return this.kartta;
     }
 
-    public int getLeveys() {
-        return this.leveys;
-    }
-
-    public int getKorkeus() {
-        return this.korkeus;
+    public int getSivunPituus() {
+        return this.sivunPituus;
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {
