@@ -90,7 +90,7 @@ public class Highscore {
     private void lisaaKarttaan() {
         if (!this.testMode) {
             try {
-                this.lukija = new Scanner(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"), "UTF-8");
+                this.lukija = new Scanner(new File("Hackman_highscore.txt"), "UTF-8");
             } catch (Exception e) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
                 this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
@@ -162,7 +162,7 @@ public class Highscore {
     public boolean kirjoita() {
         if (!this.testMode) {
             try {
-                Writer kirjoittaja = new FileWriter(new File(System.getProperty("user.home") + "/.Hackman_highscore.txt"));
+                Writer kirjoittaja = new FileWriter(new File("Hackman_highscore.txt"));
                 int i = 1;
                 for (Integer integer : this.rivit.keySet()) {
                     kirjoittaja.write(i + ". " + integer + " " + this.rivit.get(integer) + "\n");

@@ -98,12 +98,16 @@ public class Peli extends Timer implements ActionListener {
      * @param vaikeustaso Haluttu vaikeustaso.
      */
     public void setVaikeustaso(Vaikeustaso vaikeustaso) {
-        if (vaikeustaso.equals(Vaikeustaso.HELPPO)) {
-            super.setDelay(200);
-        } else if (vaikeustaso.equals(Vaikeustaso.NORMAALI)) {
-            super.setDelay(125);
-        } else {
-            super.setDelay(75);
+        switch (vaikeustaso) {
+            case HELPPO:
+                super.setDelay(200);
+                break;
+            case NORMAALI:
+                super.setDelay(125);
+                break;
+            default:
+                super.setDelay(75);
+                break;
         }
         this.vaikeustaso = vaikeustaso;
     }
@@ -140,6 +144,26 @@ public class Peli extends Timer implements ActionListener {
         this.paivitettava = paivitettava;
     }
 
+    private void lisaaPisteet() {
+        for (Bitti bitti : this.kartta.getBitit()) {
+            if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
+                bitti.setKeratty(true);
+                switch (this.vaikeustaso) {
+                    case HELPPO:
+                        this.logiikka.setPojot(this.logiikka.getPojot() + 1);
+                        break;
+                    case NORMAALI:
+                        this.logiikka.setPojot(this.logiikka.getPojot() + 2);
+                        break;
+                    default:
+                        this.logiikka.setPojot(this.logiikka.getPojot() + 3);
+                        break;
+                }
+                this.logiikka.setKeratty(this.logiikka.getKeratty() + 1);
+            }
+        }
+    }
+
     /**
      * Hoitaa tapahtumien kulun, kun Timer antaa ActionEventin.
      *
@@ -163,19 +187,9 @@ public class Peli extends Timer implements ActionListener {
             this.logiikka.liikutaVihollisia();
             this.logiikka.setVuoro(false);
         }
-        for (Bitti bitti : this.kartta.getBitit()) {
-            if (this.pelaaja.osuu(bitti) && !bitti.isKeratty()) {
-                bitti.setKeratty(true);
-                if (this.vaikeustaso.equals(Vaikeustaso.HELPPO)) {
-                    this.logiikka.setPojot(this.logiikka.getPojot() + 1);
-                } else if (this.vaikeustaso.equals(Vaikeustaso.NORMAALI)) {
-                    this.logiikka.setPojot(this.logiikka.getPojot() + 2);
-                } else {
-                    this.logiikka.setPojot(this.logiikka.getPojot() + 3);
-                }
-                this.logiikka.setKeratty(this.logiikka.getKeratty() + 1);
-            }
-        }
+        
+        this.lisaaPisteet();
+        
         if (this.logiikka.getKeratty() == this.kartta.getBitit().size()) {
             this.logiikka.voita();
         }
