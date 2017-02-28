@@ -39,4 +39,5 @@ Päivä | Tunnit | Kuvaus
 24.02.2017 | 1h | Lisätty highscore-luokalle testMode, jotta voidaan testata ilman user.home hakemistoa.
 27.02.2017 | 0.5h | Refaktoroitu peli-luokkaa ja muutettu highscore-tiedoston polkua.
 27.02.2017 | 3.5h | Refaktoroitu koodia, lisätty testejä ja vihollisille omat luokat.
+28.02.2017 | 1h | Lisätty testejä.
 ... | ... | ...

@@ -89,6 +89,12 @@ public class VihollinenTest {
         this.vihuKel.setX(9);
         this.vihuKel.kaannaVihollinen(this.pelaaja);
         assertEquals(Suunta.OIKEA, this.vihuKel.getSuunta());
+        
+        this.vihuKel.setX(16);
+        this.vihuKel.setSuunta(Suunta.ALAS);
+        assertNotEquals(Suunta.VASEN, this.vihuKel.getSuunta());
+        this.vihuKel.kaannaVihollinen(this.pelaaja);
+        assertEquals(Suunta.VASEN, this.vihuKel.getSuunta());
     }
 
     @Test
@@ -111,6 +117,8 @@ public class VihollinenTest {
         this.vihuKel.setSuunta(Suunta.ALAS);
         this.vihuKel.kaannaVihollinen(this.pelaaja);
         assertEquals(Suunta.ALAS, this.vihuKel.getSuunta());
+        
+        this.vihuKel.setX(0);
     }
 
     @Test
