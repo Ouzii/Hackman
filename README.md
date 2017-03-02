@@ -11,4 +11,4 @@
 - [CheckStyle-raportti](https://htmlpreview.github.io/?https://github.com/Ouzii/Hackman/blob/master/dokumentaatio/Checkstyle-raportti/site/checkstyle.html)
 - [Käyttöohjeet](dokumentaatio/Käyttöohjeet.md)
 - [Testausdokumentti](dokumentaatio/Testausdokumentti.md)
-- [Javadoc](javadoc/index.html)
+- [Javadoc](https://htmlpreview.github.io/?https://github.com/Ouzii/Hackman/blob/master/javadoc/index.html)
