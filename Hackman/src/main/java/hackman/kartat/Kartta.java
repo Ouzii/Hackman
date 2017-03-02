@@ -116,7 +116,7 @@ public class Kartta {
             vihollinen.vaihdaSuunta(random);
             return false;
         } else {
-             vihollinen.liiku();
+            vihollinen.liiku();
             return true;
         }
     }

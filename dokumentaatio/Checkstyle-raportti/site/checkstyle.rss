@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 24,
+      <title>File: 28,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -44,20 +44,6 @@ under the License.
             </tr>
           </thead>
           <tbody>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Pelihahmo.java">hackman/rakennuspalat/Pelihahmo.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#hackman.kartat.Kartta3.java">hackman/kartat/Kartta3.java</a>
@@ -88,7 +74,91 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.logiikka.MenuTila.java">hackman/logiikka/MenuTila.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.MenunPiirtaja.java">hackman/kayttoliittyma/MenunPiirtaja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.NapinKuuntelija.java">hackman/kayttoliittyma/NapinKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Paivitettava.java">hackman/kayttoliittyma/Paivitettava.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.enumit.Suunta.java">hackman/enumit/Suunta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.enumit.Pelitila.java">hackman/enumit/Pelitila.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Pelihahmo.java">hackman/rakennuspalat/Pelihahmo.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.enumit.Menutila.java">hackman/enumit/Menutila.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.MenunPiirtaja.java">hackman/kayttoliittyma/MenunPiirtaja.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.VihollinenMus.java">hackman/rakennuspalat/VihollinenMus.java</a>
                 </td>
                 <td>
                   0
@@ -173,34 +243,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#hackman.kartat.Kartta4.java">hackman/kartat/Kartta4.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.NapinKuuntelija.java">hackman/kayttoliittyma/NapinKuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#hackman.kayttoliittyma.Paivitettava.java">hackman/kayttoliittyma/Paivitettava.java</a>
                 </td>
                 <td>
                   0
@@ -284,6 +326,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#hackman.enumit.Vaikeustaso.java">hackman/enumit/Vaikeustaso.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#hackman.kartat.Kartta.java">hackman/kartat/Kartta.java</a>
                 </td>
                 <td>
@@ -326,20 +382,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.logiikka.Vaikeustaso.java">hackman/logiikka/Vaikeustaso.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#hackman.kartat.Kartta1.java">hackman/kartat/Kartta1.java</a>
                 </td>
                 <td>
@@ -354,7 +396,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.Suunta.java">hackman/rakennuspalat/Suunta.java</a>
+                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.VihollinenKel.java">hackman/rakennuspalat/VihollinenKel.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#hackman.rakennuspalat.VihollinenPin.java">hackman/rakennuspalat/VihollinenPin.java</a>
                 </td>
                 <td>
                   0
