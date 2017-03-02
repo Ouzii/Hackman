@@ -1,6 +1,7 @@
 package hackman.rakennuspalat;
 
 import hackman.enumit.Suunta;
+import java.util.Random;
 
 /**
  * Peruslogiikka pelissä nähtäville vihollisille.
@@ -28,7 +29,7 @@ public class Vihollinen extends Palikka {
      * @param pelaaja Pelin pelaajan ohjaama pelihahmo.
      */
     public void kaannaVihollinen(Pelihahmo pelaaja) {
-
+        this.vaihdaSuunta(new Random().nextInt(4) + 1);
     }
 
     /**
