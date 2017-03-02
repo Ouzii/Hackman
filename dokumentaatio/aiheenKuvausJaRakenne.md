@@ -22,6 +22,6 @@
 Main-luokka luo uuden Käyttöliittymä-olion ja käynnistää sen. Käyttöliittymä, käyttäen MenunUlkoasua hyödykseen, käynnistää kirjautumisikkunan. Napinkuuntelija antaa käyttöliittymän kautta pelin highscore-oliolle pelaajan nimen. Piirtäjä-luokka piirtää grafiikat pelissä ja MenunPiirtäjä piirtää valikot. NappaimistonKuuntelija toimittaa pelaajan antaman näppäimistökomennot pelilogiikalle ja käyttöliittymälle. Piirtäjä pyytää pelin highscore-oliolta ulkoisessa tekstitiedostossa säilytettäviä huipputuloksia.
 
 ![Luokkakaavio](http://i1259.photobucket.com/albums/ii553/Oce43/HackmanLuokkakaavio_zpsz22v6wra.png?t=1488386346"Luokkakaavio")
-![Sekvenssikaavio-PelinKaynnistys](http://i1259.photobucket.com/albums/ii553/Oce43/Pelin%20kaynnistys2_zpsjfbyjctr.png?t=1487190867"SekvenssikaavioPelinKaynnistys")
+![Sekvenssikaavio-PeliinKirjautuminen](http://i1259.photobucket.com/albums/ii553/Oce43/Peliin%20kirjautuminen_zpsuwyqgaw6.png?t=1488393289"SekvenssikaavioPeliinKirjautuminen")
 ![Sekvenssikaavio-SuunnanMuuttaminen](http://i1259.photobucket.com/albums/ii553/Oce43/Suunnan%20Muuttaminen_zpsiing56hj.png?t=1487163268"SekvenssikaavioSuunnanMuuttaminen")
 ![Sekvenssikaavio-MustanVihollisenSuunnanMuuttaminen](http://i1259.photobucket.com/albums/ii553/Oce43/MustanVihollisenSuunnanMuuttaminen_zpskotedrm8.png?t=1487163807"SekvenssikaavioMustanVihollisenSuunnanMuuttaminen")
