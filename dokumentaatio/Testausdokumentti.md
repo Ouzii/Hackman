@@ -18,4 +18,3 @@
 **Tunnettuja bugeja:**
 
 - Linuxilla käynnistettäessä, joskus "Kirjaudu" -napin painalluksen jälkeen ikkuna siirtyy pois olemasta päällimmäisenä. Tällöin tulee nostaa jokin toinen ikkuna etualalle, ja peli uudestaan takaisin etualalle, jotta näppäimistökomennot välittyvät peliin.
-- 
