@@ -13,3 +13,9 @@
 **Kartat-paketti** testattu laajasti automaattisesti, mutta Kartta5:n luoSeinat-metodia ei automaattisesti onnistuttu testaamaan, koska metodi luo random-generaattoria hyväksikäyttäen seiniä. Myöskään karttojen muita luomismetodeja ei ole voitu tehokkaasti testata automaattisesti (josta johtuen pit-raportin luonnissa useita TIMED OUT-kohtia), mutta pelissä tarkistettu seinien ja bittien paikat.
 
 **Enumit-pakettia** ei ole testattu, mutta ei ole nähty tarpeelliseksi.
+
+
+**Tunnettuja bugeja:**
+
+- Linuxilla käynnistettäessä, joskus "Kirjaudu" -napin painalluksen jälkeen ikkuna siirtyy pois olemasta päällimmäisenä. Tällöin tulee nostaa jokin toinen ikkuna etualalle, ja peli uudestaan takaisin etualalle, jotta näppäimistökomennot välittyvät peliin.
+- 
