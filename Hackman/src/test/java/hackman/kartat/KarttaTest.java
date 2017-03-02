@@ -5,14 +5,9 @@
  */
 package hackman.kartat;
 
-import hackman.kartat.Kartta;
-import hackman.kartat.Kartta1;
 import hackman.rakennuspalat.Pelihahmo;
 import hackman.enumit.Suunta;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -4,6 +4,7 @@ import hackman.enumit.Pelitila;
 import hackman.rakennuspalat.Palikka;
 import hackman.enumit.Suunta;
 import hackman.rakennuspalat.Vihollinen;
+import java.util.Random;
 
 /**
  * Luokka, joka hoitaa peliin liittyviä loogisia metodeja.
@@ -163,7 +164,8 @@ public class PeliLogiikka {
      */
     public boolean askelLuku() {
         if (this.askelia >= 2) {
-            this.peli.getKartta().getVihuPun().vaihdaSuunta();
+            int random = new Random().nextInt(4) + 1;
+            this.peli.getKartta().getVihuPun().vaihdaSuunta(random);
             this.askelia = 0;
             return true;
         } else {

@@ -22,6 +22,7 @@ public class VihollinenKel extends Vihollinen {
      */
     public VihollinenKel(int x, int y) {
         super(x, y);
+        super.setSuunta(Suunta.VASEN);
     }
 
     /**

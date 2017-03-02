@@ -35,13 +35,13 @@ public class PalikkaTest {
         assertEquals("(10, 10)", palikka.toString());
     }
 
-//    @Test
-//    public void osuuToimii() {
-//        Palikka p2 = new Palikka(10, 10);
-//        assertTrue(this.palikka.osuu(p2));
-//        p2.liiku();
-//        assertFalse(this.palikka.osuu(p2));
-//    }
+    @Test
+    public void osuuToimii() {
+        Palikka p2 = new Palikka(10, 10);
+        assertTrue(this.palikka.osuu(p2));
+        p2.liiku();
+        assertFalse(this.palikka.osuu(p2));
+    }
 
     @Test
     public void suuntaMuuttuu() {
@@ -56,6 +56,40 @@ public class PalikkaTest {
     @Test
     public void liikuToimii() {
         assertTrue(this.palikka.liiku());
+        this.palikka.setSuunta(Suunta.OIKEA);
+        int X = this.palikka.getX();
+        assertEquals(X, this.palikka.getX());
+        assertTrue(this.palikka.liiku());
+        assertEquals(X, this.palikka.getX() - 1);
+        
+        this.palikka.setSuunta(Suunta.VASEN);
+        X = this.palikka.getX();
+        assertEquals(X, this.palikka.getX());
+        assertTrue(this.palikka.liiku());
+        assertTrue(this.palikka.liiku());
+        assertTrue(this.palikka.liiku());
+        assertEquals(X, this.palikka.getX() + 3);
+        
+        this.palikka.setSuunta(Suunta.ALAS);       
+        int Y = this.palikka.getY();
+        assertEquals(Y, this.palikka.getY());
+        assertTrue(this.palikka.liiku());
+        assertTrue(this.palikka.liiku());
+        assertEquals(Y, this.palikka.getY() - 2);
+        
+        this.palikka.setSuunta(Suunta.YLOS);
+        Y = this.palikka.getY();
+        assertEquals(Y, this.palikka.getY());
+        assertTrue(this.palikka.liiku());
+        assertTrue(this.palikka.liiku());
+        assertTrue(this.palikka.liiku());
+        assertTrue(this.palikka.liiku());
+        assertTrue(this.palikka.liiku());
+        assertEquals(Y, this.palikka.getY() + 5);
+        
+        this.palikka.setSuunta(null);
+        assertFalse(this.palikka.liiku());
+        
     }
     @Test
     public void liikuToimiiVasen() {

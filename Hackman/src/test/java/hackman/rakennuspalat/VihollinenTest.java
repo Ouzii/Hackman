@@ -1,6 +1,7 @@
 package hackman.rakennuspalat;
 
 import hackman.enumit.Suunta;
+import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -157,22 +158,76 @@ public class VihollinenTest {
 
     @Test
     public void suunnanMuutosToimii() {
-        assertTrue(this.vihuPun.vaihdaSuunta());
-        assertTrue(this.vihuPun.vaihdaSuunta());
-        assertTrue(this.vihuPun.vaihdaSuunta());
-        assertTrue(this.vihuPun.vaihdaSuunta());
-        assertTrue(this.vihuKel.vaihdaSuunta());
-        assertTrue(this.vihuKel.vaihdaSuunta());
-        assertTrue(this.vihuKel.vaihdaSuunta());
-        assertTrue(this.vihuKel.vaihdaSuunta());
-        assertTrue(this.vihuPin.vaihdaSuunta());
-        assertTrue(this.vihuPin.vaihdaSuunta());
-        assertTrue(this.vihuPin.vaihdaSuunta());
-        assertTrue(this.vihuPin.vaihdaSuunta());
-        assertTrue(this.vihuMus.vaihdaSuunta());
-        assertTrue(this.vihuMus.vaihdaSuunta());
-        assertTrue(this.vihuMus.vaihdaSuunta());
-        assertTrue(this.vihuMus.vaihdaSuunta());
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+        assertTrue(this.vihuPun.vaihdaSuunta(new Random().nextInt(4) + 1));
+    }
+    
+    @Test
+    public void suunnanMuutosToimiiEriSyotteilla() {
+        assertEquals(Suunta.VASEN, this.vihuKel.getSuunta());
+        assertEquals(Suunta.ALAS, this.vihuPun.getSuunta());
+        assertEquals(Suunta.YLOS, this.vihuMus.getSuunta());
+        assertEquals(Suunta.OIKEA, this.vihuPin.getSuunta());
+        
+        this.vihuKel.vaihdaSuunta(3);
+        assertEquals(Suunta.OIKEA, this.vihuKel.getSuunta());
+        this.vihuKel.vaihdaSuunta(2);
+        assertEquals(Suunta.YLOS, this.vihuKel.getSuunta());
+        this.vihuKel.vaihdaSuunta(4);
+        assertEquals(Suunta.VASEN, this.vihuKel.getSuunta());
+        this.vihuKel.vaihdaSuunta(1);
+        assertEquals(Suunta.ALAS, this.vihuKel.getSuunta());
+        
+        this.vihuMus.vaihdaSuunta(3);
+        assertEquals(Suunta.OIKEA, this.vihuMus.getSuunta());
+        this.vihuMus.vaihdaSuunta(2);
+        assertEquals(Suunta.YLOS, this.vihuMus.getSuunta());
+        this.vihuMus.vaihdaSuunta(4);
+        assertEquals(Suunta.VASEN, this.vihuMus.getSuunta());
+        this.vihuMus.vaihdaSuunta(1);
+        assertEquals(Suunta.ALAS, this.vihuMus.getSuunta());
+        
+        this.vihuPin.vaihdaSuunta(2);
+        assertEquals(Suunta.YLOS, this.vihuPin.getSuunta());
+        this.vihuPin.vaihdaSuunta(3);
+        assertEquals(Suunta.OIKEA, this.vihuPin.getSuunta());
+        this.vihuPin.vaihdaSuunta(4);
+        assertEquals(Suunta.VASEN, this.vihuPin.getSuunta());
+        this.vihuPin.vaihdaSuunta(1);
+        assertEquals(Suunta.ALAS, this.vihuPin.getSuunta());
+        
+        this.vihuPun.vaihdaSuunta(3);
+        assertEquals(Suunta.OIKEA, this.vihuPun.getSuunta());
+        this.vihuPun.vaihdaSuunta(2);
+        assertEquals(Suunta.YLOS, this.vihuPun.getSuunta());
+        this.vihuPun.vaihdaSuunta(4);
+        assertEquals(Suunta.VASEN, this.vihuPun.getSuunta());
+        this.vihuPun.vaihdaSuunta(1);
+        assertEquals(Suunta.ALAS, this.vihuPun.getSuunta());
+        
+        this.vihuPun.vaihdaSuunta(1);
+        assertNotEquals(Suunta.YLOS, this.vihuPun.getSuunta());
+        this.vihuPin.vaihdaSuunta(2);
+        assertNotEquals(Suunta.ALAS, this.vihuPin.getSuunta());
+        this.vihuMus.vaihdaSuunta(3);
+        assertNotEquals(Suunta.VASEN, this.vihuMus.getSuunta());
+        this.vihuKel.vaihdaSuunta(4);
+        assertNotEquals(Suunta.OIKEA, this.vihuKel.getSuunta());
+        
+        assertFalse(this.vihuKel.vaihdaSuunta(6));
+        assertFalse(this.vihuMus.vaihdaSuunta(-1));
+        assertFalse(this.vihuPin.vaihdaSuunta(0));
+        assertFalse(this.vihuPun.vaihdaSuunta(999999999));
     }
 
 }

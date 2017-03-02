@@ -42,4 +42,9 @@ public class Kartta2Test {
         assertEquals("(2, 18)", this.kartta.getVihuPin().toString());
         assertEquals("(18, 2)", this.kartta.getVihuKel().toString());
     }
+
+    @Test(timeout = 10)
+    public void luoKartatToimii() {
+        Kartta kartta2 = new Kartta2(20, 20);
+    }
 }

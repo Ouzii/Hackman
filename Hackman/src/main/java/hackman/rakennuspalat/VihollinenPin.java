@@ -16,6 +16,7 @@ public class VihollinenPin extends Vihollinen {
      */
     public VihollinenPin(int x, int y) {
         super(x, y);
+        super.setSuunta(Suunta.OIKEA);
     }
 
     /**

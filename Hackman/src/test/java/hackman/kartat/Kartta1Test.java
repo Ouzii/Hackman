@@ -5,10 +5,7 @@
  */
 package hackman.kartat;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -41,6 +38,11 @@ public class Kartta1Test {
         assertEquals("(18, 18)", this.kartta.getVihuMus().toString());
         assertEquals("(2, 18)", this.kartta.getVihuPin().toString());
         assertEquals("(18, 2)", this.kartta.getVihuKel().toString());
+    }
+    
+    @Test (timeout=10)
+    public void luoKartatToimii() {
+        Kartta kartta2 = new Kartta1(20, 20);
     }
 }
 

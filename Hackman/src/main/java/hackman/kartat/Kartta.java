@@ -9,6 +9,7 @@ import hackman.rakennuspalat.VihollinenMus;
 import hackman.rakennuspalat.VihollinenPin;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Perusta pelissä pelattaville kartoille.
@@ -45,16 +46,12 @@ public class Kartta {
 
     private void luoViholliset() {
         this.vihuPun = new Vihollinen(2, 2);
-        this.vihuPun.setSuunta(Suunta.ALAS);
         this.vihut.add(this.vihuPun);
         this.vihuMus = new VihollinenMus(leveys - 2, korkeus - 2);
-        this.vihuMus.setSuunta(Suunta.YLOS);
         this.vihut.add(this.vihuMus);
         this.vihuKel = new VihollinenKel(leveys - 2, 2);
-        this.vihuKel.setSuunta(Suunta.VASEN);
         this.vihut.add(this.vihuKel);
         this.vihuPin = new VihollinenPin(2, korkeus - 2);
-        this.vihuPin.setSuunta(Suunta.OIKEA);
         this.vihut.add(this.vihuPin);
     }
 
@@ -118,7 +115,8 @@ public class Kartta {
             vihollinen.liiku();
             return true;
         } else {
-            vihollinen.vaihdaSuunta();
+            int random = new Random().nextInt(4) + 1;
+            vihollinen.vaihdaSuunta(random);
             return false;
         }
     }

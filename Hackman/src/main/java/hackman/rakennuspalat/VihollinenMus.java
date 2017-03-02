@@ -22,6 +22,7 @@ public class VihollinenMus extends Vihollinen {
      */
     public VihollinenMus(int x, int y) {
         super(x, y);
+        super.setSuunta(Suunta.YLOS);
     }
 
     /**

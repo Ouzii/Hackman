@@ -1,7 +1,6 @@
 package hackman.rakennuspalat;
 
 import hackman.enumit.Suunta;
-import java.util.Random;
 
 /**
  * Peruslogiikka pelissä nähtäville vihollisille.
@@ -19,6 +18,7 @@ public class Vihollinen extends Palikka {
      */
     public Vihollinen(int x, int y) {
         super(x, y);
+        super.setSuunta(Suunta.ALAS);
     }
 
     /**
@@ -34,24 +34,26 @@ public class Vihollinen extends Palikka {
     /**
      * Vaihtaa vihollisen suunnan satunnaiseksi suunnaksi.
      *
+     * @param random satunnainen (pelissä, testeissä ennalta määrätty)
+     * kokonaisluku, jolla päätetään mihin suuntaan käännytään.
+     *
      * @return true, jos suunta muuttuu ja false, jos ei.
      */
-    public boolean vaihdaSuunta() {
+    public boolean vaihdaSuunta(int random) {
 
-        int i = new Random().nextInt(4) + 1;
-        if (i == 1) {
+        if (random == 1) {
             setSuunta(Suunta.ALAS);
             return true;
         }
-        if (i == 2) {
+        if (random == 2) {
             setSuunta(Suunta.YLOS);
             return true;
         }
-        if (i == 3) {
+        if (random == 3) {
             setSuunta(Suunta.OIKEA);
             return true;
         }
-        if (i == 4) {
+        if (random == 4) {
             setSuunta(Suunta.VASEN);
             return true;
         }
