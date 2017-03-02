@@ -1,9 +1,7 @@
 package hackman.kayttoliittyma;
 
-import hackman.kartat.Kartta1;
 import hackman.enumit.Menutila;
 import hackman.enumit.Suunta;
-import hackman.logiikka.Peli;
 import hackman.enumit.Pelitila;
 import hackman.enumit.Vaikeustaso;
 import hackman.rakennuspalat.Pelihahmo;

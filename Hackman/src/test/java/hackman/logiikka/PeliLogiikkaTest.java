@@ -10,10 +10,7 @@ import hackman.logiikka.Peli;
 import hackman.kartat.Kartta1;
 import hackman.enumit.Suunta;
 import hackman.rakennuspalat.Vihollinen;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -94,6 +91,11 @@ public class PeliLogiikkaTest {
         assertFalse(this.peli.getLogiikka().liikuPelaaja());
         assertEquals(Suunta.VASEN, this.peli.getPelaaja().getSuunta());
         assertEquals("(18, 2)", this.peli.getPelaaja().toString());
+        
+        this.peli.getPelaaja().setX(2);
+        this.peli.getPelaaja().setY(10);
+        this.peli.getPelaaja().setSuunta(Suunta.VASEN);
+        assertFalse(this.peli.getLogiikka().liikuPelaaja());
 
     }
 

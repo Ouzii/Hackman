@@ -2,8 +2,10 @@ package hackman.logiikka;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -26,7 +28,7 @@ public class Highscore {
     private Scanner lukija;
     private Map<Integer, String> rivit;
     private String nimi;
-    private boolean testMode;
+    private final boolean testMode;
 
     /**
      * Luo LinkedHashMapin, jossa pidetään kirjaa pisteistä ja scannerin, joka
@@ -83,7 +85,7 @@ public class Highscore {
         if (!this.testMode) {
             try {
                 this.lukija = new Scanner(new File("Hackman_highscore.txt"), "UTF-8");
-            } catch (Exception e) {
+            } catch (FileNotFoundException e) {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("highscore.txt");
                 this.lukija = new Scanner(is, StandardCharsets.UTF_8.name());
             }
@@ -164,7 +166,7 @@ public class Highscore {
                 kirjoittaja.close();
                 this.lisaaKarttaan();
                 return true;
-            } catch (Exception e) {
+            } catch (IOException e) {
                 return false;
             }
         } else {
@@ -180,7 +182,7 @@ public class Highscore {
                 kirjoittaja.close();
                 this.lisaaKarttaan();
                 return true;
-            } catch (Exception e) {
+            } catch (IOException e) {
                 return false;
             }
         }

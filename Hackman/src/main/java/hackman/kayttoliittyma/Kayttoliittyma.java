@@ -19,7 +19,7 @@ public class Kayttoliittyma implements Runnable {
     private final int sivunPituus;
     private Piirtaja piirto;
     private String nimi;
-    private MenunUlkoasu menunUlkoasu;
+    private final MenunUlkoasu menunUlkoasu;
 
     /**
      * Konstruktori käyttöliittymälle, joka luo uuden pelin ja asettaa oikean

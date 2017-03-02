@@ -1,7 +1,6 @@
 package hackman.rakennuspalat;
 
 import hackman.enumit.Suunta;
-import java.util.Random;
 
 /**
  * Rakennuspalikka kaikille piirrettäville elementeille pelissä.

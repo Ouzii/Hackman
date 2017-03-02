@@ -41,4 +41,5 @@ Päivä | Tunnit | Kuvaus
 27.02.2017 | 3.5h | Refaktoroitu koodia, lisätty testejä ja vihollisille omat luokat.
 28.02.2017 | 1h | Lisätty testejä.
 02.03.2017 | 2h | Lisätty testejä.
+02.03.2017 | 4h | Päivitetty luokkakaavio, tehty testausdokumentti ja muutettu testejä järkevimmiksi.
 ... | ... | ...

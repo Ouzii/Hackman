@@ -1,6 +1,5 @@
 package hackman.kayttoliittyma;
 
-import hackman.logiikka.Peli;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
@@ -14,7 +13,7 @@ import javax.swing.SwingUtilities;
 public class NapinKuuntelija implements ActionListener {
 
 
-    private JTextField teksti;
+    private final JTextField teksti;
     private Kayttoliittyma kali;
 
     /**

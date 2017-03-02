@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hackman.kayttoliittyma;
 
-import hackman.logiikka.Peli;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -16,8 +10,8 @@ import java.awt.Graphics;
  */
 public class MenunPiirtaja {
 
-    private int palikanKoko;
-    private Kayttoliittyma kali;
+    private final int palikanKoko;
+    private final Kayttoliittyma kali;
 
     /**
      * Asettaa viitteet oikein.

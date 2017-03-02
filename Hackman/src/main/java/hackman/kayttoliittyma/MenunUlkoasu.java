@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hackman.kayttoliittyma;
 
 import java.awt.BorderLayout;
@@ -21,10 +16,10 @@ import javax.swing.SwingConstants;
  */
 public class MenunUlkoasu {
 
-    private Kayttoliittyma kali;
-    private JButton nappi;
-    private JTextField tekstikentta;
-    private JLabel merkinta;
+    private final Kayttoliittyma kali;
+    private final JButton nappi;
+    private final JTextField tekstikentta;
+    private final JLabel merkinta;
 
     /**
      * Luodaan komponentit kirjautumisikkunalle.

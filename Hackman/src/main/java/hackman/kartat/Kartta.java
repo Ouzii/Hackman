@@ -107,17 +107,17 @@ public class Kartta {
     public boolean liikuVihollinen(Vihollinen vihollinen) {
         int seinia = 0;
         for (Palikka seina : this.seinat) {
-            if (!this.osuuSeinaan(vihollinen)) {
+            if (this.osuuSeinaan(vihollinen)) {
                 seinia++;
             }
         }
-        if (seinia >= this.korkeus) {
-            vihollinen.liiku();
-            return true;
-        } else {
+        if (seinia != 0) {
             int random = new Random().nextInt(4) + 1;
             vihollinen.vaihdaSuunta(random);
             return false;
+        } else {
+             vihollinen.liiku();
+            return true;
         }
     }
 

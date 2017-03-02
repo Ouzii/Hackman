@@ -1,7 +1,6 @@
 package hackman.kayttoliittyma;
 
 import hackman.enumit.Menutila;
-import hackman.logiikka.Peli;
 import hackman.enumit.Pelitila;
 import hackman.rakennuspalat.Bitti;
 import hackman.rakennuspalat.Palikka;

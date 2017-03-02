@@ -17,12 +17,12 @@ import javax.swing.Timer;
  */
 public class Peli extends Timer implements ActionListener {
 
-    private int sivunPituus;
+    private final int sivunPituus;
     private Paivitettava paivitettava;
-    private Pelihahmo pelaaja;
-    private Kartta kartta;
-    private PeliLogiikka logiikka;
-    private Highscore highscore;
+    private final Pelihahmo pelaaja;
+    private final Kartta kartta;
+    private final PeliLogiikka logiikka;
+    private final Highscore highscore;
     private Vaikeustaso vaikeustaso;
     private Menutila menutila;
 

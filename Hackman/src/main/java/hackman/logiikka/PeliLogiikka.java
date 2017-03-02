@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class PeliLogiikka {
 
-    private Peli peli;
+    private final Peli peli;
     private int pojot;
     private int askelia;
     private int keratty;
@@ -102,14 +102,11 @@ public class PeliLogiikka {
     public boolean liikuPelaaja() {
         int seinia = 0;
         for (Palikka seina : this.peli.getKartta().getSeinat()) {
-            if (!this.peli.getKartta().osuuSeinaan(this.peli.getPelaaja())) {
+            if (this.peli.getKartta().osuuSeinaan(this.peli.getPelaaja())) {
                 seinia++;
             }
         }
-        if (seinia >= this.peli.getSivunPituus()) {
-            this.peli.getPelaaja().liiku();
-            return true;
-        } else {
+        if (seinia != 0) {
             switch (this.peli.getPelaaja().getSuunta()) {
                 case ALAS:
                     this.peli.getPelaaja().setSuunta(Suunta.YLOS);
@@ -127,6 +124,9 @@ public class PeliLogiikka {
                     break;
             }
             return false;
+        } else {
+            this.peli.getPelaaja().liiku();
+            return true;
         }
     }
 
