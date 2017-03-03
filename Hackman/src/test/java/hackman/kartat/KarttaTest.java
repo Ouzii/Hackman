@@ -52,14 +52,6 @@ public class KarttaTest {
     }
     
     @Test
-    public void liikuVihollinenToimii() {
-        this.kartta.getVihuPun().setSuunta(Suunta.VASEN);
-        assertFalse(this.kartta.liikuVihollinen(this.kartta.getVihuPun()));
-        this.kartta.getVihuPun().setSuunta(Suunta.ALAS);
-        assertTrue(this.kartta.liikuVihollinen(this.kartta.getVihuPun()));
-    }
-    
-    @Test
     public void seinienLuominenOikein() {
         assertEquals(84, this.kartta.getSeinat().size());
     }

@@ -99,29 +99,6 @@ public class Kartta {
     }
 
     /**
-     * Liikuttaa vihollista, jos seinä ei ole edessä.
-     *
-     * @param vihollinen vihollinen, jota halutaan liikuttaa.
-     * @return true, jos liikutaan ja false, jos ei liikuta.
-     */
-    public boolean liikuVihollinen(Vihollinen vihollinen) {
-        int seinia = 0;
-        for (Palikka seina : this.seinat) {
-            if (this.osuuSeinaan(vihollinen)) {
-                seinia++;
-            }
-        }
-        if (seinia != 0) {
-            int random = new Random().nextInt(4) + 1;
-            vihollinen.vaihdaSuunta(random);
-            return false;
-        } else {
-            vihollinen.liiku();
-            return true;
-        }
-    }
-
-    /**
      * Tarkistaa, onko seuraava palikka seinä, eli voiko liikkua eteenpäin.
      *
      * @param hahmo hahmo, jota koitetaan osuuko seinään.

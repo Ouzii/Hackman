@@ -43,4 +43,5 @@ Päivä | Tunnit | Kuvaus
 02.03.2017 | 2h | Lisätty testejä.
 02.03.2017 | 4h | Päivitetty luokkakaavio, tehty testausdokumentti ja muutettu testejä järkevimmiksi.
 02.03.2017 | 1.5h | Generoitu raportit, siirretty javadocs ja paranneltu testejä.
+03.03.2017 | 0.5h | Siirretty liikuVihollinen-metodi Kartta-luokasta PeliLogiikka-luokkaan. Tehty ensimmäinen release.
 ... | ... | ...

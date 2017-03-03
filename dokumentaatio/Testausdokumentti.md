@@ -4,7 +4,7 @@
 
 **Highscore-luokassa** automaattinen testaaminen ei onnistu ilman "testMode" booleania, joten luokasta on testattu vain testattava osa. Luokkaan on kuitenkin tehty identtiset testausosat, kuin normaalissa käytössä (highscore-tietojen tallennuspaikkaa lukuunottamatta), joten testeistä saa kuitenkin käsityksen toimivista osista. Myöskään Scannerin ja Writerien metodeja ei ole testattu, eikä muitakaan javan valmiita metodeja.
 
-**PeliLogiikka-luokassa** on testattu automaattisesti kaikki, mikä on mahdollista testata. Random-muuttujaa askelLuku-metodissa ei voitu testata automaattisesti, mutta vihollisten vaihdaSuunta-metodia,jolle random-muuttuja annetaan on testattu hyvin. Jostain syystä myöskään liikuPelaaja-metodissa ei täydellisesti testit toimi, mutta peliä pelaamalla todettu toimivuus.
+**PeliLogiikka-luokassa** on testattu automaattisesti kaikki, mikä on mahdollista testata. Random-muuttujaa askelLuku-metodissa ei voitu testata automaattisesti, mutta vihollisten vaihdaSuunta-metodia,jolle random-muuttuja annetaan on testattu hyvin. Myös liikuVihollinen-metodin random-muuttujaa ei ole testattu. Jostain syystä myöskään liikuPelaaja-metodissa ei täydellisesti testit toimi, mutta peliä pelaamalla todettu toimivuus.
 
 **Käyttöliittymä-paketin** metodeja ei ole testattu automaattisesti, mutta pelissä kokeiltu kaikki mahdolliset tapahtumat. Yritetty myös käsin kaataa ohjelmaa, siinä kuitenkaan onnistumatta.
 

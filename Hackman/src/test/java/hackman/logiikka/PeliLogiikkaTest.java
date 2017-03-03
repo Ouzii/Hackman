@@ -91,7 +91,7 @@ public class PeliLogiikkaTest {
         assertFalse(this.peli.getLogiikka().liikuPelaaja());
         assertEquals(Suunta.VASEN, this.peli.getPelaaja().getSuunta());
         assertEquals("(18, 2)", this.peli.getPelaaja().toString());
-        
+
         this.peli.getPelaaja().setX(2);
         this.peli.getPelaaja().setY(10);
         this.peli.getPelaaja().setSuunta(Suunta.VASEN);
@@ -122,16 +122,16 @@ public class PeliLogiikkaTest {
         assertEquals("(18, 17)", this.peli.getKartta().getVihuMus().toString());
         assertEquals("(17, 2)", this.peli.getKartta().getVihuKel().toString());
         assertEquals("(3, 18)", this.peli.getKartta().getVihuPin().toString());
-        
+
         this.peli.getKartta().getVihuMus().setX(10);
         this.peli.getKartta().getVihuMus().setY(3);
         this.peli.getKartta().getVihuKel().setX(3);
         this.peli.getKartta().getVihuKel().setY(10);
         this.peli.getKartta().getVihuPin().setX(10);
         this.peli.getKartta().getVihuPin().setY(18);
-        
+
         this.peli.getLogiikka().liikutaVihollisia();
-        
+
         assertEquals(Suunta.ALAS, this.peli.getKartta().getVihuMus().getSuunta());
         assertEquals(Suunta.YLOS, this.peli.getKartta().getVihuPin().getSuunta());
         assertEquals(Suunta.OIKEA, this.peli.getKartta().getVihuKel().getSuunta());
@@ -165,6 +165,14 @@ public class PeliLogiikkaTest {
         this.peli.getLogiikka().voita();
         assertTrue(this.peli.getLogiikka().getPelitila().equals(Pelitila.VOITTO));
         assertEquals(false, this.peli.isRunning());
+    }
+
+    @Test
+    public void liikuVihollinenToimii() {
+        this.peli.getKartta().getVihuPun().setSuunta(Suunta.VASEN);
+        assertFalse(this.peli.getLogiikka().liikuVihollinen(this.peli.getKartta().getVihuPun()));
+        this.peli.getKartta().getVihuPun().setSuunta(Suunta.ALAS);
+        assertTrue(this.peli.getLogiikka().liikuVihollinen(this.peli.getKartta().getVihuPun()));
     }
 
 }

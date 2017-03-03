@@ -41,7 +41,7 @@ public class PeliLogiikka {
     public void setPelitila(Pelitila pelitila) {
         this.pelitila = pelitila;
     }
-    
+
     public int getPojot() {
         return pojot;
     }
@@ -147,13 +147,36 @@ public class PeliLogiikka {
      * Kutsuu pelin kartan vihollisten liikuttamismetodeja.
      */
     public void liikutaVihollisia() {
-        this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuPun());
+        this.liikuVihollinen(this.peli.getKartta().getVihuPun());
         this.peli.getKartta().getVihuMus().kaannaVihollinen(this.peli.getPelaaja());
-        this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuMus());
+        this.liikuVihollinen(this.peli.getKartta().getVihuMus());
         this.peli.getKartta().getVihuKel().kaannaVihollinen(this.peli.getPelaaja());
-        this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuKel());
+        this.liikuVihollinen(this.peli.getKartta().getVihuKel());
         this.peli.getKartta().getVihuPin().kaannaVihollinen(this.peli.getPelaaja());
-        this.peli.getKartta().liikuVihollinen(this.peli.getKartta().getVihuPin());
+        this.liikuVihollinen(this.peli.getKartta().getVihuPin());
+    }
+
+    /**
+     * Liikuttaa vihollista, jos seinä ei ole edessä.
+     *
+     * @param vihollinen vihollinen, jota halutaan liikuttaa.
+     * @return true, jos liikutaan ja false, jos ei liikuta.
+     */
+    public boolean liikuVihollinen(Vihollinen vihollinen) {
+        int seinia = 0;
+        for (Palikka seina : this.peli.getKartta().getSeinat()) {
+            if (this.peli.getKartta().osuuSeinaan(vihollinen)) {
+                seinia++;
+            }
+        }
+        if (seinia != 0) {
+            int random = new Random().nextInt(4) + 1;
+            vihollinen.vaihdaSuunta(random);
+            return false;
+        } else {
+            vihollinen.liiku();
+            return true;
+        }
     }
 
     /**
