@@ -73,7 +73,6 @@ public class Piirtaja extends JPanel implements Paivitettava {
                     case 0:
                         g.drawString("00", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
                         break;
-//                g.fillOval(bitti.getX() * this.palikanKoko + 3, bitti.getY() * this.palikanKoko + 3, this.palikanKoko - 7, this.palikanKoko - 7);
                     case 1:
                         g.drawString("01", bitti.getX() * this.palikanKoko + 6, bitti.getY() * this.palikanKoko + 17);
                         break;
